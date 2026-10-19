@@ -5,7 +5,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
  const browser = await chromium.launch({headless:true, executablePath:process.env.CHROME_EXECUTABLE || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
  const page = await browser.newPage({viewport:{width:1440,height:1000}});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- const origin=process.env.APP_URL || 'http://127.0.0.1:5173';
+ const origin=process.env.APP_URL || 'http://127.0.0.1:8080';
  try {
   const health = await page.request.get(origin+'/api/health/');
   assert.equal(health.status(),200);
@@ -13,7 +13,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   if (process.env.EXPECT_DATABASE) assert.equal(healthData.database,process.env.EXPECT_DATABASE);
   await page.goto(origin);
   await page.getByRole('heading',{name:'AI Agent Bootcamp',exact:true}).waitFor();
-  assert.equal(await page.locator('.program-card').count(),3);
+  assert.equal(await page.locator('.program-card').count(),4);
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/home-desktop.png'),fullPage:true});
   await page.getByRole('button',{name:'Workshop',exact:true}).click();
   assert.equal(await page.locator('.program-card').count(),1);
@@ -47,9 +47,10 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   await page.getByRole('button',{name:'My learning',exact:true}).first().click();
   await page.getByRole('button',{name:'Continue learning',exact:true}).first().click();
   await page.getByRole('heading',{name:'From prompts to useful systems',exact:true}).waitFor();
+  await page.getByRole('tab',{name:'Notes',exact:true}).click();
   await page.getByLabel('Your notes & observations').fill('I tested the workflow boundaries with three synthetic examples.');
   await page.getByRole('button',{name:'Save notes',exact:true}).click();
-  await page.getByRole('button',{name:'Saved',exact:true}).waitFor();
+  await page.getByRole('status').filter({hasText:'Notes saved'}).waitFor();
   await page.getByRole('button',{name:'Mark lesson complete',exact:true}).click();
   await page.getByRole('button',{name:'Completed · mark incomplete',exact:true}).waitFor();
   await page.getByRole('button',{name:'My learning',exact:true}).first().click();
@@ -63,7 +64,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   assert.ok(me.completed.includes(firstLesson.id));
   for (const title of ['AI Workshops','Freelancing Masterclass']) {
     await page.locator('.dashboard-course').filter({has:page.getByRole('heading',{name:title,exact:true})}).getByRole('button',{name:'Continue learning',exact:true}).click();
-    await page.getByRole('heading',{name:'Build it yourself',exact:true}).waitFor();
+    await page.getByRole('tab',{name:'Lesson',exact:true}).waitFor();
     await page.getByRole('button',{name:'Mark lesson complete',exact:true}).click();
     await page.getByRole('button',{name:'Completed · mark incomplete',exact:true}).waitFor();
     await page.locator('.workspace-nav').getByRole('button',{name:'My learning',exact:true}).click();

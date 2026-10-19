@@ -60,3 +60,29 @@ class LessonNote(models.Model):
     text = models.TextField(max_length=10000, blank=True)
     class Meta:
         constraints = [models.UniqueConstraint(fields=['user', 'lesson'], name='unique_lesson_note')]
+
+class LessonPractice(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    revision = models.CharField(max_length=64)
+    reflection_answers = models.JSONField(default=dict)
+    known_cards = models.JSONField(default=list)
+    task_evidence = models.TextField(max_length=12000, blank=True)
+    checked_criteria = models.JSONField(default=list)
+    task_status = models.CharField(max_length=20, default='draft')
+    version = models.PositiveIntegerField(default=0)
+    updated_at = models.DateTimeField(auto_now=True)
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['user','lesson','revision'], name='unique_practice_revision')]
+
+class QuizAttempt(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    revision = models.CharField(max_length=64)
+    answers = models.JSONField()
+    feedback = models.JSONField()
+    score = models.PositiveIntegerField()
+    total = models.PositiveIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        ordering = ['-created_at','-id']

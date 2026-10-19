@@ -1,0 +1,1347 @@
+[
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 1,
+    "title": "From prompts to useful systems",
+    "chapters": 4,
+    "words": 1829,
+    "concepts": 10,
+    "quiz": 10,
+    "cards": 10,
+    "source_topics": [
+      {
+        "source_id": "14-01",
+        "title": "The Agent Loop: Observe, Think, Act",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-47",
+        "title": "Define the Outcome Before You Choose the Output",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 2,
+    "title": "A reproducible Python workspace",
+    "chapters": 3,
+    "words": 2146,
+    "concepts": 7,
+    "quiz": 8,
+    "cards": 7,
+    "source_topics": [
+      {
+        "source_id": "00-06",
+        "title": "Python Environments",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "00-12",
+        "title": "Debugging and Profiling",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 3,
+    "title": "Build a small evaluation dataset first",
+    "chapters": 3,
+    "words": 4550,
+    "concepts": 13,
+    "quiz": 9,
+    "cards": 13,
+    "source_topics": [
+      {
+        "source_id": "11-10",
+        "title": "Evaluation & Testing LLM Applications",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-70",
+        "title": "Task Spec Format",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 4,
+    "title": "Prompt contracts and structured outputs",
+    "chapters": 4,
+    "words": 7403,
+    "concepts": 23,
+    "quiz": 8,
+    "cards": 23,
+    "source_topics": [
+      {
+        "source_id": "11-01",
+        "title": "Prompt Engineering: Techniques & Patterns",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-03",
+        "title": "Structured Outputs: JSON, Schema Validation, Constrained Decoding",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 5,
+    "title": "Provider adapters, timeouts, and failures",
+    "chapters": 4,
+    "words": 5396,
+    "concepts": 13,
+    "quiz": 9,
+    "cards": 13,
+    "source_topics": [
+      {
+        "source_id": "19-23",
+        "title": "Function Call Dispatcher",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-11",
+        "title": "Caching, Rate Limiting & Cost Optimization",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 6,
+    "title": "Context budgets and source selection",
+    "chapters": 4,
+    "words": 6785,
+    "concepts": 25,
+    "quiz": 8,
+    "cards": 25,
+    "source_topics": [
+      {
+        "source_id": "11-05",
+        "title": "Context Engineering: Windows, Budgets, Memory, and Retrieval",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-04",
+        "title": "Embeddings & Vector Representations",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 7,
+    "title": "Ingestion, normalization, and versioning",
+    "chapters": 3,
+    "words": 1877,
+    "concepts": 17,
+    "quiz": 9,
+    "cards": 17,
+    "source_topics": [
+      {
+        "source_id": "00-09",
+        "title": "Data Management",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "18-27",
+        "title": "Data Provenance and Training-Data Governance",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 8,
+    "title": "Chunking and a lexical retrieval baseline",
+    "chapters": 5,
+    "words": 5055,
+    "concepts": 14,
+    "quiz": 10,
+    "cards": 14,
+    "source_topics": [
+      {
+        "source_id": "19-64",
+        "title": "Chunking Strategies, Compared",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-65",
+        "title": "Hybrid Retrieval with BM25 and Dense Embeddings",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 9,
+    "title": "Grounding, citations, and abstention",
+    "chapters": 4,
+    "words": 4576,
+    "concepts": 20,
+    "quiz": 9,
+    "cards": 20,
+    "source_topics": [
+      {
+        "source_id": "11-06",
+        "title": "RAG (Retrieval-Augmented Generation)",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-68",
+        "title": "RAG Evaluation: Precision, Recall, MRR, nDCG, Faithfulness, Answer Relevance",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 10,
+    "title": "Tools as typed, permissioned interfaces",
+    "chapters": 4,
+    "words": 2868,
+    "concepts": 23,
+    "quiz": 7,
+    "cards": 23,
+    "source_topics": [
+      {
+        "source_id": "13-01",
+        "title": "The Tool Interface \u2014 Why Agents Need Structured I/O",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "13-05",
+        "title": "Tool Schema Design \u2014 Naming, Descriptions, Parameter Constraints",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-21",
+        "title": "Tool Registry with Schema Validation",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 11,
+    "title": "State machines and bounded agent loops",
+    "chapters": 5,
+    "words": 3363,
+    "concepts": 19,
+    "quiz": 15,
+    "cards": 19,
+    "source_topics": [
+      {
+        "source_id": "14-01",
+        "title": "The Agent Loop: Observe, Think, Act",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-20",
+        "title": "Agent Harness Loop Contract",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-16",
+        "title": "Agent State Machines \u2014 Graphs, Nodes, Checkpoints",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 12,
+    "title": "Human approval and idempotent actions",
+    "chapters": 4,
+    "words": 2272,
+    "concepts": 18,
+    "quiz": 7,
+    "cards": 18,
+    "source_topics": [
+      {
+        "source_id": "15-15",
+        "title": "Human-in-the-Loop: Propose-Then-Commit",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "15-16",
+        "title": "Checkpoints and Rollback",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 13,
+    "title": "HTTP contracts and a usable API",
+    "chapters": 3,
+    "words": 4954,
+    "concepts": 17,
+    "quiz": 8,
+    "cards": 17,
+    "source_topics": [
+      {
+        "source_id": "00-04",
+        "title": "APIs & Keys",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-13",
+        "title": "Building a Production LLM Application",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 14,
+    "title": "Persistence, transactions, and data ownership",
+    "chapters": 3,
+    "words": 1435,
+    "concepts": 16,
+    "quiz": 11,
+    "cards": 16,
+    "source_topics": [
+      {
+        "source_id": "14-34",
+        "title": "Repo Memory and Durable State",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-13",
+        "title": "Stateful Graph Orchestration \u2014 Durable Execution and Checkpoints",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 15,
+    "title": "Design reviewable user experiences",
+    "chapters": 4,
+    "words": 1353,
+    "concepts": 3,
+    "quiz": 12,
+    "cards": 3,
+    "source_topics": [
+      {
+        "source_id": "14-51",
+        "title": "Write Specifications That Preserve Judgment",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-53",
+        "title": "Choose Prototype, Pilot, or Production Deliberately",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 16,
+    "title": "Build a regression harness",
+    "chapters": 3,
+    "words": 1737,
+    "concepts": 10,
+    "quiz": 11,
+    "cards": 10,
+    "source_topics": [
+      {
+        "source_id": "14-30",
+        "title": "Eval-Driven Agent Development",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-27",
+        "title": "Capstone Lesson 27: Eval Harness with Fixture Tasks",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 17,
+    "title": "Prompt injection and untrusted documents",
+    "chapters": 3,
+    "words": 1282,
+    "concepts": 17,
+    "quiz": 12,
+    "cards": 17,
+    "source_topics": [
+      {
+        "source_id": "14-27",
+        "title": "Prompt Injection and the PVE Defense",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "18-15",
+        "title": "Indirect Prompt Injection \u2014 Production Attack Surface",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 18,
+    "title": "Observability, cost, and latency budgets",
+    "chapters": 4,
+    "words": 1863,
+    "concepts": 30,
+    "quiz": 16,
+    "cards": 30,
+    "source_topics": [
+      {
+        "source_id": "14-23",
+        "title": "OpenTelemetry GenAI Semantic Conventions",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "17-08",
+        "title": "Inference Metrics \u2014 TTFT, TPOT, ITL, Goodput, P99",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "17-27",
+        "title": "FinOps for LLMs \u2014 Unit Economics and Multi-Tenant Attribution",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 19,
+    "title": "Containerize the complete application",
+    "chapters": 3,
+    "words": 2199,
+    "concepts": 18,
+    "quiz": 9,
+    "cards": 18,
+    "source_topics": [
+      {
+        "source_id": "00-07",
+        "title": "Docker for AI",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "17-25",
+        "title": "Security \u2014 Secrets, API Key Rotation, Audit Logs, Guardrails",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 20,
+    "title": "Failure recovery and release checklists",
+    "chapters": 3,
+    "words": 1307,
+    "concepts": 21,
+    "quiz": 12,
+    "cards": 21,
+    "source_topics": [
+      {
+        "source_id": "17-20",
+        "title": "Shadow Traffic, Canary Rollout, and Progressive Deployment for LLMs",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "17-24",
+        "title": "Chaos Engineering for LLM Production",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 21,
+    "title": "Choose orchestration complexity deliberately",
+    "chapters": 4,
+    "words": 2778,
+    "concepts": 29,
+    "quiz": 9,
+    "cards": 29,
+    "source_topics": [
+      {
+        "source_id": "14-12",
+        "title": "Anthropic's Workflow Patterns: Simple Over Complex",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-17",
+        "title": "Agent Framework Tradeoffs \u2014 Graph, Role, and Actor Orchestration",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "16-23",
+        "title": "Failure Modes \u2014 MAST, Groupthink, Monoculture, Cascading Errors",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 22,
+    "title": "Capstone build: support-agent vertical slice",
+    "chapters": 3,
+    "words": 1999,
+    "concepts": 8,
+    "quiz": 11,
+    "cards": 8,
+    "source_topics": [
+      {
+        "source_id": "19-69",
+        "title": "End-to-End RAG System",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-29",
+        "title": "Capstone Lesson 29: End-to-End Coding Agent on the Harness",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 23,
+    "title": "Capstone evaluation and peer critique",
+    "chapters": 4,
+    "words": 3756,
+    "concepts": 15,
+    "quiz": 11,
+    "cards": 15,
+    "source_topics": [
+      {
+        "source_id": "14-38",
+        "title": "Verification Gates",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-68",
+        "title": "RAG Evaluation: Precision, Recall, MRR, nDCG, Faithfulness, Answer Relevance",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-agent-bootcamp",
+    "lesson": 24,
+    "title": "Package, hand over, and plan the next release",
+    "chapters": 3,
+    "words": 1760,
+    "concepts": 8,
+    "quiz": 12,
+    "cards": 8,
+    "source_topics": [
+      {
+        "source_id": "14-40",
+        "title": "Multi-Session Handoff",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-54",
+        "title": "Build a Feedback Ratchet with Ownership and Retirement",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 1,
+    "title": "Model the document before automating it",
+    "chapters": 4,
+    "words": 4407,
+    "concepts": 18,
+    "quiz": 10,
+    "cards": 18,
+    "source_topics": [
+      {
+        "source_id": "11-03",
+        "title": "Structured Outputs: JSON, Schema Validation, Constrained Decoding",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "05-01",
+        "title": "Text Processing \u2014 Tokenization, Stemming, Lemmatization",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 2,
+    "title": "Build a validated extraction pipeline",
+    "chapters": 4,
+    "words": 7394,
+    "concepts": 23,
+    "quiz": 8,
+    "cards": 23,
+    "source_topics": [
+      {
+        "source_id": "11-01",
+        "title": "Prompt Engineering: Techniques & Patterns",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-03",
+        "title": "Structured Outputs: JSON, Schema Validation, Constrained Decoding",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 3,
+    "title": "Review queues and extraction evaluation",
+    "chapters": 4,
+    "words": 3994,
+    "concepts": 12,
+    "quiz": 10,
+    "cards": 12,
+    "source_topics": [
+      {
+        "source_id": "02-09",
+        "title": "Model Evaluation",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-52",
+        "title": "Design Success Metrics Before the Result Exists",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 4,
+    "title": "Distinguish statements, decisions, and commitments",
+    "chapters": 3,
+    "words": 1985,
+    "concepts": 16,
+    "quiz": 11,
+    "cards": 16,
+    "source_topics": [
+      {
+        "source_id": "05-29",
+        "title": "Dialogue State Tracking",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "05-12",
+        "title": "Text Summarization",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 5,
+    "title": "Build an action register with human confirmation",
+    "chapters": 4,
+    "words": 2245,
+    "concepts": 11,
+    "quiz": 12,
+    "cards": 11,
+    "source_topics": [
+      {
+        "source_id": "11-16",
+        "title": "Agent State Machines \u2014 Graphs, Nodes, Checkpoints",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-51",
+        "title": "Write Specifications That Preserve Judgment",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 6,
+    "title": "Evaluate summaries for omissions and false commitments",
+    "chapters": 4,
+    "words": 4454,
+    "concepts": 13,
+    "quiz": 10,
+    "cards": 13,
+    "source_topics": [
+      {
+        "source_id": "11-10",
+        "title": "Evaluation & Testing LLM Applications",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-52",
+        "title": "Design Success Metrics Before the Result Exists",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 7,
+    "title": "Form a question and an evidence plan",
+    "chapters": 6,
+    "words": 2017,
+    "concepts": 3,
+    "quiz": 17,
+    "cards": 3,
+    "source_topics": [
+      {
+        "source_id": "14-47",
+        "title": "Define the Outcome Before You Choose the Output",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-49",
+        "title": "Map Assumptions and Resolve the Riskiest One First",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-48",
+        "title": "Discover the Workflow People Actually Perform",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 8,
+    "title": "Build a claim-and-citation notebook",
+    "chapters": 3,
+    "words": 2810,
+    "concepts": 18,
+    "quiz": 9,
+    "cards": 18,
+    "source_topics": [
+      {
+        "source_id": "11-06",
+        "title": "RAG (Retrieval-Augmented Generation)",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-67",
+        "title": "Query Rewriting: HyDE, Multi-Query, and Decomposition",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 9,
+    "title": "Run a small benchmark and write a decision memo",
+    "chapters": 5,
+    "words": 3856,
+    "concepts": 10,
+    "quiz": 11,
+    "cards": 10,
+    "source_topics": [
+      {
+        "source_id": "19-68",
+        "title": "RAG Evaluation: Precision, Recall, MRR, nDCG, Faithfulness, Answer Relevance",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-52",
+        "title": "Design Success Metrics Before the Result Exists",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 10,
+    "title": "Design a taxonomy with an uncertainty route",
+    "chapters": 3,
+    "words": 4651,
+    "concepts": 24,
+    "quiz": 8,
+    "cards": 24,
+    "source_topics": [
+      {
+        "source_id": "02-03",
+        "title": "Logistic Regression",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "02-17",
+        "title": "Handling Imbalanced Data",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 11,
+    "title": "Routing rules, confusion matrices, and fallback",
+    "chapters": 3,
+    "words": 4267,
+    "concepts": 12,
+    "quiz": 9,
+    "cards": 12,
+    "source_topics": [
+      {
+        "source_id": "02-09",
+        "title": "Model Evaluation",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-71",
+        "title": "Classical Metrics",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 12,
+    "title": "Connect triage to a reviewable work queue",
+    "chapters": 3,
+    "words": 4396,
+    "concepts": 21,
+    "quiz": 10,
+    "cards": 21,
+    "source_topics": [
+      {
+        "source_id": "14-12",
+        "title": "Anthropic's Workflow Patterns: Simple Over Complex",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-12",
+        "title": "Guardrails, Safety & Content Filtering",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 13,
+    "title": "Build a content brief and a factual boundary",
+    "chapters": 4,
+    "words": 8357,
+    "concepts": 22,
+    "quiz": 8,
+    "cards": 22,
+    "source_topics": [
+      {
+        "source_id": "11-01",
+        "title": "Prompt Engineering: Techniques & Patterns",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-05",
+        "title": "Context Engineering: Windows, Budgets, Memory, and Retrieval",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 14,
+    "title": "Draft, critique, and revise with a rubric",
+    "chapters": 3,
+    "words": 1365,
+    "concepts": 17,
+    "quiz": 9,
+    "cards": 17,
+    "source_topics": [
+      {
+        "source_id": "14-05",
+        "title": "Self-Refine and CRITIC: Iterative Output Improvement",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-30",
+        "title": "Eval-Driven Agent Development",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 15,
+    "title": "Design a responsible publishing workflow",
+    "chapters": 4,
+    "words": 1786,
+    "concepts": 11,
+    "quiz": 7,
+    "cards": 11,
+    "source_topics": [
+      {
+        "source_id": "15-15",
+        "title": "Human-in-the-Loop: Propose-Then-Commit",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-51",
+        "title": "Write Specifications That Preserve Judgment",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 16,
+    "title": "Scope a useful end-to-end application",
+    "chapters": 5,
+    "words": 1674,
+    "concepts": 3,
+    "quiz": 17,
+    "cards": 3,
+    "source_topics": [
+      {
+        "source_id": "14-50",
+        "title": "Choose the Smallest Slice That Can Change the Decision",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-53",
+        "title": "Choose Prototype, Pilot, or Production Deliberately",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-51",
+        "title": "Write Specifications That Preserve Judgment",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 17,
+    "title": "Integrate, persist, and test the workflow",
+    "chapters": 3,
+    "words": 5221,
+    "concepts": 18,
+    "quiz": 10,
+    "cards": 18,
+    "source_topics": [
+      {
+        "source_id": "11-13",
+        "title": "Building a Production LLM Application",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-38",
+        "title": "Verification Gates",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "lesson": 18,
+    "title": "Deliver a portfolio of practical workflows",
+    "chapters": 3,
+    "words": 1196,
+    "concepts": 10,
+    "quiz": 12,
+    "cards": 10,
+    "source_topics": [
+      {
+        "source_id": "14-54",
+        "title": "Build a Feedback Ratchet with Ownership and Retirement",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "18-26",
+        "title": "Model, System, and Dataset Cards",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 1,
+    "title": "Choose a workflow and a buyer",
+    "chapters": 5,
+    "words": 1842,
+    "concepts": 8,
+    "quiz": 12,
+    "cards": 8,
+    "source_topics": [
+      {
+        "source_id": "14-47",
+        "title": "Define the Outcome Before You Choose the Output",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-49",
+        "title": "Map Assumptions and Resolve the Riskiest One First",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 2,
+    "title": "Conduct discovery with evidence",
+    "chapters": 4,
+    "words": 1420,
+    "concepts": 8,
+    "quiz": 7,
+    "cards": 8,
+    "source_topics": [
+      {
+        "source_id": "14-48",
+        "title": "Discover the Workflow People Actually Perform",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 3,
+    "title": "Measure the baseline and the decision value",
+    "chapters": 5,
+    "words": 2010,
+    "concepts": 18,
+    "quiz": 12,
+    "cards": 18,
+    "source_topics": [
+      {
+        "source_id": "14-52",
+        "title": "Design Success Metrics Before the Result Exists",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "17-27",
+        "title": "FinOps for LLMs \u2014 Unit Economics and Multi-Tenant Attribution",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 4,
+    "title": "Package a service with a bounded outcome",
+    "chapters": 4,
+    "words": 1330,
+    "concepts": 8,
+    "quiz": 12,
+    "cards": 8,
+    "source_topics": [
+      {
+        "source_id": "14-50",
+        "title": "Choose the Smallest Slice That Can Change the Decision",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-53",
+        "title": "Choose Prototype, Pilot, or Production Deliberately",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 5,
+    "title": "Write a statement of work with acceptance tests",
+    "chapters": 5,
+    "words": 2523,
+    "concepts": 13,
+    "quiz": 12,
+    "cards": 13,
+    "source_topics": [
+      {
+        "source_id": "14-51",
+        "title": "Write Specifications That Preserve Judgment",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-36",
+        "title": "Scope Contracts and Task Boundaries",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 6,
+    "title": "Estimate effort, support, and pricing assumptions",
+    "chapters": 4,
+    "words": 4567,
+    "concepts": 28,
+    "quiz": 9,
+    "cards": 28,
+    "source_topics": [
+      {
+        "source_id": "17-27",
+        "title": "FinOps for LLMs \u2014 Unit Economics and Multi-Tenant Attribution",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "11-11",
+        "title": "Caching, Rate Limiting & Cost Optimization",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 7,
+    "title": "Map data, access, and retention",
+    "chapters": 4,
+    "words": 1844,
+    "concepts": 25,
+    "quiz": 11,
+    "cards": 25,
+    "source_topics": [
+      {
+        "source_id": "18-27",
+        "title": "Data Provenance and Training-Data Governance",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "17-25",
+        "title": "Security \u2014 Secrets, API Key Rotation, Audit Logs, Guardrails",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 8,
+    "title": "Build a thin pilot with visible limitations",
+    "chapters": 4,
+    "words": 1322,
+    "concepts": 8,
+    "quiz": 12,
+    "cards": 8,
+    "source_topics": [
+      {
+        "source_id": "14-50",
+        "title": "Choose the Smallest Slice That Can Change the Decision",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-53",
+        "title": "Choose Prototype, Pilot, or Production Deliberately",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 9,
+    "title": "Use client feedback without losing scope",
+    "chapters": 5,
+    "words": 1717,
+    "concepts": 8,
+    "quiz": 12,
+    "cards": 8,
+    "source_topics": [
+      {
+        "source_id": "14-54",
+        "title": "Build a Feedback Ratchet with Ownership and Retirement",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-49",
+        "title": "Map Assumptions and Resolve the Riskiest One First",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 10,
+    "title": "Create a client-readable evaluation report",
+    "chapters": 6,
+    "words": 4190,
+    "concepts": 15,
+    "quiz": 11,
+    "cards": 15,
+    "source_topics": [
+      {
+        "source_id": "14-52",
+        "title": "Design Success Metrics Before the Result Exists",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "19-68",
+        "title": "RAG Evaluation: Precision, Recall, MRR, nDCG, Faithfulness, Answer Relevance",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 11,
+    "title": "Plan delivery milestones and manage risk",
+    "chapters": 5,
+    "words": 1767,
+    "concepts": 8,
+    "quiz": 12,
+    "cards": 8,
+    "source_topics": [
+      {
+        "source_id": "14-44",
+        "title": "Build an Evidence-Backed Execution Plan",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-49",
+        "title": "Map Assumptions and Resolve the Riskiest One First",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 12,
+    "title": "Manage change requests and commercial boundaries",
+    "chapters": 5,
+    "words": 2457,
+    "concepts": 13,
+    "quiz": 12,
+    "cards": 13,
+    "source_topics": [
+      {
+        "source_id": "14-36",
+        "title": "Scope Contracts and Task Boundaries",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-51",
+        "title": "Write Specifications That Preserve Judgment",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 13,
+    "title": "Deploy with client-owned access and a recovery path",
+    "chapters": 4,
+    "words": 2535,
+    "concepts": 22,
+    "quiz": 10,
+    "cards": 22,
+    "source_topics": [
+      {
+        "source_id": "00-07",
+        "title": "Docker for AI",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "17-20",
+        "title": "Shadow Traffic, Canary Rollout, and Progressive Deployment for LLMs",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 14,
+    "title": "Train users and run acceptance testing",
+    "chapters": 5,
+    "words": 1974,
+    "concepts": 13,
+    "quiz": 12,
+    "cards": 13,
+    "source_topics": [
+      {
+        "source_id": "14-38",
+        "title": "Verification Gates",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-51",
+        "title": "Write Specifications That Preserve Judgment",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 15,
+    "title": "Support boundaries, maintenance, and incident review",
+    "chapters": 4,
+    "words": 1465,
+    "concepts": 17,
+    "quiz": 12,
+    "cards": 17,
+    "source_topics": [
+      {
+        "source_id": "17-23",
+        "title": "SRE for AI \u2014 Multi-Agent Incident Response, Runbooks, Predictive Detection",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-54",
+        "title": "Build a Feedback Ratchet with Ownership and Retirement",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 16,
+    "title": "Write an evidence-based case study",
+    "chapters": 5,
+    "words": 1821,
+    "concepts": 15,
+    "quiz": 12,
+    "cards": 15,
+    "source_topics": [
+      {
+        "source_id": "18-26",
+        "title": "Model, System, and Dataset Cards",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-52",
+        "title": "Design Success Metrics Before the Result Exists",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 17,
+    "title": "Prepare outreach and qualification responsibly",
+    "chapters": 5,
+    "words": 1689,
+    "concepts": 8,
+    "quiz": 12,
+    "cards": 8,
+    "source_topics": [
+      {
+        "source_id": "14-47",
+        "title": "Define the Outcome Before You Choose the Output",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-48",
+        "title": "Discover the Workflow People Actually Perform",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "lesson": 18,
+    "title": "Complete the simulated client engagement",
+    "chapters": 4,
+    "words": 2065,
+    "concepts": 14,
+    "quiz": 12,
+    "cards": 14,
+    "source_topics": [
+      {
+        "source_id": "14-40",
+        "title": "Multi-Session Handoff",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      },
+      {
+        "source_id": "14-54",
+        "title": "Build a Feedback Ratchet with Ownership and Retirement",
+        "revision": "aae3dc64e53457aae952e90ee9304fd13f9941a8"
+      }
+    ]
+  }
+]

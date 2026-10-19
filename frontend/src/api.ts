@@ -1,5 +1,5 @@
-export async function api<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const token = sessionStorage.getItem('academy-token')
+export async function api<T>(path: string, options: RequestInit = {}, authenticated = true): Promise<T> {
+  const token = authenticated ? sessionStorage.getItem('academy-token') : null
   const response = await fetch(`/api/${path}`, { ...options, headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Token ${token}` } : {}), ...options.headers } })
   if (!response.ok) {
     const data = await response.json().catch(() => ({}))

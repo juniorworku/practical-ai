@@ -1,0 +1,485 @@
+{
+  "academy-v2:ai-agent-bootcamp:01": {
+    "content": [
+      "486e6af84518a8e3bf44c1e57c347e902a36d376cf463141da377503d3d4df06"
+    ],
+    "learning": [
+      "866096b5e25a14facfc6a7821b37512af9a4e5cfff8c9c40b29663051448b92a"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:02": {
+    "content": [
+      "f2b87e9c3c58077df2c6654b05a86adf2f047f154fdd325fee93a089650abf81"
+    ],
+    "learning": [
+      "dbf2271df13dd57a05efbbe71c06c50cd8a9f83cc5910d42a261684584a61fb3"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:03": {
+    "content": [
+      "e044c741616c22c80d3e12ff451a2976c2eb6f88d8119230efe64237211cc903"
+    ],
+    "learning": [
+      "f1fb08ded18aba6b4e2d7c82fd30469e03edbca849f860698ac55a67e09f28c3"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:04": {
+    "content": [
+      "98a9c0d42ab4319b843c0599f13e7e12ebc20b3db8a25434fd54e5ef3e736421"
+    ],
+    "learning": [
+      "ac58f2c8c2d674ae4d75d95c4468b7118636c95bf9feeab0020d2720d82fae77"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:05": {
+    "content": [
+      "afb00339a5783ffd7456f21a993af44111bc4af8a81daa5a9f8e6a86f62a3ff1"
+    ],
+    "learning": [
+      "8a4e00f0e966c4e1b2f09f06f293ab500f59683d0e6b715e01ff70011fac5484"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:06": {
+    "content": [
+      "75c2afb19baed3a19193cebce3c0a0564fca8877c143711f9f46853fb29e7dca"
+    ],
+    "learning": [
+      "cdfbdc9bef8eeec5ffb3b5776218be8d5d4ff43342ee51ccf66a110372c3b365"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:07": {
+    "content": [
+      "33c4b1b5fbc4a4d8dde0613a827cc8e076c617c9362fef619dcb7000c6d4ab2b"
+    ],
+    "learning": [
+      "7fdef0d346ccd082ff923f5822f28b39db631ab8d7a2922b49e44e5501b08aae"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:08": {
+    "content": [
+      "9871f28f216901e002ce1cc1cb79ba4cb5a33e997e4605400f13b0abacb0a8d4"
+    ],
+    "learning": [
+      "eec9936dc62e70ab700f9e166bee88bb2248bcda7ad7d068556a1ef84134c725"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:09": {
+    "content": [
+      "4ff73cd05f746a584fe434a6afcb063cf199f46f7ffb3bc433d2f5baaeb54b03"
+    ],
+    "learning": [
+      "0c8d8a09b5ee06402a55866fedf669c9391cf674d54eec854e5f01276243d89a"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:10": {
+    "content": [
+      "6782ef2f6aeb5844a5099dcd535e4354fd553e4e2091254dc838c84f960ccddf"
+    ],
+    "learning": [
+      "6eca446609ba8cfbe367a8d7cb19df5d6196e3c9eab169151bff59cbeb0d6570"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:11": {
+    "content": [
+      "e79084b13fe9c648829d85c33af98df9ff894ef202e6302ee7cc5cd6cefbf5f7"
+    ],
+    "learning": [
+      "065b255c3f172b3aa51a14ca3147de9d224613810297a30067836e6a4aaebd3b"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:12": {
+    "content": [
+      "ad7e7573da5a76cf35e99845b70c9567185e44fc03f3b4d14ac9b200646e3403",
+      "e51da221230a23c79cd5cd5e07ab359a5bbe36915cf29e0e14ae6c346d02d189"
+    ],
+    "learning": [
+      "23ccb913da24ba1e992b94947d129e7754005cc0e6b4e8f0039da882e7a351ac",
+      "8a2b2dbe73114036950ba74357add7610517bbdfcfe0f75ab72c9ac0e54d5cf0",
+      "2c6f67c5ba8106e49b55b1afcb06af29cbd88d3d5210f6219f3e7906ecf11d3a"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:13": {
+    "content": [
+      "3c6432d02eb61d794fe1583bc0cba159a9a019a2a66d005c3aaa695045ae8218"
+    ],
+    "learning": [
+      "0b1ac58e46d49c93b503ef495aeda4ee6dfcaa35f559f26fdea71ed8f1d10d9a"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:14": {
+    "content": [
+      "6b9fc21351a6296259014e1890e72f37e1a75d7a174fbe0a6bf6015007ebfdbe"
+    ],
+    "learning": [
+      "8067609a15549c80f32bb761eefc11550e7bd54efab04ce2c0bc49a3459806e1"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:15": {
+    "content": [
+      "61a0891372f9f97e49a0209eedf09a95a877c72322a0e738b7390475da03753e"
+    ],
+    "learning": [
+      "597c60a413b2219a5ffcc0edcb0694a41777f57fad541423d75059f706b5cbbe"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:16": {
+    "content": [
+      "f660c92120a7d2def4bb4ba72a4a906d860bdf448f3f643be36347505d439912"
+    ],
+    "learning": [
+      "3dbf76d243e40d9e9c9c0e41ea093f63008f3d92e94e46ead80b2eab3a0ca3d7"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:17": {
+    "content": [
+      "81faa65b23088484899dc88f0406a7de73d2a12996fe6a1b2df699259d959ed9"
+    ],
+    "learning": [
+      "cf807be73cf4d1b23adaf0af43014fe1f0ab73c0827f644e1db2cefe1f81fd12"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:18": {
+    "content": [
+      "c3c2ff3277aa231be52b0f052ca0f1847fda07bd63ecdc38610ce03887fba4a5"
+    ],
+    "learning": [
+      "c8c4c9a8c866f34a1c388417aa3652d0380c7adf4cef5301263a4d5244f063e5"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:19": {
+    "content": [
+      "5d77affc955a1583e8fbb58eb9c5959b34f84cae84c2ce1a7254893198272558"
+    ],
+    "learning": [
+      "c024e8043924ade508543787ede981b8c090dc9782f25bbc7305c3297b8c6f8e"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:20": {
+    "content": [
+      "c63ad451a3f5d6e639da8d8c6b6932bbc9a68689b7819d8bc0754cb68974d7a1"
+    ],
+    "learning": [
+      "c297c5c4bcaa50ec30283f4e216da632c032260dd8a95a289f7f9d6cce30f4d3"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:21": {
+    "content": [
+      "fe2ce7c80e33aadfa4aa7e56a13433b3f716f19df03bd45658503aaec0c75803"
+    ],
+    "learning": [
+      "e5144af2381cd406f2555eac635ffc431080b3a299367bca37c2ba6dff55836f"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:22": {
+    "content": [
+      "9bfab5c0cd1df7c4469e9f95bc09e32014f0a2066a04fceffb9da90c42d35105"
+    ],
+    "learning": [
+      "f93fb73de9ce42544bd363111948237a9e2a5a23a703aefb3c0d37ff3539e6ab"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:23": {
+    "content": [
+      "5917c18603c2413174135684ce6765557490e849766f64a74391ee968d1a1d9e"
+    ],
+    "learning": [
+      "8ac4446b2e615f229efff110065884098f1f478ea1ddcf19a4c73962d5b62b7e"
+    ]
+  },
+  "academy-v2:ai-agent-bootcamp:24": {
+    "content": [
+      "4fa4e1ce0180c2cf77ad598964b18fd4001fa8dcbc7f38cf9de60b01168e88d3"
+    ],
+    "learning": [
+      "0ee399ff56919bdcf7abd207e5dc26163ff85b936cc03a9c4ba6f084b25e23b9"
+    ]
+  },
+  "academy-v2:ai-workshops:01": {
+    "content": [
+      "982778e035c14e658ad76b1ddbca50e15e98e738b4ad0c193a9ef191ba85114f"
+    ],
+    "learning": [
+      "5b39db647b022c29cd1dd47fdf5f6790a119930185facfb99505bcf2a4ac472b"
+    ]
+  },
+  "academy-v2:ai-workshops:02": {
+    "content": [
+      "aa60226e906b1d0b2ebc8505d723a0b20ff324f4a9d2318469c5d5f896ba8390"
+    ],
+    "learning": [
+      "9c312e4a7da741b91f2b84b66777080d9988e5255c42ff76e74ecb0158ba1ec2"
+    ]
+  },
+  "academy-v2:ai-workshops:03": {
+    "content": [
+      "f2f0566654afe6658772098ff311fc4b83622f0b5d589b82608622ea5b501d37"
+    ],
+    "learning": [
+      "1981c6e8be1bfeef83f837f7ab14c37bf8e9807517f6c00adb7b214270ecb5a7"
+    ]
+  },
+  "academy-v2:ai-workshops:04": {
+    "content": [
+      "ff9b5ac2510a9e78debb4c50445d188b39ef16c24a87245320e39a9b19a36564"
+    ],
+    "learning": [
+      "1866310b3005d981eab3c1993ce0b400b3c156ef51b6b3f507ac3e5743375f0c"
+    ]
+  },
+  "academy-v2:ai-workshops:05": {
+    "content": [
+      "d1682d33e9e3e0406d7a43c43918a7361923831dba324601f39d92879bf84534"
+    ],
+    "learning": [
+      "8c3c3147c9fb0eb8c250f9dfe5770976ce91b74dec6848346bd23b73cb53ca8d"
+    ]
+  },
+  "academy-v2:ai-workshops:06": {
+    "content": [
+      "cb3ff32db4b7db5cad74cb343b6e9d5f7c985499d069ee335979a5a7ba008f70"
+    ],
+    "learning": [
+      "f9cf13410d94db2b09940edfbdc4de7109ecc876b280ec8b38566852674748de"
+    ]
+  },
+  "academy-v2:ai-workshops:07": {
+    "content": [
+      "c4eb5892ecc274bc5f3fedf7828e31b72c16c2cb538b5611f89cde9eabd74c70"
+    ],
+    "learning": [
+      "26a6816edf72a90ddc8078d65ca3b470e96dcbdf80c0ba76489aed22f263c06c"
+    ]
+  },
+  "academy-v2:ai-workshops:08": {
+    "content": [
+      "acd401718747ccf395cf14ef02125760f713c8fe90e5b1c37a5cc54bb39c15b2"
+    ],
+    "learning": [
+      "654053ba502faf32063e32e1010dd211fb8f0b4584b34ee8572a0c5ed105ff7b"
+    ]
+  },
+  "academy-v2:ai-workshops:09": {
+    "content": [
+      "e0f416bac59242098f5ecd6428d201b975fbb60d249c7a1056594198fd41de0a"
+    ],
+    "learning": [
+      "c54b853fac0738749a480d2a02fb5421fb4e0af95dbb4b14249fd60a942673be"
+    ]
+  },
+  "academy-v2:ai-workshops:10": {
+    "content": [
+      "78ed6484abca739c09f39e16402d1488991dcde9cc9824c8f61624d596e95883"
+    ],
+    "learning": [
+      "23c970256f4305a29949481184c0ef628f79d670b1e749596741ed592b6cfb19"
+    ]
+  },
+  "academy-v2:ai-workshops:11": {
+    "content": [
+      "98bc4a1f66a5b6e448773aec3acb10c5bd5e3c112fb984c0cdc8e3e0c554def4"
+    ],
+    "learning": [
+      "bbaf527b21a514b17a1095b5b25a01bc9c18d3856de23604d112cde3a70a4f77"
+    ]
+  },
+  "academy-v2:ai-workshops:12": {
+    "content": [
+      "0b7959516bbbc1cdad0d1b9c2b9c2dab6fba15f79590d6f0f43070b4cdd9e7eb"
+    ],
+    "learning": [
+      "6c7d16a93a6b74a8213e642760c4459ab024cf694c4e1350052ef7c5bcd8f2bb"
+    ]
+  },
+  "academy-v2:ai-workshops:13": {
+    "content": [
+      "5b665f08c27c894f8b64ab4615eb7c5f620743c0243590adad13005d75becb2b"
+    ],
+    "learning": [
+      "aa58827cac404ef1f1d306959cba9b725f9272b28bf6bdf1610f7532105196ef"
+    ]
+  },
+  "academy-v2:ai-workshops:14": {
+    "content": [
+      "d97598301bfbf3405d0b2956f5915c73a09591f599e36c692d381b89738c2f1a"
+    ],
+    "learning": [
+      "b34b50f0cfd94f42a5118932fcf24cce7004003bb6b6ca5db2183f731bd4bbef"
+    ]
+  },
+  "academy-v2:ai-workshops:15": {
+    "content": [
+      "b8642cd459504165ac19831237164adca318812809642cffe23292579dc3e94d"
+    ],
+    "learning": [
+      "6da5f9c5ff392f3c32a3245446dec71fda5d128a966db8969e956c93aadc80d3"
+    ]
+  },
+  "academy-v2:ai-workshops:16": {
+    "content": [
+      "c947403c5884247e6f79bf1b6fbc22348550b0fa4aaf813d1ab61c9ba133f70a"
+    ],
+    "learning": [
+      "7ed6b0b487531ff02828df6138d7c3df11cd8873cc7c2d267e2007801b015b3c"
+    ]
+  },
+  "academy-v2:ai-workshops:17": {
+    "content": [
+      "e4fad3d9d81fc8d045c2b2f6a75bb36176d2fd848659f1401dc51ed10b8d56e8"
+    ],
+    "learning": [
+      "7c6b33269941896b8996dad2362dde89477b76a0fedfdb165bd2e0b5c340f84e"
+    ]
+  },
+  "academy-v2:ai-workshops:18": {
+    "content": [
+      "c0dfde3b2f0712e23923c3968f04a371f8b9d183b3db0ce78bf4da5cf67f3dd5"
+    ],
+    "learning": [
+      "edb9c7d9f0f62761d14347822a830a4c51281a147aa4b2fa6a1b99dd9b5b4d09"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:01": {
+    "content": [
+      "920bfa1fa1a7233e2eab16eaa3b11bb2ac2974dab9e9cdbf60af61a7e40ff8af"
+    ],
+    "learning": [
+      "837538213feb0530adef6fa06ad7d74639c5ea3a4ad8a83536c739a1f37a3d6a"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:02": {
+    "content": [
+      "c582bf20ce3438c23914be85fda6db14716e4037c45d7fd3aa55085b5be1fd4b"
+    ],
+    "learning": [
+      "53e2cca9749759719f7b851b49a96038661d3ee6fb53502f34aaef61412e18fb"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:03": {
+    "content": [
+      "6be4a3ef5704f88d37b85e2fb712473e888e1730748e42d5b6ce7db28052299e"
+    ],
+    "learning": [
+      "76b85376ef93af1f28791e32f9d917090f96b1bc9bd520f35dfe38f4df490eca"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:04": {
+    "content": [
+      "d54999d2fe3abdffd26cd5fe78304efaf3222017bdaf58107ad8be8a3244afe5"
+    ],
+    "learning": [
+      "b0c85968421d436c6b3e290792ccf2c03ad0012445f9eeef2f1b00d23b18c53f"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:05": {
+    "content": [
+      "b01cbdaf32c9d2058062aa6e3b2750d92588b3fdd7e516c94a54a7d394b6daee"
+    ],
+    "learning": [
+      "63693a75e5a45de25a58db9b0af7bd483c460d7bc56eea88a1fdcf38e32f7bb9"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:06": {
+    "content": [
+      "37bd81743970067a79c7c387e87a7cbae450fbe14cd7cf721bd09d41cf7b99d5"
+    ],
+    "learning": [
+      "a38e4140cc6138dc984cb84d56fa3183c9448dc7fe1e4418023365f89422e3e5"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:07": {
+    "content": [
+      "737ce8575ae707e261001bc3f322179ba488505e2e4ced7b499ed60e51a4e940"
+    ],
+    "learning": [
+      "481923f955324846b9b2ccc556c7bb4310b6ec7b717b7977dd04a54c4de7a975"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:08": {
+    "content": [
+      "6ab6f73cbd0030d70a3be7974f5cc274c9cc141cef14420cab7993700bedbe17"
+    ],
+    "learning": [
+      "6e48689c98d038c78b0704211823dc9379d4f27be7cfd656460b35f5daa0a7ad"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:09": {
+    "content": [
+      "16e217138fe259ae07c4c2d1f023e3620c257625b6187d61eb96ed154c4207dd"
+    ],
+    "learning": [
+      "0b219d8ccd347e5e34b81213a9b7ad62584bf99a701286428677410d2943bd2a"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:10": {
+    "content": [
+      "969fe458487d3f54aef51a7e438c65ec7e5ec0cabc4097cfd8d4c3e89c3ba94e"
+    ],
+    "learning": [
+      "728af12289797c0014d4a94d79dc43af165d38e31dccbada28c16bceb2c62166"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:11": {
+    "content": [
+      "7cb9378239139f8ec5e5278c0c2066caf32612fc3e6ef4b3bc1e55b073784f53"
+    ],
+    "learning": [
+      "48d04489f2192c5c0e65e82062bd284df2060babae12f9a69116cda0482322b2"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:12": {
+    "content": [
+      "990b571da71e2f1d331b5f0faab1ed7cdd9901b61648f3ace3281050b3dca67e"
+    ],
+    "learning": [
+      "9f37190ba2b543fe43d0ab9f90b6c7c751452d2fd9f4478619134b818da63971"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:13": {
+    "content": [
+      "50bfc86c0a4931e3138844894f52cd77e7600bb0105c58647632aa2012bceef8"
+    ],
+    "learning": [
+      "455e9bd4a9032b3d299016c30fa753653500c836100cb8f3c12984ee4ef285fe"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:14": {
+    "content": [
+      "67b1f01c38fe13e7f5cca4d1a728c3043138ac4edfc21051f39fc11e4aa80f0d"
+    ],
+    "learning": [
+      "d5251a3971106af07e80b5477a148b0aa19d008512b8da1c0b49fa96108b362f"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:15": {
+    "content": [
+      "5784ea8bb8a4e44227ec45b42b12012e9c0004d77a096629e8050d19ba051ce3"
+    ],
+    "learning": [
+      "7cd4a1b815ad9fc3706e5a4daaf117063050169a5c320003079642705bd0d0c5"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:16": {
+    "content": [
+      "ab9af41bfb7ca71b0bc233134c8a1ef4b13a8ae09208b85aa322fc8add962456"
+    ],
+    "learning": [
+      "b3a9a4ef892701ef4be75ed8b47094b5aaee89453363b74a28d21bb21e790aca"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:17": {
+    "content": [
+      "bde04d93c5f1af2646dd4e401b3aa1260848443eb6772c1e3c1cd2c0c7c80dc8"
+    ],
+    "learning": [
+      "9db1056261db8d89afe1e895faebe52dfbe61e76618f699d3a1072953ceac535"
+    ]
+  },
+  "academy-v2:freelancing-masterclass:18": {
+    "content": [
+      "9ddda47777753d04ee7c3d592e5eb2de9bd62b6788fbebe2de4b3cf576fbd864"
+    ],
+    "learning": [
+      "11b6a02326155d2968da81e71c24d341400c504b9c97d0fc4c580779f999b8ff"
+    ]
+  }
+}

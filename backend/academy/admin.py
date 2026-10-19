@@ -9,3 +9,6 @@ class ProgramAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     inlines = [LessonInline]
 admin.site.register([Enrollment, Completion, Project])
+
+from .models import LessonPractice, QuizAttempt
+admin.site.register([LessonPractice,QuizAttempt])

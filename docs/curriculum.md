@@ -102,3 +102,13 @@ Six standard-library exercises cover retrieval, extraction validation, citation 
 ## Revision and previous progress
 
 This is `academy-practical-v2`. Recognized original introductory lessons are moved to archived programs, retaining their IDs, learner notes and completion records. They are excluded from active course totals. Their old completions do not assert that the learner completed the new practical sessions. The seeder retains instructor edits and does not reset existing v2 progress.
+
+## Interactive learning workspace
+
+All 60 practical sessions include concept cards, an independent exercise and hint, an open reflection question, expanded graded concept checks with explanations, lesson-specific flashcards, an artifact submission with acceptance checks, and private notes. Learner reflections, card confidence, task evidence and immutable quiz attempts are stored privately in PostgreSQL. Task submission and completion are self-reported; the app does not execute or certify learner artifacts.
+
+Each program has a public syllabus and native concept chapters, implementation studies, applied cases and inline input/output exercises. No workbook download is required. None of these three paths requires or redirects learners to GenAI Accelerator.
+
+## Course-book revision
+
+The original short session briefs are now case chapters inside complete native lesson books. See `course-books.md` for the teaching sequence and `course-book-manifest.json` for exact source selection. The content combines adapted MIT teaching from the reference repository with original client-delivery explanations and sixty lesson-specific experiments. The app presents all teaching inline; earlier activity revisions remain stored during upgrades.

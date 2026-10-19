@@ -58,7 +58,8 @@ Open the Vite URL (normally http://localhost:5173). Vite forwards `/api` to Djan
 - Eight-part Terminal Tutor guide, downloadable curriculum and original capstone starter.
 - Learner registration/login/logout, idempotent enrollment and completion, persistent private lesson notes, searchable library and lessons.
 - A saved project planner (deterministic guided template) and a safe, stateless terminal simulation.
-- Responsive program catalog, lesson Markdown reader, personal dashboard, admin, health endpoint, migrations, API tests, and browser smoke test.
+- Four independent catalog programs with public syllabuses. The three practical programs include 60 substantive sessions, 238 teaching/code/case chapters, 635 quiz questions, 905 flashcards, 180 reflection prompts, guided exercises, acceptance checklists, private notes and inline input/output experiments.
+- Sage/sand/cream theme across the public catalog and learner workspace; personal dashboard, admin, health endpoint, migrations, API and browser regression tests.
 
 ## Source materials
 
@@ -91,10 +92,16 @@ For PostgreSQL integration tests, use a dedicated test database/user with permis
 
 ## Release boundaries
 
-This is a runnable first release, not a deployed public service. The original lessons, lab readings, source quiz references, notes and downloads are integrated; original model-powered feedback, quiz grading, flashcards, cohort video calls, email/password recovery, certificates and community discussion are not ported. The Accelerator planner makes no model call and Terminal Tutor simulation never runs a shell. Learners run capstone code separately. Progress is self-reported, not an assessment or certification.
+This is a runnable first release, not a deployed public service. The original lessons, lab readings, source quiz references, notes and downloads are integrated; original model-powered feedback, cohort video calls, email/password recovery, certificates and community discussion are not ported. The three practical programs now include server-graded quizzes, flashcards, reflections and practical evidence submissions. The Accelerator planner makes no model call and Terminal Tutor simulation never runs a shell. Learners run capstone code separately. Progress is self-reported, not an assessment or certification.
 
 For Docker verification, use `APP_URL=http://127.0.0.1:8080 EXPECT_DATABASE=postgresql node tests/browser-smoke.cjs` against a development stack. The browser suite reads all 60 program sessions, exercises each program, checks account isolation and token revocation, and downloads the full learning kit.
 
 Build authored curriculum with `python3 scripts/build_programs.py`, then regenerate the public download using `python3 scripts/package_learning_kit.py`. The latter preserves a strict public-file allowlist. Recognized legacy introductory lessons are archived with their existing identities, notes, completions, and enrollments; they are excluded from active-course progress. Practical program rows are seeded by stable source IDs and instructor edits are retained.
 
 Before public deployment, configure HTTPS and secure cookies, set `DEBUG=0`, use strong secrets and real hosts, configure trusted proxy/CSRF origins, add account recovery and email verification, use a shared throttle cache, and establish database backups. Development auth tokens are stored in tab-scoped sessionStorage; migrate to a reviewed secure cookie/session scheme for a public release. No live AI credentials or paid services are required.
+
+Run `APP_URL=http://127.0.0.1:8080 node tests/learning-studio.cjs` to verify all seven activity sections, persisted results, independent curricula, chapter navigation, inline exercises and responsive layouts. See `docs/sources.md` for learning-interface research and palette attribution.
+
+The three course books are built by `scripts/course_books/` from the pinned MIT source plus original academy teaching and cases. Learners read the content in the app; no GitHub redirect or workbook download is required. The license and teaching credit appear in each book. `docs/course-book-manifest.json` records the exact selection per session. Existing notes, enrollments and lesson identities are preserved during the recognized v3 upgrade; earlier practice revisions remain stored.
+
+The Vite preview on port 5173 proxies to the Docker app on port 8080 by default, so both use the same PostgreSQL curriculum and learner state. For an intentionally separate native Django server, set `ACADEMY_API_PROXY=http://127.0.0.1:8000` before starting Vite.

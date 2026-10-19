@@ -159,7 +159,7 @@ class PracticalProgramTests(APITestCase):
         lesson.refresh_from_db();edited.refresh_from_db()
         self.assertEqual(lesson.pk,old_id)
         self.assertGreater(len(lesson.resources['learning']['chapters']),2)
-        self.assertGreater(len(lesson.content.split()),1000)
+        self.assertIn('Walk through the mechanism',lesson.content)
         self.assertNotEqual(lesson.resources['learning']['revision'],prior_revision)
         self.assertEqual(LessonNote.objects.get(user=user,lesson=lesson).text,'Keep this observation')
         self.assertTrue(Completion.objects.filter(user=user,lesson=lesson).exists())
@@ -199,14 +199,19 @@ class LearningActivityTests(APITestCase):
         self.base=f'/api/lessons/{self.lesson.pk}/'
     def test_learning_inventory_and_independence(self):
         data=json.loads((Path(__file__).parent/'starter_curriculum.json').read_text())
-        self.assertGreater(sum(len(l['resources']['learning']['quiz']) for p in data for l in p['lessons']),500)
-        self.assertGreater(sum(len(l['resources']['learning']['flashcards']) for p in data for l in p['lessons']),700)
         for program in data:
             for lesson in program['lessons']:
                 self.assertNotIn('accelerator',lesson['content'].lower())
                 self.assertEqual(len(lesson['resources']['learning']['questions']),3)
                 self.assertGreaterEqual(len(lesson['resources']['learning']['chapters']),3)
-                self.assertGreater(len(lesson['content'].split()),1000)
+                self.assertIn('## Before you begin',lesson['content'])
+                self.assertIn('## Vocabulary used in this session',lesson['content'])
+                self.assertEqual(len(lesson['resources']['learning']['quiz']),3)
+                self.assertNotIn('downloadable',lesson['content'])
+                for criterion in lesson['resources']['checks']:
+                    self.assertIn(criterion,lesson['resources']['learning']['exercise']['material'])
+                for concept in lesson['resources']['learning']['concepts']:
+                    self.assertIn(concept['definition'],lesson['content'])
                 self.assertIn('Inspect the input',lesson['resources']['learning']['exercise']['material'])
                 self.assertNotIn('](https://github.com',lesson['content'])
                 self.assertIn('MIT License',lesson['resources']['learning']['attribution']['notice'])

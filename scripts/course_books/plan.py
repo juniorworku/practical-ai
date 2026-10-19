@@ -1,4 +1,4 @@
-"""Deliberate chapter selection for the three native course books.
+"""Historical chapter selection from the superseded v4 assembly; not used by the active builder.
 Indexes are zero based within the pinned, MIT-licensed curriculum snapshot.
 A source is adapted into the lesson itself, never linked out as a prerequisite.
 """

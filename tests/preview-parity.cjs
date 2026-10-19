@@ -18,8 +18,12 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   await page.goto(origin);
   await page.getByRole('button',{name:'My learning',exact:true}).first().click();
   await page.locator('.dashboard-course').filter({has:page.getByRole('heading',{name:'AI Agent Bootcamp',exact:true})}).getByRole('button',{name:'Continue learning',exact:true}).click();
+  await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading').first().waitFor();
   await page.locator('.lesson-layout aside>button').first().click();
-  await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:'The Agent Loop: Observe, Think, Act',exact:true}).waitFor();
+  await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:'Understand the decision: From prompts to useful systems',exact:true}).waitFor();
+  // Clicking an already loaded lesson must not replace it with a catalog summary.
+  await page.locator('.lesson-layout aside>button').first().click();
+  await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:'Understand the decision: From prompts to useful systems',exact:true}).waitFor();
   assert.equal(await page.locator('.book-contents').getAttribute('open'),null);
   await page.locator('.chapter-reading').scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/book-reading-preview.png')});

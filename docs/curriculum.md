@@ -95,20 +95,16 @@ Capstone: A complete simulated client engagement, from discovery and proposal to
 - **17. Prepare outreach and qualification responsibly** — 06 · Credibility and repeatability; `client-06/outreach-drafts.md`
 - **18. Complete the simulated client engagement** — 06 · Credibility and repeatability; `client-06/final-delivery-index.md`
 
-## Offline lab pack
+## Inline practice and supplementary lab archive
 
-Six standard-library exercises cover retrieval, extraction validation, citation integrity, bounded agents, routing metrics, and workflow economics. Download from the learning reader or Accelerator. Exercise stubs intentionally fail until implemented; the supplied reference passes 17 tests. Templates cover discovery, scope, evaluation, estimates, change requests, and handover. The original 523 source readings, Accelerator, and Tutor remain available for depth.
+The three core programs teach in the reader itself. They include complete offline worked examples and client-delivery specimens; no workbook or lab-pack download is required. The earlier six-function lab pack remains supplementary material in the independent Accelerator/learning kit, not a prerequisite for core exercises.
 
-## Revision and previous progress
+## Revision and learner work
 
-This is `academy-practical-v2`. Recognized original introductory lessons are moved to archived programs, retaining their IDs, learner notes and completion records. They are excluded from active course totals. Their old completions do not assert that the learner completed the new practical sessions. The seeder retains instructor edits and does not reset existing v2 progress.
+The current generated teaching revision is `academy-course-books-v5`. Stable practical lesson IDs retain enrollment, notes and completion. Recognized prior generated text upgrades; instructor-authored edits remain protected. Earlier practice and immutable quiz attempts remain under their earlier activity revisions, so a changed assessment does not silently reuse a previous score.
 
 ## Interactive learning workspace
 
-All 60 practical sessions include concept cards, an independent exercise and hint, an open reflection question, expanded graded concept checks with explanations, lesson-specific flashcards, an artifact submission with acceptance checks, and private notes. Learner reflections, card confidence, task evidence and immutable quiz attempts are stored privately in PostgreSQL. Task submission and completion are self-reported; the app does not execute or certify learner artifacts.
+Each session includes prerequisites, focused explanations, a complete worked example, a targeted extension, a boundary challenge, an exercise hint, three specific reflections, three graded checks with explanations, lesson-specific flashcards, an artifact submission with acceptance criteria and private notes. PostgreSQL stores learner work privately. Practical submissions and completion are self-reported; the academy does not execute or certify learner artifacts.
 
-Each program has a public syllabus and native concept chapters, implementation studies, applied cases and inline input/output exercises. No workbook download is required. None of these three paths requires or redirects learners to GenAI Accelerator.
-
-## Course-book revision
-
-The original short session briefs are now case chapters inside complete native lesson books. See `course-books.md` for the teaching sequence and `course-book-manifest.json` for exact source selection. The content combines adapted MIT teaching from the reference repository with original client-delivery explanations and sixty lesson-specific experiments. The app presents all teaching inline; earlier activity revisions remain stored during upgrades.
+The public syllabus and each program's native lessons are independent of the GenAI Accelerator. All required teaching appears inline with no repository redirect or workbook dependency. `course-books.md` describes the editorial changes; `student-content-audit.json` records the actual defect and replacement for every session. `course-book-manifest.json` is the current inventory, not a teaching-quality score.

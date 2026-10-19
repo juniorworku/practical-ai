@@ -41,7 +41,7 @@ For a policy assistant, score source selection, answer correctness, citation sup
 A separate case asks about an item after 40 days. Its expected outcome differs even though the vocabulary is similar.''',
 ['Create 20 synthetic cases covering normal, ambiguous, missing-evidence, conflicting-policy, and malicious-input scenarios.','Annotate each with the expected source and whether the assistant should answer, clarify, or abstain.','Split 15 development and five holdout cases before implementing retrieval.','Ask another person, or perform a delayed second pass, to check your labels against the policies.'],
 'Insert two near-duplicate questions with different dates. A scorer based only on shared words should fail, exposing why string overlap is insufficient.',
-['Every case has an expected behavior and supporting policy ID.','The split and label revision are recorded.','At least five cases test behavior beyond a happy-path answer.'],'data/evaluation.jsonl',reading=TESTS)
+['Every case has an expected behavior and a supporting policy ID, or an explicit no-source label.','The split and label revision are recorded.','At least five cases test behavior beyond a happy-path answer.'],'data/evaluation.jsonl',reading=TESTS)
 lesson(p,'02 · Contracts and model boundaries','Prompt contracts and structured outputs',
 '''A prompt is one part of an interface, not an authority boundary. Specify the task, available evidence, uncertainty behavior, and output fields. Treat the response as untrusted data that must be parsed and validated before use. Valid JSON does not establish factual correctness, and a schema cannot prove a cited passage supports a claim.
 
@@ -85,7 +85,7 @@ lesson(p,'03 · Retrieval and evidence','Chunking and a lexical retrieval baseli
 
 A lexical baseline helps you see the problem before adding embeddings. Rank source sections by normalized term overlap, retain deterministic tie-breaking, and label the method honestly. A lexical system will miss paraphrases and may overvalue shared words. That limitation becomes a concrete reason to compare a semantic method later.''',
 '''A query uses “delivery” while the policy heading says “shipping.” Your lexical baseline may return nothing. Add a deliberate synonym mapping in one experiment, then compare it with the unchanged baseline. Keep the original query and retrieval trace so an apparent improvement can be explained.''',
-['Split policies into sections that retain heading, document revision, and passage ID.','Implement a deterministic overlap retriever using the downloadable offline lab pack.','For ten labeled queries, record whether the supporting section is in the top three results.','Change one chunking decision and compare top-three retrieval on the same cases.'],
+['Split policies into sections that retain heading, document revision, and passage ID.','Implement a deterministic overlap retriever using the complete example in this lesson.','For ten labeled queries, record whether the supporting section is in the top three results.','Change one chunking decision and compare top-three retrieval on the same cases.'],
 'Use a query about returns that repeats the shipping policy introduction. Examine whether frequent generic words overpower the actual policy condition.',
 ['Results are deterministic for ties.','Every chunk includes a stable source reference.','The report includes both retrieval successes and lexical failure examples.'],'app/retrieval.py',reading=TESTS)
 lesson(p,'03 · Retrieval and evidence','Grounding, citations, and abstention',

@@ -15,7 +15,7 @@ history_path=ROOT/'backend/academy/course_book_history.json'
 history=json.loads(history_path.read_text()) if history_path.exists() else {}
 for old_course in json.loads((ROOT/'backend/academy/starter_curriculum.json').read_text()):
     for old in old_course['lessons']:
-        if old['resources'].get('revision')=='academy-course-books-v4':
+        if old['resources'].get('revision','').startswith('academy-course-books-v'):
             fingerprints=history.setdefault(old['source_id'],{'content':[],'learning':[]})
             for field,value in [('content',old['content_hash']),('learning',old['resources']['learning']['revision'])]:
                 if value not in fingerprints[field]:fingerprints[field].append(value)

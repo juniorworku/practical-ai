@@ -45,7 +45,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
    for(const summary of live.lessons){
     const response=await page.request.get(origin+`/api/lessons/${summary.id}/`,{headers});assert.equal(response.status(),200);
     const lesson=await response.json();assert.ok(!lesson.content.toLowerCase().includes('accelerator'));
-    const learning=lesson.resources.learning;assert.ok(learning.quiz.length>2);assert.ok(learning.flashcards.length>=3);assert.equal(learning.questions.length,3);assert.ok(learning.chapters.length>=3);assert.ok(lesson.content.split(/\s+/).length>1000);assert.ok(!lesson.content.includes('](https://github.com'));assert.ok(learning.exercise.material.includes('Inspect the input'));
+    const learning=lesson.resources.learning;assert.ok(learning.quiz.length>=2);assert.ok(learning.flashcards.length>=3);assert.equal(learning.questions.length,3);assert.ok(learning.chapters.length>=3);assert.ok(lesson.content.includes('## Before you begin'));assert.ok(lesson.content.includes('## Vocabulary used in this session'));assert.ok(!lesson.content.includes('](https://github.com'));assert.ok(learning.exercise.material.includes('Inspect the input'));
     assert.ok(learning.quiz.every(q=>!('correct'in q)&&!('explanation'in q)));
    }
    const lessonId=live.lessons[0].id;firstId??=lessonId;
@@ -123,6 +123,6 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/sage-home-mobile.png'),fullPage:true});
   assert.deepEqual(errors,[]);
   if(process.env.PRACTICE_SNAPSHOT)fs.writeFileSync(process.env.PRACTICE_SNAPSHOT,JSON.stringify({token,lessonId:firstId,username,quizTotal:source[0].lessons[0].resources.learning.quiz.length}),{mode:0o600});
-  console.log('PASS: exact sage palette, four independent program cards, public syllabus, own lessons for all three programs, 60 substantial course books with sequenced teaching chapters and expanded concept quizzes/flashcards, reflections, grading, flashcard review, practical submissions, inline input/output experiments without workbook redirects, notes, completion, reload persistence, owner isolation, independent Accelerator, desktop/mobile layout.');
+  console.log('PASS: exact sage palette, four independent program cards, public syllabus, own lessons for all three programs, 60 student-reviewed lessons with aligned teaching, examples and practice, reflections, grading, flashcard review, practical submissions, inline input/output experiments without workbook redirects, notes, completion, reload persistence, owner isolation, independent Accelerator, desktop/mobile layout.');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

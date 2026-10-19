@@ -1,0 +1,1022 @@
+[
+  {
+    "id": "B01",
+    "program": "ai-agent-bootcamp",
+    "lesson": 1,
+    "title": "From prompts to useful systems",
+    "prior_defect": "An absolute five-component definition of agents confused an implementation pattern with a universal rule.",
+    "replacement": "Worked implementation: From prompts to useful systems",
+    "student_extension": "Add delete_account and prove it remains in review. Then represent a request with no supporting policy: permitted drafting must still return an unavailable outcome rather than fabricate an answer.",
+    "boundary_challenge": "Remove the supporting return policy. The draft must abstain instead of using general knowledge.",
+    "acceptance": [
+      "The brief names one user and one bounded task.",
+      "All ten examples have a source-supported answer or an explicit abstention expectation.",
+      "The action boundary and human reviewer are unambiguous."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'permitted': ['draft', 'read_policy'], 'review': ['refund']}"
+  },
+  {
+    "id": "B02",
+    "program": "ai-agent-bootcamp",
+    "lesson": 2,
+    "title": "A reproducible Python workspace",
+    "prior_defect": "Profiler material appeared before a reproducible workspace and did not supply the learner fixture.",
+    "replacement": "Worked implementation: A reproducible Python workspace",
+    "student_extension": "Make the fixture absent and replace an unhelpful traceback with a clear setup failure. Run the file with a new virtual environment from a parent directory; record the interpreter version and command.",
+    "boundary_challenge": "Run from the project root and a parent folder; both runs should load the same synthetic file.",
+    "acceptance": [
+      "A fresh virtual environment can run the smoke test.",
+      "No account data or credential appears in tracked files.",
+      "The README distinguishes commands you ran from instructions you have not verified."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "two working directories: same fixture"
+  },
+  {
+    "id": "B03",
+    "program": "ai-agent-bootcamp",
+    "lesson": 3,
+    "title": "Build a small evaluation dataset first",
+    "prior_defect": "Large evaluation-harness examples preceded a small labeled dataset and explained no holdout contamination mechanism.",
+    "replacement": "Worked implementation: Build a small evaluation dataset first",
+    "student_extension": "Write two new holdout families without tuning on them. Explain why paraphrases of q1 in both splits may still leak the same decision pattern.",
+    "boundary_challenge": "Add a conflicting-policy case and label retrieval correctness separately from answer correctness.",
+    "acceptance": [
+      "Every case has an expected behavior and a supporting policy ID, or an explicit no-source label.",
+      "The split and label revision are recorded.",
+      "At least five cases test behavior beyond a happy-path answer."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "[('q1', 'development', 'answer'), ('q2', 'development', 'clarify'), ('q3', 'development', 'abstain')]"
+  },
+  {
+    "id": "B04",
+    "program": "ai-agent-bootcamp",
+    "lesson": 4,
+    "title": "Prompt contracts and structured outputs",
+    "prior_defect": "Prompt wording was described as a structural guarantee; parsing and factual support were conflated.",
+    "replacement": "Worked implementation: Prompt contracts and structured outputs",
+    "student_extension": "Add a status invariant requiring abstentions to have an empty citation list. Test an extra owner_id field, repeated citation, and a well-formed answer that drops an exception; report structural and factual outcomes separately.",
+    "boundary_challenge": "Replace the citation with returns-v1 but make the answer contradict its text. The existence check should pass while factual review fails.",
+    "acceptance": [
+      "Malformed output never becomes an approved answer.",
+      "Unknown source IDs are rejected.",
+      "The evaluation report distinguishes schema validity from factual support."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "structure and identity passed; unsupported claim still requires factual review"
+  },
+  {
+    "id": "B05",
+    "program": "ai-agent-bootcamp",
+    "lesson": 5,
+    "title": "Provider adapters, timeouts, and failures",
+    "prior_defect": "Caching and broad cost advice displaced a usable bounded retry example.",
+    "replacement": "Worked implementation: Provider adapters, timeouts, and failures",
+    "student_extension": "Add exponential backoff capped by remaining time, then test a response arriving exactly at the deadline. Keep all timing simulated; report no real provider latency or reliability from this fixture.",
+    "boundary_challenge": "Use a timeout after a simulated write. Inspect a persisted idempotency key before deciding to retry.",
+    "acceptance": [
+      "Fake tests run with no network or credentials.",
+      "Retry count and total deadline are bounded.",
+      "Error output excludes raw upstream payloads and secrets."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "transient retry: 2 calls, 4 simulated seconds; permission failure: 1 call"
+  },
+  {
+    "id": "B06",
+    "program": "ai-agent-bootcamp",
+    "lesson": 6,
+    "title": "Context budgets and source selection",
+    "prior_defect": "An embedding/context script did not demonstrate the stated output-reserve and exception-preservation exercise.",
+    "replacement": "Worked implementation: Context budgets and source selection",
+    "student_extension": "Increase instructions by 100. Predict which complete passages now fit and verify the result. Compare relevance-first selection with maximizing passage count; identify a case where more passages gives a worse answer.",
+    "boundary_challenge": "Increase system instructions by 100 tokens and explain which evidence must be dropped or compressed.",
+    "acceptance": [
+      "Budget overflow has explicit behavior.",
+      "Selected passages retain their identities and revisions.",
+      "The report compares answer support, not just output length."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "(['returns-rule-and-exception'], ['shipping', 'contact'], 80)"
+  },
+  {
+    "id": "B07",
+    "program": "ai-agent-bootcamp",
+    "lesson": 7,
+    "title": "Ingestion, normalization, and versioning",
+    "prior_defect": "Training-data governance material did not explain source activation versus ingestion readiness.",
+    "replacement": "Worked implementation: Ingestion, normalization, and versioning",
+    "student_extension": "Add a failed-parse state and an effective date. Prove a failed or future revision does not replace current policy. Do not silently use today\u2019s policy to answer a historical-date question.",
+    "boundary_challenge": "Delete v1 while v2 indexing fails. Demonstrate why the activation plan must preserve a working revision.",
+    "acceptance": [
+      "Each source is traceable to an exact file hash.",
+      "Parsing failure does not appear as a successful index operation.",
+      "The active-revision policy is tested."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "v1 retained; v2 activated only after indexing"
+  },
+  {
+    "id": "B08",
+    "program": "ai-agent-bootcamp",
+    "lesson": 8,
+    "title": "Chunking and a lexical retrieval baseline",
+    "prior_defect": "Hybrid-retrieval material required missing fixtures before establishing the lexical baseline.",
+    "replacement": "Worked implementation: Chunking and a lexical retrieval baseline",
+    "student_extension": "Add three labeled queries, including a synonym and a no-source question. Compare recall at one and two while preserving whole rule-plus-exception chunks. Record empty-gold cases separately rather than dividing by zero.",
+    "boundary_challenge": "Create a query with no relevant source and require an empty result or an explicit unavailable outcome.",
+    "acceptance": [
+      "Results are deterministic for ties.",
+      "Every chunk includes a stable source reference.",
+      "The report includes both retrieval successes and lexical failure examples."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "recall@1=0; recall@2=1; lexical delivery/shipping mismatch remains"
+  },
+  {
+    "id": "B09",
+    "program": "ai-agent-bootcamp",
+    "lesson": 9,
+    "title": "Grounding, citations, and abstention",
+    "prior_defect": "A raw RAG pipeline obscured the distinction between citation identity, applicability and factual entailment.",
+    "replacement": "Worked implementation: Grounding, citations, and abstention",
+    "student_extension": "Add an enterprise policy with a different scope. Write a counterexample where both source IDs exist but the wrong account policy is used. Explain how scope selection fails before generation begins.",
+    "boundary_challenge": "Change the question to an enterprise account with a different policy and test applicability before answering.",
+    "acceptance": [
+      "No draft claims a policy unsupported by its cited passage.",
+      "Clarification and missing evidence are separate outcomes.",
+      "The audit records both over-answering and unnecessary refusal."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "missing applicability: clarify; missing source: abstain; contradicted claim: revise"
+  },
+  {
+    "id": "B10",
+    "program": "ai-agent-bootcamp",
+    "lesson": 10,
+    "title": "Tools as typed, permissioned interfaces",
+    "prior_defect": "A Python-fenced tool signature was syntactically invalid; generated tenant identity was insufficiently separated from authority.",
+    "replacement": "Worked implementation: Tools as typed, permissioned interfaces",
+    "student_extension": "Add a second allowed read-only operation with a different schema. Test an allowed name with an unauthorized ID, not only an obviously forbidden tool name. Keep the actor separate from request JSON.",
+    "boundary_challenge": "Remove tenant_id from the schema and still verify that a policy owned by another tenant cannot be read.",
+    "acceptance": [
+      "Tool access uses server-established ownership.",
+      "Unknown tools cannot be dispatched.",
+      "Read results exclude unnecessary sensitive fields."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "authorized lookup passed; cross-owner, injected identity and unknown tool blocked"
+  },
+  {
+    "id": "B11",
+    "program": "ai-agent-bootcamp",
+    "lesson": 11,
+    "title": "State machines and bounded agent loops",
+    "prior_defect": "Framework examples required unstated setup and did not isolate runtime termination behavior.",
+    "replacement": "Worked implementation: State machines and bounded agent loops",
+    "student_extension": "Wrap a fake retriever that raises an exception and record a failed tool observation. Add an overall simulated deadline, then test a loop that exhausts time before its step limit.",
+    "boundary_challenge": "Return an unknown action on step two, then simulate an exception. Both should produce a recorded failure rather than a silent success.",
+    "acceptance": [
+      "All runs reach a terminal or review state within the configured limit.",
+      "Invalid transitions fail explicitly.",
+      "The comparison explains whether a loop improved the task."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "terminal states: answer, abstain, step_limit, failed; no fabricated success"
+  },
+  {
+    "id": "B12",
+    "program": "ai-agent-bootcamp",
+    "lesson": 12,
+    "title": "Human approval and idempotent actions",
+    "prior_defect": "Approval teaching needed an observable lost-response case and an explicit limit on in-memory duplicate prevention.",
+    "replacement": "Worked implementation: Human approval and idempotent actions",
+    "student_extension": "Replace the in-memory ledger with SQLite and a unique scoped key. Use two connections to attempt a claim, then restart after an uncertain result. Do not treat a local unique key as proof of exactly-once remote delivery.",
+    "boundary_challenge": "Submit the approved revision twice using the same key. The observable effect should occur once.",
+    "acceptance": [
+      "Unapproved or changed actions are rejected.",
+      "Duplicate keys do not create duplicate effects.",
+      "The ledger distinguishes confirmed success from uncertainty."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "one fake effect; lost response remains uncertain until reconciled"
+  },
+  {
+    "id": "B13",
+    "program": "ai-agent-bootcamp",
+    "lesson": 13,
+    "title": "HTTP contracts and a usable API",
+    "prior_defect": "A code-review-assistant example was off-domain and contained an unterminated string.",
+    "replacement": "Worked implementation: HTTP contracts and a usable API",
+    "student_extension": "Implement this contract in your own DRF endpoint using request.user, a serializer and a saved draft. Capture actual HTTP requests for the four statuses. The fixed TOKENS fixture must never become production authentication.",
+    "boundary_challenge": "Use valid input with a fake provider timeout. Preserve a recoverable job state and return the documented failure behavior.",
+    "acceptance": [
+      "Input size and required fields are enforced server-side.",
+      "Each failure has a consistent response shape.",
+      "Ownership tests exercise the API rather than only an internal helper."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "401 authentication; 400 input; 201 draft; 503 recoverable provider failure"
+  },
+  {
+    "id": "B14",
+    "program": "ai-agent-bootcamp",
+    "lesson": 14,
+    "title": "Persistence, transactions, and data ownership",
+    "prior_defect": "Memory/graph material did not implement the promised atomic draft/audit save or stale-edit rejection.",
+    "replacement": "Worked implementation: Persistence, transactions, and data ownership",
+    "student_extension": "Add a unique scoped action key and race two independent connections. Record the exact conflict behavior. Simulate a remote send after commit and explain why rolling back this transaction cannot unsend it.",
+    "boundary_challenge": "Let a user from another account guess the draft ID. Return an inaccessible result without disclosing the draft.",
+    "acceptance": [
+      "Database constraints back important invariants.",
+      "A failed optional call cannot erase saved work.",
+      "A restore is verified with actual synthetic row counts."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "version 5 survives reopen; stale, cross-owner and partial saves rejected"
+  },
+  {
+    "id": "B15",
+    "program": "ai-agent-bootcamp",
+    "lesson": 15,
+    "title": "Design reviewable user experiences",
+    "prior_defect": "Spec-validation examples did not teach input-retaining failure or distinguish a draft status from approval.",
+    "replacement": "Worked implementation: Design reviewable user experiences",
+    "student_extension": "Render these states in your interface with an associated input label, status announcement and focusable retry button. Disconnect the API after submission. Use keyboard only, then ask a peer to explain the draft status without hints; save both observations.",
+    "boundary_challenge": "Ask a peer to interpret the status without coaching; record whether they mistake it for approval.",
+    "acceptance": [
+      "Status labels match observable backend state.",
+      "A user can inspect the evidence and cancel or retry.",
+      "Your usability notes record observed confusion and a resulting change."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "loading, review and failure remain distinct; input retained; export unapproved"
+  },
+  {
+    "id": "B16",
+    "program": "ai-agent-bootcamp",
+    "lesson": 16,
+    "title": "Build a regression harness",
+    "prior_defect": "A generic agent exercise did not score category denominators or block a critical regression.",
+    "replacement": "Worked implementation: Build a regression harness",
+    "student_extension": "Add separate retrieval and claim-support columns, plus one provider-unavailable result. Show how a candidate improves the overall fraction while regressing on the missing-evidence category; retain both reports.",
+    "boundary_challenge": "Improve one easy case while breaking authorization; the release gate should still reject the candidate.",
+    "acceptance": [
+      "Reports include counts and category-level outcomes.",
+      "The system revision and evaluation dataset revision are recorded.",
+      "A quality trade-off is supported by observed cases."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'passed': 2, 'total': 4, 'categories': {'normal': [1, 1], 'ambiguous': [0, 1], 'missing': [1, 1], 'security': [0, 1]}, 'promote': False}"
+  },
+  {
+    "id": "B17",
+    "program": "ai-agent-bootcamp",
+    "lesson": 17,
+    "title": "Prompt injection and untrusted documents",
+    "prior_defect": "Security pattern descriptions did not demonstrate an allowed-tool cross-owner attack.",
+    "replacement": "Worked implementation: Prompt injection and untrusted documents",
+    "student_extension": "Write five malicious synthetic passages, then manually or through a controlled fake adapter record their proposed actions. Test both action permissions and canary disclosure in outputs/logs. Document a residual risk that the allowlist alone does not solve.",
+    "boundary_challenge": "Hide the instruction in a document title, metadata field or quoted policy. The trust boundary must remain the same.",
+    "acceptance": [
+      "Untrusted text cannot establish identity or authorize a tool.",
+      "Canary secrets are not present in outputs or logs.",
+      "The report distinguishes prompt behavior from enforced permissions."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "forbidden operation and allowed-tool cross-owner attack both denied"
+  },
+  {
+    "id": "B18",
+    "program": "ai-agent-bootcamp",
+    "lesson": 18,
+    "title": "Observability, cost, and latency budgets",
+    "prior_defect": "Unsupported cost-saving percentages replaced a measured useful-output denominator.",
+    "replacement": "Worked implementation: Observability, cost, and latency budgets",
+    "student_extension": "Add a retry that costs 2 units without another accepted draft; recompute the unit cost. Design a trace schema containing run ID, outcome and timings but no raw question or credentials. Test redaction with a synthetic canary.",
+    "boundary_challenge": "Double retries without improving acceptance. Explain why the unit cost rises even if the list price is unchanged.",
+    "acceptance": [
+      "Failure counts are not excluded from the report.",
+      "Real usage and estimated usage have different fields.",
+      "Sensitive fixture content is absent from events."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'accepted': 2, 'attempts': 4, 'cost_per_accepted': 7.0, 'p95_ms': 900, 'usage_kind': 'simulated'}"
+  },
+  {
+    "id": "B19",
+    "program": "ai-agent-bootcamp",
+    "lesson": 19,
+    "title": "Containerize the complete application",
+    "prior_defect": "GPU/PyTorch deployment material did not supply a complete browser/API/PostgreSQL boundary experiment.",
+    "replacement": "Worked implementation: Containerize the complete application",
+    "student_extension": "Run the Docker procedure below, save a unique synthetic draft, replace the backend container and read it again. Then stop the database and check that /api/health/ returns 503. Record HTTP status and actual record ID; creating files or building an image alone does not pass the exercise.",
+    "boundary_challenge": "Start with an empty database volume in an isolated environment and verify migrations and seed data run correctly.",
+    "acceptance": [
+      "The production frontend can call the containerized API.",
+      "A database record survives a service restart.",
+      "No database credential is baked into the image."
+    ],
+    "verification": "complete isolated Python example executed with assertions; Docker behavior separately tested",
+    "observed_stdout": "Created complete container-lab: backend/Dockerfile, backend/app.py, backend/requirements.txt, compose.yaml, frontend/Dockerfile, frontend/index.html, frontend/nginx.conf"
+  },
+  {
+    "id": "B20",
+    "program": "ai-agent-bootcamp",
+    "lesson": 20,
+    "title": "Failure recovery and release checklists",
+    "prior_defect": "Release checklists lacked an executable isolated content restore.",
+    "replacement": "Worked implementation: Failure recovery and release checklists",
+    "student_extension": "In your own isolated PostgreSQL Compose project, take a logical backup and restore into a separate database. Compare IDs and representative content before any promotion. Do not run destructive recovery steps against the academy database.",
+    "boundary_challenge": "Simulate a failed provider during promotion and verify the manual fallback and stored drafts remain available.",
+    "acceptance": [
+      "Backup restoration is observed in an isolated database.",
+      "The smoke test covers a saved record and an authenticated read.",
+      "Runbook limitations and irreversible steps are explicit."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "isolated restore verified by representative content; live source unchanged"
+  },
+  {
+    "id": "B21",
+    "program": "ai-agent-bootcamp",
+    "lesson": 21,
+    "title": "Choose orchestration complexity deliberately",
+    "prior_defect": "A broad framework survey obscured the actual durable human-review resumption requirement.",
+    "replacement": "Worked implementation: Choose orchestration complexity deliberately",
+    "student_extension": "Compare this state machine with the earlier bounded loop. Interrupt before and after the conditional update and explain which work may be repeated. Add two independent connections to verify your actual database\u2019s contention behavior.",
+    "boundary_challenge": "Introduce two independent document analyses and compare latency, duplicate work and combined failure handling.",
+    "acceptance": [
+      "The architecture decision cites an observed need.",
+      "The extension has an interruption or concurrency test.",
+      "The comparison includes a simpler baseline."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "resume survives reopen; duplicate version-2 transition has zero effect"
+  },
+  {
+    "id": "B22",
+    "program": "ai-agent-bootcamp",
+    "lesson": 22,
+    "title": "Capstone build: support-agent vertical slice",
+    "prior_defect": "A coding-agent harness did not connect the policy assistant\u2019s draft, source revision and scoped saved record.",
+    "replacement": "Worked implementation: Capstone build: support-agent vertical slice",
+    "student_extension": "Connect this behavior to your own UI and API, then replay all five paths through HTTP. Store the original question and full result in your actual schema. Distinguish observed browser behavior from this application-layer test.",
+    "boundary_challenge": "Repeat with a missing source and then a provider timeout. Preserve explicit failure outcomes and retryable state.",
+    "acceptance": [
+      "A fresh user can reproduce the vertical slice.",
+      "Saved data survives restart and respects ownership.",
+      "At least one end-to-end failure is demonstrated."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "offline application slice: draft, clarify, abstain, failure, durable scoped readback"
+  },
+  {
+    "id": "B23",
+    "program": "ai-agent-bootcamp",
+    "lesson": 23,
+    "title": "Capstone evaluation and peer critique",
+    "prior_defect": "A raw RAG evaluation example required missing files and did not identify the unsupported-answer blocker.",
+    "replacement": "Worked implementation: Capstone evaluation and peer critique",
+    "student_extension": "Have a peer label one genuinely unfamiliar case and record disagreement before resolving it against policy text. Fix two findings, rerun the affected cases, and add fresh untouched cases for any new generalization claim.",
+    "boundary_challenge": "Have a reviewer challenge the strongest claim and add a contradictory-policy case that was not used for tuning.",
+    "acceptance": [
+      "Results include failure cases and denominators.",
+      "Two review findings have a documented disposition.",
+      "Claims in the README match the observed evidence."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'dataset': 'unseen-v1', 'candidate': 'demo-r3', 'total': 10, 'supported': 7, 'correct_abstention': 2, 'critical_false_answers': 1, 'promotion': 'blocked pending review'}"
+  },
+  {
+    "id": "B24",
+    "program": "ai-agent-bootcamp",
+    "lesson": 24,
+    "title": "Package, hand over, and plan the next release",
+    "prior_defect": "Agent handoff material did not demonstrate fixture drift or a fresh-operator handover.",
+    "replacement": "Worked implementation: Package, hand over, and plan the next release",
+    "student_extension": "Have a peer follow only your README from a clean folder. Record every intervention you needed to make. Add a backlog item with an observable acceptance check for each missing assumption.",
+    "boundary_challenge": "Revoke the implementer role and verify the client administrator can still operate and recover the system.",
+    "acceptance": [
+      "The handover includes all program deliverables.",
+      "The demo distinguishes draft generation from executed actions.",
+      "Next steps are tied to observed needs and acceptance checks."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "manifest detects changed fixture; hashes identify files, not teaching quality"
+  },
+  {
+    "id": "W01",
+    "program": "ai-workshops",
+    "lesson": 1,
+    "title": "Model the document before automating it",
+    "prior_defect": "Stemmer and lemmatizer REPL fragments were not copyable programs and did not model absent currency or evidence.",
+    "replacement": "Worked implementation: Model the document before automating it",
+    "student_extension": "Add a conflicting amendment and retain both spans with their roles. Create ten labeled requests including zero, missing, unreadable and contradictory values. Do not turn a required key into a requirement to invent a value.",
+    "boundary_challenge": "Add two conflicting totals and keep both evidence spans for review.",
+    "acceptance": [
+      "Unknown values stay unknown.",
+      "Every extracted amount is traceable to source text.",
+      "All ten examples have independently prepared expected records."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'quantity': 2, 'unit_price': '12.50', 'currency': None, 'due_date': None, 'evidence': {'quantity': '2 seats', 'unit_price': '12.50 each'}, 'review_reasons': ['currency absent', 'due date absent']}"
+  },
+  {
+    "id": "W02",
+    "program": "ai-workshops",
+    "lesson": 2,
+    "title": "Build a validated extraction pipeline",
+    "prior_defect": "Extraction exercises required a download and lacked one complete, finite-decimal, boolean-rejecting validator.",
+    "replacement": "Worked implementation: Build a validated extraction pipeline",
+    "student_extension": "Add a documented normalizer for one additional known source format while preserving its raw value. Test negative quantity, missing currency, infinity and a conflicting total. Keep normalization errors distinct from business-rule errors.",
+    "boundary_challenge": "Use quantity=true, a negative price, missing currency and NaN in separate cases.",
+    "acceptance": [
+      "Arithmetic runs in deterministic code.",
+      "Invalid records are quarantined with reasons.",
+      "Tests use all original fixtures, including conflicting values."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "valid record accepted; mismatched total, boolean quantity and ambiguous amounts rejected"
+  },
+  {
+    "id": "W03",
+    "program": "ai-workshops",
+    "lesson": 3,
+    "title": "Review queues and extraction evaluation",
+    "prior_defect": "ROC/AUC material was unrelated to record-level false acceptance and reviewer work.",
+    "replacement": "Worked implementation: Review queues and extraction evaluation",
+    "student_extension": "Score a second version on the identical four IDs. Include a critical payment reference that is wrong despite other correct fields. Compare accepted errors and review minutes; state which error cost would change your readiness rule.",
+    "boundary_challenge": "Make the wrong accepted field a payment reference and explain why aggregate field accuracy is inadequate.",
+    "acceptance": [
+      "Field accuracy and false acceptance are reported separately.",
+      "The reviewer can trace a correction to source evidence.",
+      "The report includes human checking time."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'field_accuracy': 0.833, 'false_accepted': 1, 'accepted': 2, 'records': 4, 'review_minutes': 9}"
+  },
+  {
+    "id": "W04",
+    "program": "ai-workshops",
+    "lesson": 4,
+    "title": "Distinguish statements, decisions, and commitments",
+    "prior_defect": "An unsupported regex coverage percentage and missing code file obscured retracted commitments and date anchors.",
+    "replacement": "Worked implementation: Distinguish statements, decisions, and commitments",
+    "student_extension": "Add a reassignment accepted by a second participant. Preserve the superseded statement and unresolved date. Prepare three annotated transcripts before implementing any extraction model.",
+    "boundary_challenge": "Replace Friday with next week and require an explicit reference date before resolving it.",
+    "acceptance": [
+      "Suggestions cannot silently become confirmed commitments.",
+      "Every action has evidence or is explicitly unresolved.",
+      "Relative dates are tied to a recorded reference date."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'register': {'owner': None, 'state': 'unconfirmed', 'evidence': ['s1', 's2', 's3']}, 'anchored_friday': '2026-10-23'}"
+  },
+  {
+    "id": "W05",
+    "program": "ai-workshops",
+    "lesson": 5,
+    "title": "Build an action register with human confirmation",
+    "prior_defect": "LangGraph examples did not implement exact action-revision confirmation or a stale edit.",
+    "replacement": "Worked implementation: Build an action register with human confirmation",
+    "student_extension": "Store the register and correction history durably. Reprocess an amended transcript and show which existing actions need review. Demonstrate that a stale confirmation cannot confirm a newly edited version.",
+    "boundary_challenge": "Process the same transcript twice and prevent duplicate confirmed tasks.",
+    "acceptance": [
+      "Only confirmed records appear in the export.",
+      "Duplicate processing is identified.",
+      "A stale edit cannot overwrite a newer confirmed action."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "one action; revision 2 exported; revision 3 requires confirmation"
+  },
+  {
+    "id": "W06",
+    "program": "ai-workshops",
+    "lesson": 6,
+    "title": "Evaluate summaries for omissions and false commitments",
+    "prior_defect": "A large evaluator harness did not score specific invented actions and missing blocking conditions.",
+    "replacement": "Worked implementation: Evaluate summaries for omissions and false commitments",
+    "student_extension": "Prepare 12 checks across your three transcript revisions. Include a cancellation, an unresolved owner and a date correction. Compare two summaries against those same annotations and record source lookups and correction time.",
+    "boundary_challenge": "Remove the last correction from the transcript and label the resulting evidence gap.",
+    "acceptance": [
+      "The rubric covers false commitments and missed dependencies.",
+      "Corrections are evaluated against the transcript revision used.",
+      "The final handover includes an ambiguous case."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'omitted': ['archive'], 'false_commitments': ['email'], 'dependency_failures': ['publish'], 'owner_errors': ['publish'], 'date_errors': ['publish']}"
+  },
+  {
+    "id": "W07",
+    "program": "ai-workshops",
+    "lesson": 7,
+    "title": "Form a question and an evidence plan",
+    "prior_defect": "Product-discovery code did not establish comparison criteria and conflicting evidence records.",
+    "replacement": "Worked implementation: Form a question and an evidence plan",
+    "student_extension": "Add an observed offline run with environment and command. Decide whether it resolves the documentation conflict or only tests one mode. Add two criteria that would genuinely change your choice.",
+    "boundary_challenge": "Introduce contradictory technical documentation and keep the conflict visible.",
+    "acceptance": [
+      "Each comparison criterion supports a real decision.",
+      "Claims have source identity and access date.",
+      "Unknown and contradictory evidence remain visible."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'offline': 'conflict_requires_resolution', 'license': 'unknown'}"
+  },
+  {
+    "id": "W08",
+    "program": "ai-workshops",
+    "lesson": 8,
+    "title": "Build a claim-and-citation notebook",
+    "prior_defect": "Query-expansion material confused finding a source with support for a comparative claim.",
+    "replacement": "Worked implementation: Build a claim-and-citation notebook",
+    "student_extension": "Write 15 atomic claim records, then annotate one supported and one overreaching synthesis statement for each criterion. Insert a source instruction to hide a negative result and verify the evidence table retains that result.",
+    "boundary_challenge": "Cite an unknown evidence ID and reject it before rendering the synthesis.",
+    "acceptance": [
+      "Every comparative factual statement maps to supporting evidence.",
+      "Unknown source IDs are rejected.",
+      "The synthesis distinguishes documented features from tested behavior."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'claim': 'A is more accurate than B everywhere', 'citations': ['e1'], 'support': 'fail', 'reason': 'feature evidence is not comparative accuracy evidence'}"
+  },
+  {
+    "id": "W09",
+    "program": "ai-workshops",
+    "lesson": 9,
+    "title": "Run a small benchmark and write a decision memo",
+    "prior_defect": "RAG metrics did not teach a paired parser comparison retaining failed runs.",
+    "replacement": "Worked implementation: Run a small benchmark and write a decision memo",
+    "student_extension": "Expand to five representative inputs and compare real feasible candidates with pinned versions. Record timing separately from correctness, then apply offline operation as a hard constraint before weighted ranking. Do not copy these toy scores into a product recommendation.",
+    "boundary_challenge": "Make the best-scoring candidate unavailable offline and revisit the decision under that hard constraint.",
+    "acceptance": [
+      "Candidate comparisons use the same inputs.",
+      "Failed runs stay in the result set.",
+      "The recommendation includes scope and sensitivity to priorities."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'A': {'exact': 3, 'total': 3}, 'B': {'exact': 1, 'total': 3}}"
+  },
+  {
+    "id": "W10",
+    "program": "ai-workshops",
+    "lesson": 10,
+    "title": "Design a taxonomy with an uncertainty route",
+    "prior_defect": "Logistic regression and resampling material did not define multi-intent handling and independent urgency.",
+    "replacement": "Worked implementation: Design a taxonomy with an uncertainty route",
+    "student_extension": "Label 30 messages independently for topic, urgency and next allowed action. Include a polite compromise report, a negated keyword and a genuinely ambiguous message. Resolve annotation disagreements before comparing classifiers.",
+    "boundary_challenge": "Add a rare urgent case and assess it separately from the frequent routine tickets.",
+    "acceptance": [
+      "Topic and urgency are separate labels.",
+      "Every category has inclusion and exclusion examples.",
+      "Multi-intent and ambiguous messages have a defined path."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'topics': ['account', 'billing'], 'urgency': 'normal', 'suggested_queue': 'review'}"
+  },
+  {
+    "id": "W11",
+    "program": "ai-workshops",
+    "lesson": 11,
+    "title": "Routing rules, confusion matrices, and fallback",
+    "prior_defect": "Generic ML metrics did not show matrix direction, invalid-label fallback or undefined denominators.",
+    "replacement": "Worked implementation: Routing rules, confusion matrices, and fallback",
+    "student_extension": "Run a majority-only baseline on an imbalanced 30-message dataset. Report per-class support alongside precision and recall. Explain which direction of error needs a review policy change rather than another prompt patch.",
+    "boundary_challenge": "Predict the majority class for every case and observe why accuracy can mislead on imbalanced data.",
+    "acceptance": [
+      "Metrics include per-category counts.",
+      "Invalid classifier output is routed to review.",
+      "The comparison identifies at least two distinct error types."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'matrix_rows_expected': {'billing': {'billing': 1, 'technical': 1, 'review': 0}, 'technical': {'billing': 0, 'technical': 1, 'review': 1}, 'review': {'billing': 0, 'technical': 0, 'review': 0}}, 'metrics': {'billing': {'recall': 0.5, 'precision': 1.0, 'actual': 2, 'predicted': 1}, 'technical': {'recall': 0.5, 'precision': 0.5, 'actual': 2, 'predicted': 2}, 'review': {'recall': None, 'precision': 0.0, 'actual': 0, 'predicted': 1}}}"
+  },
+  {
+    "id": "W12",
+    "program": "ai-workshops",
+    "lesson": 12,
+    "title": "Connect triage to a reviewable work queue",
+    "prior_defect": "An unsupported safety percentage and unrelated attack examples displaced durable queue and replay semantics.",
+    "replacement": "Worked implementation: Connect triage to a reviewable work queue",
+    "student_extension": "Receive an event while the fake classifier raises an error; reopen the database and prove the original message remains queued. Add a content digest so a repeated ID with changed text raises a conflict instead of silently losing the change.",
+    "boundary_challenge": "Send the same reviewed item to a fake destination twice and observe one recorded effect.",
+    "acceptance": [
+      "Duplicate events do not duplicate work.",
+      "Original messages and corrections remain distinct.",
+      "Outages retain queued inputs for later review."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "two deliveries, one durable work item, one correction; stale review blocked"
+  },
+  {
+    "id": "W13",
+    "program": "ai-workshops",
+    "lesson": 13,
+    "title": "Build a content brief and a factual boundary",
+    "prior_defect": "Generic prompting chapters did not provide a task-specific factual brief and mapped outline.",
+    "replacement": "Worked implementation: Build a content brief and a factual boundary",
+    "student_extension": "Write ten permitted fact IDs and an outline that enables a real task. Ask for a fabricated testimonial in a test brief and record the rejection. Do not classify unsupported statistics as creative tone.",
+    "boundary_challenge": "Ask for a testimonial and require a real approved quote or an explicit placeholder, never an invented person.",
+    "acceptance": [
+      "The brief names a real reader task.",
+      "Factual statements map to supplied evidence.",
+      "Unknown product behavior is not presented as available."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'audience': 'first-time instructor', 'task': 'review and export a draft', 'outline': [{'sentence': 'Keep drafts locally.', 'facts': ['f2']}, {'sentence': 'Review a draft, then export CSV.', 'facts': ['f1', 'f3']}], 'excluded': 'Guaranteed jobs for every graduate.'}"
+  },
+  {
+    "id": "W14",
+    "program": "ai-workshops",
+    "lesson": 14,
+    "title": "Draft, critique, and revise with a rubric",
+    "prior_defect": "An incomplete self-refinement sketch did not implement a bounded criterion-based revision.",
+    "replacement": "Worked implementation: Draft, critique, and revise with a rubric",
+    "student_extension": "Add an unresolved factual dispute that the allowed set cannot settle. Stop after two rounds and route to a human instead of declaring success. Test whether a shorter draft that drops the review step passes style but fails task completeness.",
+    "boundary_challenge": "Limit revision to two rounds and keep an unresolved failure visible instead of declaring success.",
+    "acceptance": [
+      "Review findings cite a passage or missing requirement.",
+      "The revised draft stays within the fact sheet.",
+      "The loop has an explicit stopping point."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'before': {'unsupported': ['Guaranteed jobs.'], 'missing': ['Review its source facts.']}, 'after': {'unsupported': [], 'missing': []}, 'revisions': 1}"
+  },
+  {
+    "id": "W15",
+    "program": "ai-workshops",
+    "lesson": 15,
+    "title": "Design a responsible publishing workflow",
+    "prior_defect": "Spec-validator code did not bind mock publishing to exact content and destination.",
+    "replacement": "Worked implementation: Design a responsible publishing workflow",
+    "student_extension": "Persist the manifest and audit in your application. Keep a previous approved version, withdraw a mistaken revision and restore only a specifically approved version. Record the difference between retraction and erasing publication history.",
+    "boundary_challenge": "Change only a date after approval and verify the same revision rule still applies.",
+    "acceptance": [
+      "Only the approved revision reaches the mock destination.",
+      "An audit record identifies publication and withdrawal.",
+      "The exercise makes no public post or external message."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "exact content and destination approved; duplicate suppressed; withdrawal recorded locally"
+  },
+  {
+    "id": "W16",
+    "program": "ai-workshops",
+    "lesson": 16,
+    "title": "Scope a useful end-to-end application",
+    "prior_defect": "Product theory did not produce concrete paths with explicit manual/fake/real components.",
+    "replacement": "Worked implementation: Scope a useful end-to-end application",
+    "student_extension": "Turn each path into Given/When/Then with fixture ID, actor, exact observable result and evidence file. Defer an integration that does not improve any of these five scenarios and explain its cost to completing the slice.",
+    "boundary_challenge": "Remove reviewer availability and reassess whether the slice can test acceptance at all.",
+    "acceptance": [
+      "The scope has a clear input, output, reviewer, and saved artifact.",
+      "Failure and empty states are included.",
+      "The integration plan identifies real, fake, and manual steps."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'selected': 'meeting action register', 'scenarios': ['normal', 'missing', 'failure', 'reload', 'other_owner'], 'manual': 'transcript annotation', 'fake': 'extraction adapter', 'real': 'local save and CSV'}"
+  },
+  {
+    "id": "W17",
+    "program": "ai-workshops",
+    "lesson": 17,
+    "title": "Integrate, persist, and test the workflow",
+    "prior_defect": "An off-domain production code sample was syntactically broken and did not demonstrate the action-register store contract.",
+    "replacement": "Worked implementation: Integrate, persist, and test the workflow",
+    "student_extension": "Wire these invariants into your own browser-to-API path. Change a due date, reload, restart the service and read it again. Stop the API during a save and verify retained input plus an error, never a false \u201csaved\u201d label.",
+    "boundary_challenge": "Open two tabs and demonstrate a stale-save conflict rather than overwriting the correction.",
+    "acceptance": [
+      "The browser reads saved server state after restart.",
+      "Unauthorized users cannot read another account\u2019s records.",
+      "A failure case is tested across the real integration boundary."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "durable due-date correction; stale save rejected; cross-owner read absent"
+  },
+  {
+    "id": "W18",
+    "program": "ai-workshops",
+    "lesson": 18,
+    "title": "Deliver a portfolio of practical workflows",
+    "prior_defect": "Model-card material did not expose missing portfolio failure evidence or reproducibility gaps.",
+    "replacement": "Worked implementation: Deliver a portfolio of practical workflows",
+    "student_extension": "Replace placeholder paths with real files from all six studios. Ask a peer to reproduce the weakest project. Record a failed example and the correction it motivated; do not replace it with a success-only screenshot.",
+    "boundary_challenge": "Choose the weakest project and narrow its claim to what you can actually reproduce.",
+    "acceptance": [
+      "All six studios have specific artifacts and limitations.",
+      "One complete application is reproducible.",
+      "The case study includes a failed example and a justified correction."
+    ],
+    "verification": "complete published Python example executed with assertions",
+    "observed_stdout": "{'coverage_gaps': {'research': ['failure']}, 'claim': 'synthetic prototypes; no client results established'}"
+  },
+  {
+    "id": "F01",
+    "program": "freelancing-masterclass",
+    "lesson": 1,
+    "title": "Choose a workflow and a buyer",
+    "prior_defect": "Broad agent/product chapters displaced an explicit buyer-role and workflow selection decision.",
+    "replacement": "A workflow selection memo",
+    "student_extension": "Change handout volume to two per month and review capacity to zero. Re-score all three candidates, explain the trade-off, and identify a different buyer question rather than forcing the original offer.",
+    "boundary_challenge": "Let the operator like the demo while the reviewer has no capacity; assess whether a pilot is feasible.",
+    "acceptance": [
+      "The offer names a buyer and an end user.",
+      "The problem is described independently of a tool.",
+      "Important unknowns are labeled as hypotheses."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F02",
+    "program": "freelancing-masterclass",
+    "lesson": 2,
+    "title": "Conduct discovery with evidence",
+    "prior_defect": "A discovery dataclass did not show how conflicting interview evidence changes a next question.",
+    "replacement": "A discovery evidence ledger",
+    "student_extension": "Write eight non-leading questions and role-play a recent exception. Produce separate observation, interpretation and assumption columns; include one answer that would make you decline.",
+    "boundary_challenge": "Use a role-play interview and label the entire record simulated.",
+    "acceptance": [
+      "Interview notes distinguish actual observations from simulation.",
+      "The dossier contains a recent end-to-end example.",
+      "A reason to decline or change scope is explicit."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F03",
+    "program": "freelancing-masterclass",
+    "lesson": 3,
+    "title": "Measure the baseline and the decision value",
+    "prior_defect": "Tenant cost tagging did not calculate remaining review, exception and maintenance work.",
+    "replacement": "An editable benefit model with a stop decision",
+    "student_extension": "Rebuild the table in an editable sheet with formulas. Collect five timed synthetic runs, record every review and exception, then replace assumptions with observed inputs while keeping sample size visible.",
+    "boundary_challenge": "Raise review to 14 and exception rate to 0.3; explain the negative result before proposing expansion.",
+    "acceptance": [
+      "The model includes review and maintenance effort.",
+      "Every estimate has a source or an assumption label.",
+      "The pilot tests a material uncertainty."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F04",
+    "program": "freelancing-masterclass",
+    "lesson": 4,
+    "title": "Package a service with a bounded outcome",
+    "prior_defect": "A broad product brief lacked a completed offer with exclusions, duties and a pilot gate.",
+    "replacement": "A bounded pilot offer card",
+    "student_extension": "Create diagnostic and expansion cards with different decision questions. Have a peer teach back the pilot deliverables and exclusions; record and correct any misunderstanding.",
+    "boundary_challenge": "Add scanned input and identify the new feasibility evidence required.",
+    "acceptance": [
+      "The offer describes an outcome and tangible artifacts.",
+      "Input boundaries and review duties are explicit.",
+      "Expansion requires a separate decision."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F05",
+    "program": "freelancing-masterclass",
+    "lesson": 5,
+    "title": "Write a statement of work with acceptance tests",
+    "prior_defect": "An agent scope contract was not a client deliverables and acceptance register.",
+    "replacement": "An acceptance register linked to scope",
+    "student_extension": "Complete eight scenarios and assign a reviewer and evidence path to each. Rewrite one ambiguous \u201cgood quality\u201d criterion until two peers agree how to judge the same output.",
+    "boundary_challenge": "Remove the dataset revision and ask whether a later reviewer could reproduce the result.",
+    "acceptance": [
+      "Acceptance scenarios name inputs and observable outcomes.",
+      "Responsibilities and dependencies have owners.",
+      "A scope change has a documented review path."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F06",
+    "program": "freelancing-masterclass",
+    "lesson": 6,
+    "title": "Estimate effort, support, and pricing assumptions",
+    "prior_defect": "Caching engineering displaced delivery effort, recurring unit cost and support-capacity arithmetic.",
+    "replacement": "An effort and capacity estimate",
+    "student_extension": "Add low/high estimates by package and three usage scenarios. Show which assumption drives the range. Define support coverage and out-of-scope handling separately from a one-time pilot price.",
+    "boundary_challenge": "Reduce accepted outputs while keeping API usage unchanged; observe the higher cost per accepted result.",
+    "acceptance": [
+      "One-time and recurring costs are separated.",
+      "The estimate includes non-coding work and uncertainty.",
+      "All numerical examples are labeled as illustrative assumptions."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F07",
+    "program": "freelancing-masterclass",
+    "lesson": 7,
+    "title": "Map data, access, and retention",
+    "prior_defect": "Training-data governance did not supply a field-level destination, retention and deletion register.",
+    "replacement": "A field-level data-flow register",
+    "student_extension": "Add an access-provision/revoke checklist and a provider boundary row for a hypothetical integration. Follow a synthetic canary through logs, drafts, exports and backups; report exactly which copies remain.",
+    "boundary_challenge": "Add provider processing and identify who must authorize that data flow.",
+    "acceptance": [
+      "Every data destination and account owner is listed.",
+      "Only necessary fields appear in the prototype.",
+      "Access removal and deletion are part of the handover plan."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F08",
+    "program": "freelancing-masterclass",
+    "lesson": 8,
+    "title": "Build a thin pilot with visible limitations",
+    "prior_defect": "Repeated prototype theory did not distinguish observed, fake and manual pilot steps.",
+    "replacement": "A pilot demonstration record with honest boundaries",
+    "student_extension": "Build the normal, missing-objective and timeout paths. Keep all three raw observations. Have the reviewer identify every fake/manual component without coaching.",
+    "boundary_challenge": "Give the reviewer an unseen contradictory note and observe the decision without coaching.",
+    "acceptance": [
+      "The pilot implements a complete agreed scenario.",
+      "Known limitations are visible to the reviewer.",
+      "A failure leaves the client\u2019s input recoverable."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F09",
+    "program": "freelancing-masterclass",
+    "lesson": 9,
+    "title": "Use client feedback without losing scope",
+    "prior_defect": "Assumption-validation code did not classify defects, preferences, permissions and new scope.",
+    "replacement": "A feedback triage and disposition log",
+    "student_extension": "Classify ten role-play items, reproduce two defects, and write a change request for one expansion. Record a deferred item with owner and a condition for revisiting it.",
+    "boundary_challenge": "Introduce a requested new document format and classify it separately as a scope change.",
+    "acceptance": [
+      "Feedback refers to examples and a version.",
+      "Defects and new scope have different handling.",
+      "Each accepted change updates relevant acceptance checks."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F10",
+    "program": "freelancing-masterclass",
+    "lesson": 10,
+    "title": "Create a client-readable evaluation report",
+    "prior_defect": "Raw retrieval evaluation code did not explain a buyer-facing result and blocking factual defect.",
+    "replacement": "A client-readable result and recommendation",
+    "student_extension": "Replace the specimen with actual per-case results and review minutes from your pilot. Write a scoped recommendation and one condition that would change it; preserve the strongest counterexample.",
+    "boundary_challenge": "Add one unsupported accepted output and explain whether it blocks the pilot despite high average accuracy.",
+    "acceptance": [
+      "The report ties every claim to observed cases.",
+      "Failure categories and denominators are visible.",
+      "The recommendation names unresolved blockers."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F11",
+    "program": "freelancing-masterclass",
+    "lesson": 11,
+    "title": "Plan delivery milestones and manage risk",
+    "prior_defect": "Agent task planning did not connect delivery milestones to reviewer dependencies and observable risk triggers.",
+    "replacement": "A milestone and risk decision sheet",
+    "student_extension": "Add two risks and simulate the instructor being absent for the last week. Revise milestone dates, labels and remaining claims without silently removing the factual-review gate.",
+    "boundary_challenge": "Make the reviewer unavailable and identify the decision owner for a revised milestone.",
+    "acceptance": [
+      "Every milestone produces a reviewable artifact.",
+      "Dependency delays do not become false completion claims.",
+      "The risk plan includes actions triggered by observed conditions."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F12",
+    "program": "freelancing-masterclass",
+    "lesson": 12,
+    "title": "Manage change requests and commercial boundaries",
+    "prior_defect": "Coding-agent scope material did not analyze the operational cost of automatic email as a commercial change.",
+    "replacement": "A change request for automatic email",
+    "student_extension": "Prepare one cosmetic and one permission change in the same format. For an accepted hypothetical change, update milestones, estimate, data register and tests; demonstrate all four affected artifacts agree.",
+    "boundary_challenge": "Offer manual export as a smaller alternative and explain the remaining work.",
+    "acceptance": [
+      "The request includes operational and security impacts.",
+      "Alternatives are tied to the buyer\u2019s objective.",
+      "Accepted scope changes update the evaluation plan."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F13",
+    "program": "freelancing-masterclass",
+    "lesson": 13,
+    "title": "Deploy with client-owned access and a recovery path",
+    "prior_defect": "GPU/container chapters displaced client account ownership, implementer revocation and verified recovery.",
+    "replacement": "An ownership and recovery handover matrix",
+    "student_extension": "Perform local restart/readback and an isolated restore. Give a peer the runbook, remove your simulated operator role and record what they can still operate without your credentials.",
+    "boundary_challenge": "Revoke the implementer token and run the normal case and restore rehearsal.",
+    "acceptance": [
+      "Service ownership is independent of personal credentials.",
+      "Persistence and restoration are observed.",
+      "The runbook contains no secret values."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F14",
+    "program": "freelancing-masterclass",
+    "lesson": 14,
+    "title": "Train users and run acceptance testing",
+    "prior_defect": "Coding verification gates did not teach trainee observation or distinguish deferred from passed acceptance.",
+    "replacement": "An acceptance and training observation log",
+    "student_extension": "Prepare five fresh tasks including two failures. Observe a peer without intervening; record assistance separately. Revise one instruction and rerun with a new input rather than coaching the original case to success.",
+    "boundary_challenge": "Ask the trainee to handle an unseen missing-objective case without coaching.",
+    "acceptance": [
+      "The guide explains limitations and escalation.",
+      "Acceptance outcomes use distinct status categories.",
+      "A handover rehearsal identifies and addresses confusion."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F15",
+    "program": "freelancing-masterclass",
+    "lesson": 15,
+    "title": "Support boundaries, maintenance, and incident review",
+    "prior_defect": "Large SRE/multi-agent topics displaced a small-service stale-source incident and support boundary.",
+    "replacement": "An incident tabletop with concrete corrective checks",
+    "student_extension": "Write coverage, severity and escalation assumptions for a small service. Run a provider-format-change tabletop and record retained data, manual fallback, recovery checks and one prevention test.",
+    "boundary_challenge": "Change provider response shape and verify drafts are preserved while the adapter fails safely.",
+    "acceptance": [
+      "Support responsibilities and limits are understandable.",
+      "Quality checks precede model or prompt updates.",
+      "The incident review produces testable corrective actions."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F16",
+    "program": "freelancing-masterclass",
+    "lesson": 16,
+    "title": "Write an evidence-based case study",
+    "prior_defect": "A model card did not show how to narrow unsubstantiated customer and time-saving claims.",
+    "replacement": "A case-study claim audit",
+    "student_extension": "Audit five statements in your own case study. Link each to a real evidence file or narrow/remove it. Include a failure and clearly label every simulated result.",
+    "boundary_challenge": "Remove a screenshot and identify the underlying evidence that still supports the technical claim.",
+    "acceptance": [
+      "No invented customer, result, or testimonial appears.",
+      "Claims include sample size and scope.",
+      "A failure and its correction are explained."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F17",
+    "program": "freelancing-masterclass",
+    "lesson": 17,
+    "title": "Prepare outreach and qualification responsibly",
+    "prior_defect": "Discovery code did not provide an unsent evidence-based introduction or a qualification stop decision.",
+    "replacement": "A local outreach draft and qualification decision",
+    "student_extension": "Create three fictional profiles with facts and hypotheses separate. Prepare one introduction and one disconfirming question for each. Role-play a request for confidential autonomous processing and record your scope response.",
+    "boundary_challenge": "Have a fictional prospect request unsupported autonomy and practice a bounded alternative.",
+    "acceptance": [
+      "Drafts distinguish published facts from assumptions.",
+      "No message is sent as part of the exercise.",
+      "Qualification includes authority, data, and review feasibility."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  },
+  {
+    "id": "F18",
+    "program": "freelancing-masterclass",
+    "lesson": 18,
+    "title": "Complete the simulated client engagement",
+    "prior_defect": "Repository handoff material did not audit consistency across offer, implementation, acceptance and ownership.",
+    "replacement": "A cross-document consistency and handover audit",
+    "student_extension": "Run the complete simulated handover with a fresh reviewer. Audit every offer promise against evidence and disposition; fix one mismatch and rerun its acceptance scenario before calling the package complete.",
+    "boundary_challenge": "Have a peer act as buyer, operator and maintainer; record one gap from each perspective.",
+    "acceptance": [
+      "Scope, implementation, evidence, and handover are consistent.",
+      "The final package includes limitations and operational ownership.",
+      "The retrospective produces specific improvements to the next engagement."
+    ],
+    "verification": "completed specimen reviewed; arithmetic checked separately; no real client work claimed",
+    "observed_stdout": null
+  }
+]

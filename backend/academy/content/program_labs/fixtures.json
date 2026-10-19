@@ -1,0 +1,116 @@
+{
+  "policies": [
+    {
+      "id": "returns-v1:eligibility",
+      "text": "Unopened items may be returned within 14 days with a receipt."
+    },
+    {
+      "id": "shipping-v1:delivery",
+      "text": "Standard shipping takes five working days after dispatch."
+    },
+    {
+      "id": "account-v1:recovery",
+      "text": "Account recovery requires identity verification by a support representative."
+    }
+  ],
+  "purchase_requests": [
+    {
+      "id": "request-01",
+      "source": "12 units at 25 TEST each; total 300 TEST",
+      "quantity": 12,
+      "unit_price": "25",
+      "total": "300",
+      "currency": "TEST"
+    },
+    {
+      "id": "request-02",
+      "source": "3 units at 0.10 TEST each; total 0.30 TEST",
+      "quantity": 3,
+      "unit_price": "0.10",
+      "total": "0.30",
+      "currency": "TEST"
+    },
+    {
+      "id": "request-03",
+      "source": "12 units at 25 each; stated total 250",
+      "quantity": 12,
+      "unit_price": "25",
+      "total": "250",
+      "currency": null
+    },
+    {
+      "id": "request-04",
+      "source": "Quantity not specified; unit price 2 TEST",
+      "quantity": null,
+      "unit_price": "2",
+      "total": null,
+      "currency": "TEST"
+    }
+  ],
+  "routing": [
+    {
+      "id": 1,
+      "message": "My package has not arrived",
+      "expected": "shipping"
+    },
+    {
+      "id": 2,
+      "message": "Someone changed my account email",
+      "expected": "account"
+    },
+    {
+      "id": 3,
+      "message": "Can I return an opened item?",
+      "expected": "returns"
+    },
+    {
+      "id": 4,
+      "message": "Please send the price list",
+      "expected": "sales"
+    },
+    {
+      "id": 5,
+      "message": "I need help but cannot describe the issue",
+      "expected": "review"
+    },
+    {
+      "id": 6,
+      "message": "Reset my password and track my parcel",
+      "expected": "multi-issue"
+    },
+    {
+      "id": 7,
+      "message": "Do not reset my password; where is my package?",
+      "expected": "shipping"
+    },
+    {
+      "id": 8,
+      "message": "I was charged twice",
+      "expected": "billing"
+    },
+    {
+      "id": 9,
+      "message": "Thank you; my account appears stolen",
+      "expected": "account"
+    },
+    {
+      "id": 10,
+      "message": "I have a question about an unspecified order",
+      "expected": "review"
+    }
+  ],
+  "meeting": {
+    "id": "meeting-01",
+    "text": "Amina: Maybe David could review the handout. David: I can review it by Friday if Amina supplies the source notes. Amina: I will send those tomorrow. Later David: Friday is no longer possible; please leave the review date unresolved.",
+    "expected": "Amina commits to sending notes; David\u2019s review date is unresolved and depends on the notes."
+  },
+  "economics": {
+    "volume": 40,
+    "manual": 20,
+    "assisted": 4,
+    "review": 10,
+    "exceptions": 0.1,
+    "exception_minutes": 15,
+    "expected_net_minutes": 180
+  }
+}

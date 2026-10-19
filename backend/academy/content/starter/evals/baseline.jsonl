@@ -1,0 +1,3 @@
+{"id": "refund-window", "question": "What is the refund window?", "relevant_ids": ["refunds-1"], "required_facts": ["30 days"], "category": "answerable"}
+{"id": "shipping", "question": "How long does standard shipping take?", "relevant_ids": ["shipping-1"], "required_facts": ["3 to 5 business days"], "category": "answerable"}
+{"id": "unknown", "question": "What is the warranty duration?", "relevant_ids": [], "category": "unanswerable"}

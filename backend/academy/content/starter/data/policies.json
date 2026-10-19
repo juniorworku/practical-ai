@@ -1,0 +1,23 @@
+[
+  {
+    "id": "refunds-1",
+    "text": "Refund policy: eligible purchases can be refunded within 30 days. Digital gift cards are not refundable.",
+    "section": "Refunds",
+    "organization_id": "demo",
+    "version": "v1"
+  },
+  {
+    "id": "cancellation-1",
+    "text": "Monthly subscriptions can be cancelled before the next billing date. Cancellation does not refund completed billing periods.",
+    "section": "Cancellation",
+    "organization_id": "demo",
+    "version": "v1"
+  },
+  {
+    "id": "shipping-1",
+    "text": "Standard shipping takes 3 to 5 business days. Delivery estimates exclude public holidays.",
+    "section": "Shipping",
+    "organization_id": "demo",
+    "version": "v1"
+  }
+]

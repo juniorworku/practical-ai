@@ -1,0 +1,2 @@
+case_id,input_fixture,expected_behavior,expected_source,observed_result,pass_fail,failure_category,review_minutes,system_revision,notes
+example-01,synthetic-note-01,flag missing objective,source-01,,,,,,

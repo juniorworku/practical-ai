@@ -1,0 +1,8 @@
+# Design and curriculum sources
+
+- [Lonely Octopus programs](https://www.lonelyoctopus.com/#programs): reviewed for the cohort/workshop/masterclass structure and practical outcomes. The user supplied the program screenshot. No brand logo, testimonials, statistics, or private content were copied.
+- [DeepLearning.AI — AI Python for Beginners](https://www.deeplearning.ai/courses/ai-python-for-beginners): reviewed for hands-on exercises and portfolio projects. This informed the learn/practice/build flow, not the curriculum text.
+- User-provided local workshop: `/Users/Junior/Documents/JuniorOS/Job Search Sprint/Job-hunting/resume-studio/`. Imported the full public course catalog, Accelerator lesson/lab Markdown, Terminal Tutor guides, licenses, and starter artifacts.
+- [AI Engineering from Scratch pinned source](https://github.com/rohitg00/ai-engineering-from-scratch/tree/aae3dc64e53457aae952e90ee9304fd13f9941a8): upstream MIT source, revision preserved in provenance and per-lesson links.
+
+Imported documents can contain commands, setup steps and agent teaching contracts. They are learning material and were not treated as instructions to modify the host or call models. No upstream skill was activated. Original lesson/lab hashes were checked during import; original code and quizzes remain reference material. The three academy programs are original authored practical curricula, separate from the imported source library. See `curriculum.md` for all 60 sessions and their deliverables. Architecture and safety further-reading links point to the primary Anthropic engineering and OWASP references; executable offline examples use Python’s standard library.

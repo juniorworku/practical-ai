@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "ai-agent-bootcamp",
+    "title": "AI Agent Bootcamp",
+    "category": "Cohort",
+    "description": "Build agents that turn repetitive work into reliable, useful workflows. From your first prompt to a project you can share.",
+    "audience": "Curious professionals and aspiring AI builders. No AI experience needed.",
+    "outcome": "An evaluated AI agent and a portfolio-ready capstone.",
+    "duration": "28 days",
+    "order": 0,
+    "lessons": [
+      {
+        "module": "Week 01 \u00b7 Foundations",
+        "title": "From prompts to useful systems",
+        "content": "A prompt gives a model instructions. A workflow connects explicit steps. An agent selects tools to pursue a goal. Start with a workflow when the steps are predictable. Add agency only when a decision requires it.",
+        "task": "Write down a repetitive task, its input, its desired output, and one condition that requires human review.",
+        "minutes": 20,
+        "order": 0
+      },
+      {
+        "module": "Week 01 \u00b7 Foundations",
+        "title": "Your first structured prompt",
+        "content": "A useful prompt includes a role, task, relevant context, constraints, and an output format. Test it against both normal and ambiguous examples. Treat model output as untrusted until checked.",
+        "task": "Draft a prompt that extracts action items from meeting notes. Test it with missing dates and unclear owners.",
+        "minutes": 20,
+        "order": 1
+      },
+      {
+        "module": "Week 02 \u00b7 Build",
+        "title": "Give your agent a tool",
+        "content": "Tools expose narrow functions with validated inputs. Keep credentials on the server. Read-only tools are a good starting point; actions that change external data need an explicit approval step.",
+        "task": "Design a read-only search tool: define its input schema, expected output, and failure behavior.",
+        "minutes": 20,
+        "order": 2
+      },
+      {
+        "module": "Week 02 \u00b7 Build",
+        "title": "Ground answers with retrieval",
+        "content": "Retrieval finds relevant source passages before generation. Split documents by meaningful sections, retain source references, and test whether the retrieved passages actually answer the question.",
+        "task": "Create five questions about a document. Record the passage that supports each answer and one unanswerable question.",
+        "minutes": 20,
+        "order": 3
+      },
+      {
+        "module": "Week 03 \u00b7 Evaluate",
+        "title": "Test the unhappy path",
+        "content": "A demo is not an evaluation. Make a small dataset of expected behaviors. Include irrelevant context, missing inputs, malicious instructions in documents, and provider outages.",
+        "task": "Create a ten-case evaluation checklist. Define pass/fail criteria before running it.",
+        "minutes": 20,
+        "order": 4
+      },
+      {
+        "module": "Week 04 \u00b7 Ship",
+        "title": "Deploy your capstone",
+        "content": "Package the API, frontend, and database with Docker. Keep secrets out of source control. Add health checks, logs, rate limits, backups, and human review for consequential actions.",
+        "task": "Publish a repository README with setup instructions, examples, limitations, and your evaluation results.",
+        "minutes": 20,
+        "order": 5
+      }
+    ]
+  },
+  {
+    "slug": "ai-workshops",
+    "title": "AI Workshops",
+    "category": "Workshop",
+    "description": "Make room for a small idea. Leave with a working prototype, a repeatable workflow, and a clear next step.",
+    "audience": "Anyone ready to move from experimenting to making.",
+    "outcome": "A practical app blueprint and a tested prototype.",
+    "duration": "Short-form",
+    "order": 1,
+    "lessons": [
+      {
+        "module": "Sprint 01 \u00b7 Discover",
+        "title": "Choose a problem worth solving",
+        "content": "Choose one user and one task. Interview that user, observe their current workflow, and write a testable statement of success. A narrow useful prototype teaches more than a broad unfinished product.",
+        "task": "Write a problem statement in the form: For [user], help [task], measured by [outcome].",
+        "minutes": 20,
+        "order": 0
+      },
+      {
+        "module": "Sprint 02 \u00b7 Prototype",
+        "title": "Build with the GenAI Accelerator",
+        "content": "Use the Accelerator to turn your problem brief into a project checklist. The starter Accelerator is a guided template, not an AI generator. Use its deliverables to plan your first prototype.",
+        "task": "Open the Accelerator, save a project brief, and choose the smallest end-to-end feature.",
+        "minutes": 20,
+        "order": 1
+      },
+      {
+        "module": "Sprint 03 \u00b7 Practice",
+        "title": "Get comfortable in the terminal",
+        "content": "A terminal lets you navigate files and run tools. pwd shows your location, ls lists files, and cat reads a file. The Terminal Tutor here simulates a safe set of commands.",
+        "task": "Open Terminal Tutor. Run pwd, ls, and cat README.md. Explain what each command does.",
+        "minutes": 20,
+        "order": 2
+      },
+      {
+        "module": "Sprint 04 \u00b7 Share",
+        "title": "Demo, reflect, improve",
+        "content": "A strong demo shows the problem, one representative input, the resulting output, and what still fails. Ask a peer to try your prototype without instructions.",
+        "task": "Record a two-minute demo and write down three improvements based on feedback.",
+        "minutes": 20,
+        "order": 3
+      }
+    ]
+  },
+  {
+    "slug": "freelancing-masterclass",
+    "title": "Freelancing Masterclass",
+    "category": "Masterclass",
+    "description": "Turn practical AI skills into a focused service. Find your niche, scope your offer, and build a credible portfolio.",
+    "audience": "Professionals exploring independent work with AI.",
+    "outcome": "A service offer, discovery brief, and portfolio case study.",
+    "duration": "Intensive",
+    "order": 2,
+    "lessons": [
+      {
+        "module": "Part 01 \u00b7 Position",
+        "title": "Find your service niche",
+        "content": "Start with an industry you understand and a recurring workflow with a measurable cost. Avoid promising accuracy or savings before you have evidence.",
+        "task": "List three industries you know and one recurring problem in each. Pick one to research.",
+        "minutes": 20,
+        "order": 0
+      },
+      {
+        "module": "Part 02 \u00b7 Scope",
+        "title": "Run a discovery conversation",
+        "content": "Ask about the current process, frequency, data sensitivity, decision makers, and what a successful result looks like. Define what is outside scope and who approves changes.",
+        "task": "Write five discovery questions and a one-page statement of work with acceptance criteria.",
+        "minutes": 20,
+        "order": 1
+      },
+      {
+        "module": "Part 03 \u00b7 Deliver",
+        "title": "Build a portfolio case study",
+        "content": "Show the original problem, your approach, measurable results, and limitations. Get permission before using any client information. A self-directed project is a valid first case study.",
+        "task": "Write a case study using a synthetic example. Include your evaluation method and a clear limitation.",
+        "minutes": 20,
+        "order": 2
+      }
+    ]
+  }
+]

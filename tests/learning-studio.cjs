@@ -12,7 +12,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   assert.equal((await (await page.request.get(origin+'/api/health/')).json()).database,'postgresql');
   await page.goto(origin);
   await page.locator('.program-card').first().waitFor();
-  assert.equal(await page.locator('.program-card').count(),4);
+  assert.equal(await page.locator('.program-card').count(),5);
   const palette=await page.evaluate(()=>{const css=getComputedStyle(document.documentElement);return ['--sage','--sage-light','--sand','--cream'].map(key=>css.getPropertyValue(key).trim().toLowerCase())});
   assert.deepEqual(palette,['#778873','#a1bc98','#dccfc0','#fdf6ed']);
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/sage-home-desktop.png'),fullPage:true});
@@ -123,6 +123,6 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/sage-home-mobile.png'),fullPage:true});
   assert.deepEqual(errors,[]);
   if(process.env.PRACTICE_SNAPSHOT)fs.writeFileSync(process.env.PRACTICE_SNAPSHOT,JSON.stringify({token,lessonId:firstId,username,quizTotal:source[0].lessons[0].resources.learning.quiz.length}),{mode:0o600});
-  console.log('PASS: exact sage palette, four independent program cards, public syllabus, own lessons for all three programs, 60 student-reviewed lessons with aligned teaching, examples and practice, reflections, grading, flashcard review, practical submissions, inline input/output experiments without workbook redirects, notes, completion, reload persistence, owner isolation, independent Accelerator, desktop/mobile layout.');
+  console.log('PASS: exact sage palette, five independent program cards, public syllabus, own lessons for all four practical programs, 96 student-reviewed lessons with aligned teaching, examples and practice, reflections, grading, flashcard review, practical submissions, inline input/output experiments without workbook redirects, notes, completion, reload persistence, owner isolation, independent Accelerator, desktop/mobile layout.');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

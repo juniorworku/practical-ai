@@ -10,6 +10,7 @@ from .student_labs import LABS
 from .container_lab import FILES, RESTORE_SCRIPT
 from .audit_findings import FINDINGS
 from .diagnostics import QUESTIONS
+from .teaching import strengthen
 ROOT=Path(__file__).resolve().parents[2]
 LICENSE=(ROOT/'backend/academy/content/LICENSE.source').read_text()
 REVISION=json.loads((ROOT/'backend/academy/content/provenance.json').read_text())['revision']
@@ -102,7 +103,9 @@ def enrich(programs):
             prompt,right,wrong1,wrong2,explanation=QUESTIONS[prefix][index-1]
             options=[right,wrong1,wrong2]; shift=index%3; options=options[shift:]+options[:shift]
             learning['quiz'].append({'id':'worked-diagnostic','prompt':prompt,'options':[{'id':chr(97+i),'text':value} for i,value in enumerate(options)],'correct':chr(97+options.index(right)),'explanation':explanation})
+            strengthen(key,learning,chapters,why,variation)
             learning['chapters']=chapters
+            lesson['task']='\n'.join(learning['exercise']['steps'])
             learning['attribution']={'notice':LICENSE,'credit':'Academy-authored teaching, examples and client artifacts. AI Engineering from Scratch by Rohit Ghumare informed the background curriculum; its MIT notice is retained. No external repository or download is required for this session.','revision':REVISION}
             learning['revision']=hashlib.sha256(json.dumps({k:v for k,v in learning.items() if k!='revision'},sort_keys=True).encode()).hexdigest()
             lesson['content']='# '+lesson['title']+'\n\n'+'\n\n'.join('## '+c['title']+'\n\n'+c['body'] for c in chapters)

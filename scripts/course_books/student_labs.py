@@ -2,6 +2,7 @@
 Each example runs independently with Python 3.12 and its embedded synthetic data.
 """
 import textwrap
+from pprint import pformat
 LABS = {}
 def add(key, code, explanation, extension):
     LABS[key] = {'code': textwrap.dedent(code).strip()+'\n', 'explanation': explanation, 'extension': extension}
@@ -131,7 +132,11 @@ import hashlib
 versions, active = {}, {}
 def ingest(document, revision, text):
     key = (document, revision)
-    versions[key] = {'text':text, 'digest':hashlib.sha256(text.encode()).hexdigest(), 'indexed':False}
+    fingerprint=hashlib.sha256(text.encode()).hexdigest()
+    if key in versions:
+        if versions[key]['digest']!=fingerprint:raise ValueError('revision_content_conflict')
+        return key
+    versions[key] = {'text':text, 'digest':fingerprint, 'indexed':False}
     return key
 def activate(key):
     if not versions[key]['indexed']:
@@ -175,12 +180,14 @@ def decide(condition, source, claim):
         return 'clarify'
     # A human-prepared fixture label, not automated semantic entailment.
     support_labels = {('unopened','Unopened within 14 days'):True,
-                      ('opened','Opened items qualify'):False}
+                      ('opened','Opened items qualify'):False,
+                      ('opened','Opened items are excluded'):True}
     return 'draft_for_review' if support_labels.get((condition,claim),False) else 'revise_or_abstain'
 policy = 'Only unopened items within 14 days; opened items excluded.'
 assert decide(None, policy, '') == 'clarify'
 assert decide('unopened', None, '') == 'abstain'
 assert decide('opened', policy, 'Opened items qualify') == 'revise_or_abstain'
+assert decide('opened', policy, 'Opened items are excluded') == 'draft_for_review'
 assert decide('unopened', policy, 'Unopened within 14 days') == 'draft_for_review'
 print('missing applicability: clarify; missing source: abstain; contradicted claim: revise')
 ''', 'The order matters: no policy means unavailable evidence; a known policy with missing item condition needs clarification. The support table is explicitly manually labeled. It teaches expected behavior without pretending string membership can solve entailment. A live model must be evaluated on claim support, exception preservation, and applicability independently of citation ID checks.', 'Add an enterprise policy with a different scope. Write a counterexample where both source IDs exist but the wrong account policy is used. Explain how scope selection fails before generation begins.')
@@ -205,13 +212,15 @@ print('authorized lookup passed; cross-owner, injected identity and unknown tool
 
 add('B11', '''
 def run(decisions, max_steps=3):
-    trace = []
+    trace = [];state='start'
+    allowed={'start':{'retrieve','abstain'},'evidence':{'retrieve','answer','abstain'}}
     for action in decisions:
         if len(trace) >= max_steps:
             return {'status':'step_limit','trace':trace}
-        if action not in {'retrieve','answer','abstain'}:
+        if action not in allowed[state]:
             return {'status':'failed','trace':trace + ['rejected:'+action]}
         trace.append(action)
+        if action=='retrieve':state='evidence'
         if action in {'answer','abstain'}:
             return {'status':action,'trace':trace}
     return {'status':'needs_context','trace':trace}
@@ -219,6 +228,7 @@ assert run(['retrieve']*3 + ['answer'])['status'] == 'step_limit'
 assert run(['retrieve','answer'])['trace'] == ['retrieve','answer']
 assert run(['retrieve','delete'])['status'] == 'failed'
 assert run([])['status'] == 'needs_context'
+assert run(['answer'])['status']=='failed'
 print('terminal states: answer, abstain, step_limit, failed; no fabricated success')
 ''', 'The decision list replaces a model so control flow can be inspected deterministically. The runtime checks the step budget before executing another proposal. Only an allowed terminal action ends successfully. This example bounds steps but not time, tokens, or tool exceptions; those must be added explicitly rather than inferred from a finite loop.', 'Wrap a fake retriever that raises an exception and record a failed tool observation. Add an overall simulated deadline, then test a loop that exhausts time before its step limit.')
 
@@ -226,13 +236,13 @@ add('B12', '''
 import hashlib, json
 def digest(payload):
     return hashlib.sha256(json.dumps(payload,sort_keys=True,separators=(',',':')).encode()).hexdigest()
-payload = {'recipient':'local-reviewer','content':'Policy draft','revision':2}
+payload = {'owner':'acme','recipient':'local-reviewer','content':'Policy draft','revision':2}
 approval = {'digest':digest(payload),'actor':'lead','expires':10}
 ledger, effects = {}, []
-def execute(data, now, actor_active=True, lose_response=False):
-    if not actor_active or now >= approval['expires'] or digest(data) != approval['digest']:
+def execute(data, now, actor_active=True, lose_response=False, actor='lead'):
+    if actor!=approval['actor'] or not actor_active or now >= approval['expires'] or digest(data) != approval['digest']:
         return 'needs_review'
-    key = 'acme:a7:r2'
+    key = data['owner']+':a7:r'+str(data['revision'])
     if key in ledger:
         return 'reconcile_existing' if ledger[key]=='uncertain' else 'already_committed'
     ledger[key] = 'claimed'
@@ -242,6 +252,7 @@ def execute(data, now, actor_active=True, lose_response=False):
 assert execute(dict(payload, recipient='changed'),1) == 'needs_review'
 assert execute(payload,1,actor_active=False) == 'needs_review'
 assert execute(payload,10) == 'needs_review'
+assert execute(payload,1,actor='other')=='needs_review'
 assert execute(payload,1,lose_response=True) == 'uncertain'
 assert execute(payload,2) == 'reconcile_existing' and len(effects)==1
 print('one fake effect; lost response remains uncertain until reconciled')
@@ -331,18 +342,23 @@ print('loading, review and failure remain distinct; input retained; export unapp
 ''', 'This is a view-state contract, not a rendered React interface. It separates machine completion from human approval, always retains the input, and exposes an explicit retry affordance after failure. Disabling export here models a draft-only release; a future reviewed export needs a separate approved revision. State assertions cannot establish keyboard usability or whether labels make sense to people.', 'Render these states in your interface with an associated input label, status announcement and focusable retry button. Disconnect the API after submission. Use keyboard only, then ask a peer to explain the draft status without hints; save both observations.')
 
 add('B16', '''
-from collections import defaultdict
-cases = [('normal','answer','answer'),('ambiguous','clarify','answer'),
-         ('missing','abstain','abstain'),('security','deny','answer')]
-counts = defaultdict(lambda:[0,0])
-for category, expected, observed in cases:
-    counts[category][0] += int(expected==observed)
-    counts[category][1] += 1
-passed = sum(a for a,b in counts.values())
-critical = [c for c,e,o in cases if c=='security' and e!=o]
+# Expected labels stay outside candidate requests.
+def candidate(request):
+    if request['scope']!='acme':return 'answer'  # Deliberate defect to detect.
+    if not request['has_source']:return 'abstain'
+    return 'answer'  # Deliberate missing-condition defect.
+cases=[{'category':'normal','input':{'scope':'acme','has_source':True,'condition':'unopened'},'expected':'answer'},
+       {'category':'ambiguous','input':{'scope':'acme','has_source':True,'condition':None},'expected':'clarify'},
+       {'category':'missing','input':{'scope':'acme','has_source':False,'condition':'unopened'},'expected':'abstain'},
+       {'category':'security','input':{'scope':'other','has_source':True,'condition':'unopened'},'expected':'deny'}]
+counts={};critical=[]
+for case in cases:
+    actual=candidate(dict(case['input']))
+    row=counts.setdefault(case['category'],[0,0]);row[0]+=int(actual==case['expected']);row[1]+=1
+    if case['category']=='security' and actual!=case['expected']:critical.append(case['category'])
+passed=sum(a for a,b in counts.values())
 assert passed==2 and len(cases)==4 and critical==['security']
-assert not (passed/len(cases) >= .5 and not critical)
-print({'passed':passed,'total':len(cases),'categories':dict(counts),'promote':False})
+print({'passed':passed,'total':len(cases),'categories':counts,'promote':False})
 ''', 'Each row has category, expected behavior and observed behavior. Every case contributes to its denominator, including incorrect answers and unavailable outcomes. The security failure independently blocks promotion even if an aggregate threshold passes. The expected labels are fixture judgments; scoring real factual support requires a rubric and a reviewer, not exact string comparison alone.', 'Add separate retrieval and claim-support columns, plus one provider-unavailable result. Show how a candidate improves the overall fraction while regressing on the missing-evidence category; retain both reports.')
 
 add('B17', '''
@@ -421,10 +437,10 @@ add('B22', '''
 import sqlite3
 from tempfile import TemporaryDirectory
 from pathlib import Path
-POLICY = {'id':'returns-v1','text':'Unopened items within 14 days.'}
+POLICY = {'id':'returns-v1','text':'Only unopened items within 14 days; opened items excluded.'}
 def draft(condition, provider):
     if condition is None: return {'status':'clarify','citations':[]}
-    if condition!='unopened': return {'status':'abstain','citations':[]}
+    if condition not in {'unopened','opened'}: return {'status':'abstain','citations':[]}
     try: answer = provider(POLICY['text'])
     except TimeoutError: return {'status':'generation_failed','citations':[]}
     return {'status':'needs_review','answer':answer,'citations':[POLICY['id']]}
@@ -439,7 +455,8 @@ with TemporaryDirectory() as folder:
     assert db.execute('SELECT source FROM runs WHERE id=? AND owner=?',('r1','acme')).fetchone()==('returns-v1',)
     assert db.execute('SELECT source FROM runs WHERE id=? AND owner=?',('r1','other')).fetchone() is None
     assert draft(None,offline)['status']=='clarify'
-    assert draft('opened',offline)['status']=='abstain'
+    assert draft('commercial-contract',offline)['status']=='abstain'
+    assert draft('opened',offline)['status']=='needs_review'
     def unavailable(text): raise TimeoutError()
     assert draft('unopened',unavailable)['status']=='generation_failed'
     db.close()
@@ -819,7 +836,7 @@ from .container_lab import FILES
 add('B19', '''
 from pathlib import Path
 import json
-FILES = ''' + repr(FILES) + '''
+FILES = ''' + pformat(FILES,sort_dicts=False,width=90) + '''
 root=Path('container-lab')
 for name,text in FILES.items():
     path=root/name

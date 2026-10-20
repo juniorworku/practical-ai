@@ -108,3 +108,8 @@ The current generated teaching revision is `academy-course-books-v5`. Stable pra
 Each session includes prerequisites, focused explanations, a complete worked example, a targeted extension, a boundary challenge, an exercise hint, three specific reflections, three graded checks with explanations, lesson-specific flashcards, an artifact submission with acceptance criteria and private notes. PostgreSQL stores learner work privately. Practical submissions and completion are self-reported; the academy does not execute or certify learner artifacts.
 
 The public syllabus and each program's native lessons are independent of the GenAI Accelerator. All required teaching appears inline with no repository redirect or workbook dependency. `course-books.md` describes the editorial changes; `student-content-audit.json` records the actual defect and replacement for every session. `course-book-manifest.json` is the current inventory, not a teaching-quality score.
+
+
+## Guided student teaching review
+
+The [current 60-lesson review](practical-student-review.md) documents the step-by-step concept teaching, bounded practice, complete references, progressive hints and selected-answer feedback now available in the original three programs. Larger project work remains an explicit integration stage after practice.

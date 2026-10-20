@@ -1,15 +1,18 @@
 from rest_framework import serializers
 from .models import Program, Lesson, Project
+from .pedagogy import module_contract, program_contract
 class LessonSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         from copy import deepcopy
         data=super().to_representation(instance)
         data['resources']=deepcopy(data['resources'])
+        data['resources']['pedagogy']=module_contract(instance.program.slug,instance.module)
         learning=data['resources'].get('learning')
         if learning:
             for question in learning['quiz']:
                 question.pop('correct',None)
                 question.pop('explanation',None)
+                question.pop('option_feedback',None)
         return data
 
     class Meta:
@@ -25,10 +28,13 @@ class LessonSummarySerializer(serializers.ModelSerializer):
         model = Lesson
         fields = ['id', 'title', 'module', 'order', 'minutes', 'learning_summary']
 class ProgramSerializer(serializers.ModelSerializer):
+    pedagogy = serializers.SerializerMethodField()
+    def get_pedagogy(self,instance):
+        return program_contract(instance.slug,[lesson.module for lesson in instance.lessons.all()])
     lessons = LessonSummarySerializer(many=True, read_only=True)
     class Meta:
         model = Program
-        fields = ['id', 'slug', 'title', 'category', 'description', 'audience', 'outcome', 'duration', 'level', 'lessons']
+        fields = ['id', 'slug', 'title', 'category', 'description', 'audience', 'outcome', 'duration', 'level', 'lessons', 'pedagogy']
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project

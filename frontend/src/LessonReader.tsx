@@ -4,7 +4,8 @@ import remarkGfm from 'remark-gfm'
 import { ArrowUpRight, Check, LoaderCircle, Save } from 'lucide-react'
 import { api } from './api'
 import LearningStudio from './LearningStudio'
-import type { Lesson, Learning } from './types'
+import EngineeringContract from './EngineeringContract'
+import type { Lesson, Learning, ModulePedagogy } from './types'
 export default function LessonReader({lesson, loading, onError, onDownloadKit}: {lesson: Lesson; loading: boolean; onError: (error: string) => void; onDownloadKit: () => Promise<void>}) {
   const [notes, setNotes] = useState('')
   const [saved, setSaved] = useState(false)
@@ -19,6 +20,7 @@ export default function LessonReader({lesson, loading, onError, onDownloadKit}: 
   const learning=lesson.resources?.learning as Learning | undefined
   if (learning) return <LearningStudio key={lesson.id} lesson={lesson} learning={learning} content={content} onError={onError}/>
   return <>
+    {lesson.resources?.pedagogy ? <EngineeringContract contract={lesson.resources.pedagogy as ModulePedagogy}/> : null}
     {lesson.source_id && <div className="source-note"><span>{lesson.source_id.startsWith('academy-v2:') ? 'Practical academy program' : 'Workshop source'} · {lesson.source_id.split(':').pop()}</span>{lesson.source_url && <a href={lesson.source_url} target="_blank" rel="noreferrer">View source <ArrowUpRight size={12}/></a>}</div>}
     {lesson.source_id?.startsWith('academy-v2:') && <div className="practical-brief"><span className="eyebrow">BUILD · TEST · EXPLAIN</span><p><strong>Your artifact:</strong> <code>{String(lesson.resources?.artifact || '')}</code></p><p><strong>Program capstone:</strong> {String(lesson.resources?.capstone || '')}</p><button className="text-button" onClick={onDownloadKit}>Download offline labs & worksheets <ArrowUpRight size={14}/></button><small>Run exercises in a separate local workspace. No code runs inside this lesson reader.</small></div>}
     <div className="markdown-reader"><ReactMarkdown remarkPlugins={[remarkGfm]} skipHtml components={{img: () => <span className="blocked-image">[Illustration omitted from imported source]</span>, a: ({href, children}) => <a href={href} target="_blank" rel="noreferrer">{children}</a>}}>{content}</ReactMarkdown></div>

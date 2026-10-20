@@ -3,660 +3,960 @@
     "program": "ai-agent-bootcamp",
     "lesson": 1,
     "title": "From prompts to useful systems",
-    "chapters": 3,
-    "words": 688,
+    "chapters": 5,
+    "words": 1409,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B01"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 2,
     "title": "A reproducible Python workspace",
-    "chapters": 3,
-    "words": 761,
+    "chapters": 5,
+    "words": 1487,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B02"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 3,
     "title": "Build a small evaluation dataset first",
-    "chapters": 3,
-    "words": 723,
+    "chapters": 5,
+    "words": 1434,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B03"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 4,
     "title": "Prompt contracts and structured outputs",
-    "chapters": 3,
-    "words": 796,
+    "chapters": 5,
+    "words": 1521,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B04"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 5,
     "title": "Provider adapters, timeouts, and failures",
-    "chapters": 3,
-    "words": 813,
+    "chapters": 5,
+    "words": 1522,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B05"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 6,
     "title": "Context budgets and source selection",
-    "chapters": 3,
-    "words": 733,
+    "chapters": 5,
+    "words": 1444,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B06"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 7,
     "title": "Ingestion, normalization, and versioning",
-    "chapters": 3,
-    "words": 734,
+    "chapters": 5,
+    "words": 1429,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B07"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 8,
     "title": "Chunking and a lexical retrieval baseline",
-    "chapters": 3,
-    "words": 770,
+    "chapters": 5,
+    "words": 1472,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B08"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 9,
     "title": "Grounding, citations, and abstention",
-    "chapters": 3,
-    "words": 754,
+    "chapters": 5,
+    "words": 1448,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B09"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 10,
     "title": "Tools as typed, permissioned interfaces",
-    "chapters": 3,
-    "words": 719,
+    "chapters": 5,
+    "words": 1398,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B10"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 11,
     "title": "State machines and bounded agent loops",
-    "chapters": 3,
-    "words": 714,
+    "chapters": 5,
+    "words": 1436,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B11"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 12,
     "title": "Human approval and idempotent actions",
-    "chapters": 3,
-    "words": 780,
+    "chapters": 5,
+    "words": 1492,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B12"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 13,
     "title": "HTTP contracts and a usable API",
-    "chapters": 3,
-    "words": 798,
+    "chapters": 5,
+    "words": 1510,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B13"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 14,
     "title": "Persistence, transactions, and data ownership",
-    "chapters": 3,
-    "words": 806,
+    "chapters": 5,
+    "words": 1515,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B14"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 15,
     "title": "Design reviewable user experiences",
-    "chapters": 3,
-    "words": 743,
+    "chapters": 5,
+    "words": 1442,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B15"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 16,
     "title": "Build a regression harness",
-    "chapters": 3,
-    "words": 724,
+    "chapters": 5,
+    "words": 1428,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B16"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 17,
     "title": "Prompt injection and untrusted documents",
-    "chapters": 3,
-    "words": 761,
+    "chapters": 5,
+    "words": 1490,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B17"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 18,
     "title": "Observability, cost, and latency budgets",
-    "chapters": 3,
-    "words": 710,
+    "chapters": 5,
+    "words": 1410,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B18"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 19,
     "title": "Containerize the complete application",
-    "chapters": 3,
-    "words": 1202,
+    "chapters": 5,
+    "words": 1934,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B19"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 20,
     "title": "Failure recovery and release checklists",
-    "chapters": 3,
-    "words": 1080,
+    "chapters": 5,
+    "words": 1788,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B20"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 21,
     "title": "Choose orchestration complexity deliberately",
-    "chapters": 3,
-    "words": 724,
+    "chapters": 5,
+    "words": 1426,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B21"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 22,
     "title": "Capstone build: support-agent vertical slice",
-    "chapters": 3,
-    "words": 783,
+    "chapters": 5,
+    "words": 1513,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B22"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 23,
     "title": "Capstone evaluation and peer critique",
-    "chapters": 3,
-    "words": 705,
+    "chapters": 5,
+    "words": 1414,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B23"
+    "cards": 3
   },
   {
     "program": "ai-agent-bootcamp",
     "lesson": 24,
     "title": "Package, hand over, and plan the next release",
-    "chapters": 3,
-    "words": 750,
+    "chapters": 5,
+    "words": 1443,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "B24"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 1,
     "title": "Model the document before automating it",
-    "chapters": 3,
-    "words": 740,
+    "chapters": 5,
+    "words": 1435,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W01"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 2,
     "title": "Build a validated extraction pipeline",
-    "chapters": 3,
-    "words": 749,
+    "chapters": 5,
+    "words": 1423,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W02"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 3,
     "title": "Review queues and extraction evaluation",
-    "chapters": 3,
-    "words": 712,
+    "chapters": 5,
+    "words": 1418,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W03"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 4,
     "title": "Distinguish statements, decisions, and commitments",
-    "chapters": 3,
-    "words": 697,
+    "chapters": 5,
+    "words": 1405,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W04"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 5,
     "title": "Build an action register with human confirmation",
-    "chapters": 3,
-    "words": 709,
+    "chapters": 5,
+    "words": 1392,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W05"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 6,
     "title": "Evaluate summaries for omissions and false commitments",
-    "chapters": 3,
-    "words": 742,
+    "chapters": 5,
+    "words": 1433,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W06"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 7,
     "title": "Form a question and an evidence plan",
-    "chapters": 3,
-    "words": 701,
+    "chapters": 5,
+    "words": 1371,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W07"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 8,
     "title": "Build a claim-and-citation notebook",
-    "chapters": 3,
-    "words": 743,
+    "chapters": 5,
+    "words": 1435,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W08"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 9,
     "title": "Run a small benchmark and write a decision memo",
-    "chapters": 3,
-    "words": 718,
+    "chapters": 5,
+    "words": 1397,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W09"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 10,
     "title": "Design a taxonomy with an uncertainty route",
-    "chapters": 3,
-    "words": 689,
+    "chapters": 5,
+    "words": 1363,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W10"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 11,
     "title": "Routing rules, confusion matrices, and fallback",
-    "chapters": 3,
-    "words": 762,
+    "chapters": 5,
+    "words": 1453,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W11"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 12,
     "title": "Connect triage to a reviewable work queue",
-    "chapters": 3,
-    "words": 798,
+    "chapters": 5,
+    "words": 1480,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W12"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 13,
     "title": "Build a content brief and a factual boundary",
-    "chapters": 3,
-    "words": 721,
+    "chapters": 5,
+    "words": 1399,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W13"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 14,
     "title": "Draft, critique, and revise with a rubric",
-    "chapters": 3,
-    "words": 770,
+    "chapters": 5,
+    "words": 1480,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W14"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 15,
     "title": "Design a responsible publishing workflow",
-    "chapters": 3,
-    "words": 736,
+    "chapters": 5,
+    "words": 1423,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W15"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 16,
     "title": "Scope a useful end-to-end application",
-    "chapters": 3,
-    "words": 699,
+    "chapters": 5,
+    "words": 1379,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W16"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 17,
     "title": "Integrate, persist, and test the workflow",
-    "chapters": 3,
-    "words": 761,
+    "chapters": 5,
+    "words": 1464,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W17"
+    "cards": 3
   },
   {
     "program": "ai-workshops",
     "lesson": 18,
     "title": "Deliver a portfolio of practical workflows",
-    "chapters": 3,
-    "words": 707,
+    "chapters": 5,
+    "words": 1412,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": "W18"
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 1,
     "title": "Choose a workflow and a buyer",
-    "chapters": 4,
-    "words": 1132,
+    "chapters": 6,
+    "words": 1833,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 2,
     "title": "Conduct discovery with evidence",
-    "chapters": 4,
-    "words": 1100,
+    "chapters": 6,
+    "words": 1778,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 3,
     "title": "Measure the baseline and the decision value",
-    "chapters": 4,
-    "words": 1107,
+    "chapters": 6,
+    "words": 1790,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 4,
     "title": "Package a service with a bounded outcome",
-    "chapters": 4,
-    "words": 999,
+    "chapters": 6,
+    "words": 1665,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 5,
     "title": "Write a statement of work with acceptance tests",
-    "chapters": 4,
-    "words": 1067,
+    "chapters": 6,
+    "words": 1738,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 6,
     "title": "Estimate effort, support, and pricing assumptions",
-    "chapters": 4,
-    "words": 1047,
+    "chapters": 6,
+    "words": 1731,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 7,
     "title": "Map data, access, and retention",
-    "chapters": 4,
-    "words": 1056,
+    "chapters": 6,
+    "words": 1734,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 8,
     "title": "Build a thin pilot with visible limitations",
-    "chapters": 4,
-    "words": 1026,
+    "chapters": 6,
+    "words": 1698,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 9,
     "title": "Use client feedback without losing scope",
-    "chapters": 4,
-    "words": 990,
+    "chapters": 6,
+    "words": 1646,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 10,
     "title": "Create a client-readable evaluation report",
-    "chapters": 4,
-    "words": 998,
+    "chapters": 6,
+    "words": 1659,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 11,
     "title": "Plan delivery milestones and manage risk",
-    "chapters": 4,
-    "words": 977,
+    "chapters": 6,
+    "words": 1635,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 12,
     "title": "Manage change requests and commercial boundaries",
-    "chapters": 4,
-    "words": 958,
+    "chapters": 6,
+    "words": 1630,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 13,
     "title": "Deploy with client-owned access and a recovery path",
-    "chapters": 4,
-    "words": 980,
+    "chapters": 6,
+    "words": 1640,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 14,
     "title": "Train users and run acceptance testing",
-    "chapters": 4,
-    "words": 972,
+    "chapters": 6,
+    "words": 1644,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 15,
     "title": "Support boundaries, maintenance, and incident review",
-    "chapters": 4,
-    "words": 945,
+    "chapters": 6,
+    "words": 1624,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 16,
     "title": "Write an evidence-based case study",
-    "chapters": 4,
-    "words": 976,
+    "chapters": 6,
+    "words": 1644,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 17,
     "title": "Prepare outreach and qualification responsibly",
-    "chapters": 4,
-    "words": 982,
+    "chapters": 6,
+    "words": 1660,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
   },
   {
     "program": "freelancing-masterclass",
     "lesson": 18,
     "title": "Complete the simulated client engagement",
-    "chapters": 4,
-    "words": 1023,
+    "chapters": 6,
+    "words": 1706,
     "concepts": 3,
     "quiz": 3,
-    "cards": 3,
-    "example": null
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 1,
+    "title": "Model capabilities and an API adapter contract",
+    "chapters": 6,
+    "words": 1585,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 2,
+    "title": "Stateless requests, sessions and token accounting",
+    "chapters": 5,
+    "words": 1214,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 3,
+    "title": "Async Python: bounded work, deadlines and cancellation",
+    "chapters": 5,
+    "words": 1239,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 4,
+    "title": "Bidirectional streaming and audio backpressure",
+    "chapters": 5,
+    "words": 1207,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 5,
+    "title": "Interruption, session resumption and safe reconnect",
+    "chapters": 5,
+    "words": 1165,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 6,
+    "title": "Voice assistant capstone and latency acceptance",
+    "chapters": 6,
+    "words": 2083,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 7,
+    "title": "Mixed-media intake, parsing and provenance",
+    "chapters": 7,
+    "words": 2041,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 8,
+    "title": "Token-aware and semantic chunking",
+    "chapters": 5,
+    "words": 1196,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 9,
+    "title": "Embedding APIs and index version migrations",
+    "chapters": 6,
+    "words": 1821,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 10,
+    "title": "pgvector search, metadata filters and ANN recall",
+    "chapters": 5,
+    "words": 1157,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 11,
+    "title": "Hybrid retrieval and rank fusion",
+    "chapters": 5,
+    "words": 1141,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 12,
+    "title": "Reranking under a latency and spend budget",
+    "chapters": 6,
+    "words": 1517,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 13,
+    "title": "Grounded claims, citations and abstention",
+    "chapters": 5,
+    "words": 1144,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 14,
+    "title": "Streaming source-grounded chat with failure states",
+    "chapters": 5,
+    "words": 1143,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 15,
+    "title": "Mixed-media knowledge base capstone",
+    "chapters": 5,
+    "words": 1175,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 16,
+    "title": "Tool binding and workspace API permissions",
+    "chapters": 6,
+    "words": 1542,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 17,
+    "title": "LangGraph state and durable human pauses",
+    "chapters": 6,
+    "words": 1464,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 18,
+    "title": "Approval-bound calendar and messaging proposals",
+    "chapters": 5,
+    "words": 1150,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 19,
+    "title": "Context memory, summaries and cache invalidation",
+    "chapters": 5,
+    "words": 1146,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 20,
+    "title": "Framework choices and multi-agent delegation",
+    "chapters": 5,
+    "words": 1158,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 21,
+    "title": "MCP hosts, clients, servers and tool contracts",
+    "chapters": 6,
+    "words": 1457,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 22,
+    "title": "Idempotency, remote uncertainty and reconciliation",
+    "chapters": 6,
+    "words": 1596,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 23,
+    "title": "Slack event intake and background work",
+    "chapters": 5,
+    "words": 1169,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 24,
+    "title": "Workspace agent capstone",
+    "chapters": 6,
+    "words": 1866,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 25,
+    "title": "Faithfulness, relevance and calibrated judges",
+    "chapters": 6,
+    "words": 1495,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 26,
+    "title": "A 120-case edge dataset and repeatable harness",
+    "chapters": 6,
+    "words": 1944,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 27,
+    "title": "Prompt versioning, CI and critical release gates",
+    "chapters": 6,
+    "words": 1625,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 28,
+    "title": "Tracing agent trajectories without leaking prompts",
+    "chapters": 5,
+    "words": 1151,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 29,
+    "title": "Latency, useful-output economics and optimization",
+    "chapters": 5,
+    "words": 1146,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 30,
+    "title": "LLMOps stress-test capstone",
+    "chapters": 5,
+    "words": 1162,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 31,
+    "title": "Containers, network boundaries and persistent state",
+    "chapters": 7,
+    "words": 2406,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 32,
+    "title": "Cloud Run/ECS concurrency and autoscaling",
+    "chapters": 6,
+    "words": 1927,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 33,
+    "title": "Ollama, vLLM and GPU memory/context budgets",
+    "chapters": 6,
+    "words": 1535,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 34,
+    "title": "Distributed quotas, budgets and fallback models",
+    "chapters": 5,
+    "words": 1205,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 35,
+    "title": "Hybrid-model SaaS integration and load experiments",
+    "chapters": 5,
+    "words": 1151,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "lesson": 36,
+    "title": "Graduation release review and fresh-operator handover",
+    "chapters": 5,
+    "words": 1189,
+    "concepts": 3,
+    "quiz": 3,
+    "cards": 3
   }
 ]

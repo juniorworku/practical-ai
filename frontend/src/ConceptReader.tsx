@@ -11,9 +11,9 @@ export function TeachingMarkdown({children}:{children:string}) {
  }}>{children}</ReactMarkdown></div>
 }
 
-export default function ConceptReader({learning,onPractice}:{learning:Learning;onPractice:()=>void}) {
- const [chapter,setChapter]=useState(0)
+export default function ConceptReader({learning,onPractice,initialChapterId}:{learning:Learning;onPractice:()=>void;initialChapterId?:string}) {
  const chapters=learning.chapters||[]
+ const [chapter,setChapter]=useState(()=>Math.max(0,chapters.findIndex(c=>c.id===initialChapterId)))
  const active=chapters[chapter]
  function select(index:number){setChapter(index);document.getElementById('chapter-reading')?.scrollIntoView({block:'start',behavior:'smooth'})}
  if(!active)return null

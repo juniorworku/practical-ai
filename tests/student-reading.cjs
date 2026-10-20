@@ -25,7 +25,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
    await page.getByRole('button',{name:'My learning',exact:true}).first().click();
    await page.locator('.dashboard-course').filter({has:page.getByRole('heading',{name:program.title,exact:true})}).getByRole('button',{name:'Continue learning',exact:true}).click();
    for(let index=0;index<program.lessons.length;index++) {
-    const id='BWF'[programIndex]+String(index+1).padStart(2,'0');
+    const id='BWFE'[programIndex]+String(index+1).padStart(2,'0');
     if(filter.size && !filter.has(id))continue;
     const lesson=program.lessons[index], learning=lesson.resources.learning;
     console.log('Reading '+program.slug+' '+(index+1)+': '+lesson.title);
@@ -60,7 +60,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
     lessons++;
    }
   }
-  assert.equal(lessons,filter.size||60);assert.deepEqual(errors,[]);
+  assert.equal(lessons,filter.size||96);assert.deepEqual(errors,[]);
   console.log(`PASS: all ${lessons} lessons, ${chapters} rendered chapters, every code fence intact, exercises and questions aligned, three quizzes per session.`);
  } catch(error) {await page.screenshot({path:path.join(__dirname,'../docs/screenshots/reading-failure.png')});console.error((await page.locator('body').innerText()).slice(-2500));throw error;} finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1});

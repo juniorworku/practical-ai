@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Voice engineering lab</title>
+<h1>Bidirectional audio laboratory</h1><p>Loopback-only teaching app. Echo mode tests transport; live Gemini requires server credentials and may incur usage charges.</p>
+<label>Lab access token <input id="token" type="password" autocomplete="off"></label>
+<button id="connect">Connect</button><button id="mic" disabled>Start microphone</button><button id="stop" disabled>Stop</button>
+<label>Text turn <input id="text" maxlength="1000"></label><button id="send" disabled>Send text (live mode)</button>
+<p id="status" role="status">Disconnected</p><pre id="events"></pre>
+<script>
+let ws,capture,playback,stream,processor,muted,rate=24000,next=0,nodes=[];
+const el=id=>document.getElementById(id);
+function eventLog(message){el('events').textContent+=message+'\n';}
+function clearPlayback(){for(const node of nodes){try{node.stop();}catch{}}nodes=[];next=0;}
+function stopMic(){if(stream)stream.getTracks().forEach(t=>t.stop());if(processor)processor.disconnect();if(capture)capture.close();stream=capture=processor=null;el('mic').disabled=!ws||ws.readyState!==1;}
+el('connect').onclick=async()=>{
+ stopMic();if(ws)ws.close();clearPlayback();
+ playback ||= new AudioContext();await playback.resume();
+ ws=new WebSocket((location.protocol==='https:'?'wss://':'ws://')+location.host+'/voice');ws.binaryType='arraybuffer';const connection=ws;
+ ws.onopen=()=>{if(ws===connection)connection.send(JSON.stringify({token:el('token').value}));};
+ ws.onmessage=message=>{
+  if(ws!==connection)return;
+  if(typeof message.data==='string'){
+   const data=JSON.parse(message.data);
+   if(data.type==='audio_format'){rate=data.rate;return;}
+   if(data.type==='interrupted')clearPlayback();
+   if(data.type==='ready'){el('status').textContent='Connected: '+data.mode;el('mic').disabled=false;el('send').disabled=data.mode!=='gemini';el('stop').disabled=false;}
+   if(data.type==='error')el('status').textContent=data.code;
+   eventLog(JSON.stringify(data));return;
+  }
+  const view=new DataView(message.data),samples=new Float32Array(view.byteLength/2);
+  for(let i=0;i<samples.length;i++)samples[i]=view.getInt16(i*2,true)/32768;
+  const buffer=playback.createBuffer(1,samples.length,rate);buffer.copyToChannel(samples,0);
+  const node=playback.createBufferSource();node.buffer=buffer;node.connect(playback.destination);
+  next=Math.max(next,playback.currentTime+.02);node.start(next);next+=buffer.duration;nodes.push(node);
+  node.onended=()=>{nodes=nodes.filter(n=>n!==node);};
+  // Bound playback backlog; an overloaded session is interrupted explicitly.
+  if(next-playback.currentTime>2){clearPlayback();eventLog('Playback overload: queue cleared; result incomplete');}
+ };
+ ws.onclose=()=>{if(ws!==connection)return;stopMic();clearPlayback();el('status').textContent='Session closed; reconnect explicitly';el('send').disabled=el('stop').disabled=true;};
+ ws.onerror=()=>{if(ws!==connection)return;el('status').textContent='Connection failed';};
+};
+el('mic').onclick=async()=>{
+ el('mic').disabled=true;
+ try{
+  stream=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true}});
+  capture=new AudioContext({sampleRate:16000});
+  if(capture.sampleRate!==16000)throw Error('16kHz capture unavailable; implement a tested resampler');
+  const worklet=`class Capture extends AudioWorkletProcessor {process(inputs){if(inputs[0]?.[0])this.port.postMessage(inputs[0][0].slice());return true;}}registerProcessor('capture',Capture);`;
+  const url=URL.createObjectURL(new Blob([worklet],{type:'text/javascript'}));
+  try{await capture.audioWorklet.addModule(url);}finally{URL.revokeObjectURL(url);}
+  processor=new AudioWorkletNode(capture,'capture');
+  processor.port.onmessage=message=>{
+   if(!ws||ws.readyState!==1)return;
+   if(ws.bufferedAmount>64000){eventLog('Uplink overload; microphone stopped');stopMic();return;}
+   const samples=message.data,bytes=new ArrayBuffer(samples.length*2),view=new DataView(bytes);
+   for(let i=0;i<samples.length;i++)view.setInt16(i*2,Math.round(Math.max(-1,Math.min(1,samples[i]))*32767),true);
+   ws.send(bytes);
+  };
+  const input=capture.createMediaStreamSource(stream);muted=capture.createGain();muted.gain.value=0;
+  input.connect(processor);processor.connect(muted);muted.connect(capture.destination);el('mic').disabled=true;
+ }catch(error){stopMic();el('status').textContent=error.message;}
+};
+el('send').onclick=()=>{if(ws?.readyState===1)ws.send(JSON.stringify({type:'text',text:el('text').value}));};
+el('stop').onclick=()=>{stopMic();if(ws?.readyState===1)ws.send(JSON.stringify({type:'audio_end'}));clearPlayback();};
+</script></html>

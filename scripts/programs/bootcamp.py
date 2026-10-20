@@ -49,10 +49,10 @@ Keep trusted application instructions separate from retrieved content. An excerp
 '''Define a provider-neutral result contract:
 
 ```json
-{"status":"answer","answer":"Unopened items qualify within 14 days.","citations":["returns-v1:section-2"],"needs_review":true}
+{"status":"answer","answer":"Unopened items qualify within 14 days.","citations":["returns-v1"]}
 ```
 
-Allowed statuses are `answer`, `clarify`, and `abstain`. An answer with no citations should be rejected even if every field has the correct type.''',
+Allowed statuses are `answer`, `clarify`, and `abstain`. These are the exact three provider-result fields used by the validator. The application stores human-review state separately; adding a `needs_review` key to this provider payload would violate its exact-field contract. An answer with no citations should be rejected even if every field has the correct type.''',
 ['Write a prompt template that separates task instructions, question, and labeled source passages.','Implement validation for permitted statuses, field types, citation IDs, and empty answers.','Create fake provider responses for normal output, malformed JSON, extra fields, and unsupported citation IDs.','Record how each invalid response reaches a safe user-visible state.'],
 'The fake provider emits a valid citation ID but invents a policy exception. Explain which check catches structural failure and which requires semantic review.',
 ['Malformed output never becomes an approved answer.','Unknown source IDs are rejected.','The evaluation report distinguishes schema validity from factual support.'],'app/contracts.py')

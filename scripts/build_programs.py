@@ -39,6 +39,10 @@ for course,prefix in zip(PROGRAMS,['B','W','F']):
 
 from course_books.build import enrich
 enrich(PROGRAMS)
+from engineering.build import build as build_engineering
+PROGRAMS.append(build_engineering())
+from engineering.principles import apply
+apply(PROGRAMS)
 
 archive=ROOT/'backend/academy/legacy_starter_curriculum.json'
 target=ROOT/'backend/academy/starter_curriculum.json'
@@ -54,3 +58,6 @@ target.write_text(json.dumps(PROGRAMS,indent=2,ensure_ascii=False)+'\n')
 for p in PROGRAMS:
     words=sum(len(l['content'].split()) for l in p['lessons'])
     print(f"{p['title']}: {len(p['lessons'])} sessions, {sum(l['minutes'] for l in p['lessons'])/60:g} practice hours, {words} words")
+
+# Keep the optional offline archive in step with the in-app books.
+runpy.run_path(str(ROOT/'scripts/package_learning_kit.py'))

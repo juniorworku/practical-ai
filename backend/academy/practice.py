@@ -77,7 +77,7 @@ def submit_quiz(request,pk):
         selected=answers[question['id']]
         if not isinstance(selected,str) or selected not in {c['id'] for c in question['options']}:
             return Response({'detail':'Select one of the supplied options for each question.'},status=400)
-        feedback.append({'id':question['id'],'correct':selected==question['correct'],'selected':selected,'correct_option':question['correct'],'explanation':question['explanation']})
+        feedback.append({'id':question['id'],'correct':selected==question['correct'],'selected':selected,'correct_option':question['correct'],'explanation':question.get('option_feedback',{}).get(selected,question['explanation'])})
     attempt=QuizAttempt.objects.create(user=request.user,lesson=lesson,revision=learning['revision'],answers=answers,feedback=feedback,score=sum(f['correct'] for f in feedback),total=len(questions))
     return Response(attempt_data(attempt),status=201)
 
@@ -88,7 +88,7 @@ def program_download(request,slug):
         return Response({'detail':'Enroll in this program before downloading its workbook.'},status=403)
     base=Path(settings.BASE_DIR)/'academy'
     output=BytesIO()
-    safe_suffixes={'.md','.py','.json','.jsonl','.toml','.lock','.txt','.csv'}
+    safe_suffixes={'.md','.py','.json','.jsonl','.toml','.lock','.txt','.csv','.html','.sql'}
     with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED) as archive:
         archive.writestr('LICENSE.teaching',(base/'content/LICENSE.source').read_text())
         archive.writestr('README.md',f'# {program.title}\n\nAn independent learning workspace for this program. Work locally with synthetic data. Lessons, questions, quizzes, flashcards, exercises and practical tasks belong to this program. Downloaded quiz solutions are self-study references, not evidence of a passed online attempt.\n')
@@ -97,8 +97,8 @@ def program_download(request,slug):
             archive.writestr(f'lessons/{lesson.order+1:02}.md',lesson.content)
             rows.append({'title':lesson.title,'module':lesson.module,'minutes':lesson.minutes,'task':lesson.task,'resources':lesson.resources})
         archive.writestr('workbook.json',json.dumps(rows,indent=2))
-        folder=base/'content'/('starter' if program.category=='Accelerator' else 'program_labs')
-        if program.category in ['Cohort','Workshop','Masterclass','Accelerator']:
+        folder=base/'content'/('starter' if program.category=='Accelerator' else 'engineering_examples' if program.category=='Engineering' else 'program_labs')
+        if program.category in ['Cohort','Workshop','Masterclass','Accelerator','Engineering']:
             for path in folder.rglob('*'):
                 if path.is_file() and not any(part in ['__pycache__','.venv','.pytest_cache','.git'] for part in path.parts) and (path.suffix in safe_suffixes or path.name.startswith('LICENSE')):
                     archive.write(path,'workspace/'+str(path.relative_to(folder)))

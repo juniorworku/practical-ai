@@ -1,0 +1,362 @@
+[
+  {
+    "session": 1,
+    "title": "Model capabilities and an API adapter contract",
+    "concepts_taught": 3,
+    "core_practice": "Add capability preflight and a permanent-authentication error path. Check that an unsupported audio request never increments the call counter and an authentication failure never becomes a successful draft.",
+    "reference_stdout": "Result(status='draft', text='Synthetic supported draft', input_tokens=12, output_tokens=5, usage_kind='fixture')\npractice: unsupported/auth failures made no provider call; text produced one draft",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 2,
+    "title": "Stateless requests, sessions and token accounting",
+    "concepts_taught": 3,
+    "core_practice": "Add permission-revision and expiry checks to a cached answer. Test the exact expiry boundary and a revoked permission without making a provider call.",
+    "reference_stdout": "{'retrieval_allowance': 560, 'cache_scope_tests': 'passed', 'token_kind': 'supplied fixture'}\npractice: expiry, owner and permission invalidation passed; remaining fixture allowance 480",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 3,
+    "title": "Async Python: bounded work, deadlines and cancellation",
+    "concepts_taught": 3,
+    "core_practice": "Hold a semaphore permit, cancel a waiting task, and prove it can be acquired afterward. Separately force an overall deadline while waiting.",
+    "reference_stdout": "{'requests': 6, 'peak_active': 2, 'failed': 1, 'completed': 5}\npractice: cancelled waiter cleaned up, queue deadline enforced, permit reusable",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 4,
+    "title": "Bidirectional streaming and audio backpressure",
+    "concepts_taught": 3,
+    "core_practice": "Replace dropping with an awaiting producer and consumer for five synthetic frames. Preserve order, cap queued frames at two, and join all work cleanly.",
+    "reference_stdout": "{'accepted': 2, 'overload': 3, 'frame_ms': 10}\npractice: five frames retained in order; queue stayed within two frames (20ms)",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 5,
+    "title": "Interruption, session resumption and safe reconnect",
+    "concepts_taught": 3,
+    "core_practice": "Add an owner/session-generation guard for late audio callbacks. Test that an old connection cannot enqueue audio into the new turn.",
+    "reference_stdout": "{'queued_old_audio': 0, 'resume_sequences': [8, 9]}\npractice: old-generation and wrong-owner audio rejected; current audio queued once",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 6,
+    "title": "Voice assistant capstone and latency acceptance",
+    "concepts_taught": 3,
+    "core_practice": "Implement a voice release decision that requires quality and no-audio gates in addition to p95. Prove the fast-but-silent run fails and that zero accepted outputs yield no cost ratio.",
+    "reference_stdout": "{'attempts': 4, 'playable_audio_turns': 3, 'p95_completed_ms': 1200, 'accepted': 2, 'cost_per_accepted': 5, 'failed_before_audio': 1}\npractice: voice release blocked by quality/no-audio gates; zero-acceptance ratio is undefined",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 7,
+    "title": "Mixed-media intake, parsing and provenance",
+    "concepts_taught": 3,
+    "core_practice": "Add a parse-result transition that quarantines empty extraction and never replaces the active revision with a failed one.",
+    "reference_stdout": "{'jobs': 2, 'duplicate_same_owner': 'deduplicated', 'oversize': 'rejected'}\npractice: empty extraction quarantined; parsed revision did not bypass activation",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 8,
+    "title": "Token-aware and semantic chunking",
+    "concepts_taught": 3,
+    "core_practice": "Implement budgeted selection that preserves whole sections and records omitted IDs. Use supplied word estimates and label them as estimates; do not claim a real tokenizer implementation.",
+    "reference_stdout": "oversized rule refused; exception stays attached\npractice: whole rule/exception retained; omitted section recorded; estimate stays within allowance",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 9,
+    "title": "Embedding APIs and index version migrations",
+    "concepts_taught": 3,
+    "core_practice": "Add finite-coordinate validation and an activation gate that leaves v1 active when v2 has missing or failing evidence.",
+    "reference_stdout": "embedding model and dimension gates passed\npractice: non-finite/bool coordinates rejected; failed migration retained v1; checked v2 activated",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 10,
+    "title": "pgvector search, metadata filters and ANN recall",
+    "concepts_taught": 3,
+    "core_practice": "Score approximate retrieval against exact authorized IDs and reject any scope leak before computing an aggregate recall.",
+    "reference_stdout": "tenant and active-revision filter applied before output\npractice: approximation recall 0.5; empty baseline undefined; leaked owner rejected",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 11,
+    "title": "Hybrid retrieval and rank fusion",
+    "concepts_taught": 3,
+    "core_practice": "Add a reciprocal-rank metric and prove a duplicate candidate does not inflate fusion. Compare the same relevant ID in baseline and fused results.",
+    "reference_stdout": "{'hybrid_rank': ['b', 'a', 'd', 'c'], 'method': 'reciprocal-rank fusion'}\npractice: duplicate vote removed; relevant b reciprocal rank improved from 0.5 to 1 on this fixture",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 12,
+    "title": "Reranking under a latency and spend budget",
+    "concepts_taught": 3,
+    "core_practice": "Implement a deadline-aware mapping wrapper that rejects duplicate indexes and returns a labeled original-order fallback when time is insufficient.",
+    "reference_stdout": "rerank candidate identity checked; top result c1\npractice: low-budget fallback labeled; original index mapping preserved; duplicate rejected",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 13,
+    "title": "Grounded claims, citations and abstention",
+    "concepts_taught": 3,
+    "core_practice": "Implement answer/clarify/abstain selection from explicit evidence and applicability state. Test that an old revision cannot authorize a current answer.",
+    "reference_stdout": "{'citation_identity': True, 'reviewed_supported_claims': 0, 'claims': 1, 'ready': False}\npractice: current evidence answers; missing condition clarifies; stale/conflicting evidence abstains",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 14,
+    "title": "Streaming source-grounded chat with failure states",
+    "concepts_taught": 3,
+    "core_practice": "Build an event reducer that accepts authorized completion, marks stream errors incomplete, refuses unknown source IDs and rejects data after completion.",
+    "reference_stdout": "{'partial_is_approved': False, 'completed_events': 3}\npractice: error remains incomplete; allowed completion recognized; private citation and late delta rejected",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 15,
+    "title": "Mixed-media knowledge base capstone",
+    "concepts_taught": 3,
+    "core_practice": "Add a multi-passage gold case, calculate passage recall correctly and report no-source behavior separately.",
+    "reference_stdout": "{'recall_at_2_answerable': 0.5, 'answerable': 2, 'no_source_cases': 1, 'behaviors_correct': 2, 'all_cases': 3}\npractice: multi-passage recall is 0.5, not hit rate 1; no-source behavior scored separately",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 16,
+    "title": "Tool binding and workspace API permissions",
+    "concepts_taught": 3,
+    "core_practice": "Reject extra owner fields and non-string arguments, then prove a valid draft remains possible. Add no send behavior.",
+    "reference_stdout": "tool schema, application authority and draft-only effect verified\npractice: injected owner/invalid types rejected; authenticated local draft preserved",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 17,
+    "title": "LangGraph state and durable human pauses",
+    "concepts_taught": 3,
+    "core_practice": "Create a separate small checkpoint table and test restart, wrong-owner denial and stale-version rejection using conditional updates.",
+    "reference_stdout": "checkpoint survives reopen; scoped version consumed once\npractice: reopened checkpoint rejects wrong owner/stale version; one transition succeeds",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 18,
+    "title": "Approval-bound calendar and messaging proposals",
+    "concepts_taught": 3,
+    "core_practice": "Validate a timezone-aware start/end interval before approval. Test a valid interval, a reversed interval and a naive time.",
+    "reference_stdout": "approval binds exact time, recipients, destination and active reviewer authority\npractice: aware increasing interval accepted; reversed/naive intervals rejected before approval",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 19,
+    "title": "Context memory, summaries and cache invalidation",
+    "concepts_taught": 3,
+    "core_practice": "Write an explicit owner/permission-aware memory selector and a reviewed summary-fidelity gate. Reject a compressed summary whose required exception is missing.",
+    "reference_stdout": "owner/revision memory isolation passed; exception preserved in summary fixture\npractice: scoped memory budget enforced; revoked memory excluded; missing-exception review failed",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 20,
+    "title": "Framework choices and multi-agent delegation",
+    "concepts_taught": 3,
+    "core_practice": "Add a conflict-aware merge that retains costs/provenance and routes incompatible claims to review.",
+    "reference_stdout": "{'workers': 2, 'unique_claims': 1, 'total_cost': 4, 'quality_gain_not_established': True}\npractice: conflicting claims require review; agreement still retains duplicate spend",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 21,
+    "title": "MCP hosts, clients, servers and tool contracts",
+    "concepts_taught": 3,
+    "core_practice": "Implement a one-tool dispatcher with strict arguments and an owner check. Reject unknown tools, extra fields and cross-owner requests.",
+    "reference_stdout": "{'discovered_tools': ['lookup_policy'], 'authority_source': 'application authentication', 'protocol_fixture_only': True}\npractice: scoped invocation passed; cross-owner and extra-field requests rejected",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 22,
+    "title": "Idempotency, remote uncertainty and reconciliation",
+    "concepts_taught": 3,
+    "core_practice": "Add reconciliation that resolves an observed original key without dispatching again. Keep an absent/unknown remote observation uncertain rather than fabricating success.",
+    "reference_stdout": "{'fake_effects': 1, 'lost_response': 'reconcile same key, never blind replay'}\npractice: original operation reconciled without redispatch; one fake effect retained",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 23,
+    "title": "Slack event intake and background work",
+    "concepts_taught": 3,
+    "core_practice": "Replace the memory-only deduplication test with a file-backed scoped inbox. Test duplicate, changed-content conflict and restart readback.",
+    "reference_stdout": "{'deliveries': 2, 'durable_design_jobs': 1, 'worker_state': 'retry_wait', 'storage_in_this_fixture': 'memory'}\npractice: scoped inbox survived reopen; duplicate/conflict did not create extra jobs",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 24,
+    "title": "Workspace agent capstone",
+    "concepts_taught": 3,
+    "core_practice": "Extend the capstone dispatcher with a stale-payload approval test and a missing-evidence test. Assert the effect count stays unchanged on both.",
+    "reference_stdout": "{'fake_effects': 2, 'duplicate_did_not_write': True, 'lost_response': 'uncertain then reconcile'}\npractice: stale approval/missing evidence caused no effect; approved supported proposal committed once",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 25,
+    "title": "Faithfulness, relevance and calibrated judges",
+    "concepts_taught": 3,
+    "core_practice": "Implement reviewed-versus-judge disagreement reporting, including missing judge outputs as a separate count.",
+    "reference_stdout": "{'reviewed_faithfulness': 0.5, 'claims': 2, 'semantic_labels': 'human fixture', 'mechanical_citation_identity_can_still_pass': True}\npractice: negation disagreement retained; missing judgment excluded from agreement denominator",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 26,
+    "title": "A 120-case edge dataset and repeatable harness",
+    "concepts_taught": 3,
+    "core_practice": "Add a new scope-denial case, prove it executes, then deliberately corrupt its expected decision to ensure the contract gate detects a failure.",
+    "reference_stdout": "{'concrete_cases': 4, 'contract_passed': 4, 'semantic_model_evaluation': False}\npractice: real scoped request executed; corrupted expectation detected; labels stayed outside request",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 27,
+    "title": "Prompt versioning, CI and critical release gates",
+    "concepts_taught": 3,
+    "core_practice": "Add code/source revisions to the manifest and verify prompt, source and model changes each produce a different fingerprint.",
+    "reference_stdout": "{'manifest_recorded': True, 'promotion': False, 'reason': 'critical regression blocks aggregate gain'}\npractice: prompt/model/source changes invalidate release identity; key order does not",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 28,
+    "title": "Tracing agent trajectories without leaking prompts",
+    "concepts_taught": 3,
+    "core_practice": "Compute wall time from overlapping span intervals and project trace data to an allowlist that removes a canary prompt.",
+    "reference_stdout": "{'run_ms_sequential': 920, 'outcome': 'failed', 'source_content_logged': False}\npractice: parallel wall time900ms versus1700ms span sum; canary excluded before export",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 29,
+    "title": "Latency, useful-output economics and optimization",
+    "concepts_taught": 3,
+    "core_practice": "Compare a cheap low-quality candidate with an eligible baseline. Filter by quality before ranking useful-output cost; handle zero accepted outputs.",
+    "reference_stdout": "{'attempts': 20, 'accepted': 15, 'p95_ms': 280, 'cost_per_accepted': 1.3333}\npractice: quality floor excluded cheap candidate; zero-acceptance cost remains undefined",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 30,
+    "title": "LLMOps stress-test capstone",
+    "concepts_taught": 3,
+    "core_practice": "Create a release summary that preserves missing populations, requires complete review, and enforces a predeclared 95% reviewed quality floor.",
+    "reference_stdout": "{'promotion': False, 'unavailable_kept': 7, 'unreviewed_completed': 13}\npractice:13 unreviewed and7 unavailable retained;95% quality floor enforced; impossible counts rejected",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 31,
+    "title": "Containers, network boundaries and persistent state",
+    "concepts_taught": 3,
+    "core_practice": "Model distinct readiness outcomes for a working and unavailable database, with a stable public error. Then follow the full container appendix for real HTTP/readback behavior.",
+    "reference_stdout": "browser origin, container DNS, runtime credentials and durable storage separated\npractice: readiness reflects datastore outcome; public failure omits internal connection details",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 32,
+    "title": "Cloud Run/ECS concurrency and autoscaling",
+    "concepts_taught": 3,
+    "core_practice": "Implement bounded admission for ten 12-slot instances and report offered/admitted/rejected counts without relabeling rejection as success.",
+    "reference_stdout": "{'offered_connections': 240, 'measured_safe_per_instance': 12, 'minimum_instances_at_capacity': 20, 'configured_max': 10, 'admission_or_capacity_change_required': True}\npractice:240 offered,120 admitted,120 rejected; zero replicas admit none",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 33,
+    "title": "Ollama, vLLM and GPU memory/context budgets",
+    "concepts_taught": 3,
+    "core_practice": "Add a context-sensitive memory worksheet: double the supplied per-request KV assumption, test exhausted memory and reject an impossible fixed-memory configuration.",
+    "reference_stdout": "{'illustrative_slots': 5, 'real_concurrency_requires_measurement': True}\npractice: doubling assumed KV reduces illustrative slots5\u21922; overcommit rejected",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 34,
+    "title": "Distributed quotas, budgets and fallback models",
+    "concepts_taught": 3,
+    "core_practice": "Demonstrate shared atomic request reservations with two SQLite connections using one conditional UPDATE. Prove only two aggregate claims succeed.",
+    "reference_stdout": "burst bounded; one request admitted after refill; shared atomic store still required\npractice: two connections shared one atomic quota; two aggregate admissions, two rejections",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 35,
+    "title": "Hybrid-model SaaS integration and load experiments",
+    "concepts_taught": 3,
+    "core_practice": "Add local-only residency and remaining-deadline gates before route selection. Verify no premium route is returned for restricted data.",
+    "reference_stdout": "routing contract checked; semantic difficulty classifier and quality remain unevaluated\npractice: residency/deadline/budget checked before premium routing",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  },
+  {
+    "session": 36,
+    "title": "Graduation release review and fresh-operator handover",
+    "concepts_taught": 3,
+    "core_practice": "Implement a three-state release-packet validator. Only literal passed states may release; failed, untested and unknown values must block.",
+    "reference_stdout": "{'release_ready': False, 'missing_evidence': ['load_report_with_denominators'], 'configuration_is_not_scale_evidence': True}\npractice: untested/missing gates block release; ambiguous statuses rejected",
+    "teaching_before_practice": true,
+    "choice_feedback": 9,
+    "staged_hints": 3
+  }
+]

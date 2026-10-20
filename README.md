@@ -7,10 +7,22 @@ A free learning academy built with Django REST Framework, PostgreSQL, React + Ty
 ```sh
 cp .env.example .env
 # Replace DJANGO_SECRET_KEY and POSTGRES_PASSWORD in .env.
-docker compose up --build
+sh scripts/start.sh
 ```
 
 Open http://localhost:8080. Create a free learner account. The API and PostgreSQL are private to the Compose network; only the frontend is published, on localhost. Database data persists in a named volume. Startup applies migrations and imports course content without overwriting instructor edits.
+
+### Run beside Workshop
+
+| App | Browser URL |
+|---|---|
+| Practical AI Docker | http://127.0.0.1:8080 |
+| Workshop Docker | http://127.0.0.1:8000 |
+| Practical AI native Django (optional) | http://127.0.0.1:8001 |
+
+`sh scripts/start.sh` starts the `practical-ai-academy` project using this directory's Compose and environment files, even when called from another folder or a shell with another `COMPOSE_PROJECT_NAME`. It builds and waits for startup, and retains the existing named database volume. To stop only this app, run `docker compose --project-name practical-ai-academy down` from this directory.
+
+The dedicated host setting is `ACADEMY_PORT=8080` in `.env`; the generic `APP_PORT` is intentionally ignored so another app's exported value cannot move Practical AI onto port 8000. If upgrading an existing custom port, rename that `.env` key to `ACADEMY_PORT`. Internal API port 8000 and PostgreSQL port 5432 are private to this app's Docker network and can coexist with Workshop's internal ports. Vite's default proxy continues to use Docker on 8080; if choosing a different Docker port, set `ACADEMY_API_PROXY` to that origin before starting Vite.
 
 Create an instructor/admin account:
 
@@ -34,7 +46,7 @@ export USE_SQLITE=1
 ../.venv/bin/python manage.py migrate
 ../.venv/bin/python manage.py seed_curriculum
 ../.venv/bin/python manage.py import_workshop
-../.venv/bin/python manage.py runserver 127.0.0.1:8000
+../.venv/bin/python manage.py runserver 127.0.0.1:8001
 ```
 
 In another terminal:
@@ -42,7 +54,7 @@ In another terminal:
 ```sh
 cd frontend
 npm ci
-npm run dev
+ACADEMY_API_PROXY=http://127.0.0.1:8001 npm run dev
 ```
 
 Open the Vite URL (normally http://localhost:5173). Vite forwards `/api` to Django. To develop against PostgreSQL, omit `USE_SQLITE`, configure the PostgreSQL variables from `.env.example`, and point `POSTGRES_HOST` at your local database. Shell development does not automatically read `.env`.
@@ -52,13 +64,13 @@ Open the Vite URL (normally http://localhost:5173). Vite forwards `/api` to Djan
 - AI Agent Bootcamp: eight weeks, 24 build sessions, approximately 50 hours.
 - AI Workshops: six weeks, 18 project studios, approximately 50.5 hours.
 - Freelancing Masterclass: six weeks, 18 delivery sessions, approximately 40 hours.
-- Six runnable offline labs, 17 reference tests, synthetic fixtures, client-delivery templates, and 60 specific session deliverables.
+- Six runnable offline labs, 17 reference tests, synthetic fixtures, client-delivery templates, and 96 specific session deliverables.
 - Full original workshop library: **523 chapters across 20 phases**, including source code and original quiz references.
 - Original GenAI Accelerator: **85 catalog lessons + 20 labs**, including the added extension chapter; original materials describe 84 numbered core/advanced lessons. The import uses the actual catalog, not a hard-coded count.
 - Eight-part Terminal Tutor guide, downloadable curriculum and original capstone starter.
 - Learner registration/login/logout, idempotent enrollment and completion, persistent private lesson notes, searchable library and lessons.
 - A saved project planner (deterministic guided template) and a safe, stateless terminal simulation.
-- Four independent catalog programs with public syllabuses. The three practical programs include 60 substantive sessions, 238 teaching/code/case chapters, 635 quiz questions, 905 flashcards, 180 reflection prompts, guided exercises, acceptance checklists, private notes and inline input/output experiments.
+- Five independent catalog programs with public syllabuses. The four authored practical programs include 96 substantive sessions, 288 quiz questions, 288 flashcards, 288 reflection prompts, guided exercises, acceptance checklists, private notes and inline input/output experiments.
 - Sage/sand/cream theme across the public catalog and learner workspace; personal dashboard, admin, health endpoint, migrations, API and browser regression tests.
 
 ## Source materials
@@ -92,9 +104,9 @@ For PostgreSQL integration tests, use a dedicated test database/user with permis
 
 ## Release boundaries
 
-This is a runnable first release, not a deployed public service. The original lessons, lab readings, source quiz references, notes and downloads are integrated; original model-powered feedback, cohort video calls, email/password recovery, certificates and community discussion are not ported. The three practical programs now include server-graded quizzes, flashcards, reflections and practical evidence submissions. The Accelerator planner makes no model call and Terminal Tutor simulation never runs a shell. Learners run capstone code separately. Progress is self-reported, not an assessment or certification.
+This is a runnable first release, not a deployed public service. The original lessons, lab readings, source quiz references, notes and downloads are integrated; original model-powered feedback, cohort video calls, email/password recovery, certificates and community discussion are not ported. The four practical programs now include server-graded quizzes, flashcards, reflections and practical evidence submissions. The Accelerator planner makes no model call and Terminal Tutor simulation never runs a shell. Learners run capstone code separately. Progress is self-reported, not an assessment or certification.
 
-For Docker verification, use `APP_URL=http://127.0.0.1:8080 EXPECT_DATABASE=postgresql node tests/browser-smoke.cjs` against a development stack. The browser suite reads all 60 program sessions, exercises each program, checks account isolation and token revocation, and downloads the full learning kit.
+For Docker verification, use `APP_URL=http://127.0.0.1:8080 EXPECT_DATABASE=postgresql node tests/browser-smoke.cjs` against a development stack. The browser suite reads all 96 program sessions, exercises each program, checks account isolation and token revocation, and downloads the full learning kit.
 
 Build authored curriculum with `python3 scripts/build_programs.py`, then regenerate the public download using `python3 scripts/package_learning_kit.py`. The latter preserves a strict public-file allowlist. Recognized legacy introductory lessons are archived with their existing identities, notes, completions, and enrollments; they are excluded from active-course progress. Practical program rows are seeded by stable source IDs and instructor edits are retained.
 
@@ -102,6 +114,13 @@ Before public deployment, configure HTTPS and secure cookies, set `DEBUG=0`, use
 
 Run `APP_URL=http://127.0.0.1:8080 node tests/learning-studio.cjs` to verify all seven activity sections, persisted results, independent curricula, chapter navigation, inline exercises and responsive layouts. See `docs/sources.md` for learning-interface research and palette attribution.
 
-The three course books are built by `scripts/course_books/` from the pinned MIT source plus original academy teaching and cases. Learners read the content in the app; no GitHub redirect or workbook download is required. The license and teaching credit appear in each book. `docs/course-book-manifest.json` records the exact selection per session. Existing notes, enrollments and lesson identities are preserved during the recognized v3 upgrade; earlier practice revisions remain stored.
+The original three course books are built by `scripts/course_books/` from the pinned MIT source plus original academy teaching and cases. Learners read the content in the app; no GitHub redirect or workbook download is required. The license and teaching credit appear in each book. `docs/course-book-manifest.json` records the exact selection per session. Existing notes, enrollments and lesson identities are preserved during the recognized v3 upgrade; earlier practice revisions remain stored.
 
-The Vite preview on port 5173 proxies to the Docker app on port 8080 by default, so both use the same PostgreSQL curriculum and learner state. For an intentionally separate native Django server, set `ACADEMY_API_PROXY=http://127.0.0.1:8000` before starting Vite.
+The Vite preview on port 5173 proxies to the Docker app on port 8080 by default, so both use the same PostgreSQL curriculum and learner state. For an intentionally separate native Django server, set `ACADEMY_API_PROXY=http://127.0.0.1:8001` before starting Vite.
+
+The independent 12-week AI Engineering program is generated by `scripts/engineering/`, with 36 sessions, five capstones and roughly 149 hours of practice. Every module applies software-first, production-oriented teaching and the latency/cost/quality, deterministic-evaluation and context-management pillars. See [the curriculum and evidence boundaries](docs/engineering-curriculum.md). Run `python3 tests/engineering-content.py` for exact published offline examples and `python tests/engineering-integrations.py` in an isolated environment with the supplied example dependencies for real local SDK/protocol checks. Neither suite establishes live provider quality or cloud/GPU scale.
+
+The [student teaching review](docs/engineering-student-review.md) documents lesson sequencing, practice alignment and concrete example repairs. Run `python3 tests/engineering-teaching-audit.py` to execute all 36 complete published practice solutions. `node tests/engineering-student.cjs` walks every engineering lesson in the running Docker app, checking chapter/code rendering, staged hints, reference solutions, reflection guidance, selected-answer feedback and remediation navigation.
+
+
+The same guided teaching structure now covers the original three programs: 60 lessons with concept tutorials, causal walkthroughs, bounded practice before integration, complete code or decision references, progressive hints and selected-answer feedback. See [the practical-program student review](docs/practical-student-review.md). Run `python3 tests/practical-teaching-audit.py` for the exact published practice references and regression probes; run `node tests/practical-student.cjs` against the Docker app for every original program’s chapters and guided student flow. An optional comma-separated argument such as `B04,B22,F06` limits browser checks while still verifying served-source parity for all 60 lessons.

@@ -1,0 +1,76 @@
+"""Academy-wide engineering teaching contracts. No network or model calls."""
+PRINCIPLES = {
+ 'version':'engineering-principles-v1',
+ 'software_first':'Build interfaces, asynchronous services, API adapters and recoverable data flows before studying algorithm derivations. Use mathematics to explain a measured engineering decision.',
+ 'production_over_playground':'A notebook or chat demo is an early prototype. Completion requires operational evidence: deployment/readiness, bounded work, rate limits, error recovery and persisted state. The 10% framing is a teaching heuristic, not a measured universal percentage.',
+ 'pillars':['Latency vs. Cost vs. Quality','Deterministic Evaluation','Context Management'],
+ 'evaluation_note':'Automate repeatable checks with fixed inputs and versioned expectations. Model judges, faithfulness scores and semantic reviews can be stochastic; record judge/configuration versions and disagreement rather than calling them deterministic truth.',
+}
+# scenario, performance decision, automated evidence, context policy, production failure
+CONTRACTS = {
+ 'foundation':('A read-only assistant over three synthetic policies', 'Compare a fixed workflow and a bounded agent on identical labeled cases. Count failed attempts and review time in cost per accepted result; retain p50/p95 and a quality floor.', 'Version a case set containing supported, ambiguous, missing-source and unauthorized inputs. Schema, permissions and stop conditions are executable assertions; label semantic support separately.', 'Record instruction, tool-schema, history, evidence and output allocations. Preserve source IDs and exceptions; label estimates separately from provider usage.', 'Reject oversized input, preserve it on provider failure, and cap attempts, elapsed time and concurrent work.'),
+ 'adapter':('A provider adapter shared by simultaneous learners', 'Measure time to first output and total completion separately. Compare retry cost and accepted-output rate under a fixed overall deadline.', 'Fake 429, 503, permission failure, malformed JSON, cancellation and a partial stream. Assert bounded retry and no false saved/success status.', 'Track actual input/output usage when supplied; include retry usage. Key caches by owner, model, prompt and source revisions; never cache partial streams as complete answers.', 'Honor Retry-After within the total budget, stop sibling tasks on disconnect, and separate safe draft retries from uncertain external writes.'),
+ 'retrieval':('A tenant-scoped source-grounded knowledge base', 'Compare lexical, dense, hybrid and reranked retrieval on the same labeled queries. Report retrieval latency, reranking spend and answer quality separately.', 'Assert document scope and revision before retrieval. Measure recall@k/MRR on versioned relevance labels, including no-answer and conflicting-source cases.', 'Use token-aware chunks retaining page/time provenance and exceptions. Version embedding dimensions/indexes and invalidate retrieval/answer caches on source or permission changes.', 'Quarantine failed parsing, bound upload size and worker queues, activate revisions only after indexing checks, and preserve a working previous revision.'),
+ 'actions':('A workspace agent that proposes drafts and calendar changes', 'Compare a fixed plan, bounded graph and delegated tasks. Include all tool/model calls, handoff delays and human review in the useful-output denominator.', 'Replay duplicate events, stale approvals, denied scopes, graph resumes and lost responses. Assert one authorized state transition; separately reconcile remote effects.', 'Persist bounded state outside the prompt. Select tenant-scoped memory, budget tool results and invalidate approval/cache when effect fields or source revisions change.', 'Verify connector scopes and actor identity outside model output, bind approval to the exact payload and destination, and handle timeout outcomes as uncertain.'),
+ 'evaluation':('A release candidate tested against normal and edge-case inputs', 'Report latency distributions, total spend, acceptance and critical failures by category. A cheap/fast candidate cannot trade away a mandatory safety or factual-support gate.', 'Freeze dataset, prompt, model, parser and judge versions. Fail CI on schema/permission regressions; run model-based quality judgments with recorded rubrics and reviewed disagreements.', 'Compare context sizes and cache policies using the same dataset. Log counts, hit/miss and revision IDs without copying private prompts into traces.', 'Trace retries, timeouts and queue wait as separate spans. Redact logs, retain unavailable runs in denominators and rehearse promotion/rollback.'),
+ 'deployment':('A multi-user AI service deployed from containers', 'Load-test offered vs. completed work, p95 and cost per accepted result at stated concurrency. Autoscaling settings are hypotheses until observed against downstream/GPU limits.', 'Test readiness against the actual database, restart/readback, isolated restore, denied owner access, overload rejection and a dependency outage on the deployed revision.', 'Budget resident model memory/KV cache and per-request context separately. Keep tenant/revision-aware application caches; never assume a process-local cache is shared across replicas.', 'Separate request concurrency, worker capacity and model/GPU capacity. Add admission control, shared quotas, bounded queues, maximum instances and a documented fallback/stop budget.'),
+ 'business':('A fictional training provider buying a reviewed handout workflow', 'Present generation latency, reviewer time, recurring usage and accepted-output quality together. Count preparation, exceptions and maintenance; distinguish assumptions from observations.', 'Translate each promise into Given/When/Then with dataset/release IDs and case-level evidence. Automate mechanical checks; keep authorized factual review and acceptance decisions explicit.', 'Inventory approved notes, sensitive fields, source revisions, token allowances and cache retention. Price source cleanup and cache invalidation rather than assuming unlimited context or free reuse.', 'Assign rate/budget caps, failure/manual fallback, hosting ownership, review duties, restore evidence and escalation before expanding the service.'),
+ 'terminal':('A reproducible workspace operated without private developer state', 'Compare manual setup and scripted checks by elapsed time, failures and maintenance effort; do not confuse a shorter command with a more reliable setup.', 'Use a fresh directory/environment and assert paths, exit status, expected files and denied unsafe operations. Keep command transcripts with synthetic fixtures.', 'Select only relevant files for an assistant context, exclude secrets/large binaries, record a byte/token estimate and invalidate cached guidance after file changes.', 'Check exit codes, fail on missing configuration, keep secrets out of shell history/logs, and distinguish the academy simulation from a real terminal.'),
+}
+
+def family(slug,module):
+    text=(slug+' '+module).lower()
+    if 'freelancing' in slug:return 'business'
+    if 'terminal' in slug:return 'terminal'
+    if 'ai-workshops'==slug:
+        if 'studio 03' in text:return 'retrieval'
+        if 'studio 01' in text:return 'adapter'
+        if 'studio 02' in text:return 'actions'
+        if any(x in text for x in ['studio 04','studio 05']):return 'actions'
+        return 'deployment'
+    if any(x in text for x in ['retrieval','rag','grounding','ingestion','vector','chunk']):return 'retrieval'
+    if any(x in text for x in ['llmops','monitor','evaluation','observability','quality','06 ·','09 ·']):return 'evaluation'
+    if any(x in text for x in ['deploy','container','scaling','hosting','infrastructure','07 ·','08 ·','capstone','production']):return 'deployment'
+    if any(x in text for x in ['agentic','tools','protocol','mcp','graph','multi-agent','04 ·','05 ·','approval']):return 'actions'
+    if any(x in text for x in ['api','modern ai stack','stream','02 ·','context','sdk']):return 'adapter'
+    if '03 ·' in text:return 'retrieval'
+    return 'foundation'
+
+def module_contract(slug,module):
+    kind=family(slug,module)
+    scenario,performance,evaluation,context,operations=CONTRACTS[kind]
+    # Workshop studios retain their own use cases rather than becoming agent/RAG lessons.
+    if slug=='ai-workshops':
+        scenarios={'01':'purchase-request extraction','02':'meeting commitments and corrections','03':'a claim-and-citation research notebook','04':'support topic/urgency routing','05':'factual content review and local publication','06':'one integrated studio app'}
+        match=next((v for k,v in scenarios.items() if 'Studio '+k in module),None)
+        if match:scenario=match
+    focus=MODULE_FOCUS.get(slug,{}).get(module)
+    if focus:
+        scenario,performance,evaluation,context=focus
+    return {'version':PRINCIPLES['version'],'module':module,'family':kind,'scenario':scenario,
+            'software_first':PRINCIPLES['software_first'],'production_over_playground':PRINCIPLES['production_over_playground'],
+            'pillars':[{'name':name,'application':value} for name,value in zip(PRINCIPLES['pillars'],[performance,evaluation,context])],
+            'operations':operations,'evaluation_note':PRINCIPLES['evaluation_note'],
+            'deliverable':'module-engineering-evidence.json: dataset/release IDs; latency/cost/quality comparison; automated checks and critical failures; context and cache policy; deployment/failure observations. Mark unmeasured fields as not tested.',
+            'release_gates':['A measured latency/cost/quality comparison with stated workload and acceptance floor.', 'Repeatable automated checks plus separate semantic/factual review where needed.', 'A context budget and cache key/invalidation decision with source/owner boundaries.', 'A deployed or explicitly simulated failure test covering timeout, overload/rate limit and retained work.']}
+
+def program_contract(slug,modules):
+    return {**PRINCIPLES,'modules':[module_contract(slug,m) for m in dict.fromkeys(modules)]}
+
+def chapter(contract):
+    parts=['## Software-first practice\n\n'+contract['software_first'], '## Production evidence\n\n'+contract['production_over_playground'], '## Apply the three pillars to '+contract['scenario']]
+    for pillar in contract['pillars']:parts.append('### '+pillar['name']+'\n\n'+pillar['application'])
+    parts.extend(['## Failure and deployment work\n\n'+contract['operations'],'## Evaluation precision\n\n'+contract['evaluation_note'],'## Module evidence to retain\n\n'+contract['deliverable'],'\n'.join('- '+x for x in contract['release_gates'])])
+    return '\n\n'.join(parts)
+
+# Each original module applies the pillars to its own deliverable and data.
+MODULE_FOCUS={
+ 'freelancing-masterclass':{
+ '01 · Opportunity and customer discovery':('a discovery interview and opportunity scorecard','Estimate response time, reviewer effort and cost of the current workflow; mark interview assumptions separately from observations. Compare at least two opportunities against a minimum accepted-output standard.','Turn interview claims into falsifiable workflow checks: input availability, reviewer authority and a repeated task. Reject an opportunity without usable evidence.','Inventory which approved source notes the workflow actually needs; exclude unrelated personal/client data and record source ownership.'),
+ '02 · Offer and scope':('a fixed-scope statement of work','Specify latency/quality limits and an explicit usage allowance in the offer. Price review, retries and maintenance, not just a successful generation.','Write Given/When/Then acceptance examples and critical exclusions into the scope. Link each promise to an observable test and a named decision owner.','Define allowed sources, revisions, retention and context allowance; a source expansion or new tenant changes scope and cache handling.'),
+ '03 · Data and prototype':('a permissioned client-data inventory and prototype','Compare a manual baseline with the prototype on identical synthetic inputs, reporting elapsed/review time, total attempts and accepted outputs.','Use a reviewed acceptance set with missing data and unsupported-claim cases; no polished demo substitutes for the failure report.','Build a source/permission manifest with digest/revision, token estimate, omitted fields and cache invalidation rules before any provider request.'),
+ '04 · Quality and delivery':('a client acceptance report and change request','Report per-accepted-output spend, p95 and reviewer corrections for the exact delivery candidate; keep failed and unavailable attempts visible.','Automate structural checks and attach authorized claim-level review. Block delivery when a mandatory gate fails even if averages improve.','Freeze source/prompt/model/context versions with the delivery manifest. Reevaluate after a change instead of silently expanding context.'),
+ '05 · Handover and operations':('an operator runbook and incident drill','Include routine usage, alert response, fallback and restore labor in the ongoing service budget. Compare capacity assumptions with actual drill observations.','Have a fresh operator restart, read back, deny wrong-owner access and restore isolated synthetic records; attach transcripts and unresolved failures.','Define who can refresh data, revoke access, invalidate caches and prune logs. A handover needs lifecycle ownership, not a folder of prompts.'),
+ '06 · Credibility and repeatability':('an evidence-backed case study and reusable service package','Publish only observed latency, costs and accepted outcomes with workload caveats; do not turn a one-client result into a universal ROI promise.','Link each public claim to dataset/release and acceptance evidence. Test the reusable package with a different synthetic client and retain failures.','Remove client data from reusable templates, reset owner/source IDs and test cross-client isolation and stale-cache rejection.'),
+ }
+}

@@ -49,3 +49,16 @@ node tests/student-reading.cjs
 Browser scripts use bundled Playwright/Chrome paths. They create synthetic learner accounts; private snapshot tokens stay in temporary files. The complete Docker exercise is reproduced from its lesson rather than substituted with the academy stack.
 
 No paid model or real client system was used. Human factual-support review, usability, capstone integration, original learner implementations and client acceptance are not certified by these checks. The lessons explicitly ask students to collect those additional observations where required.
+
+## Workshop coexistence — 2026-10-20
+
+Practical AI Docker publishes localhost:8080; Workshop (`resume-studio`) publishes localhost:8000. Both were responding when inspected. Their private API/database container ports can be identical because they use different Docker networks.
+
+Academy now uses the dedicated `ACADEMY_PORT` setting, and its existing local `.env` was migrated without changing port or database identity. `scripts/start.sh` pins the project name, Compose file, project directory and environment file. Native Django instructions use 8001 with an explicit Vite proxy instead of competing with Workshop on8000.
+
+Observed verification:
+
+- Started Academy from `/private/tmp` with deliberately conflicting inherited `APP_PORT=8000` and `COMPOSE_PROJECT_NAME=resume-studio`. It still published8080 under `practical-ai-academy` with the existing `practical-ai-academy_postgres_data` volume. API/database ports remained private.
+- Restarted only Workshop's app while checking Academy health15 times. All checks returned200 with PostgreSQL, and the Academy catalog retained all four authored practical programs. Workshop recovered to health200 on8000.
+- Separate browser tabs simultaneously rendered Academy's five-card catalog on8080 and Workshop sign-in on8000.
+- Shell syntax and `git diff --check` passed. No workshop files or database volumes were changed.

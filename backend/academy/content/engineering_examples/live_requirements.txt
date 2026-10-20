@@ -1,0 +1,11 @@
+# Resolve in a fresh Python 3.12 environment, record the installed versions,
+# and lock them before evaluating a release. Live/provider APIs may change.
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+google-genai>=1,<3
+pypdf>=5,<7
+python-docx>=1,<2
+httpx>=0.27,<1
+cohere>=5,<6
+langgraph>=1,<2
+mcp>=1,<2

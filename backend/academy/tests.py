@@ -81,7 +81,7 @@ class AcademyTests(APITestCase):
             self.assertIn('imported_curriculum.json',kit.namelist())
             self.assertIn('practical_programs.json',kit.namelist())
             self.assertIn('program_labs/tests/test_workflows.py',kit.namelist())
-            self.assertEqual(len([n for n in kit.namelist() if n.startswith('program_content/') and n.endswith('.md')]),60)
+            self.assertEqual(len([n for n in kit.namelist() if n.startswith('program_content/') and n.endswith('.md')]),96)
             self.assertFalse(any(name.endswith(('.env','.sqlite3')) for name in kit.namelist()))
 
 class CurriculumTests(APITestCase):
@@ -93,7 +93,7 @@ class CurriculumTests(APITestCase):
         provenance=json.loads((content/'provenance.json').read_text())
         self.assertEqual(Lesson.objects.filter(program__category='Accelerator').count(),provenance['accelerator_lessons']+20)
         self.assertEqual(Lesson.objects.filter(program__category='Tutor').count(),8)
-        self.assertEqual(Program.objects.count(),25)
+        self.assertEqual(Program.objects.count(),26)
         lesson=Lesson.objects.first();lesson.title='Instructor edit';lesson.save()
         call_command('seed_curriculum',verbosity=0)
         call_command('import_workshop',verbosity=0)
@@ -103,17 +103,17 @@ class PracticalProgramTests(APITestCase):
     def test_sessions_have_specific_projects_and_practice(self):
         import hashlib
         data=json.loads((Path(__file__).parent/'starter_curriculum.json').read_text())
-        self.assertEqual([len(p['lessons']) for p in data],[24,18,18])
+        self.assertEqual([len(p['lessons']) for p in data],[24,18,18,36])
         artifacts=[]
         for program in data:
             for lesson in program['lessons']:
                 self.assertGreater(len(lesson['content'].split()),250)
-                for heading in ['## Worked example','## Build it yourself','## Break it deliberately','## Acceptance checks','## Deliverable']:
+                for heading in (['## Before you begin','## The case','## Your practical task'] if program['category']=='Engineering' else ['## Worked example','## Build it yourself','## Break it deliberately','## Acceptance checks','## Deliverable']):
                     self.assertIn(heading,lesson['content'])
                 self.assertEqual(lesson['content_hash'],hashlib.sha256(lesson['content'].encode()).hexdigest())
-                self.assertEqual(len(lesson['resources']['checks']),3)
+                self.assertGreaterEqual(len(lesson['resources']['checks']),3)
                 artifacts.append(lesson['resources']['artifact'])
-        self.assertEqual(len(set(artifacts)),60)
+        self.assertEqual(len(set(artifacts)),96)
     def test_legacy_upgrade_preserves_history_and_does_not_transfer_completion(self):
         legacy=json.loads((Path(__file__).parent/'legacy_starter_curriculum.json').read_text())[0]
         old_fields={k:v for k,v in legacy.items() if k!='lessons'}
@@ -275,3 +275,98 @@ class LearningActivityTests(APITestCase):
             workbook=json.loads(archive.read('workbook.json'))
             self.assertEqual(len(workbook),24)
             self.assertTrue(all('learning' in row['resources'] for row in workbook))
+
+class EngineeringTeachingTests(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command('seed_curriculum',verbosity=0)
+        call_command('import_workshop',verbosity=0)
+    def test_independent_engineering_path_and_module_contracts(self):
+        response=self.client.get('/api/programs/')
+        self.assertEqual(response.status_code,200)
+        programs=response.data
+        course=next(p for p in programs if p['slug']=='ai-engineering-12-week')
+        self.assertEqual(course['category'],'Engineering')
+        self.assertEqual(len(course['lessons']),36)
+        self.assertEqual(len(course['pedagogy']['modules']),5)
+        for program in programs:
+            self.assertEqual(len(program['pedagogy']['modules']),len({l['module'] for l in program['lessons']}))
+            self.assertEqual(len(program['pedagogy']['pillars']),3)
+            for module in program['pedagogy']['modules']:
+                self.assertTrue(module['operations'])
+                self.assertEqual(len(module['pillars']),3)
+        lesson=Lesson.objects.filter(program__slug='ai-engineering-12-week',order=5).get()
+        self.assertEqual(len(lesson.resources['learning']['task']['criteria']),7)
+        self.assertIn('voice_gateway.py',lesson.content)
+        self.assertNotIn('](https://github.com',lesson.content)
+    def test_original_workshop_reading_has_teaching_contract(self):
+        from .serializers import LessonSerializer
+        lesson=Lesson.objects.filter(program__category='Accelerator').first()
+        data=LessonSerializer(lesson).data
+        self.assertEqual(len(data['resources']['pedagogy']['pillars']),3)
+        self.assertIn('stochastic',data['resources']['pedagogy']['evaluation_note'])
+
+class EngineeringFeedbackTests(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command('seed_curriculum',verbosity=0)
+        cls.program=Program.objects.get(slug='ai-engineering-12-week')
+        cls.user=User.objects.create_user(username='engineering-review-student')
+        Enrollment.objects.create(user=cls.user,program=cls.program)
+    def setUp(self):self.client.force_authenticate(self.user)
+    def test_option_specific_feedback_is_private_until_submission(self):
+        lesson=self.program.lessons.first();learning=lesson.resources['learning']
+        public=self.client.get(f'/api/lessons/{lesson.pk}/').data['resources']['learning']
+        for q in public['quiz']:
+            self.assertNotIn('option_feedback',q)
+            self.assertNotIn('correct',q)
+            self.assertNotIn('explanation',q)
+        self.assertEqual(len(public['exercise']['hints']),3)
+        self.assertIn('Complete guided-practice reference',public['exercise']['solution'])
+        self.assertTrue(all(q['guidance'] for q in public['questions']))
+        wrong={q['id']:next(o['id'] for o in q['options'] if o['id']!=q['correct']) for q in learning['quiz']}
+        response=self.client.post(f'/api/lessons/{lesson.pk}/quiz/',{'revision':learning['revision'],'answers':wrong},format='json')
+        self.assertEqual(response.status_code,201);self.assertEqual(response.data['score'],0)
+        for feedback in response.data['feedback']:
+            original=next(q for q in learning['quiz'] if q['id']==feedback['id'])
+            self.assertEqual(feedback['explanation'],original['option_feedback'][wrong[feedback['id']]])
+        lesson.refresh_from_db()
+        self.assertIn('option_feedback',lesson.resources['learning']['quiz'][0])
+    def test_every_engineering_session_teaches_before_project(self):
+        for lesson in self.program.lessons.all():
+            learning=lesson.resources['learning'];chapters=learning['chapters'];ids=[c['id'] for c in chapters]
+            self.assertLess(ids.index('concept-tutorial'),ids.index('implementation'))
+            self.assertLess(ids.index('implementation'),ids.index('project'))
+            tutorial=next(c for c in chapters if c['id']=='concept-tutorial')['body']
+            for i,c in enumerate(learning['concepts'],1):self.assertIn(f'## Step {i} · '+c['term'],tutorial)
+            self.assertEqual(len(learning['exercise']['hints']),3)
+            self.assertTrue(learning['exercise']['solution'])
+    def test_original_programs_teach_before_worked_examples_and_practice(self):
+        lessons=Lesson.objects.filter(program__slug__in=['ai-agent-bootcamp','ai-workshops','freelancing-masterclass'])
+        self.assertEqual(lessons.count(),60)
+        for lesson in lessons:
+            learning=lesson.resources['learning'];chapters=learning['chapters'];ids=[c['id'] for c in chapters]
+            self.assertLess(ids.index('concept-tutorial'),ids.index('worked-implementation'))
+            self.assertLess(ids.index('worked-implementation'),ids.index('case-study'))
+            tutorial=next(c['body'] for c in chapters if c['id']=='concept-tutorial')
+            for i,c in enumerate(learning['concepts'],1):self.assertIn(f"## Step {i} · {c['term']}",tutorial)
+            self.assertEqual(len(learning['exercise']['hints']),3)
+            self.assertIn('Complete guided-practice reference',learning['exercise']['solution'])
+            self.assertIn(learning['exercise']['steps'][1],learning['task']['criteria'])
+            self.assertTrue(all(q['guidance'] for q in learning['questions']))
+    def test_original_program_feedback_is_selected_and_protected(self):
+        for slug in ['ai-agent-bootcamp','ai-workshops','freelancing-masterclass']:
+            program=Program.objects.get(slug=slug)
+            Enrollment.objects.get_or_create(user=self.user,program=program)
+            for lesson in [program.lessons.first(),program.lessons.last()]:
+                learning=lesson.resources['learning'];base=f'/api/lessons/{lesson.pk}/'
+                public=self.client.get(base).data['resources']['learning']
+                self.assertTrue(all('option_feedback' not in q and 'correct' not in q for q in public['quiz']))
+                wrong={q['id']:next(o['id'] for o in q['options'] if o['id']!=q['correct']) for q in learning['quiz']}
+                response=self.client.post(base+'quiz/',{'revision':learning['revision'],'answers':wrong},format='json')
+                self.assertEqual(response.status_code,201);self.assertEqual(response.data['score'],0)
+                for item in response.data['feedback']:
+                    question=next(q for q in learning['quiz'] if q['id']==item['id'])
+                    self.assertEqual(item['explanation'],question['option_feedback'][wrong[item['id']]])
+                lesson.refresh_from_db()
+                self.assertIn('option_feedback',lesson.resources['learning']['quiz'][0])

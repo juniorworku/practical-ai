@@ -13,7 +13,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   if (process.env.EXPECT_DATABASE) assert.equal(healthData.database,process.env.EXPECT_DATABASE);
   await page.goto(origin);
   await page.getByRole('heading',{name:'AI Agent Bootcamp',exact:true}).waitFor();
-  assert.equal(await page.locator('.program-card').count(),4);
+  assert.equal(await page.locator('.program-card').count(),5);
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/home-desktop.png'),fullPage:true});
   await page.getByRole('button',{name:'Workshop',exact:true}).click();
   assert.equal(await page.locator('.program-card').count(),1);
@@ -29,17 +29,17 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   const token = await page.evaluate(()=>sessionStorage.getItem('academy-token'));
   const headers = {Authorization:'Token '+token};
   const catalog = await (await page.request.get(origin+'/api/programs/')).json();
-  const expectedCounts={'ai-agent-bootcamp':24,'ai-workshops':18,'freelancing-masterclass':18};
+  const expectedCounts={'ai-agent-bootcamp':24,'ai-workshops':18,'freelancing-masterclass':18,'ai-engineering-12-week':36};
   for (const [slug,count] of Object.entries(expectedCounts)) {
     const program=catalog.find(p=>p.slug===slug);assert.equal(program.lessons.length,count);
     assert.equal((await page.request.post(origin+`/api/programs/${slug}/enroll/`,{headers})).ok(),true);
     for (const summary of program.lessons) {
       const response=await page.request.get(origin+`/api/lessons/${summary.id}/`,{headers});assert.equal(response.status(),200);
       const detail=await response.json();
-      assert.ok(detail.content.includes('## Worked example'));
-      assert.ok(detail.content.includes('## Break it deliberately'));
+      assert.ok(detail.content.includes(slug==='ai-engineering-12-week'?'## The case':'## Worked example'));
+      assert.ok(detail.content.includes(slug==='ai-engineering-12-week'?'## Your practical task':'## Break it deliberately'));
       assert.ok(detail.content.split(/\s+/).length>250);
-      assert.equal(detail.resources.checks.length,3);
+      assert.ok(detail.resources.checks.length>=3);
     }
   }
   // Enrollments created through the real API are reflected after reload.
@@ -119,6 +119,6 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   await page.getByRole('dialog').getByRole('button',{name:'Log in',exact:true}).click();
   await page.getByRole('heading',{name:'Your learning paths',exact:true}).waitFor();
   assert.deepEqual(errors,[]);
-  console.log('PASS: 60 rich program readers, all three course completion flows, private account isolation, login/logout token revocation, catalog filters, registration, enrollment, completion persistence, private notes, 20-phase library, 105-item Accelerator, project planner, terminal simulation, download, 8-guide Tutor, desktop/mobile layout, no browser errors.');
+  console.log('PASS: 96 rich program readers, all four course completion flows, private account isolation, login/logout token revocation, catalog filters, registration, enrollment, completion persistence, private notes, 20-phase library, 105-item Accelerator, project planner, terminal simulation, download, 8-guide Tutor, desktop/mobile layout, no browser errors.');
  } finally {await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

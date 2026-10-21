@@ -7,7 +7,7 @@ We will use the real LangGraph runtime, not a homemade graph-shaped loop. State 
 `trace` is explicitly replaced with the old trace plus a node name. No append reducer is configured, so returning only `["draft"]` would overwrite the earlier events. The verifier uses exact evidence matching to keep this example testable; semantic fact checking needs a richer evaluator and labeled cases.
 ## Step 1 — Prepare a separate exercise folder
 
-Download **course & starter** from the Accelerator overview. Extract the ZIP and open `genai-accelerator/starter/advanced` in your terminal. Do not run these commands inside Workshop's application folder. Python 3.12 works on your Intel Mac; there is no GPU or paid API requirement.
+Download the program starter kit from the Accelerator overview. Extract the ZIP and open `workspace/advanced` in your terminal. Do not run these commands inside Workshop's application folder. Python 3.12 works on your Intel Mac; there is no GPU or paid API requirement.
 
 ```bash
 python3.12 -m venv .venv

@@ -1,0 +1,53 @@
+{
+  "client": "Fictional Training Studio",
+  "engagement": "fictional_simulation",
+  "mechanical_acceptance": [
+    {
+      "id": "supported",
+      "passed": true,
+      "actual": {
+        "source": "policy-v1",
+        "text": "Training reimbursement is available for approved workshops.",
+        "status": "draft_for_review"
+      }
+    },
+    {
+      "id": "missing",
+      "passed": true,
+      "actual": {
+        "source": "policy-v1",
+        "text": null,
+        "status": "needs_source"
+      }
+    },
+    {
+      "id": "unapproved_source",
+      "passed": true,
+      "actual": {
+        "source": "unapproved",
+        "text": null,
+        "status": "needs_source"
+      }
+    }
+  ],
+  "restore_readback": true,
+  "restore_ms": 4.464,
+  "projected_minutes_saved": 90,
+  "projection_measured": false,
+  "semantic_client_acceptance": "not_performed",
+  "real_client_deployment": false,
+  "scoped_local_handover": true,
+  "usage_cost_usd": null,
+  "retention_days": 7,
+  "context_policy": "only approved source text; no cross-client reuse",
+  "input_versions": {
+    "acceptance.json": "15f06a2998573f406f98d53ae39e834f9e931bc612e1bcbd9d2dc3f38a6bd1b1",
+    "scope.json": "0810ace795997367eb68af4a07236e1744b315c2bcd773580b27c0aa8db022f7",
+    "data-policy.json": "cd43a6a54c2bd2a8db2f801f9afec98d1a0794aa8f4a910cd9d0431b0332b2f0",
+    "baseline.json": "bfe01268d4d4c2e2e37700a6c28a2010d068340216b22e1aafc1b957042869a6",
+    "support.json": "9c4b3c313e9c0dd3ccd1f5283eb204ae694c1222944a98a57e39d6d86f33dd9e",
+    "changes.json": "bf816adfa3ecee50ebb8c1684f7d8c83a870d3ccf51bb63c4e5ba8be99eb6542",
+    "requests.csv": "952d38537078d66e9221879f7826885851d3efc96e11f9196595970acde4876e",
+    "offer.json": "936c67b63923ed3018a4f00447f1d0e6546db735d8081c4fabb84cb4daeaa6ae"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "full_flow": {
+    "document_id": "d317319f-af57-4029-a670-b4cc46b6b348",
+    "worker_ready": true,
+    "scope_denial": true,
+    "deduplicated": true,
+    "grounded_fixture": {
+      "mode": "lexical_fixture",
+      "answer": "Refund window is 14 days",
+      "citations": [
+        "d317319f-af57-4029-a670-b4cc46b6b348:0"
+      ],
+      "context_chars": 24,
+      "usage_tokens": null
+    },
+    "unanswerable_abstained": true
+  },
+  "worker_outage_recovery": true,
+  "recreated_process_readback": true,
+  "database_outage_recovery": true,
+  "postgres_restore_ids_and_content": true,
+  "incremental_migration_preserved_old_row": true,
+  "shared_redis_quota_429": true,
+  "quota_dependency_fails_closed_then_recovers": true
+}

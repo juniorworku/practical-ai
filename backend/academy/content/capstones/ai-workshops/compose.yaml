@@ -1,0 +1,37 @@
+name: capstone-workshop
+x-runtime: &runtime
+  build: .
+  environment:
+    DJANGO_SECRET_KEY: synthetic-local-capstone-key-only
+    POSTGRES_PASSWORD: synthetic-local-password-only
+    REQUESTS_PER_MINUTE: '120'
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: capstone
+      POSTGRES_USER: learner
+      POSTGRES_PASSWORD: synthetic-local-password-only
+    volumes: [data:/var/lib/postgresql/data]
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U learner -d capstone']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  schema:
+    <<: *runtime
+    command: ['python', 'app.py']
+    depends_on:
+      db: {condition: service_healthy}
+  api:
+    <<: *runtime
+    ports: ['127.0.0.1:8212:8000']
+    depends_on:
+      schema: {condition: service_completed_successfully}
+    healthcheck:
+      test: ['CMD', 'python', '-c', "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health/')"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  data:

@@ -1,0 +1,1 @@
+{"permitted_file": "exercise.py", "command": "current Python -I exercise.py", "network": "none", "instruction": "predict two source IDs, keep original unchanged, then assert an empty capacity"}

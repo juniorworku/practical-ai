@@ -1,0 +1,20 @@
+[
+  {
+    "id": "supported",
+    "request_id": "one",
+    "status": "draft_for_review",
+    "text": "Training reimbursement is available for approved workshops."
+  },
+  {
+    "id": "missing",
+    "request_id": "two",
+    "status": "needs_source",
+    "text": null
+  },
+  {
+    "id": "unapproved_source",
+    "request_id": "three",
+    "status": "needs_source",
+    "text": null
+  }
+]

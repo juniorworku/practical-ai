@@ -1,0 +1,29 @@
+{
+  "programs": [
+    {
+      "program": "bootcamp",
+      "actual_browser_submission": true,
+      "postgres_result_id": "dbc580c3-8f93-4453-bbb8-6286bbf6140e",
+      "exact_draft_review": true,
+      "negative_not_reviewable": true,
+      "input_retained": true
+    },
+    {
+      "program": "workshops",
+      "actual_browser_submission": true,
+      "postgres_result_id": "6dd1623e-e621-4af9-892e-1c4e4eee0383",
+      "exact_draft_review": true,
+      "negative_not_reviewable": true,
+      "input_retained": true
+    },
+    {
+      "program": "engineering",
+      "actual_browser_submission": true,
+      "postgres_result_id": "a2665e8e-dc20-45e8-a4fb-b374360eedcb",
+      "exact_draft_review": true,
+      "negative_not_reviewable": true,
+      "input_retained": true
+    }
+  ],
+  "browser_errors": []
+}

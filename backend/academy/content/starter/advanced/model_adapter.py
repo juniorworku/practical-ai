@@ -1,4 +1,6 @@
 """Provider-independent decision adapter. Transport is injected, never configured here."""
+from copy import deepcopy
+
 SCHEMA = {"type": "object", "additionalProperties": False,
           "required": ["action", "query", "source_id"],
           "properties": {"action": {"type": "string", "enum": ["search", "finish"]},
@@ -27,7 +29,7 @@ def validate(value):
 
 def make_decider(request):
     def decide(question, observations):
-        value = request(SYSTEM, {"question": question, "observations": list(observations)},
+        value = request(SYSTEM, {"question": question, "observations": deepcopy(list(observations))},
                         "choose_policy_action", SCHEMA)
         return validate(value)
     return decide

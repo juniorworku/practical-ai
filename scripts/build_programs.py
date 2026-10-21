@@ -43,6 +43,10 @@ from engineering.build import build as build_engineering
 PROGRAMS.append(build_engineering())
 from engineering.principles import apply
 apply(PROGRAMS)
+from progression import apply as apply_progression
+apply_progression(PROGRAMS)
+from capstone_books import apply as apply_capstones
+apply_capstones(PROGRAMS)
 
 archive=ROOT/'backend/academy/legacy_starter_curriculum.json'
 target=ROOT/'backend/academy/starter_curriculum.json'

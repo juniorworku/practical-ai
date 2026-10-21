@@ -1,0 +1,44 @@
+[
+  {
+    "program": "ai-agent-bootcamp",
+    "files": 8,
+    "all_files_inline": true,
+    "all_hashes_match": true,
+    "standalone": true
+  },
+  {
+    "program": "ai-workshops",
+    "files": 8,
+    "all_files_inline": true,
+    "all_hashes_match": true,
+    "standalone": true
+  },
+  {
+    "program": "freelancing-masterclass",
+    "files": 11,
+    "all_files_inline": true,
+    "all_hashes_match": true,
+    "standalone": true
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "files": 9,
+    "all_files_inline": true,
+    "all_hashes_match": true,
+    "standalone": true
+  },
+  {
+    "program": "genai-accelerator",
+    "files": 17,
+    "all_files_inline": true,
+    "all_hashes_match": true,
+    "standalone": true
+  },
+  {
+    "program": "terminal-tutor",
+    "files": 3,
+    "all_files_inline": true,
+    "all_hashes_match": true,
+    "standalone": true
+  }
+]

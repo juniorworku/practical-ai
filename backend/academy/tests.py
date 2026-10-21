@@ -296,7 +296,7 @@ class EngineeringTeachingTests(APITestCase):
                 self.assertTrue(module['operations'])
                 self.assertEqual(len(module['pillars']),3)
         lesson=Lesson.objects.filter(program__slug='ai-engineering-12-week',order=5).get()
-        self.assertEqual(len(lesson.resources['learning']['task']['criteria']),7)
+        self.assertEqual(len(lesson.resources['learning']['task']['criteria']),8)
         self.assertIn('voice_gateway.py',lesson.content)
         self.assertNotIn('](https://github.com',lesson.content)
     def test_original_workshop_reading_has_teaching_contract(self):
@@ -370,3 +370,162 @@ class EngineeringFeedbackTests(APITestCase):
                     self.assertEqual(item['explanation'],question['option_feedback'][wrong[item['id']]])
                 lesson.refresh_from_db()
                 self.assertIn('option_feedback',lesson.resources['learning']['quiz'][0])
+
+class ReviewedImportedTeachingTests(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command('import_workshop',verbosity=0)
+        cls.user=User.objects.create_user(username='reviewed-import-student',password='Private-test-password-421!')
+
+    def test_every_imported_student_book_teaches_before_aligned_practice(self):
+        from .management.commands.import_workshop import fingerprint
+        lessons=Lesson.objects.filter(program__slug__in=['genai-accelerator','terminal-tutor'])
+        self.assertEqual(lessons.count(),113)
+        for lesson in lessons:
+            learning=lesson.resources['learning'];chapters=learning['chapters']
+            ids=[c['id'] for c in chapters]
+            self.assertLess(ids.index('concept-tutorial'),ids.index('worked-implementation'))
+            self.assertLess(ids.index('worked-implementation'),ids.index('case-study'))
+            self.assertEqual(fingerprint(learning),learning['revision'])
+            self.assertIn(lesson.task,learning['exercise']['material'])
+            self.assertIn('Exercise variation: PASS',learning['exercise']['solution'])
+            self.assertEqual(len(learning['exercise']['hints']),3)
+            self.assertTrue(all(q.get('guidance') for q in learning['questions']))
+            self.assertTrue(all(set(q['option_feedback'])=={o['id'] for o in q['options']} for q in learning['quiz']))
+            self.assertNotIn('](https://github.com/',lesson.content)
+            self.assertNotIn('assert True',learning['exercise']['solution'])
+
+    def test_recognized_source_upgrade_retains_student_records(self):
+        from .models import LessonNote,Completion,LessonPractice
+        original=json.loads((Path(__file__).parent/'content/imported_curriculum.json').read_text())[-2]['lessons'][0]
+        lesson=Lesson.objects.get(program__slug='genai-accelerator',source_id=original['source_id'])
+        pk=lesson.pk
+        for key,value in original.items():setattr(lesson,key,value)
+        lesson.save()
+        Enrollment.objects.create(user=self.user,program=lesson.program)
+        LessonNote.objects.create(user=self.user,lesson=lesson,text='My original observation')
+        Completion.objects.create(user=self.user,lesson=lesson)
+        LessonPractice.objects.create(user=self.user,lesson=lesson,revision='previous-practice',task_evidence='Original evidence remains')
+        call_command('import_workshop',verbosity=0)
+        lesson.refresh_from_db()
+        self.assertEqual(lesson.pk,pk)
+        self.assertIn('learning',lesson.resources)
+        self.assertEqual(LessonNote.objects.get(user=self.user,lesson=lesson).text,'My original observation')
+        self.assertTrue(Completion.objects.filter(user=self.user,lesson=lesson).exists())
+        self.assertTrue(LessonPractice.objects.filter(user=self.user,lesson=lesson,revision='previous-practice').exists())
+
+    def test_import_preserves_custom_teaching_and_metadata(self):
+        text=Lesson.objects.get(program__slug='terminal-tutor',order=0)
+        text.content+='\nInstructor explanation';text.save()
+        edited=Lesson.objects.get(program__slug='terminal-tutor',order=1)
+        edited.resources['learning']['exercise']['hint']='Instructor hint';edited.save()
+        title=Lesson.objects.get(program__slug='terminal-tutor',order=2)
+        title.title='Instructor title';title.save()
+        task=Lesson.objects.get(program__slug='terminal-tutor',order=3)
+        task.task='Instructor-authored exercise';task.save()
+        call_command('import_workshop',verbosity=0)
+        for lesson in [text,edited,title]:lesson.refresh_from_db()
+        self.assertTrue(text.content.endswith('Instructor explanation'))
+        self.assertEqual(edited.resources['learning']['exercise']['hint'],'Instructor hint')
+        self.assertEqual(title.title,'Instructor title')
+        task.refresh_from_db();self.assertEqual(task.task,'Instructor-authored exercise')
+
+    def test_tutor_feedback_is_protected_then_specific_and_download_is_complete(self):
+        import zipfile
+        from io import BytesIO
+        self.client.force_authenticate(self.user)
+        program=Program.objects.get(slug='terminal-tutor');Enrollment.objects.create(user=self.user,program=program)
+        lesson=program.lessons.first();learning=lesson.resources['learning']
+        public=self.client.get(f'/api/lessons/{lesson.pk}/').data['resources']['learning']
+        self.assertTrue(all('correct' not in q and 'option_feedback' not in q for q in public['quiz']))
+        answers={q['id']:next(o['id'] for o in q['options'] if o['id']!=q['correct']) for q in learning['quiz']}
+        result=self.client.post(f'/api/lessons/{lesson.pk}/quiz/',{'revision':learning['revision'],'answers':answers},format='json')
+        self.assertEqual(result.status_code,201)
+        self.assertEqual(result.data['score'],0)
+        for feedback in result.data['feedback']:
+            question=next(q for q in learning['quiz'] if q['id']==feedback['id'])
+            self.assertEqual(feedback['explanation'],question['option_feedback'][feedback['selected']])
+        response=self.client.get('/api/programs/terminal-tutor/download/')
+        self.assertEqual(response.status_code,200)
+        with zipfile.ZipFile(BytesIO(b''.join(response.streaming_content))) as archive:
+            self.assertEqual(len([n for n in archive.namelist() if n.startswith('reference_examples/')]),8)
+            self.assertIn('Learn each concept step by step',archive.read('lessons/01.md').decode())
+
+class ProgramProgressionTests(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command('seed_curriculum',verbosity=0)
+        call_command('import_workshop',verbosity=0)
+
+    def test_every_requirement_points_to_earlier_teaching_in_same_program(self):
+        for program in Program.objects.filter(slug__in=['ai-agent-bootcamp','ai-workshops','freelancing-masterclass','ai-engineering-12-week','genai-accelerator','terminal-tutor']):
+            rows=list(program.lessons.all());positions={l.source_id:i for i,l in enumerate(rows)}
+            for i,lesson in enumerate(rows):
+                progression=lesson.resources['learning']['progression']
+                self.assertEqual(progression['position'],i+1)
+                for source in progression['prerequisites']:
+                    self.assertLess(positions[source['source_id']],i)
+                for requirement in progression['coverage']:
+                    for source in requirement['sources']:self.assertLess(positions[source],i)
+            response=self.client.get('/api/programs/').data
+            summary=next(p for p in response if p['slug']==program.slug)
+            self.assertTrue(summary['progression']['entry'])
+            self.assertTrue(summary['progression']['independent'])
+
+    def test_reorder_original_accelerator_preserves_learner_identity_and_custom_text(self):
+        from .models import LessonNote,Completion,LessonPractice
+        program=Program.objects.get(slug='genai-accelerator')
+        rows=list(program.lessons.all());original=json.loads((Path(__file__).parent/'content/imported_curriculum.json').read_text())[-2]
+        order={l['source_id']:l['order'] for l in original['lessons']}
+        for i,row in enumerate(rows):row.order=2000+i;row.save(update_fields=['order'])
+        for row in rows:row.order=order[row.source_id];row.save(update_fields=['order'])
+        lesson=program.lessons.get(source_id='lab-01');pk=lesson.pk
+        lesson.content+='\nInstructor-owned explanation';lesson.save()
+        user=User.objects.create_user(username='progression-reorder',password='Private-test-password-421!')
+        LessonNote.objects.create(user=user,lesson=lesson,text='Evidence before reorder')
+        Completion.objects.create(user=user,lesson=lesson)
+        LessonPractice.objects.create(user=user,lesson=lesson,revision='before-reorder',task_evidence='Original work')
+        call_command('import_workshop',verbosity=0)
+        lesson.refresh_from_db()
+        self.assertEqual(lesson.pk,pk);self.assertEqual(lesson.order,5)
+        self.assertTrue(lesson.content.endswith('Instructor-owned explanation'))
+        self.assertEqual(LessonNote.objects.get(user=user,lesson=lesson).text,'Evidence before reorder')
+        self.assertTrue(Completion.objects.filter(user=user,lesson=lesson).exists())
+        self.assertTrue(LessonPractice.objects.filter(user=user,lesson=lesson,revision='before-reorder').exists())
+        before=list(program.lessons.values_list('source_id','order'))
+        call_command('import_workshop',verbosity=0)
+        self.assertEqual(before,list(program.lessons.values_list('source_id','order')))
+
+    def test_import_preserves_manual_order(self):
+        program=Program.objects.get(slug='genai-accelerator')
+        lesson=program.lessons.get(source_id='lab-01');lesson.order=4000;lesson.save(update_fields=['order'])
+        call_command('import_workshop',verbosity=0)
+        lesson.refresh_from_db();self.assertEqual(lesson.order,4000)
+
+class CompleteCapstoneTests(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command('seed_curriculum',verbosity=0)
+        call_command('import_workshop',verbosity=0)
+        cls.user=User.objects.create_user(username='capstone-reader',password='Private-test-password-421!')
+
+    def test_every_final_project_has_complete_matching_inline_files_and_download(self):
+        import hashlib,zipfile
+        from io import BytesIO
+        self.client.force_authenticate(self.user)
+        for program in Program.objects.filter(slug__in=['ai-agent-bootcamp','ai-workshops','freelancing-masterclass','ai-engineering-12-week','genai-accelerator','terminal-tutor']):
+            Enrollment.objects.create(user=self.user,program=program)
+            final=next(l for l in program.lessons.all() if l.resources.get('learning',{}).get('capstone'))
+            learning=final.resources['learning'];chapters=learning['chapters'];ids=[c['id'] for c in chapters]
+            self.assertLess(ids.index('capstone-build'),ids.index('project' if 'project' in ids else 'case-study'))
+            chapter=next(c['body'] for c in chapters if c['id']=='capstone-build')
+            self.assertTrue(learning['capstone']['independent'])
+            self.assertIn('README.md',learning['capstone']['files'])
+            response=self.client.get('/api/programs/'+program.slug+'/download/')
+            self.assertEqual(response.status_code,200)
+            with zipfile.ZipFile(BytesIO(b''.join(response.streaming_content))) as archive:
+                for name,digest in learning['capstone']['files'].items():
+                    data=archive.read('capstone/'+name)
+                    self.assertEqual(hashlib.sha256(data).hexdigest(),digest,(program.slug,name))
+                    if name!='README.md':self.assertIn(data.decode().strip(),chapter)
+                self.assertFalse(any('.env' in name or '.venv/' in name or 'observed-agent.json' in name for name in archive.namelist()))

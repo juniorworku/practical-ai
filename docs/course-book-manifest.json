@@ -4,7 +4,7 @@
     "lesson": 1,
     "title": "From prompts to useful systems",
     "chapters": 5,
-    "words": 1409,
+    "words": 1455,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -14,7 +14,7 @@
     "lesson": 2,
     "title": "A reproducible Python workspace",
     "chapters": 5,
-    "words": 1487,
+    "words": 1533,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -24,7 +24,7 @@
     "lesson": 3,
     "title": "Build a small evaluation dataset first",
     "chapters": 5,
-    "words": 1434,
+    "words": 1480,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -34,7 +34,7 @@
     "lesson": 4,
     "title": "Prompt contracts and structured outputs",
     "chapters": 5,
-    "words": 1521,
+    "words": 1567,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -44,7 +44,7 @@
     "lesson": 5,
     "title": "Provider adapters, timeouts, and failures",
     "chapters": 5,
-    "words": 1522,
+    "words": 1568,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -54,7 +54,7 @@
     "lesson": 6,
     "title": "Context budgets and source selection",
     "chapters": 5,
-    "words": 1444,
+    "words": 1490,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -64,7 +64,7 @@
     "lesson": 7,
     "title": "Ingestion, normalization, and versioning",
     "chapters": 5,
-    "words": 1429,
+    "words": 1475,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -74,7 +74,7 @@
     "lesson": 8,
     "title": "Chunking and a lexical retrieval baseline",
     "chapters": 5,
-    "words": 1472,
+    "words": 1518,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -84,7 +84,7 @@
     "lesson": 9,
     "title": "Grounding, citations, and abstention",
     "chapters": 5,
-    "words": 1448,
+    "words": 1494,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -94,7 +94,7 @@
     "lesson": 10,
     "title": "Tools as typed, permissioned interfaces",
     "chapters": 5,
-    "words": 1398,
+    "words": 1444,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -104,7 +104,7 @@
     "lesson": 11,
     "title": "State machines and bounded agent loops",
     "chapters": 5,
-    "words": 1436,
+    "words": 1482,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -114,7 +114,7 @@
     "lesson": 12,
     "title": "Human approval and idempotent actions",
     "chapters": 5,
-    "words": 1492,
+    "words": 1538,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -124,7 +124,7 @@
     "lesson": 13,
     "title": "HTTP contracts and a usable API",
     "chapters": 5,
-    "words": 1510,
+    "words": 1556,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -134,7 +134,7 @@
     "lesson": 14,
     "title": "Persistence, transactions, and data ownership",
     "chapters": 5,
-    "words": 1515,
+    "words": 1561,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -144,7 +144,7 @@
     "lesson": 15,
     "title": "Design reviewable user experiences",
     "chapters": 5,
-    "words": 1442,
+    "words": 1488,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -154,7 +154,7 @@
     "lesson": 16,
     "title": "Build a regression harness",
     "chapters": 5,
-    "words": 1428,
+    "words": 1474,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -164,7 +164,7 @@
     "lesson": 17,
     "title": "Prompt injection and untrusted documents",
     "chapters": 5,
-    "words": 1490,
+    "words": 1536,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -174,7 +174,7 @@
     "lesson": 18,
     "title": "Observability, cost, and latency budgets",
     "chapters": 5,
-    "words": 1410,
+    "words": 1456,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -184,7 +184,7 @@
     "lesson": 19,
     "title": "Containerize the complete application",
     "chapters": 5,
-    "words": 1934,
+    "words": 1980,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -194,7 +194,7 @@
     "lesson": 20,
     "title": "Failure recovery and release checklists",
     "chapters": 5,
-    "words": 1788,
+    "words": 1834,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -204,7 +204,7 @@
     "lesson": 21,
     "title": "Choose orchestration complexity deliberately",
     "chapters": 5,
-    "words": 1426,
+    "words": 1472,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -214,7 +214,7 @@
     "lesson": 22,
     "title": "Capstone build: support-agent vertical slice",
     "chapters": 5,
-    "words": 1513,
+    "words": 1559,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -224,7 +224,7 @@
     "lesson": 23,
     "title": "Capstone evaluation and peer critique",
     "chapters": 5,
-    "words": 1414,
+    "words": 1460,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -234,7 +234,7 @@
     "lesson": 24,
     "title": "Package, hand over, and plan the next release",
     "chapters": 5,
-    "words": 1443,
+    "words": 1489,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -244,7 +244,7 @@
     "lesson": 1,
     "title": "Model the document before automating it",
     "chapters": 5,
-    "words": 1435,
+    "words": 1481,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -254,7 +254,7 @@
     "lesson": 2,
     "title": "Build a validated extraction pipeline",
     "chapters": 5,
-    "words": 1423,
+    "words": 1469,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -264,7 +264,7 @@
     "lesson": 3,
     "title": "Review queues and extraction evaluation",
     "chapters": 5,
-    "words": 1418,
+    "words": 1464,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -274,7 +274,7 @@
     "lesson": 4,
     "title": "Distinguish statements, decisions, and commitments",
     "chapters": 5,
-    "words": 1405,
+    "words": 1451,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -284,7 +284,7 @@
     "lesson": 5,
     "title": "Build an action register with human confirmation",
     "chapters": 5,
-    "words": 1392,
+    "words": 1438,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -294,7 +294,7 @@
     "lesson": 6,
     "title": "Evaluate summaries for omissions and false commitments",
     "chapters": 5,
-    "words": 1433,
+    "words": 1479,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -304,7 +304,7 @@
     "lesson": 7,
     "title": "Form a question and an evidence plan",
     "chapters": 5,
-    "words": 1371,
+    "words": 1417,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -314,7 +314,7 @@
     "lesson": 8,
     "title": "Build a claim-and-citation notebook",
     "chapters": 5,
-    "words": 1435,
+    "words": 1481,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -324,7 +324,7 @@
     "lesson": 9,
     "title": "Run a small benchmark and write a decision memo",
     "chapters": 5,
-    "words": 1397,
+    "words": 1443,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -334,7 +334,7 @@
     "lesson": 10,
     "title": "Design a taxonomy with an uncertainty route",
     "chapters": 5,
-    "words": 1363,
+    "words": 1409,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -344,7 +344,7 @@
     "lesson": 11,
     "title": "Routing rules, confusion matrices, and fallback",
     "chapters": 5,
-    "words": 1453,
+    "words": 1499,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -354,7 +354,7 @@
     "lesson": 12,
     "title": "Connect triage to a reviewable work queue",
     "chapters": 5,
-    "words": 1480,
+    "words": 1526,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -364,7 +364,7 @@
     "lesson": 13,
     "title": "Build a content brief and a factual boundary",
     "chapters": 5,
-    "words": 1399,
+    "words": 1445,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -374,7 +374,7 @@
     "lesson": 14,
     "title": "Draft, critique, and revise with a rubric",
     "chapters": 5,
-    "words": 1480,
+    "words": 1526,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -384,7 +384,7 @@
     "lesson": 15,
     "title": "Design a responsible publishing workflow",
     "chapters": 5,
-    "words": 1423,
+    "words": 1469,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -394,7 +394,7 @@
     "lesson": 16,
     "title": "Scope a useful end-to-end application",
     "chapters": 5,
-    "words": 1379,
+    "words": 1425,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -404,7 +404,7 @@
     "lesson": 17,
     "title": "Integrate, persist, and test the workflow",
     "chapters": 5,
-    "words": 1464,
+    "words": 1510,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -414,7 +414,7 @@
     "lesson": 18,
     "title": "Deliver a portfolio of practical workflows",
     "chapters": 5,
-    "words": 1412,
+    "words": 1458,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -424,7 +424,7 @@
     "lesson": 1,
     "title": "Choose a workflow and a buyer",
     "chapters": 6,
-    "words": 1833,
+    "words": 1879,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -434,7 +434,7 @@
     "lesson": 2,
     "title": "Conduct discovery with evidence",
     "chapters": 6,
-    "words": 1778,
+    "words": 1824,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -444,7 +444,7 @@
     "lesson": 3,
     "title": "Measure the baseline and the decision value",
     "chapters": 6,
-    "words": 1790,
+    "words": 1836,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -454,7 +454,7 @@
     "lesson": 4,
     "title": "Package a service with a bounded outcome",
     "chapters": 6,
-    "words": 1665,
+    "words": 1711,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -464,7 +464,7 @@
     "lesson": 5,
     "title": "Write a statement of work with acceptance tests",
     "chapters": 6,
-    "words": 1738,
+    "words": 1784,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -474,7 +474,7 @@
     "lesson": 6,
     "title": "Estimate effort, support, and pricing assumptions",
     "chapters": 6,
-    "words": 1731,
+    "words": 1777,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -484,7 +484,7 @@
     "lesson": 7,
     "title": "Map data, access, and retention",
     "chapters": 6,
-    "words": 1734,
+    "words": 1780,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -494,7 +494,7 @@
     "lesson": 8,
     "title": "Build a thin pilot with visible limitations",
     "chapters": 6,
-    "words": 1698,
+    "words": 1744,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -504,7 +504,7 @@
     "lesson": 9,
     "title": "Use client feedback without losing scope",
     "chapters": 6,
-    "words": 1646,
+    "words": 1692,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -514,7 +514,7 @@
     "lesson": 10,
     "title": "Create a client-readable evaluation report",
     "chapters": 6,
-    "words": 1659,
+    "words": 1705,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -524,7 +524,7 @@
     "lesson": 11,
     "title": "Plan delivery milestones and manage risk",
     "chapters": 6,
-    "words": 1635,
+    "words": 1681,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -534,7 +534,7 @@
     "lesson": 12,
     "title": "Manage change requests and commercial boundaries",
     "chapters": 6,
-    "words": 1630,
+    "words": 1676,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -544,7 +544,7 @@
     "lesson": 13,
     "title": "Deploy with client-owned access and a recovery path",
     "chapters": 6,
-    "words": 1640,
+    "words": 1686,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -554,7 +554,7 @@
     "lesson": 14,
     "title": "Train users and run acceptance testing",
     "chapters": 6,
-    "words": 1644,
+    "words": 1690,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -564,7 +564,7 @@
     "lesson": 15,
     "title": "Support boundaries, maintenance, and incident review",
     "chapters": 6,
-    "words": 1624,
+    "words": 1670,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -574,7 +574,7 @@
     "lesson": 16,
     "title": "Write an evidence-based case study",
     "chapters": 6,
-    "words": 1644,
+    "words": 1690,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -584,7 +584,7 @@
     "lesson": 17,
     "title": "Prepare outreach and qualification responsibly",
     "chapters": 6,
-    "words": 1660,
+    "words": 1706,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -594,7 +594,7 @@
     "lesson": 18,
     "title": "Complete the simulated client engagement",
     "chapters": 6,
-    "words": 1706,
+    "words": 1752,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -604,7 +604,7 @@
     "lesson": 1,
     "title": "Model capabilities and an API adapter contract",
     "chapters": 6,
-    "words": 1585,
+    "words": 1631,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -614,7 +614,7 @@
     "lesson": 2,
     "title": "Stateless requests, sessions and token accounting",
     "chapters": 5,
-    "words": 1214,
+    "words": 1260,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -624,7 +624,7 @@
     "lesson": 3,
     "title": "Async Python: bounded work, deadlines and cancellation",
     "chapters": 5,
-    "words": 1239,
+    "words": 1285,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -634,7 +634,7 @@
     "lesson": 4,
     "title": "Bidirectional streaming and audio backpressure",
     "chapters": 5,
-    "words": 1207,
+    "words": 1253,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -644,7 +644,7 @@
     "lesson": 5,
     "title": "Interruption, session resumption and safe reconnect",
     "chapters": 5,
-    "words": 1165,
+    "words": 1211,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -654,7 +654,7 @@
     "lesson": 6,
     "title": "Voice assistant capstone and latency acceptance",
     "chapters": 6,
-    "words": 2083,
+    "words": 2129,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -664,7 +664,7 @@
     "lesson": 7,
     "title": "Mixed-media intake, parsing and provenance",
     "chapters": 7,
-    "words": 2041,
+    "words": 2087,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -674,7 +674,7 @@
     "lesson": 8,
     "title": "Token-aware and semantic chunking",
     "chapters": 5,
-    "words": 1196,
+    "words": 1242,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -684,7 +684,7 @@
     "lesson": 9,
     "title": "Embedding APIs and index version migrations",
     "chapters": 6,
-    "words": 1821,
+    "words": 1867,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -694,7 +694,7 @@
     "lesson": 10,
     "title": "pgvector search, metadata filters and ANN recall",
     "chapters": 5,
-    "words": 1157,
+    "words": 1203,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -704,7 +704,7 @@
     "lesson": 11,
     "title": "Hybrid retrieval and rank fusion",
     "chapters": 5,
-    "words": 1141,
+    "words": 1187,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -714,7 +714,7 @@
     "lesson": 12,
     "title": "Reranking under a latency and spend budget",
     "chapters": 6,
-    "words": 1517,
+    "words": 1563,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -724,7 +724,7 @@
     "lesson": 13,
     "title": "Grounded claims, citations and abstention",
     "chapters": 5,
-    "words": 1144,
+    "words": 1190,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -734,7 +734,7 @@
     "lesson": 14,
     "title": "Streaming source-grounded chat with failure states",
     "chapters": 5,
-    "words": 1143,
+    "words": 1189,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -744,7 +744,7 @@
     "lesson": 15,
     "title": "Mixed-media knowledge base capstone",
     "chapters": 5,
-    "words": 1175,
+    "words": 1221,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -754,7 +754,7 @@
     "lesson": 16,
     "title": "Tool binding and workspace API permissions",
     "chapters": 6,
-    "words": 1542,
+    "words": 1588,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -764,7 +764,7 @@
     "lesson": 17,
     "title": "LangGraph state and durable human pauses",
     "chapters": 6,
-    "words": 1464,
+    "words": 1510,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -774,7 +774,7 @@
     "lesson": 18,
     "title": "Approval-bound calendar and messaging proposals",
     "chapters": 5,
-    "words": 1150,
+    "words": 1196,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -784,7 +784,7 @@
     "lesson": 19,
     "title": "Context memory, summaries and cache invalidation",
     "chapters": 5,
-    "words": 1146,
+    "words": 1192,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -794,7 +794,7 @@
     "lesson": 20,
     "title": "Framework choices and multi-agent delegation",
     "chapters": 5,
-    "words": 1158,
+    "words": 1204,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -804,7 +804,7 @@
     "lesson": 21,
     "title": "MCP hosts, clients, servers and tool contracts",
     "chapters": 6,
-    "words": 1457,
+    "words": 1503,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -814,7 +814,7 @@
     "lesson": 22,
     "title": "Idempotency, remote uncertainty and reconciliation",
     "chapters": 6,
-    "words": 1596,
+    "words": 1642,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -824,7 +824,7 @@
     "lesson": 23,
     "title": "Slack event intake and background work",
     "chapters": 5,
-    "words": 1169,
+    "words": 1215,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -834,7 +834,7 @@
     "lesson": 24,
     "title": "Workspace agent capstone",
     "chapters": 6,
-    "words": 1866,
+    "words": 1912,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -844,7 +844,7 @@
     "lesson": 25,
     "title": "Faithfulness, relevance and calibrated judges",
     "chapters": 6,
-    "words": 1495,
+    "words": 1541,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -854,7 +854,7 @@
     "lesson": 26,
     "title": "A 120-case edge dataset and repeatable harness",
     "chapters": 6,
-    "words": 1944,
+    "words": 1990,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -864,7 +864,7 @@
     "lesson": 27,
     "title": "Prompt versioning, CI and critical release gates",
     "chapters": 6,
-    "words": 1625,
+    "words": 1671,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -874,7 +874,7 @@
     "lesson": 28,
     "title": "Tracing agent trajectories without leaking prompts",
     "chapters": 5,
-    "words": 1151,
+    "words": 1197,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -884,7 +884,7 @@
     "lesson": 29,
     "title": "Latency, useful-output economics and optimization",
     "chapters": 5,
-    "words": 1146,
+    "words": 1192,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -894,7 +894,7 @@
     "lesson": 30,
     "title": "LLMOps stress-test capstone",
     "chapters": 5,
-    "words": 1162,
+    "words": 1208,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -904,7 +904,7 @@
     "lesson": 31,
     "title": "Containers, network boundaries and persistent state",
     "chapters": 7,
-    "words": 2406,
+    "words": 2452,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -914,7 +914,7 @@
     "lesson": 32,
     "title": "Cloud Run/ECS concurrency and autoscaling",
     "chapters": 6,
-    "words": 1927,
+    "words": 1973,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -924,7 +924,7 @@
     "lesson": 33,
     "title": "Ollama, vLLM and GPU memory/context budgets",
     "chapters": 6,
-    "words": 1535,
+    "words": 1581,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -934,7 +934,7 @@
     "lesson": 34,
     "title": "Distributed quotas, budgets and fallback models",
     "chapters": 5,
-    "words": 1205,
+    "words": 1251,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -944,7 +944,7 @@
     "lesson": 35,
     "title": "Hybrid-model SaaS integration and load experiments",
     "chapters": 5,
-    "words": 1151,
+    "words": 1197,
     "concepts": 3,
     "quiz": 3,
     "cards": 3
@@ -954,7 +954,7 @@
     "lesson": 36,
     "title": "Graduation release review and fresh-operator handover",
     "chapters": 5,
-    "words": 1189,
+    "words": 1235,
     "concepts": 3,
     "quiz": 3,
     "cards": 3

@@ -1,0 +1,3376 @@
+{
+  "lesson-01": {
+    "content": [
+      "f2e9dba6ea33046c1f5fda4489d769e22910eb6522853c1e5b0bb9e1158d68f6",
+      "0b6589ce9066a4b2398c3f80c3945ab1949351b79dd3bc4b8d51769722d47ee0",
+      "195a15dab674ab9295b36e4736bd82f3fba5e330f7a3abd860b668d554d70da8"
+    ],
+    "learning": [
+      "48ee3a13f864ac84116cd944568c2ad29d00e433e634863af46b529e6e22d617",
+      "002c9aa248e4bb54fae215715e0f35f0b5ddcdd6bf81449075a041ca029454f7",
+      "774cc44486aad2ff4983b8093f61dc214933d48fff35b71072bd8a1a57d9866e",
+      "2637a140c6d6a2237b498f1def65f049de08110f15e29f483698f2e4f7a4bc37"
+    ],
+    "fields": {
+      "task": [
+        "Add a warranty question that must abstain, while keeping the refund condition intact."
+      ],
+      "title": [
+        "Define the product before choosing the model"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-02": {
+    "content": [
+      "e35c1bcd8e342befd4907c3cda6febc31e2094fc33b62e6031bdda0bf873ee8d",
+      "f4e6719ee13be65171b0c17403fd822dd390745061e8b3555a101034a628729d",
+      "4a554f65242d370b37750c77e118492243afe2881c6dc6e6168536cac90f3db9",
+      "37cff8afb5fe75211dab6886b7292f5c08263bc1127bd2983c77f91549b2a4ef"
+    ],
+    "learning": [
+      "4598e1b99db4a095bb1d34ed03d33f6c39a6774f4654a218d93f88ce258ca2b5",
+      "8c0d74a3ef2578dee43c1dca7c3570faf974ac4d70f4b5636018e11c026d6f44",
+      "d47d514cd199e35409a550bd27d42502242b24046fe63b7c221ecf4566945e20",
+      "bfaec9af291737ccf990e7679d41d8cb65c660968fec904884c09e623eb1ea7a",
+      "3392e84e39abcf6c261f56508940f2a093963f9193b4c3777648a0bc7443f5ff"
+    ],
+    "fields": {
+      "task": [
+        "Verify the parsed project has a version and no undeclared runtime packages."
+      ],
+      "title": [
+        "Create a reproducible Python project with uv"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-03": {
+    "content": [
+      "8a0d7af2816f37b80e13565343d17f069e31f86fec4862a6c664874624b19d98",
+      "5ad01de6cd678cd7c547ec6e81da3c8f5358e98922cb58e51e88072e64cdb91c",
+      "292b69037733ce02e7cd5cce1ed61e01cea5a3a711944514046b27d6c95facd6",
+      "c44b2acacd9f6583b88a12aea65fa15d658dd920d7467b6113a7fd0e156910be"
+    ],
+    "learning": [
+      "a71b91b389f871a5ba42d1318c40601d9c416f5a08f2300a33f5015342a5219f",
+      "43d08b39803b3eb5785549f7f45b0b123d066a1498fd2c633190390340ee076f",
+      "cc133ce13328ac3063a777853af838ef8cf5eeef6184b1a8a97072fd0a45c3bc",
+      "6a9f048cc53ad30357f7a1643e3892a6e58dfc3d48074b442b6608083f7ebb6e"
+    ],
+    "fields": {
+      "task": [
+        "Pass a synthetic key in real mode and verify it is absent from the returned diagnostic settings."
+      ],
+      "title": [
+        "Use configuration without leaking secrets"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-04": {
+    "content": [
+      "e232b7c015015e7efdf71854c735ceeff6c53bd9251696c297a3688f1f463465",
+      "6e44f4a946dffabca16d43de00faf58a5f389d3f5cbe8a3733d1b253bcbfe7c4",
+      "0a7a42e16de8fc67332d87ebe0ccb83dd41d4b273f6f69ae15275e4f4b9455f5",
+      "39f39164127c7ba7fcfa39c3e29bd994aeb2f01c71a34d4b38cf2e1036eaecc9"
+    ],
+    "learning": [
+      "e00fb6fa14fa312ed6b6ef27616f02b37b0670c1861e826b05ef21c3997f1437",
+      "e4b65c5c986bfadc183c2b07f4795010436bced3b4f3a61adfe1f23ff0b2afbf",
+      "7944e2d6d08743c9bec026b8c1be60f77f4ba457ae1b07e4da0284f9724b51fc",
+      "f70531cd2acdfbe122b6fc66a7547bdb625dfa3cfa8c4d13b1f4476c9a86a0a8"
+    ],
+    "fields": {
+      "task": [
+        "Repeat with one permit and prove serial concurrency without changing failure handling."
+      ],
+      "title": [
+        "Separate asynchronous I/O from CPU work"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-05": {
+    "content": [
+      "abedd8edf45f7d11bfef35a66af5b3fc468063bcd4d2c723386de4afc79dc3e5",
+      "ec737d2de70bdbd6fc33faf49cd13e4b315b796f6f73d9d87d5750438e2daffb",
+      "87539065dcea1722c1460b4e77012cb501d7065f4c64739c65114fad52b1b326",
+      "469653e22ddf3c8ccfae6afdf4cc625fc607ce3d241fb90eb038b5ca317d58f6"
+    ],
+    "learning": [
+      "e413e75be0221f3ee862eb1a59215b3b38e743fccd5969d0a82fde9f76341e91",
+      "fb591d27140cf031d9777b9e148f663abef2c4d96625d684392c71f5c25c7dd3",
+      "7bb9183accf9cfd263055efeb80e99e71bdc4aa44fda3f939699080a8a229beb",
+      "45e828249ae71bb8be44848160870e8e846931c58b0889653ea74a3e928ffa0b",
+      "9bcff371c4be5ddffebb41c6a02da71225c9cc7217dcaeb195fc1bcae7469423"
+    ],
+    "fields": {
+      "task": [
+        "Add a no-match query containing only punctuation and verify it produces no evidence."
+      ],
+      "title": [
+        "Establish a baseline with deterministic tests"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-06": {
+    "content": [
+      "6ac3043a84e4c3045ac77dce2c7b68bacfec5f8b8cad90e89912457875d6f90b",
+      "6bc4f85511e25531fd6ffe98ffeb9e8a9988ca7ae353dab8022c5c04334c36da",
+      "94cca3a0ae1432ae90d87ca7c604a793d4f9e35f8837c4860596cfa91251f303",
+      "24fcb844ae5bec47c80e04f134bf25824ba82f21bd86e76360c2bf5022357d60"
+    ],
+    "learning": [
+      "bc1c8a214abc39d3f74c168ff07ad2d61ae63d417574477dd4a55bc1fad31a1b",
+      "9008fe416416237d2c224892d3c1416ef9b882b20cf51d33eca7062a9180e39c",
+      "dfbcc1b62c868ef21b8daed793cad44b40d5cf9adaf040065b6e2aa9916e900e",
+      "8761d28465dc8282fcde98041f4036ff5b8efe116b902d67b9513f6328a3abf5",
+      "fd6666d1ac18301656c8ba810099ccf42c141d99c9d48cf0321766330204c94b"
+    ],
+    "fields": {
+      "task": [
+        "Increase the reserved output to 40 and verify evidence capacity becomes 30."
+      ],
+      "title": [
+        "Understand tokens, context, and generation limits"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-07": {
+    "content": [
+      "efcd4cb3fc02c11ee224612c1db457cfd9d83e080c8b00f878afe9e83f694193",
+      "5fe1cabdebedbfd73abc4b3b684651ec7b2695cf9031e86fc3757c81cfd9575e",
+      "59508d7903689110d544e60f7580c35f1566085d616fa5e50b51da58c4d12e0c",
+      "ac8c8a1758c2aaeea9da5cb06757b79484a83af768e6261560e68186380b4b2b"
+    ],
+    "learning": [
+      "f52bfe8bc20f31e482ef491bd3471b2750710d6d87a665798c4eb91a7abe33ff",
+      "b4d4b743c1c9d533b99c6fe4ba90dde79cbd9f8e8eafea044f1fe701400d89c5",
+      "84ada4720f310d915ebfe68f67d936f826197b1b1ebf3d404b7080fa3f00959e",
+      "9cbc88c5dc0c8e1258feecdd2f95f21cdf2bc818c38cd7cb07c7e7c6fab5e8c8",
+      "8ba2deb7ecacf61f2d7c7d797c4aa615bd79ded77e7f372cb64da1ac09eea00d"
+    ],
+    "fields": {
+      "task": [
+        "Build another envelope with empty evidence and verify the system rule is identical."
+      ],
+      "title": [
+        "Create prompts as versioned interfaces"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-08": {
+    "content": [
+      "c6a99cf9aa7f7e9fc7250211016cd3a64e8e4d8460dc78633ee519c18071a243",
+      "439491a45e74251eee146c7b86bea96547f81b7e538913b4be7a80ac3b42585d",
+      "e8da8794b61cf8883e24a99fb7eeba8483d777f8ca220f0cc46645cf24a17814",
+      "dcb56a338bab3074b3f11736e886ab55f2d92b26e54782a86259afa1c98d7175"
+    ],
+    "learning": [
+      "9db906b29c6bff010a0470923e24ed387711a4931822f3864998d377c9751793",
+      "9a76197f3ab1578cbc064da2bbe2b77384376e98db6ab975c2c2ebb478a19b03",
+      "7301d2069cfa78a1a2fb673871c6f8800b7ba91c24c73537aa589a4c47d22669",
+      "96506d3ae99545e5c8e269750d4be153eef42dfa04b2905a31bc1d3b3a42bbcd",
+      "ab4cc3ea735d8137d77d1d9852023abeda01ceda0b13e280e803f3d4055ae163"
+    ],
+    "fields": {
+      "task": [
+        "Change the current policy to 7 days and verify the demonstration still cannot overwrite it."
+      ],
+      "title": [
+        "Use examples to teach output behavior"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-09": {
+    "content": [
+      "8b9bd5d69c5ef3f480958d81a65513903fe88d79b87fc527e9af9b02f02c9c02",
+      "e0568061e825225989c324233761935ec5b47472e53b6e1027d1b9a316872d86",
+      "c40e6d2f073718a5023951d727261df0ebc7403512e9e52862b8fd52e4668bb4",
+      "eb865c76f571082f40369e8b9be60a3b69524677d3cb9c6e0102aa1c54782eb9"
+    ],
+    "learning": [
+      "12d2bd6c4e672d01305585185190d45a1b747eedf55483be0afbecc472657f36",
+      "eec23dc3b0a84c4109cab0f7109bb0c5a466280ee1ae7e8db2d7affa57799d9c",
+      "6c7bdf94ee4bc81702878b18ac3aeddcb8d8fa795b68c16930a85d2739345d65",
+      "5daedb8c964d354c130b4cd9242859c649bacc4300bdaee9b12d8eb10ebe6291",
+      "dc0918b00b5c2e584e3e7f283a0871d99955e627920937d284181d13f8071e34"
+    ],
+    "fields": {
+      "task": [
+        "Verify unknown usage remains None, rather than recording zero tokens."
+      ],
+      "title": [
+        "Wrap the provider behind a narrow interface"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-10": {
+    "content": [
+      "159b9422f4c8360b12c67e9601bfb6692b6f817fbdf836fd4ff4ce283bf40d88",
+      "ae5fafaaed79323ac673c76bfd4b5e775cce1630aaf6fce16d600b370fd98823",
+      "da2e49328b463bb89b18016c7cd3959343d3d7d5a5942cec1abd589e92331336",
+      "94ae8573891c164939f5a8644f14df1f7d8b758862ef18866be18a68aaa645fc"
+    ],
+    "learning": [
+      "aea3277c42e073e1304be7a8d07216e5e50ed0e8445fad06d151f60949eb8e32",
+      "3f9cdde7aea1e4f4493e787f3e96fde2e9cad3e61ce760689cff3b99b164b7a1",
+      "713c809f242866e52693d2369dadb9043397e38a517dbb7d4f134d973ccd278c",
+      "b8fa310078cf16863b5cc011f8fff0996abc70ac8b4fb6b32205088ebf7f1dc3"
+    ],
+    "fields": {
+      "task": [
+        "Tighten the deadline to 5 seconds and prove no 6-second attempt is started."
+      ],
+      "title": [
+        "Design timeouts, retries, and graceful failure"
+      ],
+      "module": [
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-11": {
+    "content": [
+      "5d2540d7bac95032a597afa8112885c34b7b161abd283826ca22ee8d4c792f82",
+      "437fec8278233c1f0416114aabfc9da8337f73c7048919e2f7470240789850a4",
+      "ff59617a5801166eb628a731049626ad6595aa6948fd7c44ff370e75c4838d81",
+      "3cc404484186098ac2b57f49990cd5b69b00d851371bb5352b021d8c04551e18"
+    ],
+    "learning": [
+      "ce528a94ebf5a87227b232c1f1342682e80c3b2b7a84c5ddc6ee88b96fbfbdf9",
+      "ac5006bf257b863dc57a799ff5c9617e68a0b2ffd80bce3a68c6ee750f19303b",
+      "dda91a47e2e3f9d616beb6a8305bd2c06206978571e56fcf55b60351b103025d",
+      "47a437511c9256074f27d980a21cd70a51b037f0f856e43ce689cbcee3c74bd6",
+      "464a209d5aa2e347ca0378b8f5d131f60707ce94f0a6877bae7081cc5fab312b"
+    ],
+    "fields": {
+      "task": [
+        "Test that indexing is still unavailable until the ready transition."
+      ],
+      "title": [
+        "Map the request lifecycle"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-12": {
+    "content": [
+      "6b51d7a83281c1582eb7e0e976625b5de6ebf1ee5311900903197a0eaf3c0324",
+      "113c487a8d1a031b99e8757dd39fbb44dcb7b73d0e17f7daf00e7ed3364c9bf3",
+      "c840d681c9ceddcd83b860ed9ea652e542661429cb833febb178731b53f584ab",
+      "fc84d2e072c3267bf2fe5d7bad2c1b15f4ce87844df7868f025247921d32ff10"
+    ],
+    "learning": [
+      "c63e1875d901496b3da835f6d267c48780aec26c008e7d8b42b8669930daa9bc",
+      "48cfc3a50efc13821a36959150fb1fa433523f077030f2cf2b9bd625b30d77eb",
+      "454444d24584460c10c01b03f745719f931b6a07580797c40b08ece0cd70cc51",
+      "c7792964c4b2651c6736ad16ed6ee92b4d123a7467c67ca211e4e6379b43658f",
+      "eed14fe7c949b287dc73cf38e33d761536ea3c9cac24bdf56323b0bfce00b766"
+    ],
+    "fields": {
+      "task": [
+        "Reject a whitespace-only question and a non-string question using the same validator."
+      ],
+      "title": [
+        "Define Pydantic request contracts"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-13": {
+    "content": [
+      "65a2a90ff6e07fda1a542e1ae93027c02573276300030fb493e9ee0d649461fd",
+      "a4459594befd277669940c54b2c7f76193a9eb6bd852510762ac067a79e9116a",
+      "61179bb77940dfe0757272e85fdf85efdc4dcef35cc1e2bc001212e710b975bd",
+      "65d24f451b6180b11b02bbbcb2bc4be195c82fa432c52e5c51f2dfb6bf365bb3"
+    ],
+    "learning": [
+      "37cafbbad3d469550fbca6b5ea3193b45bf3cd0309dffd4d637be3df0a254291",
+      "7b49381197f0f67c7a7c04e25de02e9ed1dc2a698013dc3eb632223cddde0cb5",
+      "027021373ea7aace53f8dedfd45c24363f3aebf5a5aaff3596a183b6b56f8c52",
+      "8d1e472ea34e98fcd411eabc9480bf8529f2d12128994f66de3ac9b7bdf7dc4d"
+    ],
+    "fields": {
+      "task": [
+        "Test that a citation string is rejected instead of being iterated as a list."
+      ],
+      "title": [
+        "Validate structured model output"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-14": {
+    "content": [
+      "0b20f03b5b8ad3fd6d72349654b7b0550f1d3ccb26d78e7202f319bbbb6e321a",
+      "3fd6a91802ceb03f44554f1f28813c5b8abea83322b47b95d1e4a6f0879dda29",
+      "7f55d1e66d860a79fc00824218cdff362bb1b290c8e80cb11cb5df2354e7a4e8",
+      "ad11ce17619d9962bc06b69bb97628a0c059f94a175728543513f88a25422ae0"
+    ],
+    "learning": [
+      "2f4398b638b1e162da7c7e979f75bad3baa65a0c18461fc82fb5733092e86b97",
+      "04d70f23482f922c16a0da98e6b6372621be366ae35c0e8a29b085d1c2d679a1",
+      "08c1c4a51013dc633a372fbac7468e473134a2597adc0410553901c716adfbcf",
+      "d34a12547d98f5a30be77427faa2937e2126ca430c107a7ec2193e3ed295cefb",
+      "26ea2bac7fba660e027b146ec4f0adda465f71001ef2d9bd8251ef64b29cb948"
+    ],
+    "fields": {
+      "task": [
+        "Make retrieval raise a timeout and verify it is not converted into an empty-evidence answer."
+      ],
+      "title": [
+        "Use dependency boundaries for testability"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-15": {
+    "content": [
+      "c4222682dd975b96482685410c65f03b81975d62c5769d55d2f36d5b8188a662",
+      "29c40d410f685d03c70bc6f22cd361b12cc4a872aa8d42c8de0b3a591ed8941b",
+      "6a4fb06d9dca358136e5b53102382f26a60ca40770b02bed6d68a32d314d7173",
+      "fff015eda4cadb97888d260210a9bb2be1ea76f100298e0611ba59c9334d7931"
+    ],
+    "learning": [
+      "cf400e0558c24420b8130c31441d2169bedcdea81fd2d400e889926e7a5801d5",
+      "7f1a5c46c441e55acba4630277bc8cab8a4cfb836bdf7e63f90b4504b44031a5",
+      "34ea581030a9387bd6ff4d16ea259e899780ec4c1bf8ae00a25455f52b649631",
+      "5bb00af9bfb3cdedba63a8896b34953ae55977740b2635cdb8aadc2a99651eae"
+    ],
+    "fields": {
+      "task": [
+        "Reject ready-to-parsing and allow the explicit failed-to-accepted retry edge."
+      ],
+      "title": [
+        "Represent ingestion as a state machine"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-16": {
+    "content": [
+      "2be233afe089584b621e736c72380077ef53e3a70fa02ffb6b4c90ffb511c6c4",
+      "24dc114cb875f850b01336a02d63c14cd2e95b8d58f115573ce95ba9fefea410",
+      "f0d4b7002680a925ec2a512559db61b011fdcf419bbacf01a5257eb2e2f5def8",
+      "9e5bf156d3b233f5a391fe3d36073870392371ee9a0faa02e9b5bcc77c29758f"
+    ],
+    "learning": [
+      "c4d857e8a6c07c3fb9ce2a46a0af698a4170098e9ff5040ef162f3db65604b96",
+      "974e08e6434c87f6e9d9c9c6c8de0f72557d93e62eb8e746f1ef237b1c9b48ed",
+      "459f71b2dee72006602b0ea4ef2b9ad2e9f21016aece8d4c92d3bb52e65d6e51",
+      "844686e5992578b80e7125cfa25a40597286fdda55743c3082c7a5003a837c2f",
+      "80dcdc3853669888f162c8f2989a3cef9a87fd0711331619b9ce18c772963a20"
+    ],
+    "fields": {
+      "task": [
+        "Allow exactly 24 characters and verify both unique passages fit without truncation."
+      ],
+      "title": [
+        "Engineer context as a bounded resource"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-17": {
+    "content": [
+      "c9ddcda0ed7f7a045f21504518bb8ba1549057a19170d8d1374ab0fc19ec87b6",
+      "3ce69ea6c20941e0015f41f91ab2f1a61a20b31230470d0c40c33c597b441ca5",
+      "eaadc56563839e8014da4f96caef0a53d09c8963f72b622ec5a714864dfd7bf2",
+      "960f400b69d2955739111685128389ca60f80257124a19704aa4aa387f957f54"
+    ],
+    "learning": [
+      "ee3b145ea0a5303dd9a7c36297f93eb706fd92b66f1fe0b064d782466ff9d01d",
+      "ce87ce542cd173a3508564795e6e0300ad9e7c192cfbab923f6c7a1dc6fa7e19",
+      "203eb13f12566937b74bbfd1fd9a243edd1fd247039cbc255e39bfed5c00a086",
+      "36b6ce0372205f2bd177a3e1865938d4cfce35ebafa963ff82e133c332f9ccc1",
+      "e6f66bac8fc3c0f86a73d93b72087352b0b5fcf02473be5d588f4907aad1c926"
+    ],
+    "fields": {
+      "task": [
+        "Change only parser version and verify it creates a distinct ingestion identity."
+      ],
+      "title": [
+        "Design document and chunk identities"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-18": {
+    "content": [
+      "9affe0c4979f776fcce13c778a02ddd5a1ac6a2e8213662eb357b96eb82e4112",
+      "634799b99bc49b6a6820dfd5d22a41df6cf585accaa70db98bf802ccf6f266cb",
+      "5f1959f4019f89478c5653b26e413645d0009132dce16a0aa81380125bceb7b2",
+      "76d1abdef0da937d145d4d9b515952e077da9a35aba20cec17009db0c3b3d525"
+    ],
+    "learning": [
+      "7aa6380df688807ea72f92db7215daeedbe8abf486a87014c9c1a9c9e483b087",
+      "e3620a506c304ef982475d9f2d826de7e8316fa4e6d55e95794b903e29311da2",
+      "90f8f9e24da5c9dd9c00c4e9095bb90b3349bd3ad442a241b71ab3cb0cedd25b",
+      "02e33a71f3dbadab37e1e28f1a9c8fc8a260b589f28e6ba30de2bee2f781c739"
+    ],
+    "fields": {
+      "task": [
+        "Query as an organization with no documents and verify the result is empty."
+      ],
+      "title": [
+        "Enforce authorization before retrieval"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-19": {
+    "content": [
+      "f0b2c68b42a24d7b0f399e765f8207c24044e5ea88f34ad27ad119370ff512d1",
+      "d81c070173eb6f225882a2467b8dc1ae06df6de69291952b7ca34f1b1ca4febb",
+      "a991e615da5311b4f3610ebe0747a47a8978b063f4e512ffa0e313126ef46558",
+      "1cfe8ed3cf088e4602bed17f8bf1bce7ab9fe8a608e9b1faa6bf2d5c54ac3e89"
+    ],
+    "learning": [
+      "ed745956d0cc3e24007b9a7c1341ef32f2f18a7bac7856d084a9275a7968af63",
+      "82d6faa31dd287ade311c8ae143606fd640c1bc517d0ec2a32c7da1fa59a24e5",
+      "850f633154be770d81a1cbfafea9e1036378480e86930e33ab2dd209c3c9bd28",
+      "13e5dd188a8df386db5752bb19f5f3ab3526aff4b1823a9afcfe0d86b61cbdae",
+      "3ad3e7317fec5e5255777c3d496bac94c8284b58214df81bad255f0ef005e7c4"
+    ],
+    "fields": {
+      "task": [
+        "Double output usage while holding input fixed and verify cost becomes 0.003."
+      ],
+      "title": [
+        "Set latency and cost budgets"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-20": {
+    "content": [
+      "1a53d3d349c90dec4a766fd132f58a5ffc998b439039201e8cb3c16ebd27828a",
+      "e525c5ea0eb3131f2aecc0571948c1e2f828f8a873dbb565ef6c3e9316d2dde6",
+      "582c25d0a45c1693195a1422f976c4c2f2193aa6d87b5f03582a08b1b636ed76",
+      "1407585a6a1b5c7b33304b808dc5d0dd50837e6531848ebc774c8d4fd8d8956f"
+    ],
+    "learning": [
+      "b31c4260811ef3afabfdd0a05945466b1678fd1c2f4a02fa82a760268c977507",
+      "8559b6159ee6f805c12d541c61cdc4c80ab7b653de38fe4788cfd18b435e2af8",
+      "dbd65417662b22827ef34974288949e5c10ee777180b93e9083edb5899604d1c",
+      "459502129c2a9fd8ff618e056a0f9c234ebc859dbf60487ace86b7cba80bae09",
+      "32936ad4fc784f84880e1ea8e2da021326e5b37a32116140971ae87ee175fa35"
+    ],
+    "fields": {
+      "task": [
+        "Record a second irrelevant requirement and prove it does not reopen the architecture decision."
+      ],
+      "title": [
+        "Record architecture decisions and trade-offs"
+      ],
+      "module": [
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-21": {
+    "content": [
+      "b24ac898a22a581d7f2c504693be94b64e7cc0473352ac1f234e151028df70eb",
+      "546ed907c8d15f3854fe337c1f9dbdca52a0416d94522b98144701a96b7c4948",
+      "73cfcb9183348b3a3b123f5f0b8345258c9d4f0016da390f7014a8746387224f",
+      "8e0a73359eb6f947f95594c6f11e875bb99a863ab7e2840a76917bf94628bf11"
+    ],
+    "learning": [
+      "48f435de4e1721d0e1fcad08fab7fd82bfd9d6350fba8a62663c0fb3808119f7",
+      "ff1b65f106330916025fc4f9beb7ae1df78dd6d54c1e1baf1f835e93ba8a64a6",
+      "45c9dea63418dbf1d5814eaba7f26ac0c8d6841aff385b819f717065e9fd7c01",
+      "4efb4a424357c088b3adeb7eec7e8a22476a1ffb09dfd6b0d983a68b4da6a07b",
+      "8b3f2b06537d128d560187bdfd9c8fcde10cb838474b40e4327a45a5bba0b2f8"
+    ],
+    "fields": {
+      "task": [
+        "Start a second local server and make a real request to /another-missing-path, verifying a 404 and its JSON error body."
+      ],
+      "title": [
+        "Build a small FastAPI service"
+      ],
+      "module": [
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-22": {
+    "content": [
+      "3c980b3365237d458b4ae03820991194c6446d41028ecb84d625d010eb1320b7",
+      "eb3c7d452e8b34abff1e99011e74d9a9b0d35a7718a897957d670d2348094090",
+      "600630151e06be4853c50469bed52306e0d909eb5dd1baeeb2fee0650f1872b2",
+      "7ede74058b600d447c10fa1e9de68118fabe48444b628203ccd823aedbc4c84f"
+    ],
+    "learning": [
+      "899b9b578869b8447e8d5560c84cc963dbe0c8840a82df05ab5455b81d4d8258",
+      "4dd336fea5f5217989e060a254fe27daf37926ed18ab68d3ec1bf7ea5b900312",
+      "13edb86f137f6a245ec0c603d8f00782a112544210569c373edcf5a27be4aa8d",
+      "628ed6030f22624a7a2cab2748aaf1607d05db5bdbf594eb79a5253ee0c7dff3",
+      "248f3542cfb3095f980453f4070887bb7384bb2df0a6e31e4722d8aacbbd79e3"
+    ],
+    "fields": {
+      "task": [
+        "Verify the public body identifies the provider error without adding the upstream message."
+      ],
+      "title": [
+        "Inject services and classify API errors"
+      ],
+      "module": [
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-23": {
+    "content": [
+      "309f7a13fcb665eca49698eed3488ee2b2f8db0374a7abadf2776469129890c8",
+      "f7cf06c5f806778262bd0ab77c8ded2b4f956c7f888d93906d9411fbffd4d7f1",
+      "5291d993e7e4af61a783d4baf20b72b1b0e22a81b0c1d123f6b87a0d1a0d398d",
+      "a9a59c6d55c3292bf611379d55985a63c0ee92f73bbde90dfeea52e3d4770344",
+      "6eeb0d06c4cbb3a46c51a38e5262f2ca035cee8483d0ffda3edf661a1ab18c26",
+      "62396b195aaffabba74025b46c6f14f13f82096fe1766ce4910dcd9a2ff1861d"
+    ],
+    "learning": [
+      "e9ee73db7c7b0289b08c12a80ef822b46688280c8e2496ca412dd6e22eca8ba6",
+      "a72a1bd740b946e20e49a2bae00f30d41ad69f4997d76bd3bc71a65bb7d69476",
+      "242ebe7b98a8486b99260f04a21ac0cc8b8e7ae96e1d1c52f1f415c18a598faa",
+      "ebc87c3a630c304fa676fa74c1054a12e6afc85157826deea2d60ff84c72a31a",
+      "aa720b138246245c34c480b11c9810462d32d59b9e4b401d41db97de1c81377b",
+      "915f7a93df30ae96d869c980ac44c61b7e3ad787e45657ed648b74c5dd42f091",
+      "b18520dee34db4a62e0e92391011f6e12ed8269f0db670f0986b7609b485367b"
+    ],
+    "fields": {
+      "task": [
+        "Explain why an application precheck cannot replace the UNIQUE constraint; verify two rows remain."
+      ],
+      "title": [
+        "Model documents and chunks in PostgreSQL"
+      ],
+      "module": [
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-24": {
+    "content": [
+      "7af3de6ad51ed7db4ac8e463c9d7593c1a85e9237870742b5ae2c1a8745d0ed2",
+      "903421b2d388518970c970040f27970208b10c0dbb3f0a949741ad8b2338b947",
+      "cd44d49d01b846ab7614cb9f8c963ea8501600d0bd34622b829968d34ff21105",
+      "d35bb9c87820940570b9c2967f6ebb4696fe3fd2910ab6c400700d955cbce7a2",
+      "2f6506194f2011f1e7783d76fd7c24cf6b075a018f51a0ec36d6789b4191ec24",
+      "5bf6053e4e716ec54c12b98aef17bc65a2666795421824ca940d697990e8c41e"
+    ],
+    "learning": [
+      "881304c40152618f6c2c7077e7f0b5cd9a4330abd1c3e4e16ebd5cf6e0d8faab",
+      "49f4c4eb05a5233162f32020f1d73c97d952ee9ad75778dcead620e989725233",
+      "4f96147625ee5d4a691b3a4d904bfb9ceb14ed5a69074faa25f9333284fadc5a",
+      "3d39f5b61525391c4caf756bc2bdeb88f608a63bf3e32a0933f9f8dab64faed9",
+      "ab57402cc660cbd3ff032e9293ecdd3f2a6cf3fccba17f22e0d954e4d991c84b",
+      "12629cea563b5631aaee0d53a58ba28aacd5af67757288678d82244afc111d45",
+      "974409d835fe5ebbb8dc618e189fc364273b5120f6c54691de96807cbe5d1de5"
+    ],
+    "fields": {
+      "task": [
+        "Check that the existing row receives accepted, not ready, so migration cannot imply indexing occurred."
+      ],
+      "title": [
+        "Apply schema changes with Alembic"
+      ],
+      "module": [
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-25": {
+    "content": [
+      "cfca3c30a287c9777b072cd06fb151dd3919c9ae2e218efc43764f99c642a5a7",
+      "e7119fba185355593fa19df71228a2434a416443532203ab6cb5ebb75038542a",
+      "16502a0bfb0e0ec7629776039502f0b1bb45ec4f5334dcf28061df8e904ce7ca",
+      "3cbad283fbc481e9c5b2b0b125087a3a1082df1c4292d83fdba24dc988e43119",
+      "2fcf92eebb9dfd261ff9c1b51e76255cabe8ac3a8fb4288736d11cf312dcde48",
+      "0a66fe2b609d629383dbfa32d0145c18e385ba9c84253f743c41f589edf24506"
+    ],
+    "learning": [
+      "950c3cfbc1c143a38b8e87b0767f419fa942cc5992b5a57437586d9b757f2483",
+      "07042d6724fedc03d6d4d8ffee9057c042b086aebd67fb986e20faf4d18d2f77",
+      "e5b1a311b5b8674e4b338296b7ba2e6c92b2518e814b12eff1a78c9dbce91347",
+      "89451788349c1e3521a9cd60b35ae3a98210b99285631f47e705e561c9f0ab93",
+      "6525c86a979354a515b54f0596dc1f1a8d7dce09732cc1dcbfd8bcc0e288f1c6",
+      "f3b48e51288949a923c3c9564f0b2ed38b38c196138411e883085505f25c7afb"
+    ],
+    "fields": {
+      "task": [
+        "Add a fresh transaction test: fail ingestion halfway, retry successfully and replay once; verify exactly one document and one chunk."
+      ],
+      "title": [
+        "Use transactions and idempotent ingestion"
+      ],
+      "module": [
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-26": {
+    "content": [
+      "0b959ac72d080f6622e4ab9dd1d1d351591fa02b0b93edd9c3626d5b5d5218df",
+      "771eb45e3328d124d319f46c88b3a67ac2b34df64d1897d252557c199b602384",
+      "0bec2f32ea8639aa8905e7baed1a29208486a781f616c7c57700fcdc6c38baeb",
+      "b37d02df29796648ea49532f78228de0318c072cba74ecc8bb42fbfbfd6e66ca",
+      "a6f1ccb18039e28322513a454a5bfdb54995440020e6d43b6684ff80a8fbabb7",
+      "4a605d1537a74e8ec9439c3e02ccc9d6c4123e9719cc60f8a8331803a21b5646"
+    ],
+    "learning": [
+      "97ef78f0aa9e1b77a60ee0628e2fbf0fe010c569b030fa0d607216aa02c9a7a1",
+      "ce3c6b3def5b4073a4b44de00b5ac03b810c4ac5b8460038d4b6557df3c8def4",
+      "fd1fe00a5be2cd70942f173eb3b555afa5204dcf3ab2f69bb6ac37dfafa085e2",
+      "e1317a3c823d7f943c6440f511c9b13bc9744a4ab3b233d0c2508d7f1848aac8",
+      "608210150bfbed031bc7af0aeca56ae7fe4ab699fc8705cbf2f9df43dee6d41d",
+      "be7f8496569900812c3e874866f02c4af99210e028b5022f2730452081d2625d",
+      "69afd8e420f14a27163f6378fc12328ec76bd9b2f735e098076d55a486e16822"
+    ],
+    "fields": {
+      "task": [
+        "Redeliver a once more and verify the stored chunk count remains one."
+      ],
+      "title": [
+        "Move ingestion to Celery and Redis"
+      ],
+      "module": [
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-27": {
+    "content": [
+      "1fa5f54cdc7c5cfce1b21e9e1eaee539553867bffd8f07d74fad2d0c6517a735",
+      "277351c1b13cbf269c2874706f48237b4797756989cb0f09d1fca16259a1e3e4",
+      "104c30c8ce34ada1bdb0059679e0afe02bccfa54ca3603afddc36234df3eaa12",
+      "c2b39cc5f1bcf16f70539b2321799d5d977fec282bf69f7638f51b90391918c2",
+      "5c539fc0d840eabd7bd1012487f40676493c1e94ad354bdea370e5f5edc0ef61",
+      "8abd1a198c0ed8ace8445c948f90688cc84f65e731e3c78d180ba0f500d16ffa"
+    ],
+    "learning": [
+      "1179046589104dc66df60c1d80afb6006542e68044924035635e373fdbbd00aa",
+      "a150368f764f300b8578fb4b080c0d5378ce739b08cbbdf3e773d7f57e8a056e",
+      "c989718a53db263e61857f0c1cb5bde0d7da9f6b678c81e24b2291ad69760637",
+      "501de6a7286714faad47ac8b864c23a277c408fad86e9cd3a3ffb660cf7fdb6c",
+      "259bca987529b6e48696e334225649e8df1913405af3d9722951cec872b22baa",
+      "37c94eba6df56d6b69ee5ab4df417b469553e3f3af9f7af8fbd693af8123ff61",
+      "750d606904e4185f39e4b8431e2c2d4c401140f82ad4d08746c811f33958cd04"
+    ],
+    "fields": {
+      "task": [
+        "Test the queue boundary at nine pending jobs and the attempt boundary at two."
+      ],
+      "title": [
+        "Control task retries and queue pressure"
+      ],
+      "module": [
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-28": {
+    "content": [
+      "7bf3544a6993f8e3a5eed76c91f9b144be618152d7e216e5869e4edc2cb52042",
+      "8c2e4f6422741af8b5fa5f3b2c230d24cdc8c8ed067625c023f39261ffb8b461",
+      "b08fc0b969ed19ecd2eb6d45e15154641ef5f1bf77e1533d4b546b88482fa7de",
+      "5615f668f4f303340327f40d64e121935035cbf2faf7571dc178f7152e1d7d0d",
+      "ec08eb5c25e1526c0ff5cbbbcf29f4706546096ee01c76d0a369db6590c34708",
+      "a3ed2bbd9d46c4d8693c689657b9eb16d749b9dc39a36b41aa0835f0ae81a255"
+    ],
+    "learning": [
+      "434b26a16d7a3f5d0e85b42808eb3b66d5d14a8e403e1aa5a2d3c5cae80b41fb",
+      "74d49a13561318c2b04ae2dee7806e3c88692377eea9f6a61a8610ec3c59a116",
+      "4a228155b1226d7aac847510afe0cfcc39bdbc86a921b8204345f74ff6532fe7",
+      "59da300e4945f78a028400864fcf34b4c63cd71f60c227a1cb325c7f678eff93",
+      "014fd12720d9c7939f33d27a9f5cf67a2bf63f5735232326887a643d5eb7c088",
+      "db61dc26ab6f95e2a641ff167fa3e6353094e54503f4d4a0135ac4b19290c338",
+      "e81c3fdfb2440112d6df896e474fb744e4fc99bd0e00fa96bea5972d187649b3"
+    ],
+    "fields": {
+      "task": [
+        "Verify the container command uses 8010 consistently with the declared port."
+      ],
+      "title": [
+        "Containerize without coupling to the host"
+      ],
+      "module": [
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-29": {
+    "content": [
+      "0a9cc1dbff1e9303620691409f38b9132db8ecc6e6a474fefa9b7c1199d5fd2f",
+      "ff0fb17e0231e11fbd3586bc575006a6329feaeac847491a311d35693a199c5a",
+      "e26c175ba3b5f86a78c4307c924a3e55283ae734940966244b892b79fa92339d",
+      "23e899d2414fd693d992911ab0cbcb44bd0f22cf6f97f0c24d0e9b1bcfcf782d",
+      "a25581a29eb102bf6a04fdea48ebc00e4cd0dbd17398e4ffc913e4d88e39a90e",
+      "38f106f15e561404ac0c5a45cee90f389ceb2b5f45124da7ec6b095fb84b7477"
+    ],
+    "learning": [
+      "dbc94d9b1eaca9a21202f546ad0c40f395927da37da7bba4e993bc8304af29f8",
+      "665336addbf319a3217f82a157e7f35381f835f069e6d61f0fed6c95933bde63",
+      "2bc8e2df363c9cf9b541118940ae496eebbf709b48abf1383f6b0f2d0b6cc210",
+      "9a8d5565259278e61448ab67c647689a3b9e2225953393cd991de0884e335f01",
+      "7b24b595a971ae14c030b52dc9197c08e3be507c82104dc4a4d41f2e43a44443",
+      "186ef774ad08713ce63bca040bb89c41b4da12c675a588ea58575f8f0dd9fb2a",
+      "63245c4eb3ceed69827e969f44a5244b1b15a09bb3d5afb3820620b767ab1ab2"
+    ],
+    "fields": {
+      "task": [
+        "Test recovery by changing the failing dependency probe to a successful one."
+      ],
+      "title": [
+        "Compose services and test readiness"
+      ],
+      "module": [
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-30": {
+    "content": [
+      "4e726595a2abd5f8d6457547606da11aa71507c799e3808ff2661b83845fc841",
+      "6d94348f1794fc534102c333b52b1edf4d2bc15878badd6da76f10946024933a",
+      "ce5a9b13511ed71d8cb0e30c050d1c2823a6ead54c9f7c03da814fbc40d40831",
+      "f60767ebe8ea075ec604f33e35bac0538f7aeefd53235289e89b42c82c6c8f51"
+    ],
+    "learning": [
+      "a0c18a0a24a5f9cf5aeebaa02ab631b6ddb436ae204d9a584d800395e3999ef4",
+      "3e87cad6bf57184ca71c940e0eb5be63668cc8747b9bf5c73fb683ea17afbc60",
+      "61dd6b958c64fd1420e81ee0fbd4360f8c023e736b29f79ba00300328712bd88",
+      "462b4e63c619d0ee6aa97aa11be815a42f7e9a3c0d134df43772b65a5cffc50e",
+      "5fe50a1d89e98b4c6f034f5d7eec12b1b916b6b59e99d60c7b51a9f63d1b6d5d"
+    ],
+    "fields": {
+      "task": [
+        "Reject True as a limit even though Python considers bool an int subclass."
+      ],
+      "title": [
+        "Expose a narrow read-only MCP tool"
+      ],
+      "module": [
+        "AI Architectures & Containerization",
+        "MCP servers, clients and reliability"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-31": {
+    "content": [
+      "1978273a64208ded4c4e4ec01ce22ccab86de0e9ef739d552682a74bc3c3315b",
+      "05e84c1a30f300e3962be6687e2bf2710e41b6e284e17d45daa9d097be2bcdc5",
+      "a43c35982ac6e29412b706a7abcd7cc14c91fb2242287fc1363338e37b67d8c1",
+      "08e6fad655d73fac2213126b39a4e177e7067ce6d9b557a7d312c268ee60176e"
+    ],
+    "learning": [
+      "aed2548957013e58f034150be930b8c11db55c83c007dc299c36190ec791ab5e",
+      "f9e64aa7b543ebc059b2e7af938541a53a494e9d42e08dbe24bced6634b56550",
+      "fc3dc79c15aba3137b0b744843c1d6b750ecb23683c4336827b3c71232e2c3cc",
+      "a3a5cde4f3b2a84e69aa6e66a02d0954507f1a15f3d62ad4818fa4b1e89efe16",
+      "43d4f539e78f67fe1c654313376230455dd5a0d9839fb87e5ccfe66e5c434107"
+    ],
+    "fields": {
+      "task": [
+        "Verify the extracted result retains both revision and parser identity."
+      ],
+      "title": [
+        "Parse documents while preserving provenance"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-32": {
+    "content": [
+      "1bc2d60b82e78171fa497fb605874a27fabdb3f17d9e60c0d7ff8c546b21f52e",
+      "dbf63b35996e1f0710b815bb1c2841223f6d06d3138e3815907d5a92149db9e8",
+      "6493047e6982c4dc0c8edd103ce7c5f552b5eafcaefa5cd685d7898e8bca6765",
+      "295996b4874d6badcd529570c233d30b75a02d4bad07de60f38f389c006fa449"
+    ],
+    "learning": [
+      "9f84f7dd3702b2659671b2613cea2010ea35889dfdd31fddeac4df87d83005b6",
+      "731e270d5915d92a2bdfe40e1f5457e6e50ceb0915ffeccc2e146d7011b21428",
+      "e923021602e6ed7fc81be4f4ebcc78b488dc349bc702f3bcda7ab3d4d852b7e5",
+      "9a2b87a5533dbf688fe73b8cd4b6930ac1d019fc64010123105b4d053e3c7ab0",
+      "04a72311f028e475b8bcb5358642dd9feea676f2526f381ddce54ad202519661"
+    ],
+    "fields": {
+      "task": [
+        "Set overlap to zero and verify the two non-overlapping windows."
+      ],
+      "title": [
+        "Compare chunk size and overlap"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-33": {
+    "content": [
+      "3da7bf321970d1feefdacb11b7117d81d2544a8d5dd143a735a8b279996ad16c",
+      "89d137b86ed130a0b7c81d8dbbf1aebdce4958ae7d16ef281e149bd5b001237d",
+      "54224256eb21c0011958d17cf4f01f5911781ffce63b0cb596922db2b811568f",
+      "8c494ce7d7ac68848c844cf9f0048ba623f92e58c3f02e4f29c064794cd5c810"
+    ],
+    "learning": [
+      "f64f79cae43cb34990b8f10ad6427ff850dda2c70d79e2e29a0efeb2bda68c31",
+      "9a10fbf150b3f0654b95105cc9093027d4f8e1004f174470c5e355d686178b94",
+      "ab21346b17700b692f8cd567cd4108d6b14d5518ae18fc6b3c83d5c25d8ca4e7",
+      "ec84142ccfec5cc7ef0dfce3554cb122363c9d6163582fac4b29f8a536c52db1",
+      "6c76404c40e75bf515e1e6e2f78d9b20c69d1a1eba52b5c357e305a042cb79d6"
+    ],
+    "fields": {
+      "task": [
+        "Create a revised v2 chunk at the same position and verify its ID differs."
+      ],
+      "title": [
+        "Create metadata-rich chunks"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-34": {
+    "content": [
+      "df0ce82190b3de1a1324d6debf8f5ab8cfb583ae83d259d50f49986ffbd2810b",
+      "05809a6e087d09d1c49c04c7a64b36a5d1f7e7e9d39000910c462df5849526ae",
+      "a3f43d0505f002ed6ec4a64bbd06fa423970e9f46c1ca314e1a4594fc75e3b64",
+      "d03997b73f1f3091feed82b86976c6d9b19e916ce1bb27e0a3f4d8ee8200a547"
+    ],
+    "learning": [
+      "a63350000f0a3f77dca08dd5da065b143ece4dc7a2e8843277a19218e45b9e1f",
+      "2287c7d532dd7c2cf9ff1e73b748d8bc15aa2f2b186f1d6ab6d226e465e71155",
+      "7d6b6edcd2e0e4340550d5bba017d639bfca9532dfc8c57b55277fa2422f18aa",
+      "fd81dcead33c9f24fdde0530a544ddf65103c10ff6dd44ace5989da25f3e90ea",
+      "86ee65bf5f0e5a5fe7763e0c5529a03b3d167b238fdd9a08d9c62f4a06b59a90"
+    ],
+    "fields": {
+      "task": [
+        "Query window and verify ties resolve by stable document ID."
+      ],
+      "title": [
+        "Build a lexical retrieval baseline"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-35": {
+    "content": [
+      "cfb3583f36aeb0724d98395832e22266945d251f68c1e31aad4c777e192e689c",
+      "647c7d58aa8c1b93943801583bc63d8b5cacf95cbd9ac42856a9309fd1ca167e",
+      "a626d21acb8e451a524dc7356eb6c4f36cb9df854a085fedb55be50f99771368",
+      "023fa8202ed2fda6a9a7894471c9ed1552ea1f4d84f9bc006ff6cefce2724ae7"
+    ],
+    "learning": [
+      "bd3a76be374775b7d2da1a2378b030424cb5b80b1281f4f6055f2a32d65b6fda",
+      "3f20d0f9597ff73516181149849f626002e3df40612ccd5731e99b4eb1aec69c",
+      "ec4499f80eae83de35fe5134520bcba4944545d18cfe69993c2fca7e8ad660d7",
+      "2b3e57cdfeacfaca66866742254ec2ac488ae537ff5f53fbc3c4f7ca61143d78"
+    ],
+    "fields": {
+      "task": [
+        "Normalize a one-dimensional vector and explain why it cannot be used in the two-dimensional index."
+      ],
+      "title": [
+        "Generate embeddings with a versioned model"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-36": {
+    "content": [
+      "0681cac635609d6f12f73b62c963bdecc957b0e5990529b7ea1f85058d70b5d0",
+      "e50d570df2c453d8b9708476161210fbaa9b4471e0d1fc0a80435a1ec422ef8f",
+      "ac44f82d24312b0345eee87e39d172b1e639a2128bc4fbf58a1523d45103e01f",
+      "bd7d376729e655bea4f8db865d72e8dda0945e2ad3b7b097a844c0dc113bfb28"
+    ],
+    "learning": [
+      "dc2dd26a3c912b90a1711d4c3e14276d87b39295e63ed6322d28bbd7c477af4c",
+      "83d29624c4989ee4373b6a7b52efb20a375f2e5701547f85f2d9e20963423642",
+      "6f6ce07205bb896d4f72ac7c2a30dbd8747c1148ea74211c5ca1040132e49275",
+      "3f362694eb86569cf4c238a0f7f5175ba5b4461e72bdf662e42ea009c47d247a",
+      "a4d5281b6d95861f09d87aecb9077a1a2184505a9e81897c7b28f40df9faafd8"
+    ],
+    "fields": {
+      "task": [
+        "Supply a three-dimensional query and verify incompatible stored vectors fail."
+      ],
+      "title": [
+        "Persist vectors with pgvector"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-37": {
+    "content": [
+      "5e3bfac07612c8971fec7bb80c6806973c1f20099ba23039777e0c251c789c32",
+      "4b29d6f10a36567055dd0482bbe45e1cefceea3b58003f13265806b94e3613d2",
+      "7329d3fa214ba553355306c64659696713bb0e2aa3b86e594ce395522cac5bdb",
+      "7c19829a7df4d9eac2cec4961f0a3bbd5dce61d0cade2a492c82aa1688d65a53"
+    ],
+    "learning": [
+      "eefef14fa65e7669060b2d488de58c33b9ff64b37cb2560fe0266161d5f07ea0",
+      "b631937e22b58d2294bd1006d158030a611c5d3112e9f257e1a338a6eaa43a2c",
+      "c7457c9b8ae5f9acc6919c5d4eea081d1aa27a84e7afbedd03b1ba6da8d881d7",
+      "484ef2101f9628b2625f2d1ee65007ccfab7fd0b3f1a172c5e24a07424ee8ee5"
+    ],
+    "fields": {
+      "task": [
+        "Increase k to three and verify all relevant passages are retrieved."
+      ],
+      "title": [
+        "Measure top-k retrieval and thresholds"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-38": {
+    "content": [
+      "c053e00f8ee431484487b9bbb2b867da3d12f06f40952908348199ac2bbf02a2",
+      "c8ea4faf0bcff674453c9d8b6e4eb771bd90d184f9d53a3adb5886c10e88b680",
+      "32059fc95962c7e6ebdca057146de0c53f05ef7df2164a68efecb4c9eb44f688",
+      "dbc223a6d7deee879371169e2a677e5f9db262cdb8d7b63ac064ab879ad78f39"
+    ],
+    "learning": [
+      "4490a4e4635e3b456fcf3cbc74a10bf5ac7bc09af82b164dd57a23ab8fe8eb9f",
+      "a4b86f1e487f2a87e24a30c7166d5e0d1fce7326c3a0f0a8297496f9cafc5bc4",
+      "99d2d792057e6d1e45b6ca0595761ab1305c9034b2a44dddec39d8acbb73b2de",
+      "1e23ae438e1e6028d5b900cefe5edfc17e8692a58ea4a0f7746ddca0ab1b31c3"
+    ],
+    "fields": {
+      "task": [
+        "Add a third ranker preferring b and verify b moves first."
+      ],
+      "title": [
+        "Combine lexical and semantic search"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-39": {
+    "content": [
+      "ef7d4aed6c71f24564faf7c0b4bf3b7a65e73b871aa95267c421d75c6fe64695",
+      "838c64568ce66256aee9ce7693cc45ea5803e1e2271ad28e3bb093c4be055f0d",
+      "31116dcb3453cdf536c56a1cc3502e11734de2e4b717e9e674a9702a796b3d39",
+      "17fac0aadd01421da5af6b59e4f292bfc9bf8dc2caba22a345d5e9c6a2acf5a6"
+    ],
+    "learning": [
+      "c37a12ee6cf74dbf69293ccb018c376f5474e84911a4acfc7a100ad0ab153f00",
+      "93e9b176ecefa92d1a6467492d6acf2c51abf89d1ecd11fa3d228bcfc1d532ed",
+      "e31674229225a6e19a97bea9eac0f3b7f932439fd6f7cf042096521f0d240716",
+      "cccfa16903889f972ca9e609064fb8aad68df02b2e761524cb60db2a51f0f8f4",
+      "ec7b77647b7922ae7c5acbe9fe0995c1f7e4550ee90da8703234dfc409c8ed9e"
+    ],
+    "fields": {
+      "task": [
+        "Allow three candidates and verify c can now become first at the cost of one more scorer call."
+      ],
+      "title": [
+        "Rerank candidates within a latency budget"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-40": {
+    "content": [
+      "cb83f7a2801fa9e78cf188fcfbdc6e4b1e3cb0bcb9191550267fa87e0797f068",
+      "accf64410341cbca08887058f2c532ea036f927363d95e43627faf930e1c90d8",
+      "da6761d109ca28f660399a3c34c392893880cfe762e9e00a0f92fea03fab4707",
+      "009a5ce46f9fa74a7a2d9863be29ef1428bd72e7486437b0b7aed5c12ea78393"
+    ],
+    "learning": [
+      "2f3cc9fdea16a358fb8b36d0488255391c48a42015f144fb41bad542117fc6e1",
+      "18d5003cb2edcea2b7e7fab96a090cf90f4ab5164fea121f08ade8fe45944a10",
+      "23b76cdbec6650af825b232a5f595325dac17474672e22a492a13c0c307d0cf6",
+      "2925b5dcde597a07bbd74d5dba7e2fc6e8cf9fdc5aa417f923bc4b5534e127e6",
+      "4309b0b36250293320d518b544e35220f8a67d1602b508da222901d070e302ea"
+    ],
+    "fields": {
+      "task": [
+        "Repeat the unknown question and verify generation calls do not increase."
+      ],
+      "title": [
+        "Assemble a grounded answer pipeline"
+      ],
+      "module": [
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-41": {
+    "content": [
+      "a0da2accf336ed3334f4b04b922c98e38fd8c8ff8e9307c4953ec61e98916e90",
+      "2d8d03b413ea4568d82abc45960b0386c6646e34b6bf17986cd4ea1958c1b5ea",
+      "81d8bf9dc6657113c2e921d405811fbb827dc51828a6438d55fb51259a4067ce",
+      "a7dcd3864edd7a25587e316c9e893fddc8a9e6b482658b56afb01eae68e0b5b3"
+    ],
+    "learning": [
+      "01c8f20e6d5c9b8abf39678e0a173e82c0a38fce0ebb6f414fee11690c44ea50",
+      "cc91c6a9435769e12626b888b184f01b58781d84d036d0bac40235a84832de72",
+      "563e41352b9943b68b962efe53d66ccd5c033d047c4edf9c7c3bdcb261bbed4e",
+      "e4f39ad23db55d389bf2fcee455e3042da7235bf363891d6f05e367a03e1fb24"
+    ],
+    "fields": {
+      "task": [
+        "Verify duplicate copies of the same policy revision do not create a conflict."
+      ],
+      "title": [
+        "Handle missing and conflicting evidence"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-42": {
+    "content": [
+      "9de820de0f5c6f11256ce328257cafae2d804ceface38badc87e905d96f4bee6",
+      "d02365d3161c4355b3d9c1f3d51aed53a612eb0d6793487100744764b55140b2",
+      "a75b2ab7e9a8f063280e9bcc9ec8ae0acff392497cbe43fdb9a666d6009900dc",
+      "a0b4779e0fb490d4a5f26a0b75bba95ebb8c886ea0dc02533149b1606bdb8b93"
+    ],
+    "learning": [
+      "bfee926fac78ed37fc8905e48f0d08053ca03b4bb7dec07411e25a24ea22195a",
+      "f23d2c3c2da1a01cfd103409e5f60e1203b7ed8d91a5ce51e77e3e3160a66a53",
+      "56e03b60f444dd3ee7a5ff81d1ed160edd79d7777c25e420af238ea4d8db1890",
+      "7b36591ebb91396ada4fe55cdcf1457c095ccea951ad2220757b9d3ad43d3275",
+      "b6f2ed805a532690fa2c80206daaaa81a26e8be0d4a8346828a2720e04b4bcdc"
+    ],
+    "fields": {
+      "task": [
+        "Try an unknown tool name and verify it is rejected before any side effect."
+      ],
+      "title": [
+        "Test prompt-injection boundaries"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-43": {
+    "content": [
+      "ded28728b647adb6791c0be9973283beac9c1ca2d7d8a34dba7ce0b7fa0a31e1",
+      "99e84773c1f162a2c2f5946fc29a70955c6536c05e22edd01c8a8c47a1d8b37a",
+      "e52d441f612d22d3fcb2cb6047096fb46bb4f26d75e651191cc973e9c0bba7f2",
+      "3e7e84269b82c6bbbb450ccc15615f673c7025cffd27253f9b5a134c9fae09f4"
+    ],
+    "learning": [
+      "4e163d7c5eed10e5286707dd7b06d4b09546aba7ae64e829e3b6e14ebcc7d12c",
+      "97b3d3738f777a0e935f7146951d3777c5d7644d803f063cdc6edcae9927b0e4",
+      "ec125c296befaec7f31066bed3cf1e71c030e1cd4290c7d14eac88b00f53d403",
+      "4ccd90c3b74596ac2de00b999fca72cd02d1750d44eeacdc7f7e9ef2c395db97",
+      "eca8b7fdf513640d5142dfb0c02e9d7eb59152686e7257966bb399f6540222a3"
+    ],
+    "fields": {
+      "task": [
+        "Add another unanswerable case and validate it without inventing relevant evidence."
+      ],
+      "title": [
+        "Construct an answer-evaluation dataset"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-44": {
+    "content": [
+      "9d8de4c52f87e5045b3c17bda6000d5ba493151d0e394bfcdb3fa695e766f0ee",
+      "236722a54ae51d1bb7bb138e0b958ff1e0e7b8629c4750ffe864fe34f08fa275",
+      "c8403c434d89ba4c5e9281bbd3db831d31920c372e50a4a884c42adb1d923de4",
+      "da055ec079a9466c8fbbcd19d82d67c2d806f3735b6b00d7a2f9c4443c6b3359"
+    ],
+    "learning": [
+      "ce6228bd82bf789b66be83ea3deed82201766a642fccf754920974016fcc83b1",
+      "1ebde8bc006a5776141b02c08024de2f747b1e8f149e2664d037941fee6e7a2d",
+      "9a1a3fe52f039648171c23e76834f5ab146c16426d2eecea6b211eb2cc05ede5",
+      "a1da8ce87db36b4eadca180f745b01fdcf0dcbfc65a3233591c15f07f4b6f209",
+      "4732926b0400fa2c383dccce26a6c137bae4dcf91a1d88c97d9afa17c6a50c39"
+    ],
+    "fields": {
+      "task": [
+        "Change the answer to the supported 14-day fact while keeping the structural check unchanged; record the revised semantic label."
+      ],
+      "title": [
+        "Separate deterministic checks from factual judgments"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-45": {
+    "content": [
+      "7922da985f7999756b1d849c4e69351807bd1bc6bdc437579632d68972414587",
+      "9e331ab78297c29fc71dcad31718dcba54a676099f83b60091aca1264a39eba1",
+      "24f6d9c93a2625eb1e450110b8c8a3efaa240c049bab608db543fc51f3687876",
+      "9895691a3d38b42871e07b2a473e31a43ef171dc8908619e1655cd8bb78555be"
+    ],
+    "learning": [
+      "9580eef72e6cd014668fbb9c143466c8f9af6804b45c52b246347b14f41eea09",
+      "6cab2021195f3c8b88f696a895f6ddb9886e49825a72a35413765a256276b3e9",
+      "38bfa51628ef2fdc0cf168f4fb6f00e3a14ea2d5da50f744bdb98b9933208b55",
+      "7cb5a30f065e4d49b8197cd544fe438e97a5647699b37bf62bc681c7fe864ba1",
+      "a3c97f9de79f814b9f936f10bd0a83ae1e8aa86757ecc2f8a60b07e5204495b9"
+    ],
+    "fields": {
+      "task": [
+        "Add a validation stage under r1 and verify the critical path sum increases by its duration."
+      ],
+      "title": [
+        "Trace retrieval and generation with Langfuse"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-46": {
+    "content": [
+      "69214e525bd6225ab361c91d801f3563b1da8ac2bf8a49aa76f58c85cf2fb812",
+      "d546a3ecf19fc292c9d3aa4fce65f05ed5ebbae0b400dfca8492df7f17a1085a",
+      "444fe0430791320f3dd5b207d1e93f62d0570114da57014aba74518ea2bf44fd",
+      "3572fc1d9511ab6759f157d53ceec7a4c0b591148ff42ec0c5821cc78c6b630c"
+    ],
+    "learning": [
+      "621c1248644aa9bc0ee85dcf2626c67caf643a3886b93a69e59e5acfa6fb8b0c",
+      "52bb17831ea4358408eb9138257acf29b6989f491c2527eb6f41001329a2547e",
+      "e40a28600861a92961f2979f3a5c3ac3a28cc490ddaaadece1ab804381ef787e",
+      "45d2b220d1d723ab8c1c39e012c95556aa081ba2eeac919b48b3be972e44b325",
+      "5ba44f64c42ed9fcbd13f248fde3eb28449392cac61f35f5539a23aa478efa73"
+    ],
+    "fields": {
+      "task": [
+        "Check that a measured zero and missing usage remain distinguishable."
+      ],
+      "title": [
+        "Measure latency and token usage accurately"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-47": {
+    "content": [
+      "8cb657692a4bf9bef5c5156b1a8b6242c44758eab82c5035bf5749f725be2050",
+      "2913f831b98dea79df1cc48ccd558272bb5f856f854f657b9b055ac3b669a3c2",
+      "dec6d81710f793de94f4f9b4c05c9c1de061f755536e63d35dc890267dfe9f60",
+      "e3aed62654a6bfba173f911e567bf94a9e3c16bd0ca716621f71f0a61f4e998d"
+    ],
+    "learning": [
+      "58efdd23fd944986cd412ae38c8c0961550e0a720754cd69fcd6c5c8daa26794",
+      "c68c3cb20a4e7fd74455cb5f47dda9170561e2db67943bd2b084a8c5dd04b558",
+      "06f91c8cf1f9c6d7b5a830a40b1bd7be70d1889bfe00d6e36e6a02e8e87e34a3",
+      "18e764c5850a50a32d6d65478f8f31179fffe6002b585390bd566797e20e3b02"
+    ],
+    "fields": {
+      "task": [
+        "Evaluate an always-accept judge and verify it has two false acceptances on these labels."
+      ],
+      "title": [
+        "Calibrate an LLM judge against human review"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-48": {
+    "content": [
+      "42168c51ee0f4b7ae41f8d11387bcec8034a50216dc93ccd9655ddfdc43e7f9c",
+      "b3de4f98245ac081469399cdf45e4d1254ac0a6f63245be5a6bd03a81f35ca52",
+      "245865587efe5b00660d1163a901aa48f2476be800949941d8b6bb2267df3b1c",
+      "022e4c4a6959b90fe8ca07672cfb17bc08c5302ec32336bd7beed50efbdc736b"
+    ],
+    "learning": [
+      "40f32a76d97171eac3cf71dd82402a8a3f8d4ec879f12702dc3f02cfebee3f57",
+      "60688e108c8bb34b1c69da8848fa98d6f786f554ce655bc53666d8fa8be5e624",
+      "9aefc93843b8f97c9d714cf3b9d48b5b8780c4014a6d529e77e5265078703d1a",
+      "49e069a264b668c76d677fd7c6ee27880bee75dc181d28da953b400d5a9b98f4",
+      "66a14306d039c599639deafca7660f51dc3e3fd1d3ba361c0e570dfce1823de6"
+    ],
+    "fields": {
+      "task": [
+        "Create a third run changing only chunk size and verify the changed field is recorded."
+      ],
+      "title": [
+        "Run experiments with versioned inputs"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-49": {
+    "content": [
+      "ebc241f061378f5fb59c05f9ae121a732ae85f9c3fde376decf50a78a25515fc",
+      "fcdf335b8a1b0c3f3e338e8daa166c92386df3bccae05be65293074a210e3320",
+      "56166839e21817cec6c01e9e568647fd14587c05a454a29403c860edf6031120",
+      "7078ccfa2d27bf679f47fc9219da6d3d211abf508c09f041b68c118e758acbaf"
+    ],
+    "learning": [
+      "dcd8350d91e79f0644ab800ea0c6489f168f1e3dd2b173a82bc2f9e536bbfe87",
+      "948dbf748ba597ef59199b7dc330d461fcdbcdf370561b59ffcebcf24698fc12",
+      "0a4c3e272fba7a6c4de54c3c66fc4c5c7c20eb71dc4ee21ce28bb8bcfd390770",
+      "68688622ba47f4a9b36c436a339bcd5d3bbc08af9cc1e0a600395dde1a3ef712"
+    ],
+    "fields": {
+      "task": [
+        "Start from a passing report, set scope isolation False and verify release is blocked."
+      ],
+      "title": [
+        "Make evaluation a release gate"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-50": {
+    "content": [
+      "669a1ba54254f775c616966b7081fc53d84b4fba6a116fea4105fcd907a8f059",
+      "12128a64a37246061ecf551a7fec085ef532ecdaaae799d88cee598ec055beb7",
+      "b4f0fd287f174bc126d717687ea2745e0c9620b7f9d05a7821184e50c368f1fe",
+      "da8ea669c155a3245f7b6fe3f6633c3ca56b0d3b843f0918645a8bd03126edf1"
+    ],
+    "learning": [
+      "78f60dd0ee0d9b27a6640280f3ea5350da881e801fbfb024f2245aee0c6f013a",
+      "5532a445ac87402ad86cd64c6a6403aa45415c5fe47588b144860d3244d89595",
+      "abc221f76b8661fff0cc892ea830284249483d7b7dd6300cf4aad38fd96fb023",
+      "b5bd30716146378a1ad3204f0e94f5835ea2e439623ac12525975fbd1dc683fa",
+      "bd7c76632a6c54f01bd3679ce87e89143d9bdf91fd30a1d7f37ebf5490ba6b39"
+    ],
+    "fields": {
+      "task": [
+        "Add a malformed-provider response case as a separate ValueError and verify it is not misclassified as timeout."
+      ],
+      "title": [
+        "Build a regression and failure-injection suite"
+      ],
+      "module": [
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-51": {
+    "content": [
+      "ae40b78f4db3ac2aa672ed102288f799563c83dd1a3f97b3c048afd403d13c47",
+      "b5ff9cdb6871976cd5fb96def981ccd7ae0e33a4290146faba8e76f78a77a00f",
+      "7e531cf8f8428bdadfa864f07bef2b3130fbffc4761b956e0a95b92246ea1dfa",
+      "6a2009fdcff0939c433c90f5250665f618558d677b5585cd8f650cad970655e5",
+      "85550e74fc0664b7d0de915fe569d92fb3f06bc628da3b7715321c9fc1f5f6fc",
+      "c348cb2de86af666a2be25ed79aba400029eeb5aef8d03eea5f636e09ce05519"
+    ],
+    "learning": [
+      "cb420ee08450ffce313a2433bde361ab6ccca47bd7c573254b183232aac406c5",
+      "26f41ca10a65ea45659ad126dab7060fe35ce4e943adb5d8d0e0c92d8ab62436",
+      "2f5daff30f979ed7af7548b00cae40f2894e83be4eb3edfe053f19bbf00a1fa9",
+      "887052022232ec45a745558cb8a10e2934b6b3fbb28925d205b28502d3c43374",
+      "1b519129a077047ed33785fe94b096e13b5af02ff69e72421ab1a76bf6234236",
+      "d3d6fd1749a3c786c912da74a0e676139dce8153cb767b4906e2b0b8db7dc9d9",
+      "c932ac37eead738ff8b994eba226fd1c031cbf2ac3db5c749eacd1a3e6f60bf1"
+    ],
+    "fields": {
+      "task": [
+        "Add a GPU requirement and show the current full_stack capability set no longer suffices."
+      ],
+      "title": [
+        "Choose a deployment target deliberately"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-52": {
+    "content": [
+      "8454cdaca84de9f8bf25558b35e9c0c44143a2e13fef08cc306d1111c29fee0c",
+      "9b83cd5ceb48300da36b6c30d69630c63f71b1beb420a7f9b553572586352570",
+      "60ad56a4058b0f99d8fbfcca315cfcbab030d87ce2970a69dd92dae4ca8d2fcf",
+      "b411ed0eb611f28c362c8603d8f665a1fe77495534256c1e317d5d79e6b2bcd7",
+      "0a5ee00fbec1e09c6a9cbeef1355edc1e5d85a8d2857d778e2d901e71675358f",
+      "91fa28338a70ec50af507b80e4cd05e1501e8aa8b98eac2027ff357319735a39"
+    ],
+    "learning": [
+      "fc520bdeb77d63ac09e6ba3da129e80d8e7ab79b1db7ad1cf6f30cf4e4bf85a9",
+      "423e9ffb7feebd37c340df24896cb12c34f796967bc053bc2e4a64e462e9db48",
+      "1500195da23b2586d13b13d52d200a6cc3b4e3774b1d733947b44c4c16b88ca4",
+      "063f7540fec70c536796785eaef56e6d15985cef2eaaf626af3e284dc4b914bd",
+      "ec5fc99b40d31520887790ac1083b19ca52c1ca5b04aacece184fd021eb05de0",
+      "2df501c7d5c60adebbe778604709e5acd368cd8c22211c6937b85fa0a3001ecf",
+      "07955807b33225f1832001576397f83cc9b9f8793c481fc1c1a3ab54f401602a"
+    ],
+    "fields": {
+      "task": [
+        "Reject staging debug mode even when database configuration is present."
+      ],
+      "title": [
+        "Prepare a production-style image and configuration"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-53": {
+    "content": [
+      "11009968cb8e860f25e30c4dc3f848f264bfa594b7ef7590519b6606b6e22628",
+      "c74d616d7bb61c9e8c3a0e8f6f1ad6246aede1a2fbe27252ee8a1126c3c9b1c7",
+      "5c7ef6dcae0a358f757cc3277d3765266ed25e8edaabecd1957d65142864ef36",
+      "46a5793d1130f6dd67a45f855fb53f5c92fd8f3b965bd3680950331bb9398bc9"
+    ],
+    "learning": [
+      "a5d3aad75e8ff5fa71a66e8b19315c4561a4d5dc9d14e4e0eac71a982283a3d2",
+      "aba21a61fbbb86943a7c583a11c898968827d67cf3036480d6d12e8f346c60bd",
+      "a0da02510dd97f7f5996bdb838615fface727ebdea022702fb491778ce6eeb19",
+      "70db85a216576f38daaeda9a4122dad26287f988463f3d545ea84cb5b55fbe69",
+      "1fd0b8dc14d9d941b2c0618df2f98da2b205162f9124e2a287b0d730504747d9"
+    ],
+    "fields": {
+      "task": [
+        "Verify a trusted proxy forwarding plain HTTP does not mark the request secure."
+      ],
+      "title": [
+        "Put HTTPS and reverse proxying in front of the API"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-54": {
+    "content": [
+      "5d2f5966094b19d4645b13ccea39144ede9dd1de3ef56ec29c13ad7b2993ba87",
+      "a4a39373d02a5daa5d444778c0574e52ec6b745d54d62f27107b977f59fcffc8",
+      "42b6a3877f2abb14eb234f2255236bc7fdf5d0d2269a171de4dd0c8f0db17c1c",
+      "1c563f43447296d7c95b71c0e758ba69a6a3607aa4366653a84de94720ceaefd"
+    ],
+    "learning": [
+      "2d80ec7b861030eb8f88e72ce2950e9790832e36417feb5e424afc40614e2ae8",
+      "2585616739a1f029e8ae37b3bd725f4accfecbb5fdd78039897835436165ce76",
+      "fa311062c8f097315f5ccb29c25d203d10b30d1e88ae2bb0c6a523eecebf92cd",
+      "2dedef5e7511c9055d7bb4d1accc60e3a072675c26faa011af1c861edd78c8eb",
+      "95a9a68c5b3fa871ef9b22dc892dac47b56c775a463fa076fd48a635a4a36e07"
+    ],
+    "fields": {
+      "task": [
+        "Change evaluation to exit zero in your copy and verify build becomes reachable."
+      ],
+      "title": [
+        "Automate tests and builds in CI"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-55": {
+    "content": [
+      "493e38e32675bde7a8ff1c202ab3fd6aa3e958e3710bc89c7fdff6ab4b66d485",
+      "e6fb4e0dfddac782b06c3fe19a7cf754d026d4b9c184f5d8510b43c8ab8a75ca",
+      "4067f2ef3673a47e7d5f66489880145a2b40421dc29c46bccdba99c143ac37c7",
+      "621711d46d7bd2e2871cd9313827ee809571d399fb4002e51ea2db017c5a9d87",
+      "5aa70e2c90b8883bec875b3a7bb533c9a0a826c1061ff3a2772fe131fa4fe37b",
+      "0de72330b9a7ecb84e2e8b9194e1c3b828eb8a3bfb7122c76c9277393ca2143a"
+    ],
+    "learning": [
+      "0ed216fee6940432c40f79b9f800c1216a82e82f36aa2402523d84f217d20436",
+      "918e66e3c154eb6f604e98d0fdbbb7163f292f4eddfd23c1442fcd17883e1dbd",
+      "31c8c64c99a6c6452db6749e5fc9c7fad95b003df5f3804219c8f9a4832d5a9e",
+      "32cbd63615bed6a2a77211fcbbc2250ccd3b2c6527c61a546efcd2e1d147cbae",
+      "eebb840c7eabeb14c9838e2524de392fccdc11285ad47d1e6106cc4e2a6d89be",
+      "481404ea678e6173edec309390f1fe56070162c9374a78dcf999f1bf144e3246",
+      "40aae1e0add434cad212bfeaa2b67be66ff4c1679b7d7329266304b52118dd97"
+    ],
+    "fields": {
+      "task": [
+        "Check that a healthy image still cannot bypass an incompatible migration recovery decision."
+      ],
+      "title": [
+        "Deploy with a recovery path"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-56": {
+    "content": [
+      "b5c8da4bb7ee5a026139ed07360ac1d68fea8779fdf707af5086b891656ae2a1",
+      "72434a248cd912e80504749b241a66dbc612f7502f2813dd1fd6754e5f477c45",
+      "b6c93ee2106caabd8e808481c7aecc7273da436b5a30798a44d7dd92769d7ab3",
+      "bec57749cec5d68631bada2b755b6d65dc1a320f21000cd9d51b7e6fd98942dc"
+    ],
+    "learning": [
+      "9311c30b1d8720761ac6bc7ecdddce269730fc3d048efc0b9472bcfb382fcf32",
+      "ec75464cea327bf4ff7a00fe107cfceabf1d3f9ddfb6da2fd65e278ce2318462",
+      "d76ea4b1f642c2cfd2e73615678bb8da6190002d789bbc2c9f6b95e3785062ea",
+      "ecec0bba49906b62df4329d4e07e5dd8ffcd67ae1c4e5ea9660e7fc6bb6f8f67",
+      "8dc8e8035a05b24cd93e0fbda93d4398b8cb0022c2eca724a58ef1c7a9a81fcb"
+    ],
+    "fields": {
+      "task": [
+        "Add another unknown payload field and prove it remains excluded without changing the scrubber."
+      ],
+      "title": [
+        "Add application error tracking with Sentry"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-57": {
+    "content": [
+      "ca9df8cfd97e2ef994c989869b42a010cd299e51cf0ac3db300d7f50d50ffbad",
+      "c38177931a830981fec3eb1198524ee33da9c73d01390fa9dc653bc10540cad2",
+      "cbebd1af37d44418c10ba94dcfb49480da7cac5b8ffdea03ca21e3730a5dec33",
+      "aba9dbcfc44bf92f1bcf5a15c2f3dd2a434111a62146b5f55e2af9477d9bb7de",
+      "eb52aa799b844e8c29c1dd0f9e09e0262cfcf349070c97634027a0ddef65b956",
+      "c9023b258c3581f1ea59128225538818556de760be67ec780abe0759fce87eaf"
+    ],
+    "learning": [
+      "9651d8f6a225a40378e969fd4a206028523ab17a4960fcd3f2c5f408846955bc",
+      "4d801d8fc61742af673f48253d26c2766122f8bd4c6ea2422885c390460bc7c8",
+      "df09d1b0e47d01c5a2e33d35fb68ebecae4c60bf36ba34e52b272df025cadf76",
+      "69e58402ddbdcae1ca42d38cbe78090622e2669bea7d64d68d851dfe88b1a61a",
+      "d48df405b54270bf63a2468ff11af2155f8d8666423d48a023569498811c9d70",
+      "f691287455edcfd658b32d4a099582b11ca53404711713095c49998d77e77edd"
+    ],
+    "fields": {
+      "task": [
+        "Restore another fixture with two policy revisions into a fresh database and compare both IDs and text, not just row counts."
+      ],
+      "title": [
+        "Rehearse backup and restoration"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-58": {
+    "content": [
+      "0a5d1deebc8e2a92447aae0424d4377e0714a17fcf5de0187481028142664cad",
+      "22f890acd72e34dde530657602ff74314c34a1815d5c800f3fbe97df26bcf3ba",
+      "be334f0ca71f3cba8f5eb0e745b7334d23846a5cc65a85433d962e3cd7b4fd06",
+      "1371f3467b6313d0b91b7887076c50ccb5f1ebdf7d38f384376f029cc607fffc"
+    ],
+    "learning": [
+      "8769150d36ddea1bbd4ed23ebb741ad7422ad63ef083c890fb5bd51aa940c93f",
+      "6ccf36bd0385d307d78d70e827b20e808b6beae0e338b24361305c617d796982",
+      "70abe62b2aecc19234e5fb9fec63f267200675739c5c3b722683f131d53d96c5",
+      "90e7e97e6840f7dbbeb9f2e7d012fdefead4077cde3b8d55ecdfe8551f9cc423",
+      "40953c3b30be204e5c3141668efcc34f9bfc757a2182ef69460a2ed9cb63d11c"
+    ],
+    "fields": {
+      "task": [
+        "Repeat deletion and verify it is idempotent and preserves b."
+      ],
+      "title": [
+        "Apply retention, deletion, and access policies"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-59": {
+    "content": [
+      "a5ddf8ac2a8c63a30d79a83648bef04ee3fbfd9201d3e5121e2ba666d253a4f8",
+      "4c2a14d2098ecbb9fa9357faa3c5d490e717978e03db340790d336b52a32472a",
+      "8355f2fb6897fba06c63cb4b296edc8074a4521de8e2529e147b6f6a65ab5d05",
+      "fd42ad2ce510c86c04f2c8909ae5cc85c32602ad3d9293e7a10fc24e8324eb30"
+    ],
+    "learning": [
+      "cad7998693f6b604a26d9463f1f8f7051618e87da85145f3f01faad267990ff7",
+      "61f5e5be2b0ea20adc87a1a24f8f9dc63c936992a4c72c08c326ce527115cf82",
+      "562d5b07a8ef5f740c37c92ac1f32425d8a777982cf3411e3400ba30a921ee87",
+      "d57f326f9823a9c8b8e652c55b5512e579d54730f531729ba88dc7e8a74c529d"
+    ],
+    "fields": {
+      "task": [
+        "Add another failed request and recompute both the error numerator and denominator."
+      ],
+      "title": [
+        "Load-test realistic AI requests"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-60": {
+    "content": [
+      "0dbc3f9eb5cdca542e535739018b505e0118815259f07e7677fa8dc1e2f45361",
+      "6efd97e86fff7e48109ca829e90536cf23b1ff3e3a31b20399c037e9a0b18f04",
+      "12081a6f264236dff8b9e320ba0a4c4f84986438dc18ce1076d71f7d99d2bab1",
+      "90814c8506f4a01156de902789dbbbc03c33d257733a0fd65630b2cad60a5845"
+    ],
+    "learning": [
+      "272cf6e58be6ca4f1592a70f07a5a73096b91c642b9f8918bcbfd9f30279bc75",
+      "96e54b42a130837892575901fda47e47deb446a99eee3f009756961fc0b0b5ec",
+      "ae9926fce701cae801b5974d8de629ef00b27d48655e359c0abdab0fe4d36717",
+      "ec09c953393f534873e5ecdfe2719bfe6e14ecfd6d99732f23af7de7872aa78f",
+      "727b5e4e26c2e21d1b928ebae7e38a3bd58a0bf50549cd12d1168d13e61b30ec"
+    ],
+    "fields": {
+      "task": [
+        "Set evaluation to failed and verify it blocks even with passing recovery evidence."
+      ],
+      "title": [
+        "Perform an evidence-based release assessment"
+      ],
+      "module": [
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-61": {
+    "content": [
+      "5e449721410b3809446f47d23ec1731d48164b39acc1e175171d3f35c272ffe1",
+      "9a19dd0242a00d7201f8521b0e111b6f985d7911bc203d6ec64e8963672e7563",
+      "977d51db15fb0efdc52851ba77a2e495268db1e0aeb39ed9bfe2321eedd7fe2b",
+      "b5b934db340d2dfe5bcd953d5aef3855039a04dc4d48e574d695e8d33a4347f3",
+      "9d47748bf10abf48267c81a2d7e5d758485b751d7efef4ab3dfa5ccfb2b1a5cd"
+    ],
+    "learning": [
+      "83c8337a367b4a919b570f4177fb65099565355535f5e92d2c81714e4774d6c2",
+      "51eb152e1ae63aa9682552eb0a17c850b1d9de494155169365f59d76db23264c",
+      "36c3b7aef1cedb31c790db1e486649e04d4ff1f32c3d53963dff6ae29c708afd",
+      "84e45e31567954f2a8f33100651910ee48f83aae1c3f9cafcdb267931a36feb1",
+      "47104f6016cac373049cb7bb59776f2db5fe19c2579786f35318b23708afb686",
+      "3301d345fc36b10648165ce688f95279f6ea56f5a3244744651e41de3f0567ce",
+      "a3d352b4f73ec0a97c15204db55da2027b38d4e5df9173faf3a70c6a88eced12"
+    ],
+    "fields": {
+      "task": [
+        "Verify no citation is returned when the step budget is exhausted."
+      ],
+      "title": [
+        "Build a bounded observe\u2013act loop"
+      ],
+      "module": [
+        "Agent loops and context engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-62": {
+    "content": [
+      "840e34394c08f141a25abe3fe7888901ddb7174608bbeaad309b030db933a553",
+      "61da23fb9cbdb9450c2f9b0266f1c2912c037ddf61b4c2a63ed938e074ca1410",
+      "bf445783d0aa40e96921515548de4eb9412b71df2ad110f04de6e6dcf0da7510",
+      "c8f46e7618688f7b47203d350c244792220a114ea7040d50ae828ddf60dae78f",
+      "759c2c84b7730664d18030fd5909746ca8caf8991678bbe2d05aa06d832cd027"
+    ],
+    "learning": [
+      "b54754e1e279ce097a655c2b3f4cd7b6e27d7473335b876b71cdf304e8731757",
+      "d3fa3a61c5c61307f29f9ab4625a50629efa460e33d9cb04a877273ddab31b5b",
+      "3ab05bbe5a1cba2a3e0b34516fc9414ff1297bcd30c27bdc4ba913a1abcce4d7",
+      "127285a4fdbea95fa28221327c2752e527717a60a8a718d43be69e1be087015c",
+      "117274772cedf534bdf0813a9f5c3cb80e94cafe432e18b3112d0b13a57f9abe",
+      "72825ff4faeb1b279daeeecf2bd2f76714cd29e6f9636e3c077568ac0dfbc983",
+      "47af89e165348bdeb01a679c646e9c17463fa87dc5d70e5a83d72df0c17daaf9"
+    ],
+    "fields": {
+      "task": [
+        "Pass an empty search query and verify it does not increment calls."
+      ],
+      "title": [
+        "Validate tool calls before execution"
+      ],
+      "module": [
+        "Agent loops and context engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-63": {
+    "content": [
+      "618bd5f9cde05dcee0a387165bde687dab6e530de5c3073a189b6198f3ba1638",
+      "460b7bfbd09504858defe3282751a824ce4a22f32e8773ed452cd6ac93cd4bcf",
+      "b9b07f3e08b0f2f9efa5798606de51d596d1782a97093345a6171e959e643287",
+      "0e4424e4f6670ad1dfadaead8bc50476e93a0ada1acdb2aee300504e537749e8",
+      "8543be4e6478e52d8e20387f30dd85f2928cf45d23131231067f8747dcd878b5"
+    ],
+    "learning": [
+      "b03173f00b555d5bc78a8e16f1bbe5c21974f4ddedb17451833e9cff0b0540c6",
+      "d4b11ce3669e147f41432c37ad888152fff16259b28667c7bf000bc0a6629a74",
+      "2627d68120446b91385d86655de856242fe4341d941a031b72f1d4da5d06a31c",
+      "34d7a26351b3ff2d4bb0ecac89fdd409514a1d483793cc2922c78938f8ddac75",
+      "d9c9565414f37b075fb8c04e662de5b9037c31c9050053d6eab5b8e5513862a3",
+      "1e34259621d231d5106b5b55ce6b0a0aaf8fd2111be279ef21e8b31ac2107d4e",
+      "1b780ccbce8383600bde47f126f678507d0728ebede19b3cfb64458a36ccb532"
+    ],
+    "fields": {
+      "task": [
+        "Reject a plan with an unknown middle action and prove the earlier execution list is unchanged."
+      ],
+      "title": [
+        "Separate planning from execution"
+      ],
+      "module": [
+        "Agent loops and context engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-64": {
+    "content": [
+      "07f70af3d38c42e795e5f5e3130dbd2aea3e281122e801127e693c0991fafd1e",
+      "330965e9df12771f9cdfa65d9617835dc0d73ac41d3bd10b87c69034e218999a",
+      "b0c70bcee4250c5270c287e70e130eb163b66c6fa99036890b868e6698a14aed",
+      "c1903fa829ba04e5e2bf7088acbc6ceafc4628c8f09fc25dc8512b887841234c",
+      "9382fdf750042adb38192d043a38c8bbb25c01ec76930d821304cc7454fb5c65"
+    ],
+    "learning": [
+      "0cea2d3da0408d3767aac81946102c90fb91d1845ab9984286eb249d065544af",
+      "c850205a4a53d2ac49120e363f2e9dc0d82e6aa5622fbc556aefe56eb4ba944b",
+      "302cc4648c6e0bb14f14ae6d1470465b4d11f96ee68fa1b371e5bc61f9bd65ec",
+      "cccc5459046de2cbe276ad21d73c02536367dbfc592f0ea5d844c79aa5161cba",
+      "d6a95f1bb5dcfa13edd467f9b52d716c8166ce1fd6b198eabaf365f8443b2166",
+      "5f798e0db860532fcb23c0beafae9d6867c94451156c006b81ecbbf2f2be030f",
+      "bb9942b8220f56c62ebcfd26836fff203f7cdc0f755f4e7167fee24b8b9e428b"
+    ],
+    "fields": {
+      "task": [
+        "Set memory capacity to zero and verify no historical evidence is passed onward."
+      ],
+      "title": [
+        "Manage working memory and context budgets"
+      ],
+      "module": [
+        "Agent loops and context engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-65": {
+    "content": [
+      "277001de3a47281cf55b3795d2891ae458647488ee0e142f2d2f2e916a4890eb",
+      "e58c382c9524aed412c8e8a25db96d984be329e339ca14bf8cfe7ce7f4cff37a",
+      "32378dc37f9c5ef5163b5395d00e66c191aa37ca36bee0f76098df58249c2dbc",
+      "e53cb8911d577c337ee34d7d173c5bf0396f033d82dd88f54e02d418aff66cb3",
+      "f4ecd96da9b501d23c55f0bdf5c7a2bc44bf4fb128b391aab2c6adb3cc3eb50f"
+    ],
+    "learning": [
+      "de4f7a790a6c1eca3f0ad0478456df10a7ad3124f1979c6639bb4c1a99fc1cda",
+      "e18d1af8ae3d928e23c5895596014b5856758ff20989f19d51241aa396b4d07e",
+      "2bf6a71e00750c285feb1cbf95f9a9ef703fcb62a0c6898b23eafa8a138dcfd3",
+      "de660696ee15d263e094f2fc6eab45f49dc8c1e8bbb21177bbe64298a012ad15",
+      "46d22de241f507babcf92ca1dcfe703da5e2ba86691946de93ee86b9af49a0f0",
+      "443d9496f3f1a8da88573093f2ce9af31108418344f23d9edbd50ebcb6820e42",
+      "0c19f00958756162c6983daec8241c91ec5829d9868c570b0b1bd546aa2c09d4"
+    ],
+    "fields": {
+      "task": [
+        "Limit the repair budget to one and verify the first bad draft cannot pass."
+      ],
+      "title": [
+        "Build a bounded critique-and-repair loop"
+      ],
+      "module": [
+        "Agent loops and context engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-66": {
+    "content": [
+      "1cfa7455d300f2b1f61fa08f8d506e409a359f96bf3539b144f35bb32c139133",
+      "882619e64f8638342b44bcf094df87794007c0472dac1e746cd401094a1269a4",
+      "14b0f39e037df040b03e192eaaf8e8f6b51b0e3bf17e0a289143551b80386cbf",
+      "e3d486ccb8d2e429b2334ae1e560b310a1d64ace650376dd947d055c778bb6c9",
+      "ecfddd3a8c6bef9b8190640cfdac611dff5ae2e809ffa6bbcb55c0fd3d8fd4f4"
+    ],
+    "learning": [
+      "cfb5058c8cec8ca0c08b5909c637164c55c63aade67a504b8b1d3c8757b00da8",
+      "9ca9d27e5ad1c633fd1da2e494804d101fcc877393bc053513328bfe8e24d37d",
+      "c34084af2134f5ff911bed8041bb0869691be48c15940404db31a4fd801863bf",
+      "e96b2a76518c81701f6b68ac65c6f70d8613cd6aaa26c897a11beabbc1fd97be",
+      "e2e02b0be34e0da7a11352ef2a1f07f8768b13668c13acbb3e3ce8c426781b30",
+      "a06b50d702659960817af1258d25db1134cb29dbb4c81ce57219fa4e92bd657e",
+      "40a41c20b7436d50f4ebcb49672ef13d4b14462cd177028604837b2185a4d3f6"
+    ],
+    "fields": {
+      "task": [
+        "Classify a budget-exhausted run and verify it points to repeated actions rather than retrieval absence."
+      ],
+      "title": [
+        "Diagnose agent failure from traces"
+      ],
+      "module": [
+        "Agent loops and context engineering"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-67": {
+    "content": [
+      "1ada358b18499c05de981d99b2c699ef0866c8f108d6a73568625f9d7fc8a6b5",
+      "b8f2e78dab94f258a185274395313ff7ad7e9fb8ab78b325d3a93506bcf3a7bc",
+      "e29da330aa8a21cc861654556da5ca5d335cd1e6344eb46c195611d2b463b999"
+    ],
+    "learning": [
+      "f007df9dab6a9aa5c91521b85f734e0b32b09fe4aaf520d8822cabf156cfa407",
+      "5bae3bd9949fbbb67fdc59368ecb5ee2a146d52beff50af0d944c5cbf8e40e03",
+      "780198fad96f085c6c94b6f2c78b94597caf797f4f04e56e3e6f483ee5c926d7",
+      "32a93ed6b7218a531632ed96676ed06de61387aba0c5ef6317305fd84ca85f15",
+      "c0cb0c36e76ec1836284961bdc47770c23980443ceaa2c7f754dd9bc56f0da99"
+    ],
+    "fields": {
+      "task": [
+        "Verify the no-evidence branch never records draft or verify."
+      ],
+      "title": [
+        "Choose a workflow before adding autonomy"
+      ],
+      "module": [
+        "Graph orchestration and durable workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-68": {
+    "content": [
+      "8ef3b5dc5a1c9b2da05486a0344e21c36e50a2aea295ea317a282f96b8a00bfa",
+      "4cc61abc426974021f8079481505d08692bd8980322390a79b05b5a1d5b28020",
+      "e537ab1b51922df01de5ea01989ffb98fd9c157a6b0a0f138a3c779e3854030f",
+      "970a0387ae195ed501feba2a03be3c5755b785e3dd2fac5bd6ea0afbd8af64db"
+    ],
+    "learning": [
+      "05705917a5e1f4cc1be754c64dabd0c26e3f1b89ecc043c9de4ccdf670cb0279",
+      "9259b60dfebf459a25e18536755ba2d408561f308fbda766758569de3bc8af1e",
+      "ea355aad7dfdffeb3f2dd8145392533f8173ffca7774264702b87930fc9417e2",
+      "e270d78e53b9b391a359d36105809104ea674aff4a50dd80a5f69ccf214745b7",
+      "55905abce034d7c19460b6f09393d18de293c48c82e1559491f68d63629588c0",
+      "0af7f3dbdc3f2a916cf216488b8ba47476b649748c8c0f12d8e4018700a8f768"
+    ],
+    "fields": {
+      "task": [
+        "Pass a pending verdict and verify the router rejects an undefined transition."
+      ],
+      "title": [
+        "Design graph state and conditional edges"
+      ],
+      "module": [
+        "Graph orchestration and durable workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-69": {
+    "content": [
+      "f0b96ce148006b38b48698f13ce196be46bac2b7297197ca25fa2622107f870e",
+      "593c65584a8e9c0de54784ed65323514b05576fdee028048ff22af01769b209e",
+      "b886d9218c9247874c5030cbc958f013b7cbc95eb2817c436f86a71fed336dde",
+      "9231289813ff1681d6ad683a33721183b62fbdd6b140b2d04e2bd59a570a4182"
+    ],
+    "learning": [
+      "dc6733bebeaf65c1358a20e3f852a21c987cd726de989822303ba8447af5e963",
+      "17e3d022d6b7f517cd7efbba62e83297ff6ef373b00cfdc83150dee7d0926851",
+      "9cb4cd920852a00e867467836e356fe98d1e372a5e8053509972594968d0c153",
+      "e9a2fa97d076324214949c825b8491635e50ea6e2e7a6d68d0d5bab8013fcdf3",
+      "5481589233aa4edf5ee0ccf9868d474eb9480085fb0b0df63379403f433c87c3"
+    ],
+    "fields": {
+      "task": [
+        "Implement an ownership-checking checkpoint loader and demonstrate it rejects a second owner before returning state."
+      ],
+      "title": [
+        "Checkpoint and resume a workflow"
+      ],
+      "module": [
+        "Graph orchestration and durable workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-70": {
+    "content": [
+      "08321ce98ad4215c1c2a931eda7d6cbed03be21b170b9ad8a4fd2a93869fbeca",
+      "c263bd7338b619269d533db2e1ae1c69b65a37b821217ca391d181eee22c05d2",
+      "f78b94132b82b70f4d129a3b3d302f92bbf59473284d7ecabeffb61d57062c8f"
+    ],
+    "learning": [
+      "8beb5348d5b68a3f353f2d71fd451215d420f144b23bd9d5417754ebb11764e9",
+      "482e934e507b0023891ff181b5e2c6b9049632ce0dfc5eff3b6348d54eeb99de",
+      "7d67826237c1672227f1b7bb2d72ce49e443e9c0a2d5f68d8ac9266b20bf193a",
+      "a8382823bc42c007e16472c97a56d40fd06619a73a40153cf2e3f8edc97a9d21"
+    ],
+    "fields": {
+      "task": [
+        "Cancel the operation before expiry and verify it remains denied."
+      ],
+      "title": [
+        "Handle approval and cancellation boundaries"
+      ],
+      "module": [
+        "Graph orchestration and durable workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-71": {
+    "content": [
+      "021af20e433c9d9c4bd195089e4245e9d2a2f9408ec78a72eeaf1245b12a550d",
+      "473f7db253eaac29ec5def9d6773837c7be992223218d57f31e08fcef0f73280",
+      "b6346cbe7d3fd4f13ff22a9109faec257fd28f6c0df6522f17d0f4daae39204e"
+    ],
+    "learning": [
+      "d8acff5717ee7b444b343b35f0de769cb3e202f6ab13fa8b529b2f5354ce381c",
+      "21ab6f908344ed329f24fae231a69251ce0ad80298d04343d69517003520ab1f",
+      "726f75b6b7627001e944a3d53c35d0c56e191180665a911c5a83bc48bf4a2a52",
+      "e665dd9b70d19a3ea6973823addf9f12a093591f91da3ad0b4d7fc8402aa3091"
+    ],
+    "fields": {
+      "task": [
+        "Use the same key in another organization and verify it is a distinct scoped operation."
+      ],
+      "title": [
+        "Engineer retries and idempotent side effects"
+      ],
+      "module": [
+        "Graph orchestration and durable workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-72": {
+    "content": [
+      "517ecd16899a4de6308300931e24c6d7728c1c539ba0e73557c5e3f634740a8a",
+      "2012bf2681e44c72f843376a9331b90f2fc9059c04f9e81797aa51c62d906d73",
+      "95a446cd5027fca0f425674597e45338fcbedf9c78ba9f4a0c4c8ba597956312",
+      "4c28ea863ada0f80cedfdc27e8be895a1c046bdbc2d062a5e40389cbc02dac51"
+    ],
+    "learning": [
+      "c7b59c7c7bb8055fe995c3bd6e5c3f371b0d9c2ec78d60389f05e953d8cda111",
+      "2cd24487e7cf62c85fe32683059966ed4296d145fba38ccd16825e02d878cf13",
+      "8dc940935318765a1d5993156687f107a70c5d37e3de23278feb82c4b9bff5ce",
+      "76858f75db491f523d6bf3d01fae115b8303e2ae0aaa4b6ee01334cc86426c6e",
+      "8a7be255b5b7a486ae315d467e62fd2895b30a318fe91e2290cabe313735a1dc",
+      "fda5511776940e0b2de04cdc53750b7963fff2ff3810a643cfb4fb6ec4e2b868"
+    ],
+    "fields": {
+      "task": [
+        "Repair the candidate abstention output and recalculate accuracy without changing the labels."
+      ],
+      "title": [
+        "Evaluate workflows against a baseline"
+      ],
+      "module": [
+        "Graph orchestration and durable workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-73": {
+    "content": [
+      "dc197b7a8fb9d9aeb8372bc29bc34a23edaa8ac7edb435db1ef87ec3f3f26b88",
+      "b86e8c274d08f07be9131522e8c7c5ebf9a498d46e35b5fe8d4824fb29f626ed",
+      "8074196e5a650e469ea792c2709d8655439bcbb74ad25c56201939e9ba33fd4a"
+    ],
+    "learning": [
+      "40f43be77faf9acc7e515800e7d190d23f5079e3af432be4f0ecb3832a716e6d",
+      "4fb7dc74b65cd7271c2746195091875ad8fa6c2cb21582eaed1f0d3847e19629",
+      "fe8e0291728695093f7c70f02ac2252bd259f7c31eaae1f3188c186c382cb6e8",
+      "7ca854cc95de919c1b901274c4ce224bdf76d78801fb82ac78a8c6ffb146d3d7",
+      "4f0968324128bfe5d47b7057de26c9f041d074bd6ceda069a00a1fa73add7f8e"
+    ],
+    "fields": {
+      "task": [
+        "Add a write_permission field and verify the receiver rejects the unexpected authority claim."
+      ],
+      "title": [
+        "Pass typed messages between workers"
+      ],
+      "module": [
+        "Multi-agent contracts and complex workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-74": {
+    "content": [
+      "a1aff026d880423fdcfa3b5bd506e1e36601319da1bcad35dea55e349c29705b",
+      "f239a38fb9bb72acb185194772de69bc306f29049f74bef509dc68720b4e8bd1",
+      "e76e0058243b7d1e3e52fd5079d72897d664d89f5d9170cb7d67d927e0087e33"
+    ],
+    "learning": [
+      "8cde5a3d0edce336a36a8ea8c44570fe5134c29b5dbd3d4f1ca18c47cad3df46",
+      "9a860018f68e1b8bb9b1dbe8fac62ebf56572dbee36c4e26a2d630330b56ac2f",
+      "388f5de642019c4a1f194ae2718ee34e39039e28899210b044df45c5331848f0",
+      "9aee7320a24d30ebe20c3316cf2d3ed850a5e4342c3282b9dd84bdd08a261fc1",
+      "14070117d76f614684e2b9b39d677a3028088e50328b372fa7cfde4457e121ee"
+    ],
+    "fields": {
+      "task": [
+        "Introduce an unknown role and verify it has no default permissions."
+      ],
+      "title": [
+        "Design role contracts and handoffs"
+      ],
+      "module": [
+        "Multi-agent contracts and complex workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-75": {
+    "content": [
+      "75f3a1d6f0e7e6e25cb6ef2fac10e21adceee7e6063bb160cc3f3f9f704e8bba",
+      "751d8e6485e9a596203190061459eab4708fc94fe1b3763dc9f83345f876429a",
+      "685fcff5d85427e360c9cfe628b469b07cebf4fc5b42caa2fc13525879f1fde2"
+    ],
+    "learning": [
+      "7891baf03f2b2a4a9b1422124f6fe12aa28996aa44fcd34455b3ff155139cf48",
+      "0dcaff0ae4abfa992978c0bb1350a0d10f74280e5c8530c897008b4e80f4ea11",
+      "8164c4f56218a8943a684d035f6cfed8e895dc0cf6836f58e7bbdcd5c6b49b4b",
+      "297f01887d2fded32455416347f66d6cd02fd8a0ab257a94606bf3f3f3f656e2",
+      "bf911504c4a833f1cfff7db49d25653b776822d92b43b914c128cbc0625b9777"
+    ],
+    "fields": {
+      "task": [
+        "Add a 50-unit branch and recompute the parallel path with five units of overhead."
+      ],
+      "title": [
+        "Compare supervisor and hierarchical orchestration"
+      ],
+      "module": [
+        "Multi-agent contracts and complex workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-76": {
+    "content": [
+      "2eae1c7bd515b153faf2b369a503f72ed10273e4c5942a7f92f427bfcce05193",
+      "0183f9734d95defc7a06a27b5a1b1526dd8ea2f99ef617564b5cb6f74f96f933",
+      "5d6b0a245829d4c66051dc6a66975bdf71fe7b3c1fc3c393f139f41e39ed2e36"
+    ],
+    "learning": [
+      "cef91d504645fa7c6c8980c24887d9689a534ec83cd602e81ad088c34895bc2d",
+      "ce5b6c8583f80e22741e50d491d143d9a1a74763269b3cbe9e67ae6eb3828e8b",
+      "39157c75e1751c1a1c27a8ebb59414a7531a0ae1a46c88d8125e9a03b6cabaf7",
+      "1a39fd11d69e9f6873054254c409ba471e07e880c6f6872f30226dd7e0b24d18",
+      "d744d69fef26e6f468f156fa4bea4799f3e048cf16b4d4a420ccb137a3865623"
+    ],
+    "fields": {
+      "task": [
+        "Change confidence without changing the wrong claim and prove the verdict stays rejected."
+      ],
+      "title": [
+        "Separate builder and reviewer judgments"
+      ],
+      "module": [
+        "Multi-agent contracts and complex workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-77": {
+    "content": [
+      "53bc2dfca898531f926dc72f8edb5846ca081d2168da53c6e9b5ed77be44a0da",
+      "c446247b1b187dfefc25ad8428f1ea1d812ed6efd5bebe3da752dc9095c89856",
+      "f3b1713b78387c2e8b0a40553b6f0f7c99c11c5ac8f68b6dc40f635f65da384d"
+    ],
+    "learning": [
+      "e194e5fba5950e7ea53f0a0f4e6a4a3452b7e7ad0ade9da40dfc4fbc35657140",
+      "7c4a32ccca2143981b60f0c88fef0d8aedb317b4c0ab095fbe6430510f722021",
+      "b972421fda1e7d7a699e9c8f540945bf3b89e76fe50e8edaa5e53c892efe061a",
+      "55c61db5008e31e0f7b3ad1165bdc22c2be050b2682d53d46896f68ada433dc7"
+    ],
+    "fields": {
+      "task": [
+        "Treat both branches as required and map the observed partial state to a blocked release decision."
+      ],
+      "title": [
+        "Join parallel branches under partial failure"
+      ],
+      "module": [
+        "Multi-agent contracts and complex workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-78": {
+    "content": [
+      "ff71979ef4e6c575eebbeda0a6fc0c2f2ed838082982335f76f33eaed8ea88ed",
+      "22ab4b43ff758eeef3bfd1f0f1016cd9dc92cf51e6d2334473ef7eb45620879b",
+      "5a3938c2aa19c9dbeeebee570d2b35c2be32317024ab06e942e82fc6e71c9783"
+    ],
+    "learning": [
+      "4c460113d09237e8d59c2bd194943a48d75aef350bcdfee7d81de5e3622831b7",
+      "d848381bf5a50289abca5f46ecbaef925ab12711f706158fe2ecaf1ba9e047ef",
+      "356a7102e0f287caa67f7934f2debdff1eec8038b5fe5d3c4889e4d0d210ec84",
+      "cd851b1bf7fe76ad23df998966bcc83fc56b1ddff9bedbd2e913f3551978e7c4",
+      "e0755ffbaa68eaea392ef8433dcc77b8216ca57115b8d3111f5957fefbd557d3"
+    ],
+    "fields": {
+      "task": [
+        "Evaluate a revised team with quality .96 and latency 140; retain its higher cost in the comparison."
+      ],
+      "title": [
+        "Measure whether a team helps"
+      ],
+      "module": [
+        "Multi-agent contracts and complex workflows"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-79": {
+    "content": [
+      "fdde74779fd4fdbc6d93654fc73ecd76e6529cc19755650e480cb468f9f3135b",
+      "68010bf0b6cdb48e0f90bd4555a45f6b9f2da4649cbcfe25c057a089a9efbf49",
+      "4187335e4578ceb1551d4ab68cec94b4cfe66112693fb0b83c7fa0d7d928cee2",
+      "996b853c2cb34c06f783db7b770f7b9c14b4e15bc4e1c195194eeb33804fb317"
+    ],
+    "learning": [
+      "9e1377b93f57aeb77b2c0970ebd5a0e364163aa365ed9da7b7bd1ced1ff4352f",
+      "c58f7a3b2d63396354e8d30e358ec9d6aef40387e2e5ab1e8a77c5f825075a10",
+      "9b5a1c1db951a51a7412709d1e8c4095550192fd4f5cc4fafbe3b4458b57e82f",
+      "46ef0e31677c9dd4b3f25dd4d238757a5a6d4cae03f61e2f350e0334bb2927f2",
+      "adea3ae7455e12e0c33a83b5c0a37ff241e4263b5b8958aead12092fbccd9216",
+      "3548b6ee89ced227d87e9ff4210eb5c29e610b09b703c132e394a31958dcc8a0"
+    ],
+    "fields": {
+      "task": [
+        "Call the known tool with an unsupported argument and verify it fails validation."
+      ],
+      "title": [
+        "Understand MCP boundaries and capabilities"
+      ],
+      "module": [
+        "MCP servers, clients and reliability"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-80": {
+    "content": [
+      "26db81eb496c30cfaecfcb9ade54d385d0b555b8187a9cb88f1dbbeefa896131",
+      "092dfa054443e17c761310e65b2201494b95b223e58bed66c355fd9165388f7b",
+      "ca57fce79c9169341bfa4a6a8d774ba6a2c0d1418b5829914492923035dcb296",
+      "86620d8109967ccde1e247e9cda949f4ef852c70578ea9bd5870a3d1d53073db",
+      "244d8fc6c5961efe3789b8d6ed90f77c6f5daf53c7f1534280cc9ebb57c42b4c"
+    ],
+    "learning": [
+      "cac830885de259b371aa073da64a9b9a3f74d48c04c632a22ac3240a133948c3",
+      "8b55d14f1136141a063d8b4c2dab9d9cd37eb507a58cfaf31a3e8b44fc7ec593",
+      "562e52700d4861c44d3b0d4caec7193d0b83ffeb7037c2990d2676606f57b68b",
+      "eb837eba6b6c1d841cda453350131b15174e7d8706a60cfeadc18bd73a16926a",
+      "3528bc7ebf234d8a96e6771a0ef4c001ed9bfb3ac551f98e51c6094e5ebcfe14",
+      "33d08c70e241e042e6b66cf10500ba7454a5b587677a4529b2e3835551b0543e",
+      "48fd7e7597121853a5521b30640800791b6df8e405e664c84d68a6b3a3699474"
+    ],
+    "fields": {
+      "task": [
+        "Query an unsupported topic and verify the result is empty without inventing evidence."
+      ],
+      "title": [
+        "Build a read-only MCP server"
+      ],
+      "module": [
+        "MCP servers, clients and reliability"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-81": {
+    "content": [
+      "f6d188134373988739c297017406bb9d90c83a57c01df7413902f580db139034",
+      "75e2966183cafe8ab7b94f5494a36828ed32d2dc89211c4cfc319576741b5d1b",
+      "4289ced3b8847ce5bf6771959d93a9ce7d8b2794e60733a88f19889cc83ac1cf",
+      "93e376d51ad5e19bba1a96251ece3accfb4a10584d8956cc3b18aa5c6dec4ab1"
+    ],
+    "learning": [
+      "259824d7a2c5c258f81ddbcf78f25045541754977459e79b5dd72a37bab688dd",
+      "4d8bccfa2c52941496bc3d6c8db23634de5b2669985afda87930caca51fe2bd6",
+      "4e013bc73e87a726cb150e87ad094976592003d3eae7ce4968d7bc6a1113688d",
+      "6bc710d6886cdc2eab724843a84a4d269cafc41f28b5129252a3793f981cdb84",
+      "2875252ba7c98dd8d51cbed2b2ecad0e7cae6a20240b48d6235312761570298c",
+      "7fd7c94fc8e17350a8c70c6159efd3ac429d60e6ac494ffa6d102dee4a6d7c7d"
+    ],
+    "fields": {
+      "task": [
+        "Verify the missing-capability attempt did not add another call entry."
+      ],
+      "title": [
+        "Build an MCP client and discover tools"
+      ],
+      "module": [
+        "MCP servers, clients and reliability"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-82": {
+    "content": [
+      "3ea9f93d3c42acbf191d708665dd398389ebb23be99c32437518933b4a9b81a3",
+      "cef1b704b3d0c36320b31b446278fc3a04542fa3c1c848a73d6843d0b18a70ea",
+      "34791db6b576fae9811406441f626be9b1bb6a9f75fd6f22aeca31f250450223",
+      "96493ece3c303c79e2f9b910292a1ac36688366ecb7e9dcfc85b37af4d11f0c6",
+      "a23163137cc69277d2c3558967e85bdc8c78271e2786a6d69f5f591b43daed2e"
+    ],
+    "learning": [
+      "efdd94128699087bba32bf30b74fe1d09bfefce5cf3938512ddd3f6f8ced588c",
+      "7edf36f0002e4f11135503772a6303d1ff518a32e8202128e4ea8d0fd84822a6",
+      "943125b739c889006104645a3a78058008f143f65f0f5b092ac62d0d2136f5af",
+      "7268173db5cab0efbc879ddb602f375655e434517f70ca72e3cdc65125309918",
+      "83943a4c95bb61805132e7413d04c148267d84b8a1a823a4a1e0a714370aa1fd",
+      "46b6cade30a434e1399f9981e43aeb34b441491e8f953974a8bd1a94c763301e",
+      "29de40dae6fe428fb41c2431016df431daa8f6b29b5de409bff6ea17853801f1"
+    ],
+    "fields": {
+      "task": [
+        "Run a successful connection as well and verify it also closes."
+      ],
+      "title": [
+        "Choose transports and deployment boundaries"
+      ],
+      "module": [
+        "MCP servers, clients and reliability"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-83": {
+    "content": [
+      "8a0bd13354dff1769ef34d02156e1a6b412c8d61dd184d0e17d070442f2034d1",
+      "24423a83721f30d2dafa42413f9e5272eaad5c8f78a90cfa487a465a05af4d57",
+      "b46c95d234edc2d49a18602f29d070e5a63f2b3b59010bac36bd8b105c4075a1",
+      "383527cb4d9003a8da7c6990ed9980270478f3ec3fc8376a6c8551dd0f14158f"
+    ],
+    "learning": [
+      "edeeb3254c676997f75b884424fc369f2f93e4c886be2740f089a95bc25eb4d2",
+      "6f52694aac4041e546baaccf7b963911161ef7921ec1c3b7dabc7ad492d93c66",
+      "ece90038c44ae857f5c1ad3d00ce751163d4bee8dde06b48cd8eccf25c0f01bd",
+      "62317754cfb419ac34fa6148c77fd70974e09f4fe41bb42958412df6e8ced3da",
+      "91130a4feb9c7668f37dbbd960225823ecc7c91c43409f5a332002e095c80a2b",
+      "8d28f60fb824c4ca1bf4d4306a1b217689abc0d479f0d988615709e11640fdb5"
+    ],
+    "fields": {
+      "task": [
+        "Try a result whose text is an object and verify the evidence adapter rejects it."
+      ],
+      "title": [
+        "Defend against malicious tool metadata and results"
+      ],
+      "module": [
+        "MCP servers, clients and reliability"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-84": {
+    "content": [
+      "bef2b1328c3cf81eeaa5a020bc424a7e8018178885bb0c22136333b75acdeb94",
+      "016b98248f252c9b1c36111167c8dc1551874c2769ec6580a54d43b455953323",
+      "9da35e919de5fc86c8b5c33d579dfb09484b01963c629b475616f9f8518eb6d8",
+      "243d36df1fea1966fa050851f631e29ef47d0c595c0cbd9d8abe41a08e431158"
+    ],
+    "learning": [
+      "4f67ec4583566b0913cb0785e0852df5fb852512bdd76e5ddf2c31873ffdcd79",
+      "96fde1464f2dad3eaa6bede98ed87a91b6f7c15bf2555fb787791e27b86e9657",
+      "aeedad4da6c1e579c9045f0e2d776a61b3201d5dd9d05c6cee1951e4094a9fd0",
+      "d75410407a6df692f37de12299e45520007e2aaaf66e09cdd2222584bd77eddc",
+      "296c8a16aef5ea7ff9e2d42cbf0a4f3a72aeebd746ef4579dadabbf7d7a1a71e"
+    ],
+    "fields": {
+      "task": [
+        "Reject a missing is_error field rather than assuming success."
+      ],
+      "title": [
+        "Test MCP reliability and version compatibility"
+      ],
+      "module": [
+        "MCP servers, clients and reliability"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "lesson-85": {
+    "content": [
+      "b09e9e29f6004ff733251d60008eb95ca3776a89016d6feb31db80a08ffa03fe",
+      "3c56ed19ff51c71979167373e9eef898b11d569ab9545d846474ca9124863a8e",
+      "49e56b2b5bb8f0aafb3311ce250762e559f125c46dd0c110f1db8cffb342b7dc",
+      "a1bc02311b8bc2a76a597df04baf49319ea656b24d0f7531ab2991cb0c1f841f",
+      "95c8446fc718a67b2bcdca0ecabb6508e1622fbf3941dabb703851e76065adf5"
+    ],
+    "learning": [
+      "d1ff62c44a6ca77ccc0b6697a8725085d11867d9d7d6df6551282a94950ee86c",
+      "28bc5f3e93d0d90f102e1c1f37f028c522bc72272084d1d8f12d1a41df4fe91e",
+      "11f356d6ef1f090abb73afd836ea2b8cd00fcb54c0390839c17f546265d0a634",
+      "596a092afb18063551b61a1b1148b76b89a592b65102332c6a5371d72c1c93c7",
+      "188ac3f3d76ea00b73c268d65ef680d2630e299533b717a61211858c6a24ac0a",
+      "8797fbbfbddf8f84aae76b46ec226bacf7f088c6adbac5f5f5f48d8f034352b5"
+    ],
+    "fields": {
+      "task": [
+        "Reject a finish decision carrying a non-null query."
+      ],
+      "title": [
+        "Connect the agent to existing LLM providers",
+        "Connect a provider through a validated decision adapter"
+      ],
+      "module": [
+        "Agent loops and context engineering"
+      ],
+      "minutes": [
+        60
+      ]
+    }
+  },
+  "lab-01": {
+    "content": [
+      "2c1f272d54d847d4416eaad14fc1df682e531910ea5b65e405d1ac0be1a08c47",
+      "ae4a13a80a4a98f55f0c4da4d5af6fd5ad28d9191d38d876c0666f996b99f5b2",
+      "f6f25e659e4cf41fe08ed36432fa9ca54650b5866ae292ae98f83c5c4f3b4035"
+    ],
+    "learning": [
+      "efbfec10b0d37ca6c1b82719ae2043fd7ec2c95960159fc1c935424b5a26531b",
+      "3f15f8fc91dda017a0119170165d1742068ff889f59c2dd5291b30c2abcc0717",
+      "33c57c405b0b9cbe32f4def6e63725596707d0d48d8c932e11fbdc1733433728",
+      "900023f64f3a3f6fa7129a3c15c8a7684a41f9bb0d6c938208d31611b62cb4a6",
+      "50aa4beae6a2872a685fcc6fbf7fca79da317ee0b28b61bef2aae324d306edfd"
+    ],
+    "fields": {
+      "task": [
+        "Add a shipping-policy question with expected abstention and retain every previous case."
+      ],
+      "title": [
+        "Frame the problem and establish a baseline"
+      ],
+      "module": [
+        "Lab 01",
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-02": {
+    "content": [
+      "d203b4c4ce3803c87f92b70f5839d49a2b4f95520e3f8a24fec1b3d0cb449b51",
+      "d843fb3bb228ee6877b56968412cab5245eb43b675d9e0a38c79c18227e5f097",
+      "aea0babd5c30a83660712435fc7270e7da9d8e787946fb2099729de2369af6c4",
+      "5ec583fe00872c5c47cbc4e28cc715266683196b27837747f722009bd22a2f20"
+    ],
+    "learning": [
+      "c820263c17e16b383afb24f0246a53939cc3a70a95942fae778a3972979f1608",
+      "8c7d43a984a8f84ee58dc1d2d625bb6568e2cc5a87702b8debf89187190b314b",
+      "45113f7c54fdea1416a9ab940ddb17c7dddb4de360da05759a3d044f1eee3214",
+      "4583ad663e085ce0026d46a4c59ca03c9dad5f9f1715db349dda1cec35548ac5",
+      "6ac8608c4f4982c5b0753446639385eec3df19c3f313a6aa578f4de18ec7656b",
+      "aef9e4f79233d2965fa58d0f10edb3cb50908641fcbb34b46c30948d66dd11c0"
+    ],
+    "fields": {
+      "task": [
+        "Verify every failure result has no fabricated answer text."
+      ],
+      "title": [
+        "Implement a reliable LLM boundary"
+      ],
+      "module": [
+        "Lab 02",
+        "Foundations of AI Engineering"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-03": {
+    "content": [
+      "fd50b34a3341f34619e39b70867c7991e8dae1f91f43a5199b0d99a08372e9c3",
+      "230c43ebda84d42e3a5f2927f6cea519b9fca3df530bea11ba08c377d9460e09",
+      "31405230acca4e611922f76e4b9690777ac7c121e90e81cf5d5fb33e5e729cf4"
+    ],
+    "learning": [
+      "1c0f28f7610f85f310d156d5c6e777647ed93734c77f79c798fe4efd435ce5e3",
+      "cb5d4d081f76ed35ebe0dc2be9813882bfa38991f7ed0347771dd18df119f06a",
+      "725e0df731c4518aeaad896adf21b028ae021169562e36e76ab7d24daf171b8d",
+      "d5657c947cdd7aa57a097e28e87a37fa79f7b15664cbe67fa45ed60042125bfd",
+      "100898d8271caf7f52ed85e6ee06c9924870e67af5cb902846a2c8b4807b57ef"
+    ],
+    "fields": {
+      "task": [
+        "Pass a failed ingestion state and verify it cannot return answer citations."
+      ],
+      "title": [
+        "Build typed services and state transitions"
+      ],
+      "module": [
+        "Lab 03",
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-04": {
+    "content": [
+      "7b3e2b4eda3f9cdffff901bb1db010a2f9ac80ba5b0bfcd25e94d70dceb976af",
+      "ac0aee0b1d0ba361939d1ae46526f44fef7072f3ccf39267f410e065cb2aae82",
+      "79d77f3b57dc6620892ca87547916f1fbfc957cc7e36423b8746cbb5cebcefab",
+      "24c613470ed64a4e9b80e880fd7049cb824e99e2e0bb5d2e36d3a09d32040d06"
+    ],
+    "learning": [
+      "f880ca56b781e1709304dba77c649929eb4b41f0af64e215f6c93cab4c0fd5b4",
+      "015ac6c0590d37e4d65458a25dc04c4866ae7e26f4d2c1a2c15c8a1f0bece21a",
+      "0a799489c9eb219bd6e1fce9b6f0836d6c1c5977857e750d28e252177c9a8bda",
+      "9009c7239d25a6cc0f97647ffa8d144a94d97da7dc9a4cdab43d4f2459058edc",
+      "b21facc2477d510d6ed391e8e8be5d3920246e658b95fb0e68b31be83e20e9b5",
+      "7f0ccfb95b4a995ce95e20d0f42eda741f2871e2400df45c6adef009f0452d59"
+    ],
+    "fields": {
+      "task": [
+        "Increase evidence capacity to 18 characters and verify both permitted passages fit while secret remains excluded."
+      ],
+      "title": [
+        "Protect scope and engineer context"
+      ],
+      "module": [
+        "Lab 04",
+        "AI System Design Principles"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-05": {
+    "content": [
+      "bf5b62e6409a4a5c453d236c8a4d419a1e61b629e647b1d65b2ad479dbdc9f13",
+      "8d880337165b7bcf86ac3a36c1c65d3215c0d2035acc8acfa84ff6a791051f26",
+      "01052239f4dcd03ceaa1ea4ef2e780436771d9bf7015e509b219063c6841c8ae",
+      "57811abe68135ea49b09646033b082101177ad2f8f6f1daf1b71a6c5fe295851",
+      "d37338596e6b1482a6321758c8e78d5fdf9cd51374789edab089a7a773f8d593"
+    ],
+    "learning": [
+      "b84b0109d4b25600d8c6e50827c0885c89643f89aba748de879c4f84a3c8ffde",
+      "0ed1f287f58ac2652b1431dfd62c76a841044af945a849cd6e070fac981c7ae5",
+      "d06a93f3e399c2d6820c9b0d17d7f1600261ac3c49c6224b880af4acd5dfc793",
+      "6f0cf12844e735ebcba0209fe55e8cc19fe156962f72a3e2bd8021d4f2cedaec",
+      "e873d16e3f246f524cbf537fd189fe92621e3c1195b60d6c906ddded5e86cd21",
+      "4b0cfac547cfba6d7753631ebfca3fe021c49c2aa2f5081a86d93a54c05ceaa6",
+      "6519984bdfb5eee69949709a7cad0551419ba73b1c7a5a4cb31b312d520ed56e"
+    ],
+    "fields": {
+      "task": [
+        "After the original connections close, reopen the database once more and verify its document count stays one."
+      ],
+      "title": [
+        "Persist documents behind the API"
+      ],
+      "module": [
+        "Lab 05",
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-06": {
+    "content": [
+      "b975928463ac91856d2d88604ea9b22a78a74cb7a3624da39593dbc7db3d7aee",
+      "856228e1908b9c6f80dedba7690bfdd45273365ff1920bf6e57dc71e4f01031c",
+      "2d8b44ae4d7d1e00495faea84f4f7865f8bf3f7e5ef8d004b695b49c1dcf42c4",
+      "eea1d0dc3b120bc935ef76cdbd8d6c90958c1b84ba48781c5f3ba07dae3f89f5",
+      "37b81bd89d0c08e163386af0691014676e9a78e8eb7ac728529b3d8c2de69766"
+    ],
+    "learning": [
+      "ae917d1d8d33f10ea576946365003739b4310205baabc50ef19f75fceeadad80",
+      "0de4871773f5618857621e8cd95b1bbe61571c613b0fa0188043c584d29de752",
+      "d5d2670ebb49e12e57504fd8b82d8b99b74c3aa649450f5f47b4c05a79cc1ef4",
+      "5ab1c4e9d3de0033c261ff85bb4fb18e5ae0330c357056080d7665ff19724563",
+      "cca3f2ace791a213a1f7510bfdfd1a67691b1cc3159fe3cf2ad7f0b248005072",
+      "097b92b88560ce9ccddc6856c39c471c2f2be09fd818dc022449288549fa2169",
+      "ca451e8f2e846b3d075cbbb8235c36f7243e9dc03602fd6376af24444e113f8d"
+    ],
+    "fields": {
+      "task": [
+        "Add a separately persisted job fixture and verify a worker commits transformed content and ready together before reporting completion."
+      ],
+      "title": [
+        "Run ingestion in a containerized worker"
+      ],
+      "module": [
+        "Lab 06",
+        "AI Architectures & Containerization"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-07": {
+    "content": [
+      "ee04eafffe51759b1f4428732d8ce0b02afcaf636c027b12e6ecf7cb7597ac5b",
+      "cfd9a68b401edad77058dec7ae84e6a70a162576cd87583e53089884a3380c82",
+      "b3fab124bfed9a8806db3b55c745c4d4f7c5149fd42b08ec3a74f6239ed1d104",
+      "5034db4fdbb7f50cdaa00c15a6739e5ef820addc42e66c1f4a5647316ed6b262"
+    ],
+    "learning": [
+      "530df96f97e4e376b10df77ced55c2b2ab214c724f1ea598d7867a8a088ec734",
+      "cc6a9b329364f753636d61041e67174d7a26d61744569fc870e3e434212a69aa",
+      "689ba9d7a7106e866446485ebc4efd880c6cc566265bcdf2556443e904544ae5",
+      "006e95cff747ab9cd38c69bbc1400d6ceb109ba2403aa59ce7c22d6c9be72e28",
+      "ab34dd871e5d007928814e707346191c84f78dbe6bce5a1643d1907e03caa42d",
+      "42c46ee5ac17ca63eb0e5240afdd8bf432b19962855e62f95de917399029c56b"
+    ],
+    "fields": {
+      "task": [
+        "Create a v2 revision with a 7-day period and verify its chunk IDs cannot collide with v1."
+      ],
+      "title": [
+        "Turn documents into attributable chunks"
+      ],
+      "module": [
+        "Lab 07",
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-08": {
+    "content": [
+      "cc66c360c7dafa612c1756387fb19827d55603615a339b2f031ecec96702021f",
+      "6c387732b6f86ad1f7eba6f33a8c449ccb103bab2d2612bd8f6f8622f6a10e0c",
+      "994b433e0c14e00234cd5b36a1d06cd2a5d209f71c5c8a7b92a8d5f14c781b92",
+      "9295bb447788d22ac7ea755df943e4cf23c82caac89c492343b1098c6a5043ed"
+    ],
+    "learning": [
+      "a86d244f611767d70db8c08ac8b279deca9cbdc91f1587c3191fc02d5c066548",
+      "3e5a6209b43455693c2bcfa7ba49d8a91f7706f631c74912c2388a9a9b291d50",
+      "726ab0638937ffb45f423c3fcd1cc650d6e80d55708e82fde780b23d3d633655",
+      "86b190b7a10ea9f03d9af5e2324fc1f5f0a5e7cdf2fd0a41990d96e989dee693",
+      "eee7e5f4e5de44e41df6ae4041f584dd41bd025e06fc3f7f57b8b33478d222a5",
+      "6e2bde17e9f865c24640e85818547329288b6845a891b6eb2461b39db5edb4d1"
+    ],
+    "fields": {
+      "task": [
+        "Use k=1 and verify recall drops to one half without changing relevance labels."
+      ],
+      "title": [
+        "Add semantic retrieval and evaluate recall"
+      ],
+      "module": [
+        "Lab 08",
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-09": {
+    "content": [
+      "acf3bec10c3b40fa543eeba08ef6bf84b20275fffc293268a3a285a702e0e10c",
+      "ff5cd9d22e29f95a34dff266b2a6540d8ee1e9654da92483fefbacabf76e5719",
+      "a7805e485e9983d0b0f59661531be0076ee63a785444d896f381c4a82808f83d",
+      "8c7d8392fb789983401d48cb14f216ba1ee025d84760d6a6ae22ceeb485fbfee"
+    ],
+    "learning": [
+      "7aa81a9f06913aa1b4edb32b359fe9f93b8583fc12fae9d6d37d724177e34e6a",
+      "71ece0d64588448fab4516b70b6b5b3926e521dea196a241fdb9552fa68de1cd",
+      "5c399f6120ccf2f838fc84a1486cb9362b20cc3f09f87c474f6f1d001f00e3dd",
+      "a5552d5ff935925854f745508f4ce7c8281bdabef6c5e17b1fbbfe2fbacac26c",
+      "d695185aee5a8d62048a6ac28876a54c9b8d00fed1b7836a71eba13d6c3401f3",
+      "13f8c17e1f2ac28fa45277d9de4488f342a1081a63367265da2091acda5ca785"
+    ],
+    "fields": {
+      "task": [
+        "Add a third improved query and show a positive mean still does not erase the exception regression."
+      ],
+      "title": [
+        "Improve retrieval without hiding regressions"
+      ],
+      "module": [
+        "Lab 09",
+        "Retrieval Augmented Generation"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-10": {
+    "content": [
+      "e6616b9615a86572d9ccdb0bb419e1fb04d57eca85228f7ed61dfe0e9a6ea8cc",
+      "bc67d2bed053db4d1706c2da1d12d967d2c83cf06757ad0ac61760a4cfe61143",
+      "7855b694df7e4720c499ad97ab2080185223996c86e94aa4fa9cf12dfc5d197d",
+      "bf2f6e176852aef4a10cfd6e8c60490099f5e5e184473f14f6d42102d71d7057"
+    ],
+    "learning": [
+      "8c4a725a108d447b766bc7b01ed0b64d8f81140d35cc48dc38bbcbaa3dbad94a",
+      "d886ede9cc55c16b1ecc7bc2b8771ed8e991163205925ff92c52af2b994a7bca",
+      "63550a4c4b681b900f132f7cfb0e6fe14f830c76b58d6addbc57f7b1c86b7724",
+      "700185e939377ce22f5e73233c7dea7b042528b2154229cffdb38c535e6b2514",
+      "79a193b4d8b73ee984e079c9e58c7c785071c7776e77812394c10201c71834cc",
+      "113b96fff07939e7889c00a70f805656e29ac33eec5c2176c4c427b6fcda7322"
+    ],
+    "fields": {
+      "task": [
+        "Add an unanswerable case with a separately labeled abstention outcome rather than inventing a citation."
+      ],
+      "title": [
+        "Build grounding and security evaluation cases"
+      ],
+      "module": [
+        "Lab 10",
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-11": {
+    "content": [
+      "408ccfda95a724a576e1be18266c1b7f0b8a7e0a807056ad65907aafc134e743",
+      "43eb83deab4f2a517b139c02a6c843bfe21f7922f4e244ba36bb6acecad7e733",
+      "1541edadeb5727a085c7dce7747fcf04e97148e8fd3c8cb1f0750cf277f98631",
+      "baf13e7dcc837c9ef0d4caa947371846cae5fa23496b69aba2634d540978bc0a"
+    ],
+    "learning": [
+      "f87404f9724cb187d4bda968b7507d45a4b9c3f656ec9afe1bb9caaf1ce53e26",
+      "ef7b162bfeb03e0e64642d719b6a9f2484bbd0067d85642ec71dfe409dec686e",
+      "e44902f1bc26636bd0e27a9d9edada8677b955e1f64bd1050d2608f2f193dfdd",
+      "08ef184bed2099ea0d00265b1a835e4144ccceaf2d5aede8178072e11b3d9de6",
+      "bb18121b41a2f57e3d4f9fbbcfda8c06ab52b97d34f4839c003a9fa3c1ee67d3",
+      "d9aac0bfbab19f2e8f7da28cbbe8b7815d518726cfb2b639db3025c02f69a5bd"
+    ],
+    "fields": {
+      "task": [
+        "Add a retry span of 20 units and verify total duration includes it."
+      ],
+      "title": [
+        "Observe and compare the complete workflow"
+      ],
+      "module": [
+        "Lab 11",
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-12": {
+    "content": [
+      "2d416704b5cb3bd98be26dfe46c870b13a19750a6e346a1a21328274a48d7ab9",
+      "d697bfbdfb35c8c21261b8006b91ca72e7496f6973058fd9c09f36626f43a529",
+      "12a486e49e2b49247ab3e09e37faf762faff75154b111469d7f5f13d04bb0524",
+      "531dfef65098b50b3d5ef660cb9c7e0801c99791c6aaaa8bb7ec93babf58fa35"
+    ],
+    "learning": [
+      "92b93ee3289d3e4e3a595b48b2dbd28c6a4b4286f99836703ea7447d4efb66a9",
+      "6c6dbebbee67afbce6a488a4020a4d5a7a1f588dbbb88a83f238b18d886fe73e",
+      "de4107c975416da04e9d379842a049130e47ae17bed349dd5d527650d15b061c",
+      "6401eb7080c28cfc4510b777ae308ba17abb4475d8029cd883a021d45dc9d246",
+      "464a94faad20ece4583395607d3eb4c472d2fa3acdbfbdbe91c7f6c7f8d36580",
+      "b76b58094598b056943036f1c8b901a5f2f7bc38f7a8dad271529ace148a1a95"
+    ],
+    "fields": {
+      "task": [
+        "Assert the broken gate cannot be mistaken for success by checking its nonzero return code explicitly."
+      ],
+      "title": [
+        "Create a release gate and rehearse failures"
+      ],
+      "module": [
+        "Lab 12",
+        "LLM Monitoring & Evaluations"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-13": {
+    "content": [
+      "89feef764dc1dca1928452ca2d230f49968b1cd2ea2861a912530e318d89e3d1",
+      "ce98f29320a00daee03a019caef4d92618b4b398d35a74bed1214af2a8bc5418",
+      "e7c67a8c7dc0c310a57a4db631113889c8edf93a38af3fb8093311aba8a15ca3",
+      "181f579157af919b161e24c576800bea95f90e085c2acd0a4ac98c2ce7f068eb",
+      "280160ddccc5506daf5216d49305e1cb94a65ae943a4b308ead27ede72fc2fa4"
+    ],
+    "learning": [
+      "0f81b55de04c11d2a009f269d4cac1a5c86dbebc95713197f513047ddd092bc4",
+      "c6879b6a32dac039af7ebeca9f06dacfda6bf91d6fae594321be951fd968db5e",
+      "aef2c875c639954737b44e5cfabeb2cf5a8ac59634baa58e7d1bc390220899b8",
+      "ec20a0f6186cc18cda210da4361e7a719979c9d26cf77ec43244c68cd45ee68d",
+      "5424327c34aa31247d80568214056b45d84bab0e7d34edd7bb4b220ef53d1955",
+      "efc636bed57f2305b37c23600ea2c799c359fbb62c8cb43eaa562f79ae57eb7a",
+      "cfd61cac36c905d8aaebf30b524335f409eeaba9088ba31ec120af59ccdd1eb9"
+    ],
+    "fields": {
+      "task": [
+        "Use passing health probes with an incompatible schema and verify manual review still blocks promotion."
+      ],
+      "title": [
+        "Prepare and verify a deployment"
+      ],
+      "module": [
+        "Lab 13",
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-14": {
+    "content": [
+      "ce3784b643d5168230b8c87871774881de930c998ff9441c07682d1a2b457adc",
+      "da02679d8088ebec28009fc18146aa0e7c670fe7a8fed98c91b42012b775430d",
+      "ae55047659fb1ce7d563f60c7cec988f427f272a568182bcde5626192c4c7ac6",
+      "3ffa7ca389764f4e8f8b42bc953023f25edc149d98c3fdd908fe5d6bbf505526",
+      "09e6f19f7faf910572620bedf701333f4e0f4d46102bd1666c7384af2e85926f"
+    ],
+    "learning": [
+      "27f174443bbc49fc5f31401ee1cf547362344fea35b9193fbcc61ded78380215",
+      "25875d47528a55698a73e69008bb1a7b2cfc1bab58a38f99dc9b8512156271f1",
+      "074435e9cb77dba61a1c8aea81d6a7444ca66997ea8dd4252423679ed05818a8",
+      "70e6dbde7ccd363de7483acc4ad7d11549e9a6229269a273302f806e63e5ca95",
+      "9291e0dfaa11d2c9ad3cc98066d15bd812e902a05a1acb8f374541dc85eda1d4",
+      "e67eaed45fe0b75c4358cb51a58ce3bd1b66ed84abb6060fbff5d2915f70cbff",
+      "9cba661f73eb7b9a8b8759f6318928091d2242e3761e3e0cad554f92b2f50948"
+    ],
+    "fields": {
+      "task": [
+        "Record an isolation failure and verify the handoff blocks pilot readiness despite passing restoration."
+      ],
+      "title": [
+        "Demonstrate and assess the finished system"
+      ],
+      "module": [
+        "Lab 14",
+        "Deploying AI Applications"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-15": {
+    "content": [
+      "375193bc0b68def121667ec869e40680e6ee8aec0d0526dd7f139d3a45018c8e",
+      "4c6b601aadba5d413fee966cb93c9f2190a2ab949c0774b67b8b9091835adf4c",
+      "04c025b14b99c60bbbcb88cca800e592647228795f337ed4714e35266f248708",
+      "f9985d927dd845f690a015e699623bea5e8ed83186a7bff431e127d2d42568b4",
+      "bf0ce67c7fba51d67d2388f03af19ace9e40128f293a56e9f06d3fa6d66e356e"
+    ],
+    "learning": [
+      "d91934b617549a36240153662654634dabf85bc98416bfa03f04f5d1c2b592e9",
+      "217bbae142ccedca5492207aa2f39aac1375aced158a0169ff355ede4e8d98f2",
+      "bda0497f68864d322cdcb99a7a10c2c3085b3832564f7ac14db7589044f5c079",
+      "d2266b6521f9e2cc39d94d9e531f7220076ed3d6cb5a351aba5c2fe6f5f06b5f",
+      "f91b1084e7e9777342f16ab638f86b37b784d1a21295c9aa6b73b56ff6a51574",
+      "9494220504b48a051278fc55f0610b8e933ba1fc3b1247b70003323fa19c75fa",
+      "9ce4e3fee55b62ab507832d3c2d20b950bfca60801dd25f7355965b5e798a7f4"
+    ],
+    "fields": {
+      "task": [
+        "Propose an invented finish citation after search and verify the harness rejects it."
+      ],
+      "title": [
+        "Implement a safe agent loop"
+      ],
+      "module": [
+        "Lab 15",
+        "Agent loops and context engineering"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-16": {
+    "content": [
+      "2116d9e9cbca853f8ff4e7f133d17244be26e7a3b6ae78d5b9bb1e3722c3891b",
+      "b8d395b5ebc993f5002a4982f9b28a44368ef14e5493f47114ae38342b5f69b7",
+      "a2c64fcfedc815cc4bd8ec0cdf711b43835934349984c321c334492c9d294dfa",
+      "de205dc6ff3be41d299b89d054eb170fc2e25d685d5a9346218a7c12972b7561",
+      "679fba2eb32817b3787fccb5712e5e59cfa8ad044dd7e04f60e38138c52cac06"
+    ],
+    "learning": [
+      "b1cac7cbe476839948ca0cb8518d7023f2a2a0162529d2f589d55124120aefcf",
+      "1eb6c46a7de0bf39a41d87d41b4a823302fd76a70143780d829c28575c26a0b1",
+      "2b8c85ca8d0f8853153567fbeb4cd5038f1d4a483b630fd6293c0d70f3db149d",
+      "976f09db9a9d1ecff68316dd4f4f6b92c2b0eb76e8088a28d1978b05717ace9f",
+      "7c8cd1570aa410a99b44c721477855acd6d4df99b888cc7570b3db502a0ac4d3",
+      "2f21574eb3be4e42a1e9d72403a5cc5a15706a198baaa9a72597cae37174b297",
+      "481a525e1fd416b0a6a117b1925f07503704cf1a50b813324757e8d522803a8c"
+    ],
+    "fields": {
+      "task": [
+        "Verify the accepted result requires two attempts and exactly one repair node."
+      ],
+      "title": [
+        "Compose and route an evidence workflow"
+      ],
+      "module": [
+        "Lab 16",
+        "Graph orchestration and durable workflows"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-17": {
+    "content": [
+      "e9ac6d4e01815c37ec3772768ef7a47e8921fd139801cd3f8aca6775b801aa1e",
+      "4fb9f3b8285fc3226e85d9704abb72926604eff8edef28da65001a69f2e034d1",
+      "ece809ab20de0bc77733f3b47478cc8740e938580c2c342c7ef00d423a7d6879",
+      "00968aa77706d5586ae4c4d7547c5c827e1b410b09d4951ee2d17873ff56512b",
+      "2c2c7344e237b14661072c9292d1b382d344f01cf76d9331d7eed5d3f530d4ae"
+    ],
+    "learning": [
+      "0a2e34dbea93eca08ed647f2dcd7c7f8aaed2ee45341fd9fcb97dd9f21c8adb2",
+      "fee31d1f448797725a59b731e3d28ab9e8f4d18c3bfc5ace9f6bda1050c0a8c5",
+      "26fd38b1bc7d757ac177d212389081e1501e1c110860a0ebe6120228a91bf7ba",
+      "223a64f531ad291d1047b059759e5e6a2ee8c606a2021192c41126bf65102cfd",
+      "bb5ea1525df0cf443d3a4dd43293f25218a2073d03e8dcfdf27d689d9d45c1a3",
+      "cb5391aff9e1c88807f283a004edb40760915c8041b2486f287a2e5269447797",
+      "2ec88b877a585535d4293b329dfa6e35c699a21d9a9a392612ebf1ec33cd53e0"
+    ],
+    "fields": {
+      "task": [
+        "Attempt the same operation at its expiry and verify no second effect is created."
+      ],
+      "title": [
+        "Resume, approve and evaluate graph execution"
+      ],
+      "module": [
+        "Lab 17",
+        "Graph orchestration and durable workflows"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-18": {
+    "content": [
+      "fd38db6ed297ec13a5bd556a48ca6cb8d7751e9571743b9421764e7ced9b3a84",
+      "e9f7c0461fce943f9443db8072af4a86b326764c3ec27f551f23c3323c9352aa",
+      "f2f850a69984085a6bbc2a463916292f030fe27c78d08980060a59ea3109a098",
+      "2b7850946d55275b23a03491bcd7e9b1c0f0688f4fc33e90a68642f5aad94fde"
+    ],
+    "learning": [
+      "551ff63cfe763c67cdc275ff0be7ed551ea29c2d9e174aaba3237b04c486f56f",
+      "99cdef5e9d2b625271e8e8381897177bfb19bb24746320a7780a5618748e67b9",
+      "6bc61886eef68e1606ba0a23ebae0ede0324b769f3002938df23be4741241e4a",
+      "d9a58161a5965b7e3de0be29295b338091273d597fb6405b367a6d2de6b44fbd",
+      "6adbb22ff8192e337d6ec973d0f78c8970515317f4f72d7f6382efd107e42d87",
+      "b78976f82a87e744344c42c3de89e6b0962348b06be52b589a227a5f6f1f43bc"
+    ],
+    "fields": {
+      "task": [
+        "Change the cited source ID while preserving the correct text and verify the reviewer still rejects the handoff."
+      ],
+      "title": [
+        "Build a supervised worker team"
+      ],
+      "module": [
+        "Lab 18",
+        "Multi-agent contracts and complex workflows"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-19": {
+    "content": [
+      "6e555794713c9b71166e5eba49e753e06d94ee0867a070433e9065b7f629bebd",
+      "63e984bafd7d36b4f8e19a541ec30d7ab0690a1702cb0607f1cfcc6a154d184d",
+      "52a24c1de3cbf5e8b8f6fec4eeefc347746d403a3144018d8e8a6c21498c8fb2",
+      "a10c54fee450718cec599beea303d1dc227af82840a530bd2c22844326e97ded",
+      "f08e33c7dbfc088619104cdd47dde9f8d9ea1514214885a475046c42dc928bc0",
+      "0961cb11b1ecb1f6180cb2d2f59167a42d5febbb57757cbfcbb04dd466d9aecd"
+    ],
+    "learning": [
+      "ab7dc0623606e3a9e72a8d8965497ee8518d3b85b0ed6691a50759687283094a",
+      "011a1cf7d8619772181fc2f3b9294a3713990ec6203de9fb96463f5f1161bd00",
+      "76a02a780c0f7daa934284f7e917f1edcfc7e09e140ae8576b02a2605b21c9c5",
+      "5112fb2bb3cae97100f526d63fdc649dad7df871cac57e439c767d59205dbbdf",
+      "91a916084656b9155c8f3586043e0724c0aedd5e6ba2cf1d8c4cbb916b22d6e9",
+      "89aa34de0f650c4ff8dbd3a45fc1d5d22d39868850a32bbb1fb15d9d6c905c69",
+      "408bb4c19028b1f1782bb68492c8b6dd00565f98d9b2ab5878548457edd30c60",
+      "7e74f6490c7da3dfcef9180caba14cec5017817f2f58f4f9bc642dcf7eea4710"
+    ],
+    "fields": {
+      "task": [
+        "Recover the failed branch with an empty successful result and verify the aggregate can become complete.",
+        "Advertise a delete tool beside the valid search tool and prove discovery cannot expand the host allowlist; the denied call must still fail."
+      ],
+      "title": [
+        "Add MCP discovery and a read-only server"
+      ],
+      "module": [
+        "Lab 19",
+        "MCP servers, clients and reliability"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "lab-20": {
+    "content": [
+      "2009e50ba05f8236a7a48acbca185e4acbbfd209ebbc05fa6effa9b02b89d273",
+      "a0e64749b780c3351d5614eb88bd85530c7ac58bf335afddac9ba0a9a62e9a56",
+      "d5c89e945591b95cc35420e2df257dab1da96a40d6b10874ef6fb5386d930b0f",
+      "ed262cb91b7f3d67075e7bfe8f8d9575090ad74c8949f9d2685a230f44482ebd",
+      "63567070958345ff5599a2d583a9083eef6d98ce6b593027fd85ce5aeb555738",
+      "e508ed81fc523e7f697333b8c6fb69bab7b2951584de9fdc5c5d5f4b090d0207"
+    ],
+    "learning": [
+      "d1f3e100fca2666b9b7ae56212b4b663cc00d85c37ee246d1650d49ff67fe4b7",
+      "0b62cd9b475ccdd05e869b7634e8fec3068afe1ae46b44144c90636b7d5eb2ed",
+      "1af38960a182f51a3092c2aed3701eddb245950c9b1a97dee5b28976f39ae7aa",
+      "59ebb25e3dabd0625fd24d9c39f0d0382b753cedfdab894d4131ccaa79b86afa",
+      "db2333e436398236b5ec97e71f887daa90c8a37c9e3aa4dc759b59b0f95286b7",
+      "157b5b2b1790a7978330fc2ac49121704e74958848fb249ad13976fdfb6bd22c",
+      "068261e6907f4b472b9a163cb81552d7bcab47a0d67d89f6dac879b177f44658",
+      "dc4d9e37bb3abff0a26df73600955978b8f542624ce13c044f1453917143cd37"
+    ],
+    "fields": {
+      "task": [
+        "Reject a success-shaped result with non-string content and retain the allowlist unchanged."
+      ],
+      "title": [
+        "Test the MCP client and adversarial boundaries"
+      ],
+      "module": [
+        "Lab 20",
+        "MCP servers, clients and reliability"
+      ],
+      "minutes": [
+        180
+      ]
+    }
+  },
+  "terminal-01": {
+    "content": [
+      "c536861f2c8c01d2499f23997582067d71d97eaf657f3a595e824332fa5a0a3c",
+      "a7e74588b26077a94a8c9bedaccd864722a1ae053a8eecb51f4a798b5d2ef6ce",
+      "a182cb8bf8d69a2d72367e1d4917e70b71ecde23bb0f584aae7b71d3a57d5080"
+    ],
+    "learning": [
+      "207de5f7f1f4dbdffc9a48d05d85448c6edde28d768a5054becf79112d4bead5",
+      "04711420dd2de65f3a6d604d6d383b3520796630b436e32c42cb5df785cf7a3d",
+      "12ef1bb024df5b06630a623e23affbfc9f9dba8f13e3bc5b6c9a4f9f88ad8ae9"
+    ],
+    "fields": {
+      "task": [
+        "Add a notes file inside the same temporary workspace and verify it stays below the workspace root."
+      ],
+      "title": [
+        "Create and inspect an isolated learning workspace"
+      ],
+      "module": [
+        "Terminal Tutor guide"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "terminal-02": {
+    "content": [
+      "fda235901005c57e085aef7122cc6b997157f852a3d5df438f5ddbebb2c4750f",
+      "22dcb539238a3f1f48f92888eec217ff2083053602a88f91e6f6496e3344d4ef",
+      "9d0f30ddd6695cf0b8032df3aff9e0b89c1d886183e56dd4e123fc9b3a984ba7",
+      "87cfd3459807cc0f1625f5d60632841655bf6e8c11ccf411ea64067321eabdb6"
+    ],
+    "learning": [
+      "3a7f2f004ee4975fa3c336af66fbefcd594f06412922c1e88262a4f808176e9e",
+      "620ce70848b4963af4297b6e3dca1359953b1ead8c026f8d585d7fc0269be9a5",
+      "1fea987ad2ce4388901832bb5082f86e2334d8feaf039d9e2a5e25d380bdb5d0",
+      "d48fec037f708fccefdd295f7d94c09136ffa3c0f760fecfe16804069ae57061"
+    ],
+    "fields": {
+      "task": [
+        "Launch another process exiting three and verify the caller does not report it as successful."
+      ],
+      "title": [
+        "Verify tools, permissions and process exits"
+      ],
+      "module": [
+        "Terminal Tutor guide"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "terminal-03": {
+    "content": [
+      "50ed06c04acf437a522e6f5dd17fb3407098293e8a8dd1f4d217c9b110a87d15",
+      "ac1dc78229413a8cbb203e58d05393bb5044e8df146e89b0e2f316ebcb876446",
+      "73ad00ec1b3d59dfd2ebabe5f46372a3f5148edb489ca5d7763c6542512e3c6d"
+    ],
+    "learning": [
+      "d3f00068200ae72613a36ed98e466de542e0b501bda89d6714c3075ad228967d",
+      "37f34ffa20663c3f91561fc56fb478379695c402b67b69ac2802ff50a06559d1",
+      "c8435bd6b02b2ae1c5e2c85947433df7b521d3a3280a92396fa5e9f3adabbe49",
+      "db6a7272a369dfd605563a07d0fc9cc73508c9e017fd0c4a2b76653c5889d69b"
+    ],
+    "fields": {
+      "task": [
+        "Predict and then test zero capacity and a capacity larger than the input length."
+      ],
+      "title": [
+        "Learn one concept, predict, then implement"
+      ],
+      "module": [
+        "Terminal Tutor guide"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "terminal-04": {
+    "content": [
+      "df9ddb03bb610d8ee6aacf876af2e7f062f042cb448de581ab36b81aefbb75bb",
+      "cf8eb3838b3f501582c2693ddffd0e879536dd5beef3fd89ad285909afa8429d",
+      "e272c234e42e98db6f5bf4c7eb2c37d546ccbe6a440d873e3d5816b7605a4c81"
+    ],
+    "learning": [
+      "9ee944e6c922b41ff7b7a3421b2d5c988f57410f622d9561cac5365466d2a916",
+      "21a6a293f656cd12fa5f6aa8aa689c7bc80540bf420f8c5240ecfeeba23524d1",
+      "e973d6d66b7d3c87f9e2aae0b81ebe69b9f52427e3e87aae2e819e0cb97aa12f",
+      "c49848d7d6f6b3f94dc1c98996f631f5baa2aa1cad95e26aaa316b387fea7483"
+    ],
+    "fields": {
+      "task": [
+        "Change the policy string in a fresh module to 7 days and verify direct execution prints the new value."
+      ],
+      "title": [
+        "Read, run and change a complete local example"
+      ],
+      "module": [
+        "Terminal Tutor guide"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "terminal-05": {
+    "content": [
+      "fa5d6a79e671f38fd842dd3b2a47003ad72f0ae952be7d7bfabbce07d425fcf2",
+      "57111a26736fcbfb2da94873560d5050509e07f2b1b784d86f9c9e1604ffce69",
+      "0d10eb1dc5683305b997342a996c0dc94139eeebc23bbb4d5976eb44489d71dd"
+    ],
+    "learning": [
+      "a9583edb35c09620d6497a08fecdb3466c1fd8a07be0c3396354e5b46e900990",
+      "f5f632ba8c1c0e6555e10c1be9d70e03a1c219f7ff8c142833fdfdc783727e71",
+      "77c5035b9c70db475d53f98c2213375f18eeaac12245cdb25613fcb0350c5110",
+      "49dc2d3b4edb57162d09ee0e8da7f1be7dccacf262819666d7100ba90f644455"
+    ],
+    "fields": {
+      "task": [
+        "Add a second allowed source and verify it passes without allowing an unrelated source."
+      ],
+      "title": [
+        "Recall, reproduce and debug with small hints"
+      ],
+      "module": [
+        "Terminal Tutor guide"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "terminal-06": {
+    "content": [
+      "3c3842aa255f76ff6e7e98d1a0476b330dc40f08c4f91553934601aa969542cb",
+      "b19fe33a48f81df23b7209d4eb3cdba89bca33ee85d48085f43976c8aa1d33c3",
+      "0a25a03c7411b577ca81e5a3c32f4d99abdadd97eb6453dac2041aa6835c33df"
+    ],
+    "learning": [
+      "cb327b786d7e16be0cf4b8d2f97467f6aeed1ca34fcc481237049a132440a32c",
+      "ce298ed1e1921ca8f17af27dfa10b7b16b53c05be8614fcc8aca3b8e85669693",
+      "440b3937eb6567ce2e9fc94c35d03dc3bf68bd4110159ecfd5322de135b08d41",
+      "125aa11aac564cec820abf3b8c91d2884d0fcefa223a0bead800101329be8a42"
+    ],
+    "fields": {
+      "task": [
+        "Run a supported search with no matching evidence and verify it returns an empty result, not an error or fabricated source."
+      ],
+      "title": [
+        "Distinguish agents, tools and protocols"
+      ],
+      "module": [
+        "Terminal Tutor guide"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "terminal-07": {
+    "content": [
+      "36e0a90708d955fbff4de7cd13d9891a9cba52bc8b36f8cf961dd3f01c5e4255",
+      "66dc6f2da7be3639774033ff93ba3943b69cce8380408d7799f3d46820e9b55c",
+      "7a57b675e9846d5994329cb064f6df712cb28da808941d294e2b4e4f8bf317d1",
+      "606027cfece2bc0435de64b9a91c086ed1533f483b9187c94bee2624c5bd633b"
+    ],
+    "learning": [
+      "51e0546abe6bbc864d05c3e8e40f30003fd1111cb7d2dc78d440b766cf1ffbc0",
+      "8774336df7f8af0b3e629ee4a780e7093d701895e8aefe6f5be6ef2500430e68",
+      "3e30a0be9cf78c4d3c557bcf8eb15dc2ee7a2779037555311faca4b9c666593d",
+      "2daedb5d2baca92809e4aa9c718abd0a1dce998223e1d3aef0d25ad0f66a0ab7",
+      "282c7e53cf82d8e6868237aab0fe3692b4a5d99080fe6f062652b0abf70151a2"
+    ],
+    "fields": {
+      "task": [
+        "Test an absolute path outside the package and verify it is rejected without trying to read it."
+      ],
+      "title": [
+        "Inspect instruction packages before activation"
+      ],
+      "module": [
+        "Terminal Tutor guide"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  },
+  "terminal-08": {
+    "content": [
+      "02bc4db630f3d9fcc221065edeb7526f884654eaf974ea2888b16a3a595f0ad5",
+      "c020eedaa54c9fd82bd8e78746b3b7860ef93ad98b52610d4dbfbc51e9b64c23",
+      "2aafb7eb3b94cade4a8cfbf39e2e87e55b015e47f95f62509731ad7c6990e2c7",
+      "7995f4abb16fc586b6b7cd0045317b630976d149784c585af620695169c1dadf",
+      "8c24276cd0887ab02bbef3959a30aec7655ee0476dee9e6d44b62de929ffff25"
+    ],
+    "learning": [
+      "0a1ac3d74687072520255780f5c10fc8c2829dc9361533dc4dac121807f37b5d",
+      "2a3a2be6ebf5046983b38e81a1d842a88d3925a57799aa42bba0ad0c60e443f4",
+      "b2d6b4fe82b049a229abc92f345932b1673f38f6b7650ecddc2ab9f5e09b5a8e",
+      "e1edd66adabc59a3a54fc37ad1f48a2d83cfb65a2a2282650e5b1d586ad03549",
+      "78ee10bff9326c678ec8e2732819710c8012eb58b210b56b40875768a24e84a1",
+      "54e36867b77f1c8dbfcc69716494d4878dd71fe86246ce95cae948cd756c0355"
+    ],
+    "fields": {
+      "task": [
+        "Add a next-action field and keep the note under 1000 characters; explain what must be rerun after the source changes."
+      ],
+      "title": [
+        "Resume with evidence and a small context"
+      ],
+      "module": [
+        "Terminal Tutor guide"
+      ],
+      "minutes": [
+        45
+      ]
+    }
+  }
+}

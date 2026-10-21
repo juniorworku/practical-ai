@@ -7,7 +7,7 @@ An agent harness owns the action loop. A decision adapter proposes the next acti
 A result is not supported merely because a tool ran. The harness requires the proposed citation to appear in retrieved evidence, then returns the exact policy text. This prevents fabricated citation IDs in this small exercise; it does not establish general semantic correctness of arbitrary model-written prose.
 ## Step 1 — Prepare a separate exercise folder
 
-Download **course & starter** from the Accelerator overview. Extract the ZIP and open `genai-accelerator/starter/advanced` in your terminal. Do not run these commands inside Workshop's application folder. Python 3.12 works on your Intel Mac; there is no GPU or paid API requirement.
+Download the program starter kit from the Accelerator overview. Extract the ZIP and open `workspace/advanced` in your terminal. Do not run these commands inside Workshop's application folder. Python 3.12 works on your Intel Mac; there is no GPU or paid API requirement.
 
 ```bash
 python3.12 -m venv .venv
@@ -43,6 +43,7 @@ Save as `agent.py` (complete file):
 ```python
 """Scripted agent harness; the decision adapter can later be replaced by an LLM."""
 import json
+from copy import deepcopy
 if __package__:
     from .policies import search
 else:
@@ -57,11 +58,11 @@ def scripted_decision(question, observations):
 def run(question, decide=scripted_decision, max_steps=4):
     if not isinstance(question, str) or not 3 <= len(question) <= 200:
         raise ValueError("question must contain 3..200 characters")
-    if not isinstance(max_steps, int) or not 1 <= max_steps <= 20:
+    if type(max_steps) is not int or not 1 <= max_steps <= 20:
         raise ValueError("max_steps must be 1..20")
     observations, trace = [], []
     for step in range(max_steps):
-        proposal = decide(question, tuple(observations))
+        proposal = decide(question, tuple(deepcopy(observations)))
         if not isinstance(proposal, dict):
             return {"status": "invalid_decision", "trace": trace}
         action = proposal.get("action")
@@ -113,3 +114,6 @@ After creating the graph example, run `python -m unittest test_examples -v`. Bef
 ## Acceptance checks
 
 Explain why the decision adapter cannot grant itself a new action, why empty evidence produces abstention, and how a step budget differs from a wall-clock timeout. This loop handles a bounded local tool, not network retries or production cancellation.
+
+
+The harness passes a deep copy of observations to the decision adapter, so a custom adapter cannot mutate the evidence against which the final citation is checked. This isolates local state; it is not a substitute for authenticated scope or bounded tool validation. Boolean values are rejected as step counts.

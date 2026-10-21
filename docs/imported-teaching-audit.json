@@ -1,0 +1,685 @@
+{
+  "student_lessons": 113,
+  "exact_examples_executed": 226,
+  "chapters": 722,
+  "lesson_checks": [
+    {
+      "id": "lesson-01",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-02",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-03",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-04",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-05",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-01",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-06",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-07",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-08",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-09",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-10",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-02",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-11",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-12",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-13",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-14",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-15",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-03",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-16",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-17",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-18",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-19",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-20",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-04",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-21",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-22",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-23",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-24",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-25",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-05",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-26",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-27",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-28",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-29",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-06",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-31",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-32",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-33",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-07",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-34",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-35",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-36",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-37",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-08",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-38",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-39",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-40",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-09",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-41",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-42",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-43",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-44",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-10",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-45",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-46",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-47",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-48",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-11",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-49",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-50",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-12",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-51",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-52",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-53",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-54",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-55",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-56",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-57",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-58",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-59",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-13",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-60",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-14",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-61",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-62",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-63",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-64",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-65",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-66",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-85",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-15",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-67",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-68",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-16",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-69",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-70",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-71",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-72",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-17",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-73",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-74",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-75",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-76",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-77",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-78",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-18",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-79",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-30",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-80",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-81",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-19",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-82",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-83",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lesson-84",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "lab-20",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "terminal-01",
+      "examples_executed": 2,
+      "chapters": 8,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "terminal-02",
+      "examples_executed": 2,
+      "chapters": 7,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "terminal-03",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "terminal-04",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "terminal-05",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "terminal-06",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "terminal-07",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    },
+    {
+      "id": "terminal-08",
+      "examples_executed": 2,
+      "chapters": 6,
+      "quiz_choices_checked": 6
+    }
+  ]
+}

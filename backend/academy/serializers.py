@@ -28,13 +28,23 @@ class LessonSummarySerializer(serializers.ModelSerializer):
         model = Lesson
         fields = ['id', 'title', 'module', 'order', 'minutes', 'learning_summary']
 class ProgramSerializer(serializers.ModelSerializer):
+    progression = serializers.SerializerMethodField()
+    def get_progression(self,instance):
+        lessons=list(instance.lessons.all())
+        if not lessons:return None
+        path=lessons[0].resources.get('learning',{}).get('progression')
+        if not path:return None
+        return {'entry':path['entry'],'independent':True,'checkpoints':[
+            {'title':l.title,'source_id':l.source_id,'requirements':len(l.resources.get('learning',{}).get('progression',{}).get('coverage',[]))}
+            for l in lessons if l.resources.get('learning',{}).get('progression',{}).get('coverage')]}
+
     pedagogy = serializers.SerializerMethodField()
     def get_pedagogy(self,instance):
         return program_contract(instance.slug,[lesson.module for lesson in instance.lessons.all()])
     lessons = LessonSummarySerializer(many=True, read_only=True)
     class Meta:
         model = Program
-        fields = ['id', 'slug', 'title', 'category', 'description', 'audience', 'outcome', 'duration', 'level', 'lessons', 'pedagogy']
+        fields = ['id', 'slug', 'title', 'category', 'description', 'audience', 'outcome', 'duration', 'level', 'lessons', 'pedagogy', 'progression']
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project

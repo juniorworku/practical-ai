@@ -1,0 +1,7 @@
+{
+  "weekly_items": 40,
+  "old_minutes": 8,
+  "new_review_minutes": 5,
+  "weekly_maintenance_minutes": 30,
+  "assumptions": "fictional estimate; review time and volume require client measurement"
+}

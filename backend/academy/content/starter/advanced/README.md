@@ -14,6 +14,6 @@ python mcp_client.py
 
 Read agent-walkthrough.md, graph-walkthrough.md and mcp-walkthrough.md in order. They include complete files, explanations, expected output, failure experiments and limitations. The agent uses a scripted decision adapter; the graph uses real LangGraph and in-memory checkpoints; the MCP test launches a real local SDK subprocess. No model API calls or GPU are needed. No Workshop database access occurs. Top-level SDK versions are pinned; transitive versions used in validation are recorded in tested-environment.txt. No production-readiness claim is implied.
 
-## Real model connection
+## Provider decision boundary
 
-Lesson 85 and `live-provider-walkthrough.md` connect the agent to Workshop’s existing provider settings through the installed `practice_agent` command. Scripted runs remain the default; `--live` enables API requests. No credentials are included in this download. `model_adapter.py` also accepts a fake request for offline tests.
+`model_adapter.py` accepts an injected request function. Accelerator lesson 85 teaches its complete offline interface and validation. This academy has no Workshop provider settings or `practice_agent --live` command. A real model transport must be supplied and tested in your separate learning project; no credential is bundled.

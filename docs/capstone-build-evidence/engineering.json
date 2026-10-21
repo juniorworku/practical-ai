@@ -1,0 +1,159 @@
+{
+  "program": "engineering",
+  "mode": "local_scripted_provider",
+  "document_id": "doc:one:60ae8a28d5c9e653ce1ebcbe39d86703792046a236a502330f765c0a9b736175",
+  "draft_id": "ed4ae1e3-dbe6-4966-b649-00a5cd08a58d",
+  "receipt": "effect:ed4ae1e3-dbe6-4966-b649-00a5cd08a58d",
+  "checks": [
+    {
+      "case": "database_readiness",
+      "passed": true
+    },
+    {
+      "case": "source_ingested",
+      "passed": true
+    },
+    {
+      "case": "same_source_same_identity",
+      "passed": true
+    },
+    {
+      "case": "candidate_path",
+      "passed": true
+    },
+    {
+      "case": "actual_evidence",
+      "passed": true
+    },
+    {
+      "case": "unsupported_abstains",
+      "passed": true
+    },
+    {
+      "case": "write_denied",
+      "passed": true
+    },
+    {
+      "case": "hybrid_routing",
+      "passed": true
+    },
+    {
+      "case": "other_owner_no_evidence",
+      "passed": true
+    },
+    {
+      "case": "unauthorized_identity",
+      "passed": true
+    },
+    {
+      "case": "owner_not_model_controlled",
+      "passed": true
+    },
+    {
+      "case": "bad_input_rejected",
+      "passed": true
+    },
+    {
+      "case": "failed_timeout",
+      "passed": true
+    },
+    {
+      "case": "failure_saved",
+      "passed": true
+    },
+    {
+      "case": "failed_malformed",
+      "passed": true
+    },
+    {
+      "case": "failure_saved",
+      "passed": true
+    },
+    {
+      "case": "stored_readback",
+      "passed": true
+    },
+    {
+      "case": "wrong_owner_denied",
+      "passed": true
+    },
+    {
+      "case": "student_cannot_approve",
+      "passed": true
+    },
+    {
+      "case": "stale_version_denied",
+      "passed": true
+    },
+    {
+      "case": "changed_payload_denied",
+      "passed": true
+    },
+    {
+      "case": "reviewed_local_effect",
+      "passed": true
+    },
+    {
+      "case": "concurrent_replay_same_receipt",
+      "passed": true
+    },
+    {
+      "case": "stored_effect_is_scoped",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    }
+  ],
+  "p50_ms": 36.685314000351354,
+  "p95_ms": 43.82120500667952,
+  "requests": 12,
+  "cost_usd": null,
+  "provider_usage_tokens": null,
+  "cloud_load_test": false
+}

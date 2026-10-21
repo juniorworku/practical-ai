@@ -4,10 +4,10 @@
 
 This exercise launches an actual SDK server subprocess. The client discovers a tool, calls it, reads a resource, rejects invalid input and closes the subprocess. A Python function decorated as a tool is only one part of the server; the client/server transport test below proves the local protocol path works.
 
-The tested examples target MCP Python SDK **2.3.0** (`MCPServer`, `Client` and snake_case result fields). Version 1 examples using `FastMCP`, `ClientSession` or camelCase fields are different APIs. Use the pinned environment here rather than combining snippets from both versions. The server exposes a fixed synthetic collection; no login or multi-tenant authorization is claimed.
+The tested example uses MCP Python SDK **1.30.0**, with FastMCP, ClientSession, explicit initialize and camelCase isError fields. Use the pinned environment rather than mixing incompatible APIs. The server exposes a fixed synthetic collection; no production login or multi-tenant authorization is claimed.
 ## Step 1 — Prepare a separate exercise folder
 
-Download **course & starter** from the Accelerator overview. Extract the ZIP and open `genai-accelerator/starter/advanced` in your terminal. Do not run these commands inside Workshop's application folder. Python 3.12 works on your Intel Mac; there is no GPU or paid API requirement.
+Download the program starter kit from the Accelerator overview. Extract the ZIP and open `workspace/advanced` in your terminal. Do not run these commands inside Workshop's application folder. Python 3.12 works on your Intel Mac; there is no GPU or paid API requirement.
 
 ```bash
 python3.12 -m venv .venv
@@ -43,11 +43,11 @@ Save as `mcp_server.py` (complete file):
 ```python
 """Local stdio MCP server. All protocol stdout is owned by the SDK."""
 import logging
-from mcp.server import MCPServer
-from mcp.server.mcpserver.exceptions import ToolError
+from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp.exceptions import ToolError
 from policies import search, POLICIES
 logging.basicConfig(level=logging.INFO)  # stderr by default
-server = MCPServer("Workshop policy exercise")
+server = FastMCP("Workshop policy exercise")
 
 @server.tool()
 def search_policies(query: str) -> list[dict[str, str]]:
@@ -75,26 +75,29 @@ Save as `mcp_client.py` (complete file):
 import asyncio
 import sys
 from pathlib import Path
-from mcp import Client, StdioServerParameters
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
 
 async def exercise():
     server_path = Path(__file__).with_name("mcp_server.py").resolve()
     params = StdioServerParameters(command=sys.executable, args=[str(server_path)])
-    async with Client(params) as client:
-        tools = await client.list_tools()
-        assert [tool.name for tool in tools.tools] == ["search_policies"]
-        result = await client.call_tool("search_policies", {"query": "refund requests"})
-        assert not result.is_error
-        # Array return is wrapped by the SDK; inspect text without assuming a wrapper name.
-        text = "\n".join(block.text for block in result.content if block.type == "text")
-        assert "policy-1" in text and "30 days" in text
-        resource = await client.read_resource("policy://refund")
-        assert "30 days" in resource.contents[0].text
-        invalid = await client.call_tool("search_policies", {"query": ""})
-        assert invalid.is_error
-        print("Discovered:", tools.tools[0].name)
-        print("Policy call: PASS; resource read: PASS; invalid query: rejected")
-        print("Negotiated protocol:", client.protocol_version)
+    async with stdio_client(params) as (read, write):
+        async with ClientSession(read, write) as client:
+            initialized = await client.initialize()
+            tools = await client.list_tools()
+            assert [tool.name for tool in tools.tools] == ["search_policies"]
+            result = await client.call_tool("search_policies", {"query": "refund requests"})
+            assert not result.isError
+            # Array return is wrapped by the SDK; inspect text without assuming a wrapper name.
+            text = "\n".join(block.text for block in result.content if block.type == "text")
+            assert "policy-1" in text and "30 days" in text
+            resource = await client.read_resource("policy://refund")
+            assert "30 days" in resource.contents[0].text
+            invalid = await client.call_tool("search_policies", {"query": ""})
+            assert invalid.isError
+            print("Discovered:", tools.tools[0].name)
+            print("Policy call: PASS; resource read: PASS; invalid query: rejected")
+            print("Negotiated protocol:", initialized.protocolVersion)
     print("Server subprocess closed.")
 
 if __name__ == "__main__":

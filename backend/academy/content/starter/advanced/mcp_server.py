@@ -1,10 +1,10 @@
 """Local stdio MCP server. All protocol stdout is owned by the SDK."""
 import logging
-from mcp.server import MCPServer
-from mcp.server.mcpserver.exceptions import ToolError
+from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp.exceptions import ToolError
 from policies import search, POLICIES
 logging.basicConfig(level=logging.INFO)  # stderr by default
-server = MCPServer("Workshop policy exercise")
+server = FastMCP("Workshop policy exercise")
 
 @server.tool()
 def search_policies(query: str) -> list[dict[str, str]]:

@@ -16,6 +16,14 @@ class Examples(unittest.TestCase):
         def lie(q, obs):
             return {"action": "finish", "source_id": "invented"} if obs else {"action": "search", "query": q}
         self.assertEqual(run("refund requests", lie)["status"], "unsupported_citation")
+    def test_decision_adapter_cannot_mutate_harness_evidence(self):
+        def tamper(q, observations):
+            if not observations: return {"action":"search","query":q}
+            observations[-1].append({"id":"invented","text":"fake policy"})
+            return {"action":"finish","source_id":"invented"}
+        self.assertEqual(run("refund requests",tamper)["status"],"unsupported_citation")
+        with self.assertRaises(ValueError):run("refund requests",max_steps=True)
+
     def test_graph_repair(self):
         graph = build(); config = {"configurable": {"thread_id": "repair"}, "recursion_limit": 12}
         result = graph.invoke(initial(bad=True), config)

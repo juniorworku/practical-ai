@@ -1,0 +1,47 @@
+[
+  {
+    "program": "ai-agent-bootcamp",
+    "container_replacement_readback": true,
+    "database_outage_503": true,
+    "recovery_same_id": true,
+    "actual_pg_dump_restore_equal": true,
+    "shared_quota_429": true,
+    "quota_recovery": true,
+    "acceptance_checks": 32,
+    "latency_report": {
+      "p50_ms": 36.1591455002781,
+      "p95_ms": 44.43972099397797,
+      "requests": 12
+    }
+  },
+  {
+    "program": "ai-workshops",
+    "container_replacement_readback": true,
+    "database_outage_503": true,
+    "recovery_same_id": true,
+    "actual_pg_dump_restore_equal": true,
+    "shared_quota_429": true,
+    "quota_recovery": true,
+    "acceptance_checks": 32,
+    "latency_report": {
+      "p50_ms": 34.134518005885184,
+      "p95_ms": 38.918828999157995,
+      "requests": 12
+    }
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "container_replacement_readback": true,
+    "database_outage_503": true,
+    "recovery_same_id": true,
+    "actual_pg_dump_restore_equal": true,
+    "shared_quota_429": true,
+    "quota_recovery": true,
+    "acceptance_checks": 36,
+    "latency_report": {
+      "p50_ms": 36.685314000351354,
+      "p95_ms": 43.82120500667952,
+      "requests": 12
+    }
+  }
+]

@@ -1,0 +1,731 @@
+[
+  {
+    "program": "ai-agent-bootcamp",
+    "sessions": 24,
+    "checkpoints": [
+      {
+        "source_id": "academy-v2:ai-agent-bootcamp:22",
+        "title": "Capstone build: support-agent vertical slice",
+        "coverage": [
+          {
+            "requirement": "scope and labeled cases",
+            "sources": [
+              "academy-v2:ai-agent-bootcamp:01",
+              "academy-v2:ai-agent-bootcamp:03"
+            ]
+          },
+          {
+            "requirement": "contract, timeout and bounded evidence",
+            "sources": [
+              "academy-v2:ai-agent-bootcamp:04",
+              "academy-v2:ai-agent-bootcamp:05",
+              "academy-v2:ai-agent-bootcamp:06"
+            ]
+          },
+          {
+            "requirement": "authorized retrieval and grounded abstention",
+            "sources": [
+              "academy-v2:ai-agent-bootcamp:07",
+              "academy-v2:ai-agent-bootcamp:08",
+              "academy-v2:ai-agent-bootcamp:09"
+            ]
+          },
+          {
+            "requirement": "allowlisted loop, approval and replay protection",
+            "sources": [
+              "academy-v2:ai-agent-bootcamp:10",
+              "academy-v2:ai-agent-bootcamp:11",
+              "academy-v2:ai-agent-bootcamp:12"
+            ]
+          },
+          {
+            "requirement": "HTTP and persistent ownership boundary",
+            "sources": [
+              "academy-v2:ai-agent-bootcamp:13",
+              "academy-v2:ai-agent-bootcamp:14"
+            ]
+          },
+          {
+            "requirement": "regression, injection and measured trace",
+            "sources": [
+              "academy-v2:ai-agent-bootcamp:16",
+              "academy-v2:ai-agent-bootcamp:17",
+              "academy-v2:ai-agent-bootcamp:18"
+            ]
+          },
+          {
+            "requirement": "container and recovery evidence",
+            "sources": [
+              "academy-v2:ai-agent-bootcamp:19",
+              "academy-v2:ai-agent-bootcamp:20"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "academy-v2:ai-agent-bootcamp:24",
+        "title": "Package, hand over, and plan the next release",
+        "coverage": [
+          {
+            "requirement": "vertical slice and findings",
+            "sources": [
+              "academy-v2:ai-agent-bootcamp:22",
+              "academy-v2:ai-agent-bootcamp:23"
+            ]
+          },
+          {
+            "requirement": "packaging and recovery",
+            "sources": [
+              "academy-v2:ai-agent-bootcamp:19",
+              "academy-v2:ai-agent-bootcamp:20"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "program": "ai-workshops",
+    "sessions": 18,
+    "checkpoints": [
+      {
+        "source_id": "academy-v2:ai-workshops:16",
+        "title": "Scope a useful end-to-end application",
+        "coverage": [
+          {
+            "requirement": "extraction with review",
+            "sources": [
+              "academy-v2:ai-workshops:01",
+              "academy-v2:ai-workshops:02",
+              "academy-v2:ai-workshops:03"
+            ]
+          },
+          {
+            "requirement": "meeting action confirmation",
+            "sources": [
+              "academy-v2:ai-workshops:04",
+              "academy-v2:ai-workshops:05",
+              "academy-v2:ai-workshops:06"
+            ]
+          },
+          {
+            "requirement": "grounded research and benchmark",
+            "sources": [
+              "academy-v2:ai-workshops:07",
+              "academy-v2:ai-workshops:08",
+              "academy-v2:ai-workshops:09"
+            ]
+          },
+          {
+            "requirement": "triage routing and review",
+            "sources": [
+              "academy-v2:ai-workshops:10",
+              "academy-v2:ai-workshops:11",
+              "academy-v2:ai-workshops:12"
+            ]
+          },
+          {
+            "requirement": "content approval and revision",
+            "sources": [
+              "academy-v2:ai-workshops:13",
+              "academy-v2:ai-workshops:14",
+              "academy-v2:ai-workshops:15"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "academy-v2:ai-workshops:18",
+        "title": "Deliver a portfolio of practical workflows",
+        "coverage": [
+          {
+            "requirement": "selected studio specification",
+            "sources": [
+              "academy-v2:ai-workshops:16"
+            ]
+          },
+          {
+            "requirement": "integration, persistence and tests",
+            "sources": [
+              "academy-v2:ai-workshops:17"
+            ]
+          },
+          {
+            "requirement": "review and evaluation patterns",
+            "sources": [
+              "academy-v2:ai-workshops:03",
+              "academy-v2:ai-workshops:06",
+              "academy-v2:ai-workshops:09",
+              "academy-v2:ai-workshops:12",
+              "academy-v2:ai-workshops:15"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "program": "freelancing-masterclass",
+    "sessions": 18,
+    "checkpoints": [
+      {
+        "source_id": "academy-v2:freelancing-masterclass:18",
+        "title": "Complete the simulated client engagement",
+        "coverage": [
+          {
+            "requirement": "buyer, discovery and baseline",
+            "sources": [
+              "academy-v2:freelancing-masterclass:01",
+              "academy-v2:freelancing-masterclass:02",
+              "academy-v2:freelancing-masterclass:03"
+            ]
+          },
+          {
+            "requirement": "bounded offer, acceptance and estimate",
+            "sources": [
+              "academy-v2:freelancing-masterclass:04",
+              "academy-v2:freelancing-masterclass:05",
+              "academy-v2:freelancing-masterclass:06"
+            ]
+          },
+          {
+            "requirement": "data, pilot and feedback",
+            "sources": [
+              "academy-v2:freelancing-masterclass:07",
+              "academy-v2:freelancing-masterclass:08",
+              "academy-v2:freelancing-masterclass:09"
+            ]
+          },
+          {
+            "requirement": "evaluation, risk and change control",
+            "sources": [
+              "academy-v2:freelancing-masterclass:10",
+              "academy-v2:freelancing-masterclass:11",
+              "academy-v2:freelancing-masterclass:12"
+            ]
+          },
+          {
+            "requirement": "recovery, acceptance and support",
+            "sources": [
+              "academy-v2:freelancing-masterclass:13",
+              "academy-v2:freelancing-masterclass:14",
+              "academy-v2:freelancing-masterclass:15"
+            ]
+          },
+          {
+            "requirement": "evidence claims and outreach boundaries",
+            "sources": [
+              "academy-v2:freelancing-masterclass:16",
+              "academy-v2:freelancing-masterclass:17"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "sessions": 36,
+    "checkpoints": [
+      {
+        "source_id": "academy-v2:ai-engineering-12-week:06",
+        "title": "Voice assistant capstone and latency acceptance",
+        "coverage": [
+          {
+            "requirement": "adapter and session/token state",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:01",
+              "academy-v2:ai-engineering-12-week:02"
+            ]
+          },
+          {
+            "requirement": "concurrency and cancellation",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:03"
+            ]
+          },
+          {
+            "requirement": "backpressure and interruption",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:04",
+              "academy-v2:ai-engineering-12-week:05"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "academy-v2:ai-engineering-12-week:15",
+        "title": "Mixed-media knowledge base capstone",
+        "coverage": [
+          {
+            "requirement": "provenance and chunking",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:07",
+              "academy-v2:ai-engineering-12-week:08"
+            ]
+          },
+          {
+            "requirement": "versioned index, filtering and retrieval",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:09",
+              "academy-v2:ai-engineering-12-week:10",
+              "academy-v2:ai-engineering-12-week:11"
+            ]
+          },
+          {
+            "requirement": "rerank budget, citations and stream failure",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:12",
+              "academy-v2:ai-engineering-12-week:13",
+              "academy-v2:ai-engineering-12-week:14"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "academy-v2:ai-engineering-12-week:24",
+        "title": "Workspace agent capstone",
+        "coverage": [
+          {
+            "requirement": "permissioned tools and state",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:16",
+              "academy-v2:ai-engineering-12-week:17"
+            ]
+          },
+          {
+            "requirement": "approval binding and scoped memory",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:18",
+              "academy-v2:ai-engineering-12-week:19"
+            ]
+          },
+          {
+            "requirement": "orchestration and MCP boundaries",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:20",
+              "academy-v2:ai-engineering-12-week:21"
+            ]
+          },
+          {
+            "requirement": "replay/reconciliation and event intake",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:22",
+              "academy-v2:ai-engineering-12-week:23"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "academy-v2:ai-engineering-12-week:30",
+        "title": "LLMOps stress-test capstone",
+        "coverage": [
+          {
+            "requirement": "rubrics and labeled case harness",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:25",
+              "academy-v2:ai-engineering-12-week:26"
+            ]
+          },
+          {
+            "requirement": "CI release gate and redacted traces",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:27",
+              "academy-v2:ai-engineering-12-week:28"
+            ]
+          },
+          {
+            "requirement": "useful-output economics",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:29"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "academy-v2:ai-engineering-12-week:36",
+        "title": "Graduation release review and fresh-operator handover",
+        "coverage": [
+          {
+            "requirement": "prior integrated agent and release evidence",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:24",
+              "academy-v2:ai-engineering-12-week:30"
+            ]
+          },
+          {
+            "requirement": "containers and concurrency",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:31",
+              "academy-v2:ai-engineering-12-week:32"
+            ]
+          },
+          {
+            "requirement": "local-model capacity and distributed budgets",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:33",
+              "academy-v2:ai-engineering-12-week:34"
+            ]
+          },
+          {
+            "requirement": "hybrid routing and load experiment",
+            "sources": [
+              "academy-v2:ai-engineering-12-week:35"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "program": "genai-accelerator",
+    "sessions": 105,
+    "checkpoints": [
+      {
+        "source_id": "lab-01",
+        "title": "Frame the problem and establish a baseline",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-01",
+              "lesson-02",
+              "lesson-05"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-02",
+        "title": "Implement a reliable LLM boundary",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-06",
+              "lesson-09",
+              "lesson-10"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-03",
+        "title": "Build typed services and state transitions",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-11",
+              "lesson-12",
+              "lesson-13",
+              "lesson-14",
+              "lesson-15"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-04",
+        "title": "Protect scope and engineer context",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-16",
+              "lesson-17",
+              "lesson-18",
+              "lesson-19",
+              "lesson-20"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-05",
+        "title": "Persist documents behind the API",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-21",
+              "lesson-22",
+              "lesson-23",
+              "lesson-24",
+              "lesson-25"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-06",
+        "title": "Run ingestion in a containerized worker",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-25",
+              "lesson-26",
+              "lesson-27",
+              "lesson-28",
+              "lesson-29"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-07",
+        "title": "Turn documents into attributable chunks",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-31",
+              "lesson-32",
+              "lesson-33"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-08",
+        "title": "Add semantic retrieval and evaluate recall",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-34",
+              "lesson-35",
+              "lesson-36",
+              "lesson-37"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-09",
+        "title": "Improve retrieval without hiding regressions",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-38",
+              "lesson-39",
+              "lesson-40"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-10",
+        "title": "Build grounding and security evaluation cases",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-41",
+              "lesson-42",
+              "lesson-43",
+              "lesson-44"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-11",
+        "title": "Observe and compare the complete workflow",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-45",
+              "lesson-46",
+              "lesson-47",
+              "lesson-48"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-12",
+        "title": "Create a release gate and rehearse failures",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-49",
+              "lesson-50"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-13",
+        "title": "Prepare and verify a deployment",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-51",
+              "lesson-52",
+              "lesson-53",
+              "lesson-54",
+              "lesson-55",
+              "lesson-56",
+              "lesson-57",
+              "lesson-58",
+              "lesson-59"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-14",
+        "title": "Demonstrate and assess the finished system",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-49",
+              "lesson-50",
+              "lesson-55",
+              "lesson-57",
+              "lesson-58",
+              "lesson-59",
+              "lesson-60"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-15",
+        "title": "Implement a safe agent loop",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-61",
+              "lesson-62",
+              "lesson-63",
+              "lesson-64",
+              "lesson-65",
+              "lesson-66",
+              "lesson-85"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-16",
+        "title": "Compose and route an evidence workflow",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-67",
+              "lesson-68"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-17",
+        "title": "Resume, approve and evaluate graph execution",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-69",
+              "lesson-70",
+              "lesson-71",
+              "lesson-72"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-18",
+        "title": "Build a supervised worker team",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-73",
+              "lesson-74",
+              "lesson-75",
+              "lesson-76",
+              "lesson-77",
+              "lesson-78"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-19",
+        "title": "Add MCP discovery and a read-only server",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-79",
+              "lesson-30",
+              "lesson-80",
+              "lesson-81"
+            ]
+          }
+        ]
+      },
+      {
+        "source_id": "lab-20",
+        "title": "Test the MCP client and adversarial boundaries",
+        "coverage": [
+          {
+            "requirement": "Integrate the mechanisms and preserve their negative checks",
+            "sources": [
+              "lesson-79",
+              "lesson-80",
+              "lesson-81",
+              "lesson-82",
+              "lesson-83",
+              "lesson-84"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "program": "terminal-tutor",
+    "sessions": 8,
+    "checkpoints": [
+      {
+        "source_id": "terminal-08",
+        "title": "Resume with evidence and a small context",
+        "coverage": [
+          {
+            "requirement": "workspace and exit evidence",
+            "sources": [
+              "terminal-01",
+              "terminal-02"
+            ]
+          },
+          {
+            "requirement": "prediction, execution and counterexamples",
+            "sources": [
+              "terminal-03",
+              "terminal-04",
+              "terminal-05"
+            ]
+          },
+          {
+            "requirement": "tool permission and instruction inspection",
+            "sources": [
+              "terminal-06",
+              "terminal-07"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

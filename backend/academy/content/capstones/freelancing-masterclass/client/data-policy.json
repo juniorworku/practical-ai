@@ -1,0 +1,12 @@
+{
+  "approved_fields": [
+    "id",
+    "source",
+    "text"
+  ],
+  "retention_days": 7,
+  "owner": "Fictional Training Studio",
+  "permission": "synthetic training only",
+  "deletion_owner": "client operator",
+  "cache": "no cross-client shared cache"
+}

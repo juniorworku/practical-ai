@@ -1,0 +1,23 @@
+{
+  "full_student_review": {
+    "sessions": 113,
+    "chapters": 608,
+    "complete_references": 113,
+    "staged_hints": 339,
+    "answer_choice_feedback": 678,
+    "remediation_retry_reflection_and_mobile": true
+  },
+  "final_corrections_review": {
+    "sessions": 5,
+    "chapters": 29,
+    "complete_references": 5,
+    "answer_choice_feedback": 30
+  },
+  "final_published_content": {
+    "served_lessons_match_authored": 113,
+    "authored_application_questions": 113,
+    "selected_choice_explanations_checked": 678,
+    "answer_keys_protected": true
+  },
+  "javascript_errors": []
+}

@@ -1,0 +1,910 @@
+{
+  "lessons": 113,
+  "chapters": 726,
+  "specimens": [
+    {
+      "id": "lesson-01",
+      "title": "Define the product before choosing the model",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "supported policy preserved; unsupported action abstained\nExercise variation: PASS",
+      "revision": "2637a140c6d6a2237b498f1def65f049de08110f15e29f483698f2e4f7a4bc37"
+    },
+    {
+      "id": "lesson-02",
+      "title": "Create a reproducible Python project with uv",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "declared project parsed; no install performed\nExercise variation: PASS",
+      "revision": "3392e84e39abcf6c261f56508940f2a093963f9193b4c3777648a0bc7443f5ff"
+    },
+    {
+      "id": "lesson-03",
+      "title": "Use configuration without leaking secrets",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "fake explicit; missing real key rejected\nExercise variation: PASS",
+      "revision": "6a9f048cc53ad30357f7a1643e3892a6e58dfc3d48074b442b6608083f7ebb6e"
+    },
+    {
+      "id": "lesson-04",
+      "title": "Separate asynchronous I/O from CPU work",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "peak=2; partial failure retained; permits released\nExercise variation: PASS",
+      "revision": "f70531cd2acdfbe122b6fc66a7547bdb625dfa3cfa8c4d13b1f4476c9a86a0a8"
+    },
+    {
+      "id": "lesson-05",
+      "title": "Establish a baseline with deterministic tests",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "retrieval-sensitive positive and missing-evidence checks passed\nExercise variation: PASS",
+      "revision": "9bcff371c4be5ddffebb41c6a02da71225c9cc7217dcaeb195fc1bcae7469423"
+    },
+    {
+      "id": "lesson-06",
+      "title": "Understand tokens, context, and generation limits",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "40 units for evidence; overflow rejected\nExercise variation: PASS",
+      "revision": "fd6666d1ac18301656c8ba810099ccf42c141d99c9d48cf0321766330204c94b"
+    },
+    {
+      "id": "lesson-07",
+      "title": "Create prompts as versioned interfaces",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "prompt version and untrusted-data boundary recorded\nExercise variation: PASS",
+      "revision": "8ba2deb7ecacf61f2d7c7d797c4aa615bd79ded77e7f372cb64da1ac09eea00d"
+    },
+    {
+      "id": "lesson-08",
+      "title": "Use examples to teach output behavior",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "current evidence selected; demonstration not treated as policy\nExercise variation: PASS",
+      "revision": "ab4cc3ea735d8137d77d1d9852023abeda01ceda0b13e280e803f3d4055ae163"
+    },
+    {
+      "id": "lesson-09",
+      "title": "Wrap the provider behind a narrow interface",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "provider contract kept; outage propagated\nExercise variation: PASS",
+      "revision": "dc0918b00b5c2e584e3e7f283a0871d99955e627920937d284181d13f8071e34"
+    },
+    {
+      "id": "lesson-10",
+      "title": "Design timeouts, retries, and graceful failure",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "two transient attempts fit; authentication is not retried\nExercise variation: PASS",
+      "revision": "b8fa310078cf16863b5cc011f8fff0996abc70ac8b4fb6b32205088ebf7f1dc3"
+    },
+    {
+      "id": "lesson-11",
+      "title": "Map the request lifecycle",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "accepted and failed are not searchable; ready is searchable\nExercise variation: PASS",
+      "revision": "464a209d5aa2e347ca0378b8f5d131f60707ce94f0a6877bae7081cc5fab312b"
+    },
+    {
+      "id": "lesson-12",
+      "title": "Define Pydantic request contracts",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "valid question accepted; extra fields rejected\nExercise variation: PASS",
+      "revision": "eed14fe7c949b287dc73cf38e33d761536ea3c9cac24bdf56323b0bfce00b766"
+    },
+    {
+      "id": "lesson-13",
+      "title": "Validate structured model output",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "shape and citation membership checked; factual support unjudged\nExercise variation: PASS",
+      "revision": "8d1e472ea34e98fcd411eabc9480bf8529f2d12128994f66de3ac9b7bdf7dc4d"
+    },
+    {
+      "id": "lesson-14",
+      "title": "Use dependency boundaries for testability",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "empty retrieval skips generation; evidence reaches injected dependency\nExercise variation: PASS",
+      "revision": "26ea2bac7fba660e027b146ec4f0adda465f71001ef2d9bd8251ef64b29cb948"
+    },
+    {
+      "id": "lesson-15",
+      "title": "Represent ingestion as a state machine",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "legal edge accepted; skipped work rejected\nExercise variation: PASS",
+      "revision": "5bb00af9bfb3cdedba63a8896b34953ae55977740b2635cdb8aadc2a99651eae"
+    },
+    {
+      "id": "lesson-16",
+      "title": "Engineer context as a bounded resource",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "whole passage a retained once; evidence budget respected\nExercise variation: PASS",
+      "revision": "80dcdc3853669888f162c8f2989a3cef9a87fd0711331619b9ce18c772963a20"
+    },
+    {
+      "id": "lesson-17",
+      "title": "Design document and chunk identities",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "stable identity; tenant and content revisions distinct\nExercise variation: PASS",
+      "revision": "e6f66bac8fc3c0f86a73d93b72087352b0b5fcf02473be5d588f4907aad1c926"
+    },
+    {
+      "id": "lesson-18",
+      "title": "Enforce authorization before retrieval",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "tenant scope applied before search\nExercise variation: PASS",
+      "revision": "02e33a71f3dbadab37e1e28f1a9c8fc8a260b589f28e6ba30de2bee2f781c739"
+    },
+    {
+      "id": "lesson-19",
+      "title": "Set latency and cost budgets",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "sequential budget=5500 ms; fixture cost=0.002\nExercise variation: PASS",
+      "revision": "3ad3e7317fec5e5255777c3d496bac94c8284b58214df81bad255f0ef005e7c4"
+    },
+    {
+      "id": "lesson-20",
+      "title": "Record architecture decisions and trade-offs",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "decision tied to a concrete change in requirements\nExercise variation: PASS",
+      "revision": "32936ad4fc784f84880e1ea8e2da021326e5b37a32116140971ae87ee175fa35"
+    },
+    {
+      "id": "lesson-21",
+      "title": "Build a small FastAPI service",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "real loopback health=200; unknown path=404\nExercise variation: PASS",
+      "revision": "8b3f2b06537d128d560187bdfd9c8fcde10cb838474b40e4327a45a5bba0b2f8"
+    },
+    {
+      "id": "lesson-22",
+      "title": "Inject services and classify API errors",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "abstention=200; upstream timeout=503; private detail omitted\nExercise variation: PASS",
+      "revision": "248f3542cfb3095f980453f4070887bb7384bb2df0a6e31e4722d8aacbbd79e3"
+    },
+    {
+      "id": "lesson-23",
+      "title": "Model documents and chunks in PostgreSQL",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "database uniqueness enforced; same content in separate tenants allowed\nExercise variation: PASS",
+      "revision": "b18520dee34db4a62e0e92391011f6e12ed8269f0db670f0986b7609b485367b"
+    },
+    {
+      "id": "lesson-24",
+      "title": "Apply schema changes with Alembic",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "old row preserved; additive schema version=1\nExercise variation: PASS",
+      "revision": "974409d835fe5ebbb8dc618e189fc364273b5120f6c54691de96807cbe5d1de5"
+    },
+    {
+      "id": "lesson-25",
+      "title": "Use transactions and idempotent ingestion",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "retry did not duplicate; partial ingestion rolled back\nExercise variation: PASS",
+      "revision": "f3b48e51288949a923c3c9564f0b2ed38b38c196138411e883085505f25c7afb"
+    },
+    {
+      "id": "lesson-26",
+      "title": "Move ingestion to Celery and Redis",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "worker performed ingestion; duplicate delivery did not duplicate chunks\nExercise variation: PASS",
+      "revision": "69afd8e420f14a27163f6378fc12328ec76bd9b2f735e098076d55a486e16822"
+    },
+    {
+      "id": "lesson-27",
+      "title": "Control task retries and queue pressure",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "transient retry bounded by attempts and queue pressure\nExercise variation: PASS",
+      "revision": "750d606904e4185f39e4b8431e2c2d4c401140f82ad4d08746c811f33958cd04"
+    },
+    {
+      "id": "lesson-28",
+      "title": "Containerize without coupling to the host",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "complete HTTP image recipe inspected; build not implied\nExercise variation: PASS",
+      "revision": "e81c3fdfb2440112d6df896e474fb744e4fc99bd0e00fa96bea5972d187649b3"
+    },
+    {
+      "id": "lesson-29",
+      "title": "Compose services and test readiness",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "dependency failure blocks readiness, not process liveness\nExercise variation: PASS",
+      "revision": "63245c4eb3ceed69827e969f44a5244b1b15a09bb3d5afb3820620b767ab1ab2"
+    },
+    {
+      "id": "lesson-30",
+      "title": "Expose a narrow read-only MCP tool",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "bounded read-only arguments accepted; extra authority rejected\nExercise variation: PASS",
+      "revision": "5fe50a1d89e98b4c6f034f5d7eec12b1b916b6b59e99d60c7b51a9f63d1b6d5d"
+    },
+    {
+      "id": "lesson-31",
+      "title": "Parse documents while preserving provenance",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "text extracted with provenance; blank extraction rejected\nExercise variation: PASS",
+      "revision": "43d4f539e78f67fe1c654313376230455dd5a0d9839fb87e5ccfe66e5c434107"
+    },
+    {
+      "id": "lesson-32",
+      "title": "Compare chunk size and overlap",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "stride=3; final short window retained; zero stride rejected\nExercise variation: PASS",
+      "revision": "04a72311f028e475b8bcb5358642dd9feea676f2526f381ddce54ad202519661"
+    },
+    {
+      "id": "lesson-33",
+      "title": "Create metadata-rich chunks",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "chunk position, tenant and immutable revision preserved\nExercise variation: PASS",
+      "revision": "6c76404c40e75bf515e1e6e2f78d9b20c69d1a1eba52b5c357e305a042cb79d6"
+    },
+    {
+      "id": "lesson-34",
+      "title": "Build a lexical retrieval baseline",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "normalized lexical match; zero-score rows excluded\nExercise variation: PASS",
+      "revision": "86ee65bf5f0e5a5fe7763e0c5529a03b3d167b238fdd9a08d9c62f4a06b59a90"
+    },
+    {
+      "id": "lesson-35",
+      "title": "Generate embeddings with a versioned model",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "vector normalized; zero vector rejected; dimension recorded\nExercise variation: PASS",
+      "revision": "2b3e57cdfeacfaca66866742254ec2ac488ae537ff5f53fbc3c4f7ca61143d78"
+    },
+    {
+      "id": "lesson-36",
+      "title": "Persist vectors with pgvector",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "tenant filter precedes distance ranking\nExercise variation: PASS",
+      "revision": "a4d5281b6d95861f09d87aecb9077a1a2184505a9e81897c7b28f40df9faafd8"
+    },
+    {
+      "id": "lesson-37",
+      "title": "Measure top-k retrieval and thresholds",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "recall=0.5; duplicates cannot inflate; no-relevance case undefined\nExercise variation: PASS",
+      "revision": "484ef2101f9628b2625f2d1ee65007ccfab7fd0b3f1a172c5e24a07424ee8ee5"
+    },
+    {
+      "id": "lesson-38",
+      "title": "Combine lexical and semantic search",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "ranks fused with stable ties and no duplicate votes\nExercise variation: PASS",
+      "revision": "1e23ae438e1e6028d5b900cefe5edfc17e8692a58ea4a0f7746ddca0ab1b31c3"
+    },
+    {
+      "id": "lesson-39",
+      "title": "Rerank candidates within a latency budget",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "two scorer calls; included relevant candidate promoted\nExercise variation: PASS",
+      "revision": "ec7b77647b7922ae7c5acbe9fe0995c1f7e4550ee90da8703234dfc409c8ed9e"
+    },
+    {
+      "id": "lesson-40",
+      "title": "Assemble a grounded answer pipeline",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "evidence traverses pipeline; unknown question bypasses generation\nExercise variation: PASS",
+      "revision": "4309b0b36250293320d518b544e35220f8a67d1602b508da222901d070e302ea"
+    },
+    {
+      "id": "lesson-41",
+      "title": "Handle missing and conflicting evidence",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "unrelated versions allowed; conflicting revisions of one policy flagged\nExercise variation: PASS",
+      "revision": "e4f39ad23db55d389bf2fcee455e3042da7235bf363891d6f05e367a03e1fb24"
+    },
+    {
+      "id": "lesson-42",
+      "title": "Test prompt-injection boundaries",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "read-only allowlist enforced independently of passage instructions\nExercise variation: PASS",
+      "revision": "b6f2ed805a532690fa2c80206daaaa81a26e8be0d4a8346828a2720e04b4bcdc"
+    },
+    {
+      "id": "lesson-43",
+      "title": "Construct an answer-evaluation dataset",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "positive and abstention fixtures labeled; inconsistent label rejected\nExercise variation: PASS",
+      "revision": "eca8b7fdf513640d5142dfb0c02e9d7eb59152686e7257966bb399f6540222a3"
+    },
+    {
+      "id": "lesson-44",
+      "title": "Separate deterministic checks from factual judgments",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "wrong fact passes structure; separate semantic review rejects it\nExercise variation: PASS",
+      "revision": "4732926b0400fa2c383dccce26a6c137bae4dcf91a1d88c97d9afa17c6a50c39"
+    },
+    {
+      "id": "lesson-45",
+      "title": "Trace retrieval and generation with Langfuse",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "two correlated stages; raw text excluded from trace\nExercise variation: PASS",
+      "revision": "a3c97f9de79f814b9f936f10bd0a83ae1e8aa86757ecc2f8a60b07e5204495b9"
+    },
+    {
+      "id": "lesson-46",
+      "title": "Measure latency and token usage accurately",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "elapsed=250 ms fixture; missing usage remains unknown\nExercise variation: PASS",
+      "revision": "5ba44f64c42ed9fcbd13f248fde3eb28449392cac61f35f5539a23aa478efa73"
+    },
+    {
+      "id": "lesson-47",
+      "title": "Calibrate an LLM judge against human review",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "agreement=2/3; false accepts=1; disagreement needs review\nExercise variation: PASS",
+      "revision": "18e764c5850a50a32d6d65478f8f31179fffe6002b585390bd566797e20e3b02"
+    },
+    {
+      "id": "lesson-48",
+      "title": "Run experiments with versioned inputs",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "one variable changed; stable configuration identities differ\nExercise variation: PASS",
+      "revision": "66a14306d039c599639deafca7660f51dc3e3fd1d3ba361c0e570dfce1823de6"
+    },
+    {
+      "id": "lesson-49",
+      "title": "Make evaluation a release gate",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "missing and non-boolean evidence block release\nExercise variation: PASS",
+      "revision": "68688622ba47f4a9b36c436a339bcd5d3bbc08af9cc1e0a600395dde1a3ef712"
+    },
+    {
+      "id": "lesson-50",
+      "title": "Build a regression and failure-injection suite",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "timeout exercised through service; recovery verified\nExercise variation: PASS",
+      "revision": "bd7c76632a6c54f01bd3679ce87e89143d9bdf91fd30a1d7f37ebf5490ba6b39"
+    },
+    {
+      "id": "lesson-51",
+      "title": "Choose a deployment target deliberately",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "deployment target checked against actual runtime requirements\nExercise variation: PASS",
+      "revision": "c932ac37eead738ff8b994eba226fd1c031cbf2ac3db5c749eacd1a3e6f60bf1"
+    },
+    {
+      "id": "lesson-52",
+      "title": "Prepare a production-style image and configuration",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "staging configuration validated without exposing values\nExercise variation: PASS",
+      "revision": "07955807b33225f1832001576397f83cc9b9f8793c481fc1c1a3ab54f401602a"
+    },
+    {
+      "id": "lesson-53",
+      "title": "Put HTTPS and reverse proxying in front of the API",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "forged forwarded header ignored; trusted proxy honored\nExercise variation: PASS",
+      "revision": "1fd0b8dc14d9d941b2c0618df2f98da2b205162f9124e2a287b0d730504747d9"
+    },
+    {
+      "id": "lesson-54",
+      "title": "Automate tests and builds in CI",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "evaluation failure propagated; build did not execute\nExercise variation: PASS",
+      "revision": "95a9a68c5b3fa871ef9b22dc892dac47b56c775a463fa076fd48a635a4a36e07"
+    },
+    {
+      "id": "lesson-55",
+      "title": "Deploy with a recovery path",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "unhealthy candidate rolls back only under compatible schema\nExercise variation: PASS",
+      "revision": "40aae1e0add434cad212bfeaa2b67be66ff4c1679b7d7329266304b52118dd97"
+    },
+    {
+      "id": "lesson-56",
+      "title": "Add application error tracking with Sentry",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "allowlisted diagnostic fields retained; sensitive payload omitted\nExercise variation: PASS",
+      "revision": "8dc8e8035a05b24cd93e0fbda93d4398b8cb0022c2eca724a58ef1c7a9a81fcb"
+    },
+    {
+      "id": "lesson-57",
+      "title": "Rehearse backup and restoration",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "fresh database restored and queried; source edits do not mutate backup\nExercise variation: PASS",
+      "revision": "f691287455edcfd658b32d4a099582b11ca53404711713095c49998d77e77edd"
+    },
+    {
+      "id": "lesson-58",
+      "title": "Apply retention, deletion, and access policies",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "document, chunks and cached answers deleted; unrelated data retained\nExercise variation: PASS",
+      "revision": "40953c3b30be204e5c3141668efcc34f9bfc757a2182ef69460a2ed9cb63d11c"
+    },
+    {
+      "id": "lesson-59",
+      "title": "Load-test realistic AI requests",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "nearest-rank p95=100 ms fixture; error rate=10%\nExercise variation: PASS",
+      "revision": "d57f326f9823a9c8b8e652c55b5512e579d54730f531729ba88dc7e8a74c529d"
+    },
+    {
+      "id": "lesson-60",
+      "title": "Perform an evidence-based release assessment",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "unknown recovery blocks release; complete fixture evidence permits pilot only\nExercise variation: PASS",
+      "revision": "727b5e4e26c2e21d1b928ebae7e38a3bd58a0bf50549cd12d1168d13e61b30ec"
+    },
+    {
+      "id": "lesson-61",
+      "title": "Build a bounded observe\u2013act loop",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "search precedes finish; step exhaustion is explicit\nExercise variation: PASS",
+      "revision": "a3d352b4f73ec0a97c15204db55da2027b38d4e5df9173faf3a70c6a88eced12"
+    },
+    {
+      "id": "lesson-62",
+      "title": "Validate tool calls before execution",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "validated search executed; denied action produced no call\nExercise variation: PASS",
+      "revision": "47af89e165348bdeb01a679c646e9c17463fa87dc5d70e5a83d72df0c17daaf9"
+    },
+    {
+      "id": "lesson-63",
+      "title": "Separate planning from execution",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "complete plan validated before any execution\nExercise variation: PASS",
+      "revision": "1b780ccbce8383600bde47f126f678507d0728ebede19b3cfb64458a36ccb532"
+    },
+    {
+      "id": "lesson-64",
+      "title": "Manage working memory and context budgets",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "bounded observations retain IDs; scoped revision-aware cache keys differ\nExercise variation: PASS",
+      "revision": "bb9942b8220f56c62ebcfd26836fff203f7cdc0f755f4e7167fee24b8b9e428b"
+    },
+    {
+      "id": "lesson-65",
+      "title": "Build a bounded critique-and-repair loop",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "repair succeeds within two attempts; uncorrected draft remains rejected\nExercise variation: PASS",
+      "revision": "0c19f00958756162c6983daec8241c91ec5829d9868c570b0b1bd546aa2c09d4"
+    },
+    {
+      "id": "lesson-66",
+      "title": "Diagnose agent failure from traces",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "finish proposal is not success; unsupported citation directs source inspection\nExercise variation: PASS",
+      "revision": "40a41c20b7436d50f4ebcb49672ef13d4b14462cd177028604837b2185a4d3f6"
+    },
+    {
+      "id": "lesson-67",
+      "title": "Choose a workflow before adding autonomy",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "known execution order encoded; missing evidence stops early\nExercise variation: PASS",
+      "revision": "c0cb0c36e76ec1836284961bdc47770c23980443ceaa2c7f754dd9bc56f0da99"
+    },
+    {
+      "id": "lesson-68",
+      "title": "Design graph state and conditional edges",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "conditional edges distinguish acceptance, repair and exhaustion\nExercise variation: PASS",
+      "revision": "0af7f3dbdc3f2a916cf216488b8ba47476b649748c8c0f12d8e4018700a8f768"
+    },
+    {
+      "id": "lesson-69",
+      "title": "Checkpoint and resume a workflow",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "state reloaded from file; next node and completed work preserved\nExercise variation: PASS",
+      "revision": "5481589233aa4edf5ee0ccf9868d474eb9480085fb0b0df63379403f433c87c3"
+    },
+    {
+      "id": "lesson-70",
+      "title": "Handle approval and cancellation boundaries",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "approval tied to exact payload, owner, reviewer and expiry\nExercise variation: PASS",
+      "revision": "a8382823bc42c007e16472c97a56d40fd06619a73a40153cf2e3f8edc97a9d21"
+    },
+    {
+      "id": "lesson-71",
+      "title": "Engineer retries and idempotent side effects",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "exact replay reused receipt; changed payload rejected\nExercise variation: PASS",
+      "revision": "e665dd9b70d19a3ea6973823addf9f12a093591f91da3ad0b4d7fc8402aa3091"
+    },
+    {
+      "id": "lesson-72",
+      "title": "Evaluate workflows against a baseline",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "candidate uses fewer fixture calls but fails abstention; quality regresses\nExercise variation: PASS",
+      "revision": "fda5511776940e0b2de04cdc53750b7963fff2ff3810a643cfb4fb6ec4e2b868"
+    },
+    {
+      "id": "lesson-73",
+      "title": "Pass typed messages between workers",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "typed handoff accepted; ambiguous evidence representation rejected\nExercise variation: PASS",
+      "revision": "4f0968324128bfe5d47b7057de26c9f041d074bd6ceda069a00a1fa73add7f8e"
+    },
+    {
+      "id": "lesson-74",
+      "title": "Design role contracts and handoffs",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "role capabilities enforced; role names alone grant no extra authority\nExercise variation: PASS",
+      "revision": "14070117d76f614684e2b9b39d677a3028088e50328b372fa7cfde4457e121ee"
+    },
+    {
+      "id": "lesson-75",
+      "title": "Compare supervisor and hierarchical orchestration",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "fixture paths: sequential=55, parallel=35, extra hierarchy=45\nExercise variation: PASS",
+      "revision": "bf911504c4a833f1cfff7db49d25653b776822d92b43b914c128cbc0625b9777"
+    },
+    {
+      "id": "lesson-76",
+      "title": "Separate builder and reviewer judgments",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "evidence outranks builder confidence in controlled fixture review\nExercise variation: PASS",
+      "revision": "d744d69fef26e6f468f156fa4bea4799f3e048cf16b4d4a420ccb137a3865623"
+    },
+    {
+      "id": "lesson-77",
+      "title": "Join parallel branches under partial failure",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "parallel join retained timeout and labeled partial result\nExercise variation: PASS",
+      "revision": "55c61db5008e31e0f7b3ad1165bdc22c2be050b2682d53d46896f68ada433dc7"
+    },
+    {
+      "id": "lesson-78",
+      "title": "Measure whether a team helps",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "synthetic team fails quality and latency gates despite more workers\nExercise variation: PASS",
+      "revision": "e0755ffbaa68eaea392ef8433dcc77b8216ca57115b8d3111f5957fefbd557d3"
+    },
+    {
+      "id": "lesson-79",
+      "title": "Understand MCP boundaries and capabilities",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "application dispatch allowlist enforced; protocol not simulated as verified\nExercise variation: PASS",
+      "revision": "3548b6ee89ced227d87e9ff4210eb5c29e610b09b703c132e394a31958dcc8a0"
+    },
+    {
+      "id": "lesson-80",
+      "title": "Build a read-only MCP server",
+      "chapters": 8,
+      "reference_executed": true,
+      "stdout": "read-only evidence returned; blank query rejected\nExercise variation: PASS",
+      "revision": "48fd7e7597121853a5521b30640800791b6df8e405e664c84d68a6b3a3699474"
+    },
+    {
+      "id": "lesson-81",
+      "title": "Build an MCP client and discover tools",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "client sequence checked; missing capability blocked before call\nExercise variation: PASS",
+      "revision": "7fd7c94fc8e17350a8c70c6159efd3ac429d60e6ac494ffa6d102dee4a6d7c7d"
+    },
+    {
+      "id": "lesson-82",
+      "title": "Choose transports and deployment boundaries",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "transport resource closed after failed operation\nExercise variation: PASS",
+      "revision": "29de40dae6fe428fb41c2431016df431daa8f6b29b5de409bff6ea17853801f1"
+    },
+    {
+      "id": "lesson-83",
+      "title": "Defend against malicious tool metadata and results",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "untrusted result minimized; tool authority unchanged\nExercise variation: PASS",
+      "revision": "8d28f60fb824c4ca1bf4d4306a1b217689abc0d479f0d988615709e11640fdb5"
+    },
+    {
+      "id": "lesson-84",
+      "title": "Test MCP reliability and version compatibility",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "successful content accepted; error envelope never used as evidence\nExercise variation: PASS",
+      "revision": "296c8a16aef5ea7ff9e2d42cbf0a4f3a72aeebd746ef4579dadabbf7d7a1a71e"
+    },
+    {
+      "id": "lesson-85",
+      "title": "Connect a provider through a validated decision adapter",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "injected transport exercised; model proposal validated before execution\nExercise variation: PASS",
+      "revision": "8797fbbfbddf8f84aae76b46ec226bacf7f088c6adbac5f5f5f48d8f034352b5"
+    },
+    {
+      "id": "lab-01",
+      "title": "Frame the problem and establish a baseline",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "three baseline cases passed: supported, unavailable, prohibited action\nExercise variation: PASS",
+      "revision": "50aa4beae6a2872a685fcc6fbf7fca79da317ee0b28b61bef2aae324d306edfd"
+    },
+    {
+      "id": "lab-02",
+      "title": "Implement a reliable LLM boundary",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "success, timeout, authentication and missing evidence distinguished\nExercise variation: PASS",
+      "revision": "aef9e4f79233d2965fa58d0f10edb3cb50908641fcbb34b46c30948d66dd11c0"
+    },
+    {
+      "id": "lab-03",
+      "title": "Build typed services and state transitions",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "validated service gates answer on durable readiness state\nExercise variation: PASS",
+      "revision": "100898d8271caf7f52ed85e6ee06c9924870e67af5cb902846a2c8b4807b57ef"
+    },
+    {
+      "id": "lab-04",
+      "title": "Protect scope and engineer context",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "scope filtered before bounded context selection\nExercise variation: PASS",
+      "revision": "7f0ccfb95b4a995ce95e20d0f42eda741f2871e2400df45c6adef009f0452d59"
+    },
+    {
+      "id": "lab-05",
+      "title": "Persist documents behind the API",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "new connection read committed data; other tenant denied\nExercise variation: PASS",
+      "revision": "6519984bdfb5eee69949709a7cad0551419ba73b1c7a5a4cb31b312d520ed56e"
+    },
+    {
+      "id": "lab-06",
+      "title": "Run ingestion in a containerized worker",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "worker performed persisted transition; replay produced one chunk\nExercise variation: PASS",
+      "revision": "ca451e8f2e846b3d075cbbb8235c36f7243e9dc03602fd6376af24444e113f8d"
+    },
+    {
+      "id": "lab-07",
+      "title": "Turn documents into attributable chunks",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "sentence chunks preserve revision and position; blank input rejected\nExercise variation: PASS",
+      "revision": "42c46ee5ac17ca63eb0e5240afdd8bf432b19962855e62f95de917399029c56b"
+    },
+    {
+      "id": "lab-08",
+      "title": "Add semantic retrieval and evaluate recall",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "scoped fixture vector ranking; recall at 2=1\nExercise variation: PASS",
+      "revision": "6e2bde17e9f865c24640e85818547329288b6845a891b6eb2461b39db5edb4d1"
+    },
+    {
+      "id": "lab-09",
+      "title": "Improve retrieval without hiding regressions",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "mean gain=0; exception-query regression retained\nExercise variation: PASS",
+      "revision": "13f8c17e1f2ac28fa45277d9de4488f342a1081a63367265da2091acda5ca785"
+    },
+    {
+      "id": "lab-10",
+      "title": "Build grounding and security evaluation cases",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "unknown citation and unsupported known citation exposed separately\nExercise variation: PASS",
+      "revision": "113b96fff07939e7889c00a70f805656e29ac33eec5c2176c4c427b6fcda7322"
+    },
+    {
+      "id": "lab-11",
+      "title": "Observe and compare the complete workflow",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "95 ms synthetic sequential path; usage unknown; quality failure retained\nExercise variation: PASS",
+      "revision": "d9aac0bfbab19f2e8f7da28cbbe8b7815d518726cfb2b639db3025c02f69a5bd"
+    },
+    {
+      "id": "lab-12",
+      "title": "Create a release gate and rehearse failures",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "passing gate exits 0; injected critical failure exits 1\nExercise variation: PASS",
+      "revision": "b76b58094598b056943036f1c8b901a5f2f7bc38f7a8dad271529ace148a1a95"
+    },
+    {
+      "id": "lab-13",
+      "title": "Prepare and verify a deployment",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "dependency readiness gates promotion; scope remains local staging\nExercise variation: PASS",
+      "revision": "cfd61cac36c905d8aaebf30b524335f409eeaba9088ba31ec120af59ccdd1eb9"
+    },
+    {
+      "id": "lab-14",
+      "title": "Demonstrate and assess the finished system",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "handoff keeps untested public deployment visible; local pilot gate distinct\nExercise variation: PASS",
+      "revision": "9cba661f73eb7b9a8b8759f6318928091d2242e3761e3e0cad554f92b2f50948"
+    },
+    {
+      "id": "lab-15",
+      "title": "Implement a safe agent loop",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "scripted agent completed, abstained on empty search and denied unknown authority\nExercise variation: PASS",
+      "revision": "9ce4e3fee55b62ab507832d3c2d20b950bfca60801dd25f7355965b5e798a7f4"
+    },
+    {
+      "id": "lab-16",
+      "title": "Compose and route an evidence workflow",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "repair route observed; exhausted workflow never labeled accepted\nExercise variation: PASS",
+      "revision": "481a525e1fd416b0a6a117b1925f07503704cf1a50b813324757e8d522803a8c"
+    },
+    {
+      "id": "lab-17",
+      "title": "Resume, approve and evaluate graph execution",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "approved exact payload replayed once; changed payload denied\nExercise variation: PASS",
+      "revision": "2ec88b877a585535d4293b329dfa6e35c699a21d9a9a392612ebf1ec33cd53e0"
+    },
+    {
+      "id": "lab-18",
+      "title": "Build a supervised worker team",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "supervised handoff supported; wrong claim and cross-run message rejected\nExercise variation: PASS",
+      "revision": "b78976f82a87e744344c42c3de89e6b0962348b06be52b589a227a5f6f1f43bc"
+    },
+    {
+      "id": "lab-19",
+      "title": "Add MCP discovery and a read-only server",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "read-only discovery contract checked; calls validated; empty success distinguished\nExercise variation: PASS",
+      "revision": "7e74f6490c7da3dfcef9180caba14cec5017817f2f58f4f9bc642dcf7eea4710"
+    },
+    {
+      "id": "lab-20",
+      "title": "Test the MCP client and adversarial boundaries",
+      "chapters": 8,
+      "reference_executed": true,
+      "stdout": "unknown tool and error result rejected; malicious text grants no authority\nExercise variation: PASS",
+      "revision": "dc4d9e37bb3abff0a26df73600955978b8f542624ce13c044f1453917143cd37"
+    },
+    {
+      "id": "terminal-01",
+      "title": "Create and inspect an isolated learning workspace",
+      "chapters": 8,
+      "reference_executed": true,
+      "stdout": "workspace contains only exercises/answer.py; app untouched\nExercise variation: PASS",
+      "revision": "12ef1bb024df5b06630a623e23affbfc9f9dba8f13e3bc5b6c9a4f9f88ad8ae9"
+    },
+    {
+      "id": "terminal-02",
+      "title": "Verify tools, permissions and process exits",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "tool found; success=0; deliberate failure=2 with separate stderr\nExercise variation: PASS",
+      "revision": "d48fec037f708fccefdd295f7d94c09136ffa3c0f760fecfe16804069ae57061"
+    },
+    {
+      "id": "terminal-03",
+      "title": "Learn one concept, predict, then implement",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "bounded evidence selection; original input preserved\nExercise variation: PASS",
+      "revision": "db6a7272a369dfd605563a07d0fc9cc73508c9e017fd0c4a2b76653c5889d69b"
+    },
+    {
+      "id": "terminal-04",
+      "title": "Read, run and change a complete local example",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "entry point executed; module imported without starting an application\nExercise variation: PASS",
+      "revision": "c49848d7d6f6b3f94dc1c98996f631f5baa2aa1cad95e26aaa316b387fea7483"
+    },
+    {
+      "id": "terminal-05",
+      "title": "Recall, reproduce and debug with small hints",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "defect reproduced; membership repair passes positive and counterexample\nExercise variation: PASS",
+      "revision": "49dc2d3b4edb57162d09ee0e8da7f1be7dccacf262819666d7100ba90f644455"
+    },
+    {
+      "id": "terminal-06",
+      "title": "Distinguish agents, tools and protocols",
+      "chapters": 6,
+      "reference_executed": true,
+      "stdout": "read-only application tool exercised; no protocol claim\nExercise variation: PASS",
+      "revision": "125aa11aac564cec820abf3b8c91d2884d0fcefa223a0bead800101329be8a42"
+    },
+    {
+      "id": "terminal-07",
+      "title": "Inspect instruction packages before activation",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "referenced file inspected; traversal denied; nothing activated\nExercise variation: PASS",
+      "revision": "282c7e53cf82d8e6868237aab0fe3692b4a5d99080fe6f062652b0abf70151a2"
+    },
+    {
+      "id": "terminal-08",
+      "title": "Resume with evidence and a small context",
+      "chapters": 7,
+      "reference_executed": true,
+      "stdout": "small session note preserved; changed source invalidates saved revision\nExercise variation: PASS",
+      "revision": "54e36867b77f1c8dbfcc69716494d4878dd71fe86246ce95cae948cd756c0355"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+name: accelerator-student-stack
+x-runtime: &runtime
+  build: .
+  environment:
+    DATABASE_URL: postgresql://learner:synthetic-local-only@db:5432/accelerator_lab
+    BROKER_URL: redis://redis:6379/0
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: accelerator_lab
+      POSTGRES_USER: learner
+      POSTGRES_PASSWORD: synthetic-local-only
+    volumes:
+      - lab-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U learner -d accelerator_lab"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - queue-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  migrate:
+    <<: *runtime
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      db:
+        condition: service_healthy
+  api:
+    <<: *runtime
+    ports:
+      - "127.0.0.1:${ACCELERATOR_LAB_PORT:-8012}:8010"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/health')"]
+      interval: 2s
+      timeout: 4s
+      retries: 30
+  worker:
+    <<: *runtime
+    command: ["celery", "-A", "tasks:worker", "worker", "--loglevel=WARNING", "--concurrency=1", "--pool=solo"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+volumes:
+  lab-data:
+  queue-data:

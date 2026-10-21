@@ -2,7 +2,7 @@
 PRINCIPLES = {
  'version':'engineering-principles-v1',
  'software_first':'Build interfaces, asynchronous services, API adapters and recoverable data flows before studying algorithm derivations. Use mathematics to explain a measured engineering decision.',
- 'production_over_playground':'A notebook or chat demo is an early prototype. Completion requires operational evidence: deployment/readiness, bounded work, rate limits, error recovery and persisted state. The 10% framing is a teaching heuristic, not a measured universal percentage.',
+ 'production_over_playground':'A notebook or chat demo is an early prototype. Graduation builds toward operational evidence: deployment/readiness, bounded work, rate limits, error recovery and persisted state. Early checkpoints assess only boundaries already taught; future deployment controls are planned rather than claimed complete. The 10% framing is a teaching heuristic, not a measured universal percentage.',
  'pillars':['Latency vs. Cost vs. Quality','Deterministic Evaluation','Context Management'],
  'evaluation_note':'Automate repeatable checks with fixed inputs and versioned expectations. Model judges, faithfulness scores and semantic reviews can be stochastic; record judge/configuration versions and disagreement rather than calling them deterministic truth.',
 }
@@ -22,6 +22,15 @@ def family(slug,module):
     text=(slug+' '+module).lower()
     if 'freelancing' in slug:return 'business'
     if 'terminal' in slug:return 'terminal'
+    if slug=='genai-accelerator' and module.startswith('Lab '):
+        try:number=int(module.split()[-1])
+        except ValueError:return 'foundation'
+        if number==2:return 'adapter'
+        if number in {4,7,8,9}:return 'retrieval'
+        if number in {10,11,12}:return 'evaluation'
+        if number in {5,6,13,14}:return 'deployment'
+        if number>=15:return 'actions'
+        return 'foundation'
     if 'ai-workshops'==slug:
         if 'studio 03' in text:return 'retrieval'
         if 'studio 01' in text:return 'adapter'
@@ -31,7 +40,7 @@ def family(slug,module):
     if any(x in text for x in ['retrieval','rag','grounding','ingestion','vector','chunk']):return 'retrieval'
     if any(x in text for x in ['llmops','monitor','evaluation','observability','quality','06 ·','09 ·']):return 'evaluation'
     if any(x in text for x in ['deploy','container','scaling','hosting','infrastructure','07 ·','08 ·','capstone','production']):return 'deployment'
-    if any(x in text for x in ['agentic','tools','protocol','mcp','graph','multi-agent','04 ·','05 ·','approval']):return 'actions'
+    if any(x in text for x in ['agentic','agent loops','tools','protocol','mcp','graph','multi-agent','04 ·','05 ·','approval']):return 'actions'
     if any(x in text for x in ['api','modern ai stack','stream','02 ·','context','sdk']):return 'adapter'
     if '03 ·' in text:return 'retrieval'
     return 'foundation'
@@ -52,7 +61,7 @@ def module_contract(slug,module):
             'pillars':[{'name':name,'application':value} for name,value in zip(PRINCIPLES['pillars'],[performance,evaluation,context])],
             'operations':operations,'evaluation_note':PRINCIPLES['evaluation_note'],
             'deliverable':'module-engineering-evidence.json: dataset/release IDs; latency/cost/quality comparison; automated checks and critical failures; context and cache policy; deployment/failure observations. Mark unmeasured fields as not tested.',
-            'release_gates':['A measured latency/cost/quality comparison with stated workload and acceptance floor.', 'Repeatable automated checks plus separate semantic/factual review where needed.', 'A context budget and cache key/invalidation decision with source/owner boundaries.', 'A deployed or explicitly simulated failure test covering timeout, overload/rate limit and retained work.']}
+            'release_gates':['Record latency, cost and quality for the boundary taught so far; mark unmeasured provider or deployment values unknown.', 'Retain the taught positive and negative checks with unchanged expectations; keep semantic review separate.', 'Explain the current source/context allowance and owner boundary; later cache or distributed controls are not assumed implemented.', 'Exercise the failure path taught in this stage. Future hosting, overload and distributed recovery experiments become mandatory only in their own deployment stage.']}
 
 def program_contract(slug,modules):
     return {**PRINCIPLES,'modules':[module_contract(slug,m) for m in dict.fromkeys(modules)]}

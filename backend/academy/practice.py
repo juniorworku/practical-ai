@@ -88,7 +88,7 @@ def program_download(request,slug):
         return Response({'detail':'Enroll in this program before downloading its workbook.'},status=403)
     base=Path(settings.BASE_DIR)/'academy'
     output=BytesIO()
-    safe_suffixes={'.md','.py','.json','.jsonl','.toml','.lock','.txt','.csv','.html','.sql'}
+    safe_suffixes={'.md','.py','.json','.jsonl','.toml','.lock','.txt','.csv','.html','.sql','.yaml','.ini'}
     with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED) as archive:
         archive.writestr('LICENSE.teaching',(base/'content/LICENSE.source').read_text())
         archive.writestr('README.md',f'# {program.title}\n\nAn independent learning workspace for this program. Work locally with synthetic data. Lessons, questions, quizzes, flashcards, exercises and practical tasks belong to this program. Downloaded quiz solutions are self-study references, not evidence of a passed online attempt.\n')
@@ -102,6 +102,19 @@ def program_download(request,slug):
             for path in folder.rglob('*'):
                 if path.is_file() and not any(part in ['__pycache__','.venv','.pytest_cache','.git'] for part in path.parts) and (path.suffix in safe_suffixes or path.name.startswith('LICENSE')):
                     archive.write(path,'workspace/'+str(path.relative_to(folder)))
+        if program.category in ['Accelerator','Tutor']:
+            for path in (base/'content/reviewed_examples').glob('*.py'):
+                if path.stem.startswith('terminal-') == (program.category=='Tutor'):
+                    archive.write(path,'reference_examples/'+path.name)
+        if program.category=='Accelerator':
+            for path in (base/'content/accelerator_stack').rglob('*'):
+                if path.is_file() and '__pycache__' not in path.parts and (path.suffix in safe_suffixes or path.name in ['Dockerfile','.dockerignore']):
+                    archive.write(path,'accelerator_stack/'+str(path.relative_to(base/'content/accelerator_stack')))
+        capstone=base/'content/capstones'/program.slug
+        if capstone.is_dir():
+            for path in capstone.rglob('*'):
+                if path.is_file() and not any(part in ['__pycache__','.venv','.git'] for part in path.parts) and not path.name.startswith('observed') and not path.name.endswith('-observed.json') and (path.suffix in safe_suffixes or path.name in ['Dockerfile','.dockerignore']):
+                    archive.write(path,'capstone/'+str(path.relative_to(capstone)))
         if program.category=='Accelerator':archive.write(base/'content/LICENSE.accelerator','LICENSE.upstream')
     output.seek(0)
     return FileResponse(output,as_attachment=True,filename=program.slug+'-workbook.zip')

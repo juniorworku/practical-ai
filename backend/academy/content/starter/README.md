@@ -1,8 +1,8 @@
 # GenAI Accelerator capstone starter
 
-This is a local lexical/fake baseline, not a production application or a semantic RAG system. It requires no API key or GPU. The daily labs add scoped access, persistent storage, background ingestion, embeddings, evaluation, observability, and deployment. Keep it separate from Resume Studio.
+This is a local lexical/fake baseline, not a production application or a semantic RAG system. It requires no API key or GPU. The reviewed lessons teach scoped access, persistent storage, background ingestion, retrieval, evaluation and deployment. The separate `accelerator_stack/` case study contains the complete local API/PostgreSQL/worker service. Keep it separate from Resume Studio.
 
-1. Extract the course ZIP and open `genai-accelerator/starter` in VS Code.
+1. Extract the course ZIP and open `workspace/` (the folder containing pyproject.toml) in VS Code.
 2. Install uv from its official documentation if necessary. Use Python 3.12.
 3. In this folder run `uv sync --extra dev`. The provided `uv.lock` was resolved and tested for this starter. Use `uv sync --locked --extra dev` to reproduce it; update the lock deliberately when adding lab dependencies.
 4. Run `uv run pytest` and `uv run python -m evals.run_baseline`.

@@ -1,0 +1,852 @@
+{
+  "attempted": 120,
+  "passed": 120,
+  "concurrency": 4,
+  "p50_ms": 75.51832449826179,
+  "p95_ms": 107.44051600340754,
+  "cost_usd": null,
+  "semantic_model_review": "not_performed",
+  "mode": "scripted_adapters_real_http_postgresql",
+  "cases": [
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 46.1244030011585
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 85.9712460078299
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 48.41937900346238
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 86.14436199422926
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 81.11093800107483
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 42.56044099747669
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 34.197389002656564
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 72.4970180017408
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 87.57180199609138
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 107.44051600340754
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 133.71693801309448
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 118.64570200850721
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 125.27140500606038
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 89.37823100131936
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 79.63404200563673
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 41.90203300095163
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 50.37372300284915
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 58.72662899491843
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 79.33378199231811
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 72.72172599914484
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 91.4025060046697
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 79.47294400946703
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 80.06982599908952
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 78.99166201241314
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 82.1479360020021
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 41.17467899050098
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 57.587971998145804
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 70.26903200312518
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 75.56074300373439
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 67.36356500186957
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 69.18751601187978
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 64.7132110025268
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 70.3167809988372
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 74.26466899050865
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 76.55960098782089
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 46.49767999944743
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 70.05300300079398
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 53.434899004059844
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 84.6683790005045
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 85.195963998558
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 96.46965900901705
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 95.69824099889956
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 95.30415099288803
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 93.01625400257763
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 85.6059700017795
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 45.90231500333175
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 45.944758006953634
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 66.47749900002964
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 69.50390500423964
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 69.08175699936692
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 70.33494400093332
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 76.59848799812607
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 77.48278499639127
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 80.2628539968282
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 80.99869299621787
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 42.86989200045355
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 66.80558499647304
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 34.05146700970363
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 69.41599000128917
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 67.1346720046131
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 81.21679499163292
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 81.57072500034701
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 82.83678900625091
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 84.67269298853353
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 102.17667800316121
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 44.65952499595005
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 66.92706600006204
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 114.48554201342631
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 124.93840100069065
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 104.44270299922209
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 107.96911800571252
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 92.78974100016057
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 85.25794898741879
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 89.65811699454207
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 91.41477799857967
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 48.85358200408518
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 76.0198810021393
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 45.671286003198475
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 76.84136899479199
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 80.77655400848016
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 84.73192399833351
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 81.33961100247689
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 75.18583300407045
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 70.58013300411403
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 74.12285899044946
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 38.17703800450545
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 39.075267006410286
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 60.541020007804036
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 67.58123300096486
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 72.66236000577919
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 79.41228200797923
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 79.31407199066598
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 75.51172499370296
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 71.35473299422301
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 73.30201999866404
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 39.07420000177808
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 67.95461098954547
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 43.49685899796896
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 72.06343299185392
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 68.85973800672218
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 82.24226100719534
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 78.72535500791855
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 85.26615300797857
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 82.85505000094417
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 88.00375901046209
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 42.45452399482019
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 39.64840299158823
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 68.52778799657244
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 83.6433860094985
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 75.52492400282063
+    },
+    {
+      "family": "supported",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 80.40489899576642
+    },
+    {
+      "family": "complex",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "needs_review",
+      "elapsed_ms": 82.52447099948768
+    },
+    {
+      "family": "missing",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 77.32527000189293
+    },
+    {
+      "family": "denied_write",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "denied",
+      "elapsed_ms": 80.21971400012262
+    },
+    {
+      "family": "wrong_owner",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "abstain",
+      "elapsed_ms": 74.1371009935392
+    },
+    {
+      "family": "unknown_identity",
+      "passed": true,
+      "http_status": 401,
+      "actual_state": null,
+      "elapsed_ms": 48.21873200125992
+    },
+    {
+      "family": "bad_shape",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 69.35804399836343
+    },
+    {
+      "family": "blank",
+      "passed": true,
+      "http_status": 400,
+      "actual_state": null,
+      "elapsed_ms": 38.96962499129586
+    },
+    {
+      "family": "timeout",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 66.78883200220298
+    },
+    {
+      "family": "malformed",
+      "passed": true,
+      "http_status": 201,
+      "actual_state": "failed",
+      "elapsed_ms": 65.43543399311602
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "client": "Fictional Training Studio",
+  "included": [
+    "source-extractive drafts",
+    "missing-source review",
+    "local restore rehearsal"
+  ],
+  "excluded": [
+    "automatic publication",
+    "real hosting",
+    "unreviewed factual acceptance"
+  ],
+  "acceptance_ids": [
+    "supported",
+    "missing",
+    "unapproved_source"
+  ],
+  "milestones": [
+    "approved data and scope",
+    "thin pilot",
+    "acceptance and handover"
+  ],
+  "estimate_hours": 12,
+  "support_hours_included": 2
+}

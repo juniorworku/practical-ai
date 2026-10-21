@@ -1,0 +1,23 @@
+{
+  "document_id": "1718125a-ecc1-4b62-9088-149fda7e8972",
+  "agent": {
+    "status": "completed",
+    "answer": "Refund policy is 14 days for unopened items",
+    "citations": [
+      "1718125a-ecc1-4b62-9088-149fda7e8972:0"
+    ],
+    "trace": [
+      "search",
+      "finish"
+    ],
+    "usage_tokens": null
+  },
+  "checks": {
+    "actual_stdio_discovery": true,
+    "actual_persisted_source_call": true,
+    "invalid_query_rejected": true,
+    "unknown_write_tool_rejected": true
+  },
+  "mode": "scripted_agent_real_http_pg_worker_and_mcp",
+  "external_side_effects": false
+}

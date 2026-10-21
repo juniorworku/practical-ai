@@ -1,5 +1,6 @@
 """Scripted agent harness; the decision adapter can later be replaced by an LLM."""
 import json
+from copy import deepcopy
 if __package__:
     from .policies import search
 else:
@@ -14,11 +15,11 @@ def scripted_decision(question, observations):
 def run(question, decide=scripted_decision, max_steps=4):
     if not isinstance(question, str) or not 3 <= len(question) <= 200:
         raise ValueError("question must contain 3..200 characters")
-    if not isinstance(max_steps, int) or not 1 <= max_steps <= 20:
+    if type(max_steps) is not int or not 1 <= max_steps <= 20:
         raise ValueError("max_steps must be 1..20")
     observations, trace = [], []
     for step in range(max_steps):
-        proposal = decide(question, tuple(observations))
+        proposal = decide(question, tuple(deepcopy(observations)))
         if not isinstance(proposal, dict):
             return {"status": "invalid_decision", "trace": trace}
         action = proposal.get("action")

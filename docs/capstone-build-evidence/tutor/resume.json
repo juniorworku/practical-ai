@@ -1,0 +1,7 @@
+{
+  "observed_exit": 0,
+  "source_hash": "c6566c44da9e8b390c48723cd05a9658645d940574e58dc936ee82e4f0cfffc4",
+  "instruction_hash": "7b40db5f5ae54e50e18a83465a7e0910f668e9340b9a34f93ed92b8976fa7b6c",
+  "next_action": "add a negative-capacity counterexample",
+  "evidence_status": "passed_local_checks"
+}

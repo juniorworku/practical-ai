@@ -1,0 +1,143 @@
+{
+  "program": "workshops",
+  "mode": "local_scripted_provider",
+  "document_id": null,
+  "draft_id": "3ec494d2-3343-4c5a-8a8c-29148cd66f5d",
+  "receipt": "effect:3ec494d2-3343-4c5a-8a8c-29148cd66f5d",
+  "checks": [
+    {
+      "case": "database_readiness",
+      "passed": true
+    },
+    {
+      "case": "candidate_path",
+      "passed": true
+    },
+    {
+      "case": "exact_total",
+      "passed": true
+    },
+    {
+      "case": "missing_price_review",
+      "passed": true
+    },
+    {
+      "case": "negative_quantity_rejected",
+      "passed": true
+    },
+    {
+      "case": "unauthorized_identity",
+      "passed": true
+    },
+    {
+      "case": "owner_not_model_controlled",
+      "passed": true
+    },
+    {
+      "case": "bad_input_rejected",
+      "passed": true
+    },
+    {
+      "case": "failed_timeout",
+      "passed": true
+    },
+    {
+      "case": "failure_saved",
+      "passed": true
+    },
+    {
+      "case": "failed_malformed",
+      "passed": true
+    },
+    {
+      "case": "failure_saved",
+      "passed": true
+    },
+    {
+      "case": "stored_readback",
+      "passed": true
+    },
+    {
+      "case": "wrong_owner_denied",
+      "passed": true
+    },
+    {
+      "case": "student_cannot_approve",
+      "passed": true
+    },
+    {
+      "case": "stale_version_denied",
+      "passed": true
+    },
+    {
+      "case": "changed_payload_denied",
+      "passed": true
+    },
+    {
+      "case": "reviewed_local_effect",
+      "passed": true
+    },
+    {
+      "case": "concurrent_replay_same_receipt",
+      "passed": true
+    },
+    {
+      "case": "stored_effect_is_scoped",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    },
+    {
+      "case": "load_candidate",
+      "passed": true
+    }
+  ],
+  "p50_ms": 34.134518005885184,
+  "p95_ms": 38.918828999157995,
+  "requests": 12,
+  "cost_usd": null,
+  "provider_usage_tokens": null,
+  "cloud_load_test": false
+}

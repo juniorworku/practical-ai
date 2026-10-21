@@ -1,0 +1,7 @@
+{
+  "client": "Fictional Training Studio",
+  "manual_fallback": "retain input and use approved source manually",
+  "escalation": "named client reviewer, no auto-send",
+  "restoration": "run engagement.py into a fresh output; inspect restored.sqlite3 readback",
+  "maintenance": "rerun cases after policy changes; delete synthetic retention data after 7 days"
+}

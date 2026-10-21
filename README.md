@@ -124,3 +124,9 @@ The [student teaching review](docs/engineering-student-review.md) documents less
 
 
 The same guided teaching structure now covers the original three programs: 60 lessons with concept tutorials, causal walkthroughs, bounded practice before integration, complete code or decision references, progressive hints and selected-answer feedback. See [the practical-program student review](docs/practical-student-review.md). Run `python3 tests/practical-teaching-audit.py` for the exact published practice references and regression probes; run `node tests/practical-student.cjs` against the Docker app for every original program’s chapters and guided student flow. An optional comma-separated argument such as `B04,B22,F06` limits browser checks while still verifying served-source parity for all 60 lessons.
+
+The GenAI Accelerator and Terminal Tutor have also undergone a [student teaching review](docs/imported-student-review.md), covering 113 sessions, complete inline examples and practice, and the isolated API/PostgreSQL/worker case study.
+
+The [program progression review](docs/program-progression-review.md) documents entry skills, interleaved Accelerator labs, project prerequisite maps and preserved learner records.
+
+The [capstone student-build review](docs/capstone-student-build-review.md) records the six independent runnable projects, complete inline code, restart/restore drills and observed results.

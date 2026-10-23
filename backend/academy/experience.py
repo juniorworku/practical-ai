@@ -2,7 +2,8 @@
 import logging
 import smtplib
 from datetime import timedelta
-from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
+from django.contrib.auth.forms import SetPasswordForm
+from .recovery import RecoveryForm
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
 from django.conf import settings
@@ -219,11 +220,11 @@ def learning_plan(request):
 def reset_request(request):
     if request.method in ['POST','PUT'] and not isinstance(request.data,dict):
         return Response({'detail':'Send a JSON object.'},status=400)
-    form=PasswordResetForm(request.data)
+    form=RecoveryForm(request.data)
     if not form.is_valid():return Response({'detail':'Enter a valid email address.'},status=400)
     if settings.EMAIL_HOST:
         try:
-            form.save(use_https=settings.ACADEMY_PUBLIC_URL.startswith('https:'),domain_override=settings.ACADEMY_PUBLIC_URL.split('://',1)[1],email_template_name='academy/password_reset_email.txt',subject_template_name='academy/password_reset_subject.txt')
+            form.save(use_https=settings.ACADEMY_PUBLIC_URL.startswith('https:'),domain_override=settings.ACADEMY_PUBLIC_URL.split('://',1)[1],email_template_name='academy/password_reset_email.txt',subject_template_name='academy/password_reset_subject.txt',html_email_template_name='academy/password_reset_email.html')
         except (OSError, smtplib.SMTPException):
             logging.getLogger(__name__).warning('Password recovery delivery failed; check SMTP configuration.')
     return Response({'detail':'If an account matches that email, a recovery message will be sent. If it does not arrive, contact the academy administrator.'})

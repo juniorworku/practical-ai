@@ -13,7 +13,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   if (process.env.EXPECT_DATABASE) assert.equal(healthData.database,process.env.EXPECT_DATABASE);
   await page.goto(origin);
   await page.getByRole('heading',{name:'AI Agent Bootcamp',exact:true}).waitFor();
-  assert.equal(await page.locator('.program-card').count(),5);
+  assert.equal(await page.locator('.program-card').count(),6);
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/home-desktop.png'),fullPage:true});
   await page.getByRole('button',{name:'Workshop',exact:true}).click();
   assert.equal(await page.locator('.program-card').count(),1);

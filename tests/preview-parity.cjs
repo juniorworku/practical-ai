@@ -36,7 +36,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   await expired.getByRole('dialog').waitFor();
   await expired.keyboard.press('Escape');
   await expired.locator('.program-card').first().waitFor();
-  assert.equal(await expired.locator('.program-card').count(),5);
+  assert.equal(await expired.locator('.program-card').count(),6);
   await expired.close();
   console.log('PASS: Vite 5173 and Docker 8080 serve identical PostgreSQL course books and saved practice; the existing preview renders the actual chapter and inline exercise.');
  }finally{await browser.close()}

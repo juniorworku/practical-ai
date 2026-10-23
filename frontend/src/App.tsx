@@ -1,4 +1,11 @@
-import { useEffect, useState, type FormEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  lazy,
+  Suspense,
+  type FormEvent,
+} from "react";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -26,19 +33,22 @@ import {
   FolderCheck,
   Bookmark,
 } from "lucide-react";
+import InterfaceEffects from "./InterfaceEffects";
 import CourseOverview from "./CourseOverview";
-import LessonReader from "./LessonReader";
-import LearningHub from "./LearningHub";
-import PreviewLesson from "./PreviewLesson";
 import PasswordRecovery from "./PasswordRecovery";
 import { readLocal, writeLocal, storageKey } from "./storage";
 import { api, legacyHeaders } from "./api";
 import AuthDialog from "./AuthDialog";
-import SearchDialog, { type SearchHit } from "./SearchDialog";
-import AccountSettings from "./AccountSettings";
-import StudentPortfolio from "./StudentPortfolio";
+import type { SearchHit } from "./SearchDialog";
 import StudyDashboard from "./StudyDashboard";
 import type { Lesson, Program, Profile, Project } from "./types";
+
+const LessonReader = lazy(() => import("./LessonReader"));
+const LearningHub = lazy(() => import("./LearningHub"));
+const PreviewLesson = lazy(() => import("./PreviewLesson"));
+const SearchDialog = lazy(() => import("./SearchDialog"));
+const AccountSettings = lazy(() => import("./AccountSettings"));
+const StudentPortfolio = lazy(() => import("./StudentPortfolio"));
 
 type Page =
   | "home"
@@ -73,6 +83,10 @@ export default function App() {
   const [busy, setBusy] = useState(false);
   const [menu, setMenu] = useState(false);
   const [filter, setFilter] = useState("All programs");
+  const [catalogQuery, setCatalogQuery] = useState("");
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
+  const [commandDraft, setCommandDraft] = useState("");
   const [projects, setProjects] = useState<Project[]>([]);
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [terminalLines, setTerminalLines] = useState([
@@ -81,6 +95,11 @@ export default function App() {
   ]);
   const [command, setCommand] = useState("");
   const [terminalBusy, setTerminalBusy] = useState(false);
+  const terminalOutput = useRef<HTMLPreElement>(null);
+  useEffect(() => {
+    const output = terminalOutput.current;
+    if (output) output.scrollTop = output.scrollHeight;
+  }, [terminalLines, terminalBusy]);
   const [lessonLoading, setLessonLoading] = useState(false);
   const [lessonSearch, setLessonSearch] = useState("");
   const [librarySearch, setLibrarySearch] = useState("");
@@ -253,10 +272,29 @@ export default function App() {
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
   }, [profile]);
+  const pendingLessonFocus = useRef<number | null>(null);
+  useEffect(() => {
+    if (
+      lessonLoading ||
+      !lesson?.resources ||
+      pendingLessonFocus.current !== lesson.id
+    )
+      return;
+    pendingLessonFocus.current = null;
+    const heading = document.querySelector<HTMLElement>(".lesson-content > h1");
+    if (heading) {
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+      heading.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+  }, [lessonLoading, lesson]);
   function openLesson(program: Program, id: number) {
+    pendingLessonFocus.current = id;
     setSelected(program);
-    setLesson(
-      program.lessons.find((item) => item.id === id) || program.lessons[0],
+    setLesson((current) =>
+      current?.id === id && current.resources
+        ? current
+        : program.lessons.find((item) => item.id === id) || program.lessons[0],
     );
     setPage("learn");
     window.scrollTo(0, 0);
@@ -454,7 +492,12 @@ export default function App() {
   async function runCommand(e: FormEvent) {
     e.preventDefault();
     if (!command.trim() || terminalBusy) return;
-    const entered = command;
+    const entered = command.trim();
+    setCommandHistory((history) =>
+      [entered, ...history.filter((item) => item !== entered)].slice(0, 50),
+    );
+    setHistoryIndex(-1);
+    setCommandDraft("");
     setCommand("");
     setTerminalBusy(true);
     try {
@@ -491,8 +534,63 @@ export default function App() {
       "Masterclass",
       "Accelerator",
       "Engineering",
+      "Tutor",
     ].includes(p.category),
   );
+  const visiblePrograms = catalogPrograms.filter(
+    (program) =>
+      (filter === "All programs" || program.category === filter) &&
+      [
+        program.title,
+        program.description,
+        program.outcome,
+        ...program.lessons.map((item) => item.title + " " + item.module),
+      ]
+        .join(" ")
+        .toLowerCase()
+        .includes(catalogQuery.trim().toLowerCase()),
+  );
+  const visibleLessons =
+    selected?.lessons.filter((item) =>
+      (item.title + " " + item.module)
+        .toLowerCase()
+        .includes(lessonSearch.trim().toLowerCase()),
+    ) || [];
+  const pageTitles: Partial<Record<Page, string>> = {
+    home: "Learn it. Build it. Use it.",
+    dashboard: "My learning",
+    account: "Account & security",
+    portfolio: "Project portfolio",
+    accelerator: "GenAI Accelerator",
+    terminal: "Terminal Tutor",
+  };
+  const pageTitle =
+    page === "learn"
+      ? lesson?.title || "Learning workspace"
+      : page === "course"
+        ? selected?.title || "Program"
+        : page === "preview"
+          ? `${selected?.title || "Program"} preview`
+          : pageTitles[page] || "Academy";
+  useEffect(() => {
+    if (!menu) return;
+    document.querySelector<HTMLElement>("#main-navigation button")?.focus();
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenu(false);
+        document.querySelector<HTMLElement>(".mobile-toggle")?.focus();
+      }
+    };
+    const outside = (event: PointerEvent) => {
+      if (!(event.target as Element).closest(".header")) setMenu(false);
+    };
+    window.addEventListener("keydown", escape);
+    window.addEventListener("pointerdown", outside);
+    return () => {
+      window.removeEventListener("keydown", escape);
+      window.removeEventListener("pointerdown", outside);
+    };
+  }, [menu]);
   const acceleratorProgram = programs.find(
     (p) => p.slug === "genai-accelerator",
   );
@@ -540,6 +638,11 @@ export default function App() {
   }
   return (
     <>
+      <InterfaceEffects
+        viewKey={`${page}:${selected?.id || ""}:${lesson?.id || ""}`}
+        contentKey={`${programs.length}:${filter}:${catalogQuery}`}
+        title={pageTitle}
+      />
       <div className="announcement">
         <Sparkles size={13} /> YOUR NEXT CHAPTER STARTS WITH SOMETHING YOU BUILD{" "}
         <span>
@@ -560,7 +663,11 @@ export default function App() {
             <small>THE BUILDER’S ACADEMY</small>
           </span>
         </button>
-        <nav className={menu ? "nav open" : "nav"} aria-label="Main navigation">
+        <nav
+          className={menu ? "nav open" : "nav"}
+          id="main-navigation"
+          aria-label="Main navigation"
+        >
           <button
             className={page === "home" ? "active" : ""}
             onClick={goPrograms}
@@ -629,10 +736,12 @@ export default function App() {
           )}
           <button
             className="mobile-toggle icon-button"
-            onClick={() => setMenu(!menu)}
+            onClick={() => setMenu((current) => !current)}
             aria-label="Toggle navigation"
+            aria-expanded={menu}
+            aria-controls="main-navigation"
           >
-            <Menu />
+            {menu ? <X /> : <Menu />}
           </button>
         </div>
       </header>
@@ -645,7 +754,7 @@ export default function App() {
         </div>
       )}
       {page === "home" && (
-        <main>
+        <main id="main-content" tabIndex={-1}>
           <section className="hero wrap">
             <div className="hero-copy">
               <div className="eyebrow">
@@ -792,6 +901,7 @@ export default function App() {
                 "Masterclass",
                 "Accelerator",
                 "Engineering",
+                "Tutor",
               ].map((f) => (
                 <button
                   key={f}
@@ -799,10 +909,39 @@ export default function App() {
                   className={filter === f ? "selected" : ""}
                   onClick={() => setFilter(f)}
                 >
-                  {f === "Cohort" ? "Bootcamp" : f}
+                  {f === "Cohort"
+                    ? "Bootcamp"
+                    : f === "Tutor"
+                      ? "Terminal skills"
+                      : f}
                 </button>
               ))}
               <span>Practical by design. Free to start.</span>
+            </div>
+            <div className="catalog-search-row">
+              <label className="catalog-search">
+                <Search size={18} />
+                <input
+                  type="search"
+                  aria-label="Search programs and topics"
+                  placeholder="What do you want to build or learn?"
+                  value={catalogQuery}
+                  onChange={(event) => setCatalogQuery(event.target.value)}
+                />
+                {catalogQuery && (
+                  <button
+                    className="icon-button"
+                    aria-label="Clear program search"
+                    onClick={() => setCatalogQuery("")}
+                  >
+                    <X size={16} />
+                  </button>
+                )}
+              </label>
+              <span role="status">
+                {visiblePrograms.length}{" "}
+                {visiblePrograms.length === 1 ? "program" : "programs"}
+              </span>
             </div>
             {loading ? (
               <div className="empty">
@@ -819,104 +958,119 @@ export default function App() {
                   Try again
                 </button>
               </div>
+            ) : visiblePrograms.length === 0 ? (
+              <div className="empty catalog-empty">
+                <Search size={28} />
+                <h3>No programs match that search.</h3>
+                <p>
+                  Try another topic or reset your filters to explore all
+                  programs.
+                </p>
+                <button
+                  className="button secondary"
+                  onClick={() => {
+                    setCatalogQuery("");
+                    setFilter("All programs");
+                  }}
+                >
+                  Reset program filters
+                </button>
+              </div>
             ) : (
               <div className="program-grid">
-                {catalogPrograms
-                  .filter(
-                    (p) => filter === "All programs" || p.category === filter,
-                  )
-                  .map((p) => {
-                    const index = catalogPrograms.indexOf(p);
-                    const Icon = icons[index % 4];
-                    return (
-                      <article
-                        key={p.id}
-                        className={`program-card tone-${index}`}
-                      >
-                        <div className="program-art">
-                          <div className="program-pattern" />
-                          <span className="category">
-                            {p.category === "Cohort"
-                              ? "THE DEEP DIVE"
-                              : p.category === "Workshop"
-                                ? "THE BUILD STUDIOS"
-                                : p.category === "Accelerator"
-                                  ? "THE ACCELERATOR"
-                                  : p.category === "Engineering"
-                                    ? "THE ENGINEERING PATH"
+                {visiblePrograms.map((p) => {
+                  const index = catalogPrograms.indexOf(p);
+                  const Icon =
+                    p.category === "Tutor" ? Terminal : icons[index % 4];
+                  return (
+                    <article
+                      key={p.id}
+                      className={`program-card tone-${index}`}
+                    >
+                      <div className="program-art">
+                        <div className="program-pattern" />
+                        <span className="category">
+                          {p.category === "Cohort"
+                            ? "THE DEEP DIVE"
+                            : p.category === "Workshop"
+                              ? "THE BUILD STUDIOS"
+                              : p.category === "Accelerator"
+                                ? "THE ACCELERATOR"
+                                : p.category === "Engineering"
+                                  ? "THE ENGINEERING PATH"
+                                  : p.category === "Tutor"
+                                    ? "THE COMMAND LINE"
                                     : "THE CLIENT PRACTICUM"}
-                          </span>
-                          <Icon
-                            className="program-main-icon"
-                            strokeWidth={1.1}
-                          />
-                          <span className="art-number">0{index + 1}</span>
-                          <div className="art-tag">
-                            {p.category === "Cohort"
-                              ? "IDEA → AGENT"
-                              : p.category === "Workshop"
-                                ? "LEARN. MAKE. REPEAT."
-                                : p.category === "Accelerator"
-                                  ? "FOUNDATIONS → CAPSTONE"
-                                  : p.category === "Engineering"
-                                    ? "SOFTWARE → PRODUCTION"
+                        </span>
+                        <Icon className="program-main-icon" strokeWidth={1.1} />
+                        <span className="art-number">0{index + 1}</span>
+                        <div className="art-tag">
+                          {p.category === "Cohort"
+                            ? "IDEA → AGENT"
+                            : p.category === "Workshop"
+                              ? "LEARN. MAKE. REPEAT."
+                              : p.category === "Accelerator"
+                                ? "FOUNDATIONS → CAPSTONE"
+                                : p.category === "Engineering"
+                                  ? "SOFTWARE → PRODUCTION"
+                                  : p.category === "Tutor"
+                                    ? "PRACTICE → CONFIDENCE"
                                     : "SKILLS → OPPORTUNITY"}
-                          </div>
                         </div>
-                        <div className="program-content">
-                          <div className="program-meta">
-                            <span>
-                              <Clock3 size={13} />
-                              {p.duration}
-                            </span>
-                            <span>{p.category}</span>
-                          </div>
-                          <h3>{p.title}</h3>
-                          <p>{p.description}</p>
-                          <div className="outcome">
-                            <span>YOU’LL WALK AWAY WITH</span>
-                            <p>{p.outcome}</p>
-                          </div>
-                          <details className="program-syllabus">
-                            <summary>
-                              {p.lessons.length} practical sessions · view
-                              syllabus
-                            </summary>
-                            <p>
-                              About{" "}
-                              {Math.round(
-                                p.lessons.reduce((n, l) => n + l.minutes, 0) /
-                                  60,
-                              )}{" "}
-                              hours of reading, building, testing, and review.
-                              Self-paced; suggested schedule shown above.
-                            </p>
-                            <ol>
-                              {[...new Set(p.lessons.map((l) => l.module))].map(
-                                (module) => (
-                                  <li key={module}>{module}</li>
-                                ),
-                              )}
-                            </ol>
-                            <p>{p.level}</p>
-                          </details>
-                          <button
-                            disabled={busy}
-                            onClick={() => viewProgram(p)}
-                            className="program-link"
-                          >
-                            Explore program <ArrowUpRight size={19} />
-                          </button>
+                      </div>
+                      <div className="program-content">
+                        <div className="program-meta">
+                          <span>
+                            <Clock3 size={13} />
+                            {p.duration}
+                          </span>
+                          <span>{p.category}</span>
                         </div>
-                      </article>
-                    );
-                  })}
+                        <h3>{p.title}</h3>
+                        <p>{p.description}</p>
+                        <div className="outcome">
+                          <span>YOU’LL WALK AWAY WITH</span>
+                          <p>{p.outcome}</p>
+                        </div>
+                        <details className="program-syllabus">
+                          <summary>
+                            {p.lessons.length} practical sessions · view
+                            syllabus
+                          </summary>
+                          <p>
+                            About{" "}
+                            {Math.round(
+                              p.lessons.reduce((n, l) => n + l.minutes, 0) / 60,
+                            )}{" "}
+                            hours of reading, building, testing, and review.
+                            Self-paced; suggested schedule shown above.
+                          </p>
+                          <ol>
+                            {[...new Set(p.lessons.map((l) => l.module))].map(
+                              (module) => (
+                                <li key={module}>{module}</li>
+                              ),
+                            )}
+                          </ol>
+                          <p>{p.level}</p>
+                        </details>
+                        <button
+                          disabled={busy}
+                          onClick={() => viewProgram(p)}
+                          className="program-link"
+                        >
+                          Explore program <ArrowUpRight size={19} />
+                        </button>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
             )}
             <div className="catalog-note">
               <CircleCheck size={15} />
               <span>
-                Five independent programs, plus Terminal Tutor. Choose a path,
+                Six independent learning paths. Choose your starting point,
                 build the evidence.
               </span>
             </div>
@@ -1090,12 +1244,21 @@ export default function App() {
         </main>
       )}
       {page === "preview" && selected && (
-        <PreviewLesson
-          key={selected.id}
-          program={selected}
-          onStart={() => openProgram(selected)}
-          onBack={() => viewProgram(selected)}
-        />
+        <Suspense
+          fallback={
+            <div className="workspace-loading wrap" role="status">
+              <LoaderCircle className="spin" size={18} />
+              Opening the lesson preview…
+            </div>
+          }
+        >
+          <PreviewLesson
+            key={selected.id}
+            program={selected}
+            onStart={() => openProgram(selected)}
+            onBack={() => viewProgram(selected)}
+          />
+        </Suspense>
       )}
       {page === "course" && selected && (
         <CourseOverview
@@ -1111,7 +1274,7 @@ export default function App() {
         />
       )}
       {page !== "home" && page !== "course" && page !== "preview" && (
-        <main className="workspace wrap">
+        <main id="main-content" tabIndex={-1} className="workspace wrap">
           <nav className="workspace-nav" aria-label="Workspace">
             <span className="eyebrow rail-label">YOUR WORKSPACE</span>
             {(
@@ -1148,170 +1311,172 @@ export default function App() {
             </div>
           </nav>
           <div className="workspace-body">
-            {page === "account" && (
-              <AccountSettings onUpdated={() => void refresh()} />
-            )}
-            {page === "portfolio" && <StudentPortfolio />}
-            {page === "dashboard" && (
-              <>
-                {profile && (
-                  <StudyDashboard
-                    profile={profile}
-                    programs={programs}
-                    onLesson={openLesson}
-                    onExplore={goPrograms}
-                  />
-                )}{" "}
-                {profile && (
-                  <LearningHub
-                    profile={profile}
-                    programs={programs}
-                    onOpen={viewProgram}
-                    onLesson={openLesson}
-                  />
-                )}
-                <h2>Your learning paths</h2>
-                <div className="dashboard-courses">
-                  {programs
-                    .filter((p) => p.category !== "Library")
-                    .map((p) => {
-                      const enrolled = profile?.enrolled.includes(p.id);
-                      const count = p.lessons.filter((l) =>
-                        profile?.completed.includes(l.id),
-                      ).length;
-                      return (
-                        <article className="dashboard-course" key={p.id}>
-                          <div>
-                            <span className="eyebrow">
-                              {p.category} · {p.duration}
-                            </span>
-                            <h3>{p.title}</h3>
-                            <p>{p.outcome}</p>
-                            <button
-                              className="text-button syllabus-link"
-                              onClick={() => viewProgram(p)}
-                            >
-                              View program syllabus <ArrowUpRight size={13} />
-                            </button>
-                            {enrolled && (
-                              <>
-                                <progress
-                                  value={count}
-                                  max={p.lessons.length}
-                                />
-                                <small>
-                                  {count} of {p.lessons.length} lessons marked
-                                  read
-                                </small>
-                              </>
-                            )}
-                          </div>
-                          <button
-                            className="button"
-                            disabled={busy}
-                            onClick={() => openProgram(p)}
-                          >
-                            {enrolled ? "Continue learning" : "Join for free"}
-                            <ArrowRight size={16} />
-                          </button>
-                        </article>
-                      );
-                    })}
+            <Suspense
+              fallback={
+                <div className="workspace-loading" role="status">
+                  <LoaderCircle className="spin" size={18} />
+                  Opening your workspace…
                 </div>
-                <section className="source-library">
-                  <div className="eyebrow">THE FULL WORKSHOP LIBRARY</div>
-                  <h2>523 chapters. Follow your curiosity.</h2>
-                  <p className="muted">
-                    20 phases from setup and machine learning to agent
-                    engineering. Pinned source readings, examples, and original
-                    quizzes.
-                  </p>
-                  <input
-                    aria-label="Search learning paths"
-                    placeholder="Find a phase, topic, or lesson…"
-                    value={librarySearch}
-                    onChange={(e) => setLibrarySearch(e.target.value)}
-                  />
-                  <div className="library-grid">
-                    {programs
-                      .filter(
-                        (p) =>
-                          p.category === "Library" &&
-                          (
-                            p.title +
-                            " " +
-                            p.lessons.map((l) => l.title).join(" ")
-                          )
-                            .toLowerCase()
-                            .includes(librarySearch.toLowerCase()),
-                      )
-                      .map((p) => (
-                        <button
-                          key={p.id}
-                          onClick={() => openProgram(p)}
-                          disabled={busy}
-                        >
-                          <BookOpen size={19} />
-                          <span>
-                            <strong>{p.title}</strong>
-                            <small>{p.duration}</small>
-                          </span>
-                          <ArrowUpRight size={16} />
-                        </button>
-                      ))}
-                  </div>
-                  <button
-                    className="text-button download-kit"
-                    disabled={busy}
-                    onClick={downloadKit}
-                  >
-                    Download curriculum + capstone learning kit{" "}
-                    <ArrowUpRight size={17} />
-                  </button>
-                </section>
-              </>
-            )}
-            {page === "learn" && selected && lesson && (
-              <>
-                <div className="learning-heading">
-                  <button
-                    className="text-button"
-                    onClick={() => viewProgram(selected)}
-                  >
-                    <BookOpen size={14} />
-                    {selected.title} · syllabus
-                  </button>
-                  <span>
-                    {
-                      selected.lessons.filter((l) =>
-                        profile?.completed.includes(l.id),
-                      ).length
-                    }
-                    /{selected.lessons.length} lessons marked read
-                  </span>
-                </div>
-                <div className="lesson-layout">
-                  <aside aria-label="Course lessons">
-                    <h3>Your learning path</h3>
-                    <input
-                      className="lesson-search"
-                      aria-label="Search lessons"
-                      placeholder="Find a lesson…"
-                      value={lessonSearch}
-                      onChange={(e) => setLessonSearch(e.target.value)}
+              }
+            >
+              {page === "account" && (
+                <AccountSettings onUpdated={() => void refresh()} />
+              )}
+              {page === "portfolio" && <StudentPortfolio />}
+              {page === "dashboard" && (
+                <>
+                  {profile && (
+                    <StudyDashboard
+                      profile={profile}
+                      programs={programs}
+                      onLesson={openLesson}
+                      onExplore={goPrograms}
                     />
-                    {selected.lessons
-                      .filter((l) =>
-                        (l.title + " " + l.module)
-                          .toLowerCase()
-                          .includes(lessonSearch.toLowerCase()),
-                      )
-                      .map((l) => (
+                  )}{" "}
+                  {profile && (
+                    <LearningHub
+                      profile={profile}
+                      programs={programs}
+                      onOpen={viewProgram}
+                      onLesson={openLesson}
+                    />
+                  )}
+                  <h2>Your learning paths</h2>
+                  <div className="dashboard-courses">
+                    {programs
+                      .filter((p) => p.category !== "Library")
+                      .map((p) => {
+                        const enrolled = profile?.enrolled.includes(p.id);
+                        const count = p.lessons.filter((l) =>
+                          profile?.completed.includes(l.id),
+                        ).length;
+                        return (
+                          <article className="dashboard-course" key={p.id}>
+                            <div>
+                              <span className="eyebrow">
+                                {p.category} · {p.duration}
+                              </span>
+                              <h3>{p.title}</h3>
+                              <p>{p.outcome}</p>
+                              <button
+                                className="text-button syllabus-link"
+                                onClick={() => viewProgram(p)}
+                              >
+                                View program syllabus <ArrowUpRight size={13} />
+                              </button>
+                              {enrolled && (
+                                <>
+                                  <progress
+                                    value={count}
+                                    max={p.lessons.length}
+                                  />
+                                  <small>
+                                    {count} of {p.lessons.length} lessons marked
+                                    read
+                                  </small>
+                                </>
+                              )}
+                            </div>
+                            <button
+                              className="button"
+                              disabled={busy}
+                              onClick={() => openProgram(p)}
+                            >
+                              {enrolled ? "Continue learning" : "Join for free"}
+                              <ArrowRight size={16} />
+                            </button>
+                          </article>
+                        );
+                      })}
+                  </div>
+                  <section className="source-library">
+                    <div className="eyebrow">THE FULL WORKSHOP LIBRARY</div>
+                    <h2>523 chapters. Follow your curiosity.</h2>
+                    <p className="muted">
+                      20 phases from setup and machine learning to agent
+                      engineering. Pinned source readings, examples, and
+                      original quizzes.
+                    </p>
+                    <input
+                      aria-label="Search learning paths"
+                      placeholder="Find a phase, topic, or lesson…"
+                      value={librarySearch}
+                      onChange={(e) => setLibrarySearch(e.target.value)}
+                    />
+                    <div className="library-grid">
+                      {programs
+                        .filter(
+                          (p) =>
+                            p.category === "Library" &&
+                            (
+                              p.title +
+                              " " +
+                              p.lessons.map((l) => l.title).join(" ")
+                            )
+                              .toLowerCase()
+                              .includes(librarySearch.toLowerCase()),
+                        )
+                        .map((p) => (
+                          <button
+                            key={p.id}
+                            onClick={() => openProgram(p)}
+                            disabled={busy}
+                          >
+                            <BookOpen size={19} />
+                            <span>
+                              <strong>{p.title}</strong>
+                              <small>{p.duration}</small>
+                            </span>
+                            <ArrowUpRight size={16} />
+                          </button>
+                        ))}
+                    </div>
+                    <button
+                      className="text-button download-kit"
+                      disabled={busy}
+                      onClick={downloadKit}
+                    >
+                      Download curriculum + capstone learning kit{" "}
+                      <ArrowUpRight size={17} />
+                    </button>
+                  </section>
+                </>
+              )}
+              {page === "learn" && selected && lesson && (
+                <>
+                  <div className="learning-heading">
+                    <button
+                      className="text-button"
+                      onClick={() => viewProgram(selected)}
+                    >
+                      <BookOpen size={14} />
+                      {selected.title} · syllabus
+                    </button>
+                    <span>
+                      {
+                        selected.lessons.filter((l) =>
+                          profile?.completed.includes(l.id),
+                        ).length
+                      }
+                      /{selected.lessons.length} lessons marked read
+                    </span>
+                  </div>
+                  <div className="lesson-layout">
+                    <aside aria-label="Course lessons">
+                      <h3>Your learning path</h3>
+                      <input
+                        className="lesson-search"
+                        aria-label="Search lessons"
+                        placeholder="Find a lesson…"
+                        value={lessonSearch}
+                        onChange={(e) => setLessonSearch(e.target.value)}
+                      />
+                      {visibleLessons.map((l) => (
                         <button
                           className={lesson.id === l.id ? "current" : ""}
                           key={l.id}
                           onClick={() => {
-                            if (lesson.id !== l.id) setLesson(l);
+                            if (lesson.id !== l.id) openLesson(selected, l.id);
                           }}
                         >
                           {profile?.completed.includes(l.id) ? (
@@ -1325,380 +1490,438 @@ export default function App() {
                           </span>
                         </button>
                       ))}
-                  </aside>
-                  <article className="lesson-content">
-                    <div className="eyebrow">
-                      {lesson.module} · ~{lesson.minutes} PRACTICE MIN
-                    </div>
-                    <h1>{lesson.title}</h1>
-                    {!lesson.resources?.learning && (
-                      <div className="lesson-illustration">
-                        <BookOpen size={35} />
-                        <span>
-                          {selected.title}
-                          <br />
-                          <strong>
-                            Concept chapters. Worked implementations. Deliberate
-                            practice.
-                          </strong>
-                        </span>
+                      {visibleLessons.length === 0 && (
+                        <div className="lesson-search-empty" role="status">
+                          <p>No lessons match “{lessonSearch}”.</p>
+                          <button
+                            className="text-button"
+                            onClick={() => setLessonSearch("")}
+                          >
+                            Clear lesson search
+                          </button>
+                        </div>
+                      )}
+                    </aside>
+                    <article className="lesson-content">
+                      <div className="eyebrow">
+                        {lesson.module} · ~{lesson.minutes} PRACTICE MIN
                       </div>
-                    )}
-                    <LessonReader
-                      lesson={lesson}
-                      loading={lessonLoading}
-                      onError={setError}
-                      onDownloadKit={() => downloadProgram(selected)}
-                    />
-                    {!lesson.resources?.learning && (
-                      <div className="exercise">
-                        <span className="eyebrow">
-                          <Code2 size={16} /> YOUR TURN
-                        </span>
-                        <h3>Put it into practice.</h3>
-                        <p>{lesson.task}</p>
-                      </div>
-                    )}
-                    <div
-                      className="lesson-evidence-status"
-                      aria-label="Lesson evidence"
-                    >
-                      <span>
-                        Reading:{" "}
-                        {profile?.completed.includes(lesson.id)
-                          ? "marked read"
-                          : "not marked read"}
-                      </span>
-                      <span>
-                        Quiz:{" "}
-                        {profile?.progress.quiz_passed.includes(lesson.id)
-                          ? "all questions correct"
-                          : "not yet passed"}
-                      </span>
-                      {lesson.lab && (
+                      <h1>{lesson.title}</h1>
+                      {!lesson.resources?.learning && (
+                        <div className="lesson-illustration">
+                          <BookOpen size={35} />
+                          <span>
+                            {selected.title}
+                            <br />
+                            <strong>
+                              Concept chapters. Worked implementations.
+                              Deliberate practice.
+                            </strong>
+                          </span>
+                        </div>
+                      )}
+                      <LessonReader
+                        lesson={lesson}
+                        loading={lessonLoading}
+                        onError={setError}
+                        onDownloadKit={() => downloadProgram(selected)}
+                      />
+                      {!lesson.resources?.learning && (
+                        <div className="exercise">
+                          <span className="eyebrow">
+                            <Code2 size={16} /> YOUR TURN
+                          </span>
+                          <h3>Put it into practice.</h3>
+                          <p>{lesson.task}</p>
+                        </div>
+                      )}
+                      <div
+                        className="lesson-evidence-status"
+                        aria-label="Lesson evidence"
+                      >
                         <span>
-                          Browser checks:{" "}
-                          {profile?.progress.lab_passed.includes(lesson.id)
-                            ? "passed · browser-reported"
+                          Reading:{" "}
+                          {profile?.completed.includes(lesson.id)
+                            ? "marked read"
+                            : "not marked read"}
+                        </span>
+                        <span>
+                          Quiz:{" "}
+                          {profile?.progress.quiz_passed.includes(lesson.id)
+                            ? "all questions correct"
                             : "not yet passed"}
                         </span>
-                      )}
-                      <span>
-                        Project review:{" "}
-                        {profile?.progress.reviewed.includes(lesson.id)
-                          ? "reviewed"
-                          : "not yet reviewed"}
-                      </span>
-                    </div>
-                    <div className="lesson-actions">
-                      <button
-                        className="button secondary"
-                        disabled={busy}
-                        aria-pressed={!!lesson && bookmarks.includes(lesson.id)}
-                        onClick={toggleBookmark}
-                      >
-                        <Bookmark size={17} />
-                        {bookmarks.includes(lesson.id)
-                          ? "Saved lesson"
-                          : "Save lesson"}
-                      </button>
-                      <button
-                        className="button"
-                        disabled={busy || lessonLoading}
-                        onClick={toggleComplete}
-                      >
-                        <Check size={17} />
-                        {profile?.completed.includes(lesson.id)
-                          ? "Read · mark unread"
-                          : "Mark lesson read"}
-                      </button>
-                      {selected.lessons.findIndex((l) => l.id === lesson.id) <
-                        selected.lessons.length - 1 && (
+                        {lesson.lab && (
+                          <span>
+                            Browser checks:{" "}
+                            {profile?.progress.lab_passed.includes(lesson.id)
+                              ? "passed · browser-reported"
+                              : "not yet passed"}
+                          </span>
+                        )}
+                        <span>
+                          Project review:{" "}
+                          {profile?.progress.reviewed.includes(lesson.id)
+                            ? "reviewed"
+                            : "not yet reviewed"}
+                        </span>
+                      </div>
+                      <div className="lesson-actions">
                         <button
-                          className="text-button"
-                          onClick={() =>
-                            setLesson(
-                              selected.lessons[
-                                selected.lessons.findIndex(
-                                  (l) => l.id === lesson.id,
-                                ) + 1
-                              ],
-                            )
+                          className="button secondary"
+                          disabled={busy}
+                          aria-pressed={
+                            !!lesson && bookmarks.includes(lesson.id)
                           }
+                          onClick={toggleBookmark}
                         >
-                          Next lesson <ArrowRight size={16} />
+                          <Bookmark size={17} />
+                          {bookmarks.includes(lesson.id)
+                            ? "Saved lesson"
+                            : "Save lesson"}
                         </button>
-                      )}
-                    </div>
-                  </article>
-                </div>
-              </>
-            )}
-            {page === "accelerator" && (
-              <>
-                <div className="eyebrow">YOUR INDEPENDENT PROGRAM</div>
-                <h1 className="workspace-title">Your GenAI Accelerator.</h1>
-                <p className="muted">
-                  A self-contained program with its own lessons, labs and
-                  capstone. Enroll independently and work at your own pace.
-                </p>
-                <div className="course-banner">
-                  <div>
-                    <span className="eyebrow">THE ORIGINAL WORKSHOP PATH</span>
-                    <h2>
-                      {acceleratorProgram?.lessons.length || 105} lessons &
-                      labs. One useful capstone.
-                    </h2>
-                    <p>
-                      Core foundations plus advanced agent loops, graph
-                      orchestration, multi-agent contracts, and MCP. Work at
-                      your own pace.
-                    </p>
-                  </div>
-                  <div>
-                    <button
-                      className="button"
-                      disabled={!acceleratorProgram || busy}
-                      onClick={() =>
-                        acceleratorProgram && openProgram(acceleratorProgram)
-                      }
-                    >
-                      Open curriculum <ArrowRight size={17} />
-                    </button>
-                    <button
-                      className="text-button"
-                      disabled={busy || !acceleratorProgram}
-                      onClick={() =>
-                        acceleratorProgram &&
-                        downloadProgram(acceleratorProgram)
-                      }
-                    >
-                      Download starter kit <ArrowUpRight size={16} />
-                    </button>
-                  </div>
-                </div>
-                <div className="accelerator-layout">
-                  <div>
-                    <form className="panel" onSubmit={createProject}>
-                      <Sparkles className="accent" />
-                      <h2>Plan a project of your own.</h2>
-                      <p className="planner-note">
-                        Guided template · no AI generation or paid model calls.
-                      </p>
-                      <label>
-                        Project name
-                        <input
-                          name="title"
-                          required
-                          maxLength={150}
-                          placeholder="e.g. My research assistant"
-                        />
-                      </label>
-                      <label>
-                        The problem you want to solve
-                        <textarea
-                          name="problem"
-                          required
-                          maxLength={3000}
-                          rows={5}
-                          placeholder="Who is this for? What task should it help with? What would a useful result look like?"
-                        />
-                      </label>
-                      <button className="button" disabled={busy}>
-                        {busy ? "Creating…" : "Create my project plan"}
-                        <ArrowUpRight size={17} />
-                      </button>
-                    </form>
-                    <div className="saved-projects">
-                      <h3>Your saved projects</h3>
-                      {projects.length === 0 ? (
-                        <p className="muted">
-                          Your first project could start right here.
-                        </p>
-                      ) : (
-                        projects.map((p) => (
+                        <button
+                          className="button"
+                          disabled={busy || lessonLoading}
+                          onClick={toggleComplete}
+                        >
+                          <Check size={17} />
+                          {profile?.completed.includes(lesson.id)
+                            ? "Read · mark unread"
+                            : "Mark lesson read"}
+                        </button>
+                        {selected.lessons.findIndex((l) => l.id === lesson.id) <
+                          selected.lessons.length - 1 && (
                           <button
-                            key={p.id}
-                            onClick={() => setActiveProject(p)}
-                            className={
-                              activeProject?.id === p.id ? "selected" : ""
+                            className="text-button"
+                            onClick={() =>
+                              openLesson(
+                                selected,
+                                selected.lessons[
+                                  selected.lessons.findIndex(
+                                    (l) => l.id === lesson.id,
+                                  ) + 1
+                                ].id,
+                              )
                             }
                           >
-                            <Layers3 size={16} />
-                            {p.title}
-                            <ArrowRight size={15} />
+                            Next lesson <ArrowRight size={16} />
                           </button>
-                        ))
+                        )}
+                      </div>
+                    </article>
+                  </div>
+                </>
+              )}
+              {page === "accelerator" && (
+                <>
+                  <div className="eyebrow">YOUR INDEPENDENT PROGRAM</div>
+                  <h1 className="workspace-title">Your GenAI Accelerator.</h1>
+                  <p className="muted">
+                    A self-contained program with its own lessons, labs and
+                    capstone. Enroll independently and work at your own pace.
+                  </p>
+                  <div className="course-banner">
+                    <div>
+                      <span className="eyebrow">
+                        THE ORIGINAL WORKSHOP PATH
+                      </span>
+                      <h2>
+                        {acceleratorProgram?.lessons.length || 105} lessons &
+                        labs. One useful capstone.
+                      </h2>
+                      <p>
+                        Core foundations plus advanced agent loops, graph
+                        orchestration, multi-agent contracts, and MCP. Work at
+                        your own pace.
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        className="button"
+                        disabled={!acceleratorProgram || busy}
+                        onClick={() =>
+                          acceleratorProgram && openProgram(acceleratorProgram)
+                        }
+                      >
+                        Open curriculum <ArrowRight size={17} />
+                      </button>
+                      <button
+                        className="text-button"
+                        disabled={busy || !acceleratorProgram}
+                        onClick={() =>
+                          acceleratorProgram &&
+                          downloadProgram(acceleratorProgram)
+                        }
+                      >
+                        Download starter kit <ArrowUpRight size={16} />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="accelerator-layout">
+                    <div>
+                      <form className="panel" onSubmit={createProject}>
+                        <Sparkles className="accent" />
+                        <h2>Plan a project of your own.</h2>
+                        <p className="planner-note">
+                          Guided template · no AI generation or paid model
+                          calls.
+                        </p>
+                        <label>
+                          Project name
+                          <input
+                            name="title"
+                            required
+                            maxLength={150}
+                            placeholder="e.g. My research assistant"
+                          />
+                        </label>
+                        <label>
+                          The problem you want to solve
+                          <textarea
+                            name="problem"
+                            required
+                            maxLength={3000}
+                            rows={5}
+                            placeholder="Who is this for? What task should it help with? What would a useful result look like?"
+                          />
+                        </label>
+                        <button className="button" disabled={busy}>
+                          {busy ? "Creating…" : "Create my project plan"}
+                          <ArrowUpRight size={17} />
+                        </button>
+                      </form>
+                      <div className="saved-projects">
+                        <h3>Your saved projects</h3>
+                        {projects.length === 0 ? (
+                          <p className="muted">
+                            Your first project could start right here.
+                          </p>
+                        ) : (
+                          projects.map((p) => (
+                            <button
+                              key={p.id}
+                              onClick={() => setActiveProject(p)}
+                              className={
+                                activeProject?.id === p.id ? "selected" : ""
+                              }
+                            >
+                              <Layers3 size={16} />
+                              {p.title}
+                              <ArrowRight size={15} />
+                            </button>
+                          ))
+                        )}
+                      </div>
+                    </div>
+                    <div className="panel blueprint">
+                      {activeProject ? (
+                        <>
+                          <span className="eyebrow">YOUR BUILD BLUEPRINT</span>
+                          <h2>{activeProject.title}</h2>
+                          <p>{activeProject.problem}</p>
+                          <ol>
+                            {activeProject.blueprint.steps.map((s, i) => (
+                              <li key={s}>
+                                <span>{i + 1}</span>
+                                {s}
+                              </li>
+                            ))}
+                          </ol>
+                          <h3>What you’ll deliver</h3>
+                          <div className="deliverables">
+                            {activeProject.blueprint.deliverables.map((d) => (
+                              <span key={d}>
+                                <Check size={14} />
+                                {d}
+                              </span>
+                            ))}
+                          </div>
+                          <button
+                            className="text-button"
+                            onClick={() => {
+                              const blob = new Blob(
+                                [JSON.stringify(activeProject, null, 2)],
+                                { type: "application/json" },
+                              );
+                              const url = URL.createObjectURL(blob);
+                              const a = document.createElement("a");
+                              a.href = url;
+                              a.download = "project-blueprint.json";
+                              a.click();
+                              URL.revokeObjectURL(url);
+                            }}
+                          >
+                            Download your blueprint <ArrowUpRight size={16} />
+                          </button>
+                        </>
+                      ) : (
+                        <div className="blueprint-empty">
+                          <Layers3 size={55} />
+                          <h2>From possibility to a plan.</h2>
+                          <p>
+                            Describe your idea and your build checklist will
+                            appear here.
+                          </p>
+                        </div>
                       )}
                     </div>
                   </div>
-                  <div className="panel blueprint">
-                    {activeProject ? (
-                      <>
-                        <span className="eyebrow">YOUR BUILD BLUEPRINT</span>
-                        <h2>{activeProject.title}</h2>
-                        <p>{activeProject.problem}</p>
-                        <ol>
-                          {activeProject.blueprint.steps.map((s, i) => (
-                            <li key={s}>
-                              <span>{i + 1}</span>
-                              {s}
-                            </li>
-                          ))}
-                        </ol>
-                        <h3>What you’ll deliver</h3>
-                        <div className="deliverables">
-                          {activeProject.blueprint.deliverables.map((d) => (
-                            <span key={d}>
-                              <Check size={14} />
-                              {d}
-                            </span>
-                          ))}
-                        </div>
-                        <button
-                          className="text-button"
-                          onClick={() => {
-                            const blob = new Blob(
-                              [JSON.stringify(activeProject, null, 2)],
-                              { type: "application/json" },
-                            );
-                            const url = URL.createObjectURL(blob);
-                            const a = document.createElement("a");
-                            a.href = url;
-                            a.download = "project-blueprint.json";
-                            a.click();
-                            URL.revokeObjectURL(url);
-                          }}
-                        >
-                          Download your blueprint <ArrowUpRight size={16} />
-                        </button>
-                      </>
-                    ) : (
-                      <div className="blueprint-empty">
-                        <Layers3 size={55} />
-                        <h2>From possibility to a plan.</h2>
-                        <p>
-                          Describe your idea and your build checklist will
-                          appear here.
-                        </p>
-                      </div>
-                    )}
+                </>
+              )}
+              {page === "terminal" && (
+                <>
+                  <div className="eyebrow">
+                    MAKE FRIENDS WITH THE COMMAND LINE
                   </div>
-                </div>
-              </>
-            )}
-            {page === "terminal" && (
-              <>
-                <div className="eyebrow">
-                  MAKE FRIENDS WITH THE COMMAND LINE
-                </div>
-                <h1 className="workspace-title">A safe space to try things.</h1>
-                <p className="muted">
-                  A simulated terminal with guided feedback. Commands never run
-                  on your computer.
-                </p>
-                <div className="course-banner">
-                  <div>
-                    <span className="eyebrow">
-                      YOUR ORIGINAL TERMINAL TUTOR
-                    </span>
-                    <h2>Learn. Code. Run. Review.</h2>
-                    <p>
-                      Eight guided lessons with step-by-step teaching, runnable
-                      examples, quizzes, flashcards and diagnostic feedback.
-                    </p>
-                  </div>
-                  <div>
-                    <button
-                      className="button"
-                      disabled={!terminalProgram || busy}
-                      onClick={() =>
-                        terminalProgram && openProgram(terminalProgram)
-                      }
-                    >
-                      Open the tutor lessons <ArrowRight size={17} />
-                    </button>
-                    <button
-                      className="text-button"
-                      disabled={busy}
-                      onClick={downloadKit}
-                    >
-                      Download learning kit <ArrowUpRight size={16} />
-                    </button>
-                  </div>
-                </div>
-                <div className="terminal-layout">
-                  <div className="terminal-shell">
-                    <div className="window-bar">
-                      <div className="window-dots">
-                        <i />
-                        <i />
-                        <i />
-                      </div>
-                      <span>learner@practical-ai — simulation</span>
+                  <h1 className="workspace-title">
+                    A safe space to try things.
+                  </h1>
+                  <p className="muted">
+                    A simulated terminal with guided feedback. Commands never
+                    run on your computer.
+                  </p>
+                  <div className="course-banner">
+                    <div>
+                      <span className="eyebrow">
+                        YOUR ORIGINAL TERMINAL TUTOR
+                      </span>
+                      <h2>Learn. Code. Run. Review.</h2>
+                      <p>
+                        Eight guided lessons with step-by-step teaching,
+                        runnable examples, quizzes, flashcards and diagnostic
+                        feedback.
+                      </p>
+                    </div>
+                    <div>
                       <button
+                        className="button"
+                        disabled={!terminalProgram || busy}
                         onClick={() =>
-                          setTerminalLines([
-                            "Terminal cleared. Type help to start again.",
-                          ])
+                          terminalProgram && openProgram(terminalProgram)
                         }
                       >
-                        Clear
+                        Open the tutor lessons <ArrowRight size={17} />
+                      </button>
+                      <button
+                        className="text-button"
+                        disabled={busy}
+                        onClick={downloadKit}
+                      >
+                        Download learning kit <ArrowUpRight size={16} />
                       </button>
                     </div>
-                    <pre aria-live="polite">
-                      {terminalLines.join("\n\n")}
-                      {terminalBusy ? "\n\nWorking…" : ""}
-                    </pre>
-                    <form onSubmit={runCommand}>
-                      <label htmlFor="command">❯</label>
-                      <input
-                        id="command"
-                        value={command}
-                        onChange={(e) => setCommand(e.target.value)}
-                        placeholder="Type a command…"
-                        autoComplete="off"
-                        spellCheck={false}
-                        maxLength={200}
-                      />
-                      <button
-                        disabled={terminalBusy || !command.trim()}
-                        aria-label="Run command"
-                      >
-                        <ArrowRight size={19} />
-                      </button>
-                    </form>
                   </div>
-                  <aside className="panel">
-                    <Terminal className="accent" />
-                    <h3>Your first five commands</h3>
-                    <p className="muted">
-                      Try these in order. Read the feedback after each command.
-                    </p>
-                    {[
-                      ["pwd", "Find out where you are"],
-                      ["ls", "See what’s in your folder"],
-                      ["cat README.md", "Read a project file"],
-                      ["mkdir my-agent", "Practice creating a folder"],
-                      ["python --version", "Check your Python version"],
-                    ].map(([c, d]) => (
-                      <button
-                        className="command-example"
-                        key={c}
-                        onClick={() => setCommand(c)}
+                  <div className="terminal-layout">
+                    <div className="terminal-shell">
+                      <div className="window-bar">
+                        <div className="window-dots">
+                          <i />
+                          <i />
+                          <i />
+                        </div>
+                        <span>learner@practical-ai — simulation</span>
+                        <button
+                          onClick={() =>
+                            setTerminalLines([
+                              "Terminal cleared. Type help to start again.",
+                            ])
+                          }
+                        >
+                          Clear
+                        </button>
+                      </div>
+                      <pre
+                        ref={terminalOutput}
+                        role="log"
+                        aria-label="Terminal output"
+                        aria-live="polite"
                       >
-                        <code>{c}</code>
-                        <span>{d}</span>
-                      </button>
-                    ))}
-                    <small>
-                      This is a stateless command tutorial. Files and folders
-                      are illustrative.
-                    </small>
-                  </aside>
-                </div>
-              </>
-            )}
+                        {terminalLines.join("\n\n")}
+                        {terminalBusy ? "\n\nWorking…" : ""}
+                      </pre>
+                      <form onSubmit={runCommand}>
+                        <label htmlFor="command">❯</label>
+                        <input
+                          id="command"
+                          value={command}
+                          onChange={(e) => {
+                            setCommand(e.target.value);
+                            setHistoryIndex(-1);
+                          }}
+                          onKeyDown={(event) => {
+                            if (
+                              !["ArrowUp", "ArrowDown"].includes(event.key) ||
+                              !commandHistory.length ||
+                              (event.key === "ArrowDown" && historyIndex === -1)
+                            )
+                              return;
+                            event.preventDefault();
+                            if (historyIndex === -1) setCommandDraft(command);
+                            const next =
+                              event.key === "ArrowUp"
+                                ? Math.min(
+                                    historyIndex + 1,
+                                    commandHistory.length - 1,
+                                  )
+                                : Math.max(historyIndex - 1, -1);
+                            setHistoryIndex(next);
+                            setCommand(
+                              next === -1 ? commandDraft : commandHistory[next],
+                            );
+                          }}
+                          aria-describedby="command-history-help"
+                          placeholder="Type a command…"
+                          autoComplete="off"
+                          spellCheck={false}
+                          maxLength={200}
+                        />
+                        <button
+                          disabled={terminalBusy || !command.trim()}
+                          aria-label="Run command"
+                        >
+                          <ArrowRight size={19} />
+                        </button>
+                      </form>
+                      <p
+                        id="command-history-help"
+                        className="command-history-help"
+                      >
+                        ↑ ↓ recall commands · Enter to run · simulated workspace
+                      </p>
+                    </div>
+                    <aside className="panel">
+                      <Terminal className="accent" />
+                      <h3>Your first five commands</h3>
+                      <p className="muted">
+                        Try these in order. Read the feedback after each
+                        command.
+                      </p>
+                      {[
+                        ["pwd", "Find out where you are"],
+                        ["ls", "See what’s in your folder"],
+                        ["cat README.md", "Read a project file"],
+                        ["mkdir my-agent", "Practice creating a folder"],
+                        ["python --version", "Check your Python version"],
+                      ].map(([c, d]) => (
+                        <button
+                          className="command-example"
+                          key={c}
+                          onClick={() => setCommand(c)}
+                        >
+                          <code>{c}</code>
+                          <span>{d}</span>
+                        </button>
+                      ))}
+                      <small>
+                        This is a stateless command tutorial. Files and folders
+                        are illustrative.
+                      </small>
+                    </aside>
+                  </div>
+                </>
+              )}
+            </Suspense>
           </div>
         </main>
       )}
@@ -1753,10 +1976,12 @@ export default function App() {
         />
       )}
       {searchOpen && profile && (
-        <SearchDialog
-          onClose={() => setSearchOpen(false)}
-          onOpen={openSearchHit}
-        />
+        <Suspense fallback={null}>
+          <SearchDialog
+            onClose={() => setSearchOpen(false)}
+            onOpen={openSearchHit}
+          />
+        </Suspense>
       )}
     </>
   );

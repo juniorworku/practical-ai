@@ -26,6 +26,8 @@ export default function SearchDialog({
   const dialog = useRef<HTMLElement>(null);
   useEffect(() => {
     const previous = document.activeElement as HTMLElement | null;
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     dialog.current?.querySelector("input")?.focus();
     const key = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -46,6 +48,7 @@ export default function SearchDialog({
     window.addEventListener("keydown", key);
     return () => {
       window.removeEventListener("keydown", key);
+      document.body.style.overflow = overflow;
       previous?.focus();
     };
   }, [onClose]);
@@ -60,6 +63,7 @@ export default function SearchDialog({
     }
     let alive = true;
     const controller = new AbortController();
+    setResults([]);
     setBusy(true);
     const timer = window.setTimeout(() => {
       api<SearchHit[]>(`search/?q=${encodeURIComponent(query.trim())}`, {
@@ -109,6 +113,18 @@ export default function SearchDialog({
             placeholder="Search a concept, lesson or note…"
             value={query}
             maxLength={100}
+            onKeyDown={(event) => {
+              if (event.key === "ArrowDown") {
+                event.preventDefault();
+                dialog.current
+                  ?.querySelector<HTMLButtonElement>(".search-results button")
+                  ?.focus();
+              }
+              if (event.key === "Enter" && !busy && results[0]) {
+                event.preventDefault();
+                onOpen(results[0]);
+              }
+            }}
             onChange={(event) => setQuery(event.target.value)}
           />
           <button
@@ -120,7 +136,34 @@ export default function SearchDialog({
           </button>
         </div>
         <p role="status">{busy ? "Searching…" : status}</p>
-        <div className="search-results">
+        <small className="search-keyboard-help">
+          Enter opens the first result · ↓ and Tab browse results · Esc closes
+        </small>
+        <div
+          aria-busy={busy}
+          className="search-results"
+          onKeyDown={(event) => {
+            if (!["ArrowDown", "ArrowUp"].includes(event.key)) return;
+            const buttons = [
+              ...event.currentTarget.querySelectorAll<HTMLButtonElement>(
+                "button",
+              ),
+            ];
+            const index = buttons.indexOf(
+              document.activeElement as HTMLButtonElement,
+            );
+            event.preventDefault();
+            if (event.key === "ArrowUp" && index <= 0)
+              dialog.current?.querySelector("input")?.focus();
+            else
+              buttons[
+                Math.min(
+                  buttons.length - 1,
+                  event.key === "ArrowDown" ? index + 1 : index - 1,
+                )
+              ]?.focus();
+          }}
+        >
           {results.map((hit) => (
             <button key={hit.lesson} onClick={() => onOpen(hit)}>
               <BookOpen size={19} />

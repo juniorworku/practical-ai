@@ -86,3 +86,62 @@ Browser checks are reported practice evidence, not independently verified grades
 
 - Complete learning workflow regression passed after the session/UI changes: actual public and authenticated Python failures/successes, all three Bootcamp labs, network isolation and stop, notes/reflections/chapter recovery, project evidence, help, planning and recall.
 - Final Docker build also passed populated portfolio rendering, revision-status filters and evidence downloads. Synthetic test accounts and their tracked sessions were removed; real learner records were preserved. Migration drift check reported no changes.
+
+## Live password-recovery email — 2026-10-23
+
+- Configured the user-supplied Gmail SMTP credentials in the ignored local `.env`, with mode 0600. STARTTLS authentication on port 587 succeeded. No credential values were printed or added to repository files.
+- Added implicit-SSL support, mutually exclusive encryption flags, bounded SMTP timeouts, an explicit one-hour reset expiry, branded HTML plus plain-text email, sanitized delivery-failure reporting and a `check_email` management command.
+- 31 targeted PostgreSQL tests passed across recovery, account/session and learning-workflow suites. Coverage includes canonical link origin, both message alternatives, expiry, weak passwords, single-use links, token/session revocation and sanitized SMTP failures.
+- Real browser-to-inbox-to-browser verification passed: created one synthetic learner at a controlled Gmail test alias, saved learning progress, requested recovery through the app UI, confirmed the actual message arrived in Gmail's INBOX, extracted only that test email's delivered link, opened it in Chrome, changed the password and logged in with the new password. The old password and browser session were rejected, link reuse failed and saved learning progress remained intact.
+- Real delivery is configured for the local origin `http://127.0.0.1:8080`. A hosted release requires the actual public HTTPS origin in `ACADEMY_PUBLIC_URL`. No SMTP details remain missing for local use.
+- The temporary synthetic learner, associated browser sessions and private local test-link/state files were removed after verification. The test email remains in the owner's inbox.
+
+## Six-program credits removal audit — 2026-10-23
+
+A real Chrome audit against the running Docker/PostgreSQL app checked all six public program overviews, all six public lesson previews and every signed-in lesson page:
+
+| Program | Signed-in lesson pages | Preview chapters checked |
+|---|---:|---:|
+| AI Agent Bootcamp | 24 | 6 |
+| AI Workshops | 18 | 6 |
+| Freelancing Masterclass | 18 | 7 |
+| AI Engineering | 36 | 7 |
+| GenAI Accelerator | 105 | 6 |
+| Terminal Tutor | 8 | 8 |
+| Total | 209 | 40 |
+
+- The removed “Teaching credits & license” section, source-snapshot sentence and quoted copyright/license block were absent from every rendered page checked. No frontend component still references the removed attribution display. Source/license metadata remains in the underlying provenance records and downloadable source notices.
+- All 40 preview chapters and their exercise controls worked. All 209 signed-in lessons loaded their teaching, and their complete teaching payloads were scanned for the removed text, excluding the retained attribution metadata.
+- In the first lesson of each program, traversed all chapter navigation and exercised inline hints, questions, quiz submission with per-question feedback, flashcard reveal/next, practical-task controls, notes saving and reading completion. Reload retained both notes and reading progress for all six programs.
+- All six overview syllabuses retained their expected lesson counts and preview controls. The Terminal Tutor reader also fit a 390px mobile viewport without page overflow.
+- No JavaScript errors or failed API requests occurred during the full preview/lesson/activity audit. No additional application fixes were needed. Removed the single synthetic learner and its sessions after verification; real learner records were untouched.
+
+## Favicon, interaction and motion refresh — 2026-10-23
+
+- Created a vector favicon matching the layered forest/sage/cream academy mark, with 16/32/48px PNG and multi-resolution ICO fallbacks, a 180px Apple touch icon, 192/512px home-screen icons and web manifest. Browser checks validated asset responses, PNG dimensions and ICO entries.
+- All six independent programs now appear in the public catalog. Verified keyword search, category filtering, result counts, no-match feedback and reset behavior. Lesson search now offers a clear recovery action when there are no matches.
+- Added short page transitions, scroll-triggered card/section reveals, hover/press feedback, dialog/accordion/learning-feedback animations and a back-to-top control. Content is never hidden behind a pending reveal. Verified real Web Animations API calls with motion enabled and no new motion calls/CSS transitions after switching to reduced motion.
+- Verified mobile sign-in visibility, menu focus on opening, Escape restoration and outside dismissal; also tested skip-to-main without changing the app route, meaningful page titles, keyboard global search, modal scroll restoration, and terminal command history with unfinished-draft restoration.
+- Fixed opening the current lesson from global search replacing its full teaching with an unloaded catalog summary. Verified its chapter reader and quiz tabs remain available after keyboard search.
+- Lazy-loaded lesson, preview, search, account, portfolio and learning-hub code. The main JavaScript entry chunk decreased from approximately 504 kB to 292 kB before gzip (about 42%); other code loads when needed. Production Docker build passed without the prior oversized-entry-chunk warning.
+- Added a recoverable page-load error screen. A real browser intentionally blocked a preview module, received the fallback, then successfully loaded the lesson after removing the block and using Reload.
+- `tests/ui-interactions.cjs`, `tests/account-workspace.cjs` and `tests/learning-workflows.cjs` passed against the running Docker/PostgreSQL app. Regression coverage includes session security, portfolio filters/export, deep-link return, autosave/recovery, all three executable Bootcamp browser labs, sandbox restrictions, stopping execution, questions, project evidence and review planning.
+- Visually checked the favicon and desktop/mobile screenshots. The removed teaching-credit/license block remains absent. Synthetic test accounts and their tracked sessions were removed; existing learner records and SMTP configuration were preserved.
+
+## Student UI review across six programs — 2026-10-23
+
+Reviewed AI Agent Bootcamp, AI Workshops, Freelancing Masterclass, AI Engineering, GenAI Accelerator and Terminal Tutor in Chrome against the running Docker/PostgreSQL app at 1440×1000, 390×844 and 320×844. The 320px run used reduced motion. This was a responsive browser review; it did not use physical iOS or Android devices.
+
+- Read every chapter in each program's first, middle and final lesson at all three widths: 54 lesson visits and 360 chapter views. Visually inspected desktop and mobile reading screenshots for each program.
+- Completed the first lesson's guided activity flow in every program at every width: exercise hints, saved reflection, graded quiz with per-question feedback, retry and partially answered reload, flashcard reveal/navigation, saved practical-task evidence, saved notes/reload and next-lesson navigation. These were synthetic student reports, not claims that the tester completed production deployments.
+- Checked all six preview routes at all three widths, including chapter selection and the exercise handoff. The removed credits/source-snapshot section remained absent.
+- Fixed chapter selection competing with restored scroll positions. Explicit selections now close Contents, focus the new chapter heading and move directly to the reading. Saved scroll restoration remains available when reopening a chapter.
+- Fixed the exercise and quiz-review handoffs retaining an unrelated position partway down the page. Their activity panels now receive focus and scroll into view. Next-lesson/sidebar navigation focuses the loaded lesson heading.
+- Fixed quiz reloads combining edited answers with a previous attempt's feedback. New attempts and answer drafts persist separately from the last graded result; checking answers is disabled while saving.
+- Improved reading text to 15px, code to 13px, touch targets and mobile form text. Code blocks and activity panels are keyboard-focusable. Task evidence has a stable explicit accessible label. Changing chapters resets code-copy feedback.
+- Fixed signed-in header overflow at 320px that had pushed the navigation toggle off-screen. Verified the corrected page width is exactly 320px, with no horizontal page overflow in any of the six programs' reviewed chapters or activities.
+- `tests/student-experience.cjs` records the repeatable six-program audit; optional `REVIEW_WIDTHS`, `REVIEW_PROGRAMS` and `REVIEW_TAG` select a targeted run. Existing chapter-reading harnesses now reopen Contents after its new automatic dismissal.
+- `tests/ui-interactions.cjs` passed: actual motion, reduced-motion switching, keyboard search, skip link, mobile menu focus/Escape/outside dismissal, terminal history and failed-page recovery. `tests/learning-workflows.cjs` passed: all three executable Python labs, failure/success feedback, sandbox network boundary, stop execution, notes/draft recovery, chapter resume, project evidence, lesson help and review planning.
+- Production Docker build (TypeScript and Vite) and `git diff --check` passed. Synthetic review accounts and their tracked sessions were removed after testing; existing students and their saved work were preserved.
+
+Representative screenshots: `docs/screenshots/student-reader-desktop.png`, `student-reader-mobile.png` and `student-reader-narrow.png`.

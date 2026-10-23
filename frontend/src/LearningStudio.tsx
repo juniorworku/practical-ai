@@ -53,9 +53,24 @@ export default function LearningStudio({
   content: string;
   onError: (message: string) => void;
 }) {
-  const [tab, setTab] = useState<Tab>(
-    () => readLocal<Tab>(storageKey("activity", lesson.id)) || "lesson",
-  );
+  const [tab, setTab] = useState<Tab>(() => {
+    const saved = readLocal<Tab>(storageKey("activity", lesson.id));
+    return tabs.some(([id]) => id === saved && (id !== "lab" || lesson.lab))
+      ? saved!
+      : "lesson";
+  });
+  const panel = useRef<HTMLElement>(null);
+  const focusActivity = useRef(false);
+  function openActivity(next: Tab) {
+    focusActivity.current = true;
+    setTab(next);
+  }
+  useEffect(() => {
+    if (!focusActivity.current) return;
+    focusActivity.current = false;
+    panel.current?.focus({ preventScroll: true });
+    panel.current?.scrollIntoView({ block: "start", behavior: "instant" });
+  }, [tab]);
   useEffect(() => {
     writeLocal(storageKey("activity", lesson.id), tab);
   }, [tab, lesson.id]);
@@ -93,14 +108,11 @@ export default function LearningStudio({
               );
             }
           } else setPractice(data);
-          setResult(data.last_quiz);
-          setQuizAnswers(
-            readLocal<Record<string, string>>(
-              storageKey("quiz-" + learning.revision, lesson.id),
-            ) ||
-              data.last_quiz?.answers ||
-              {},
+          const quizDraft = readLocal<Record<string, string>>(
+            storageKey("quiz-" + learning.revision, lesson.id),
           );
+          setResult(quizDraft !== null ? null : data.last_quiz);
+          setQuizAnswers(quizDraft ?? data.last_quiz?.answers ?? {});
         }
       })
       .catch((e) => {
@@ -182,18 +194,29 @@ export default function LearningStudio({
       setSaving(false);
     }
   }
-  function edit(patch:Partial<Practice>){
-    if(!latest.current)return
-    edits.current+=1
-    const next={...latest.current,...patch}
-    latest.current=next;setPractice(next);setDirty(true)
-    setSaved(writeLocal(draftKey,next)?'Draft saved in this browser · syncing…':'Browser storage unavailable. Keep this lesson open until account sync succeeds.')
+  function edit(patch: Partial<Practice>) {
+    if (!latest.current) return;
+    edits.current += 1;
+    const next = { ...latest.current, ...patch };
+    latest.current = next;
+    setPractice(next);
+    setDirty(true);
+    setSaved(
+      writeLocal(draftKey, next)
+        ? "Draft saved in this browser · syncing…"
+        : "Browser storage unavailable. Keep this lesson open until account sync succeeds.",
+    );
   }
-  useEffect(()=>{
-    const warn=(event:BeforeUnloadEvent)=>{if(dirty&&!readLocal(draftKey)){event.preventDefault();event.returnValue=''}}
-    window.addEventListener('beforeunload',warn)
-    return()=>window.removeEventListener('beforeunload',warn)
-  },[dirty,draftKey])
+  useEffect(() => {
+    const warn = (event: BeforeUnloadEvent) => {
+      if (dirty && !readLocal(draftKey)) {
+        event.preventDefault();
+        event.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [dirty, draftKey]);
   const activeCard = learning.flashcards[card];
   const hints = learning.exercise.hints || [learning.exercise.hint];
   return (
@@ -336,6 +359,8 @@ export default function LearningStudio({
         </button>
       )}
       <section
+        ref={panel}
+        tabIndex={0}
         id={`panel-${tab}`}
         role="tabpanel"
         aria-labelledby={`tab-${tab}`}
@@ -346,7 +371,7 @@ export default function LearningStudio({
             <ConceptReader
               lessonId={lesson.id}
               learning={learning}
-              onPractice={() => setTab("exercise")}
+              onPractice={() => openActivity("exercise")}
             />
           ) : (
             <TeachingMarkdown>{content}</TeachingMarkdown>
@@ -425,7 +450,10 @@ export default function LearningStudio({
                 </TeachingMarkdown>
               </details>
             )}
-            <button className="button" onClick={() => setTab("questions")}>
+            <button
+              className="button"
+              onClick={() => openActivity("questions")}
+            >
               Reflect on your approach <ChevronRight size={16} />
             </button>
           </>
@@ -575,7 +603,7 @@ export default function LearningStudio({
                                     storageKey("chapter", lesson.id),
                                     "concept-tutorial",
                                   );
-                                  setTab("lesson");
+                                  openActivity("lesson");
                                 }}
                               >
                                 Review the lesson explanation{" "}
@@ -601,6 +629,10 @@ export default function LearningStudio({
                         className="text-button"
                         onClick={() => {
                           setQuizAnswers({});
+                          writeLocal(
+                            storageKey("quiz-" + learning.revision, lesson.id),
+                            {},
+                          );
                           setResult(null);
                         }}
                       >
@@ -612,6 +644,7 @@ export default function LearningStudio({
                     <button
                       className="button"
                       disabled={
+                        saving ||
                         Object.keys(quizAnswers).length !== learning.quiz.length
                       }
                       onClick={grade}
@@ -794,6 +827,7 @@ export default function LearningStudio({
                     Your evidence & observations
                     <textarea
                       rows={7}
+                      aria-label="Your evidence & observations"
                       maxLength={12000}
                       value={practice.task_evidence}
                       onChange={(e) =>
@@ -883,7 +917,13 @@ export default function LearningStudio({
                   >
                     <Save size={15} />
                     Save notes
-                  </button><button className="text-button" onClick={notebook.exportDraft}>Export notes or recovery draft</button>
+                  </button>
+                  <button
+                    className="text-button"
+                    onClick={notebook.exportDraft}
+                  >
+                    Export notes or recovery draft
+                  </button>
                 </>
               )}
             </fieldset>

@@ -144,19 +144,37 @@ The [capstone student-build review](docs/capstone-student-build-review.md) recor
 
 ### Password recovery email
 
-The login screen has password recovery with expiring, single-use Django reset links; resetting revokes existing API tokens and tracked browser sessions. To deliver email, configure these server-side values in `.env` and recreate the backend:
+Password resets use plain-text and branded HTML emails with a single-use link valid for one hour. A successful reset preserves learning progress while revoking existing browser sessions and API tokens. Unknown addresses and delivery failures return the same public response; operators receive sanitized delivery-failure logs.
+
+Set these **server-side** values in the ignored, private `.env` file:
 
 ```dotenv
 ACADEMY_PUBLIC_URL=http://127.0.0.1:8080
-EMAIL_HOST=smtp.your-provider.example
+EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
+EMAIL_HOST_USER=your-account@gmail.com
+EMAIL_HOST_PASSWORD=your-provider-app-password
 EMAIL_USE_TLS=1
-EMAIL_HOST_USER=your-mail-user
-EMAIL_HOST_PASSWORD=your-mail-secret
-DEFAULT_FROM_EMAIL=academy@your-domain.example
+EMAIL_USE_SSL=0
+EMAIL_TIMEOUT=10
+DEFAULT_FROM_EMAIL=Practical AI <your-account@gmail.com>
+PASSWORD_RESET_TIMEOUT=3600
 ```
 
-Use your public HTTPS origin for a hosted deployment. With no `EMAIL_HOST`, no message is sent and recovery remains administratively assisted. Responses do not reveal whether an email belongs to an account. Email delivery is covered with an in-memory mail backend in tests; live SMTP requires your provider configuration.
+For Gmail, use the account's SMTP app password. For a different provider, use its verified sender and SMTP credentials. Port 465 uses `EMAIL_USE_SSL=1` and `EMAIL_USE_TLS=0`; do not enable both encryption modes. Authentication credentials never belong in frontend configuration or Git.
+
+```sh
+docker compose up -d --build backend frontend
+docker compose exec -T backend python manage.py check_email
+# Optional: send one diagnostic to an address you control.
+docker compose exec -T backend python manage.py check_email --recipient you@example.com
+```
+
+`check_email` validates settings and connects/authenticates without sending by default. It reports failures without printing credentials. SMTP acceptance alone does not prove inbox delivery: request a recovery email, confirm receipt, open the link, reset and sign in again. `tests/password-reset-email.cjs` provides a two-phase real-browser check with a controlled test inbox; its temporary state and received link must stay outside the repository with mode 0600.
+
+Reset URLs use `ACADEMY_PUBLIC_URL`, never the incoming Host header. The local URL works on the computer running the app; a hosted release needs the actual public HTTPS origin. Secure cookies follow that origin. No `EMAIL_HOST` means no email delivery. If mail is missing, check provider authentication, verified sender, spam placement, outbound connectivity and sanitized backend logs.
+
+Configuration follows [Django 5.2's SMTP settings](https://docs.djangoproject.com/en/5.2/topics/email/). Provider inbox delivery and the complete reset journey must be verified separately from unit tests.
 
 ### Verify learning workflows
 
@@ -182,3 +200,33 @@ node tests/account-workspace.cjs
 ```
 
 The account browser harness covers signup, sign-in by email, remember-device expiry, session restoration, CSRF rejection, profile updates, device revocation, password changes, saved lessons, search, return to a requested lesson after sign-in and mobile overflow. `backend/academy/test_accounts.py` covers session security and cross-account workspace privacy against the database.
+
+### Interactive interface and favicon
+
+All six independent programs appear in the public catalog, with topic search, category filters, result counts and a reset action. Lesson search has a recovery action when no lesson matches. Global search supports `⌘/Ctrl K`, arrow keys, Enter and Escape; opening the current lesson preserves its loaded teaching.
+
+The favicon follows the academy's layered sage/cream mark. Sources and browser assets live in `frontend/public/`: SVG, multi-resolution ICO, Apple touch icon, 192/512px icons and `site.webmanifest`.
+
+Page transitions, scroll reveals, card/button feedback, accordions, learning feedback and dialogs use short decorative motion. Content stays usable without animation. Both JavaScript motion and CSS effects honor `prefers-reduced-motion`, including changes made while the app is open. A skip link, route-specific document titles, keyboard-friendly mobile navigation, a visible mobile sign-in action and back-to-top control improve navigation.
+
+Terminal Tutor remembers up to 50 unique commands in the current app session. Up/Down recalls commands and restores an unfinished draft; output follows the newest response. This is still a simulated, stateless command tutorial.
+
+Lesson, preview, search and account screens load on demand. If a screen fails to load, an error page offers a reload action. Existing server-side learning state is unaffected by page loading.
+
+```sh
+node tests/ui-interactions.cjs
+node tests/account-workspace.cjs
+node tests/learning-workflows.cjs
+```
+
+The interaction harness verifies favicon dimensions, the six-program catalog, empty states, menu/focus handling, keyboard search, terminal history, real motion calls, reduced-motion behavior, and recovery after an intentionally failed page-module request.
+
+The six-program student UI regression checks first, middle and final lessons at desktop, 390px phone and 320px phone widths, plus saved exercises, quiz retries and notes:
+
+```bash
+node tests/student-experience.cjs
+# Target a viewport or program when retesting a specific change:
+REVIEW_WIDTHS=320 REVIEW_PROGRAMS=ai-agent-bootcamp node tests/student-experience.cjs
+```
+
+The harness creates synthetic learners and records their exact usernames in `/tmp/academy-student-ui-users.json` for cleanup. See `docs/verification.md` for the reviewed flows and representative reading screenshots.

@@ -63,6 +63,7 @@ export default function StudentPortfolio() {
         ].map(([value, label]) => (
           <button
             className={filter === value ? "selected" : ""}
+            aria-pressed={filter === value}
             key={value}
             onClick={() => setFilter(value)}
           >

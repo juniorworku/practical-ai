@@ -24,7 +24,9 @@ function CopyBlock({ children }: { children: ReactNode }) {
       >
         {message}
       </button>
-      <pre ref={pre}>{children}</pre>
+      <pre ref={pre} tabIndex={0} aria-label="Code example">
+        {children}
+      </pre>
     </div>
   );
 }
@@ -70,15 +72,20 @@ export default function ConceptReader({
     ),
   );
   const [syncError, setSyncError] = useState("");
-  useEffect(()=>{
-    const restore=()=>{
-      const id=new URLSearchParams(location.hash.split('?')[1]).get('chapter')
-      const index=chapters.findIndex(item=>item.id===id)
-      if(index>=0)setChapter(index)
-    }
-    window.addEventListener('hashchange',restore)
-    return()=>window.removeEventListener('hashchange',restore)
-  },[lessonId])
+  const selectedByStudent = useRef(false);
+  const reading = useRef<HTMLElement>(null);
+  const contents = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const restore = () => {
+      const id = new URLSearchParams(location.hash.split("?")[1]).get(
+        "chapter",
+      );
+      const index = chapters.findIndex((item) => item.id === id);
+      if (index >= 0) setChapter(index);
+    };
+    window.addEventListener("hashchange", restore);
+    return () => window.removeEventListener("hashchange", restore);
+  }, [lessonId]);
 
   useEffect(() => {
     if (initialChapterId) {
@@ -106,6 +113,14 @@ export default function ConceptReader({
     );
   }, [chapter, lessonId, preview, key]);
   useEffect(() => {
+    const explicit = selectedByStudent.current;
+    if (explicit) {
+      selectedByStudent.current = false;
+      if (contents.current) contents.current.open = false;
+      const heading = reading.current?.querySelector<HTMLElement>("h2");
+      heading?.focus({ preventScroll: true });
+      reading.current?.scrollIntoView({ block: "start", behavior: "instant" });
+    }
     if (!lessonId || preview) return;
     const scrollKey = storageKey(
       "reading-scroll",
@@ -113,7 +128,7 @@ export default function ConceptReader({
     );
     const saved = readLocal<number>(scrollKey);
     const restore = window.setTimeout(() => {
-      if (saved !== null) window.scrollTo(0, saved);
+      if (!explicit && saved !== null) window.scrollTo(0, saved);
     }, 100);
     let timer: number | undefined;
     const track = () => {
@@ -132,10 +147,16 @@ export default function ConceptReader({
   }, [chapter, lessonId, preview]);
   const active = chapters[chapter];
   function select(index: number) {
+    if (index === chapter) {
+      if (contents.current) contents.current.open = false;
+      reading.current
+        ?.querySelector<HTMLElement>("h2")
+        ?.focus({ preventScroll: true });
+      reading.current?.scrollIntoView({ block: "start", behavior: "instant" });
+      return;
+    }
+    selectedByStudent.current = true;
     setChapter(index);
-    document
-      .getElementById("chapter-reading")
-      ?.scrollIntoView({ block: "start", behavior: "smooth" });
   }
   if (!active) return null;
   return (
@@ -149,7 +170,7 @@ export default function ConceptReader({
           failure experiments.
         </p>
       </div>
-      <details className="book-contents">
+      <details ref={contents} className="book-contents">
         <summary>
           <BookOpen size={16} />
           <span>Contents · {chapters.length} chapters</span>
@@ -177,6 +198,7 @@ export default function ConceptReader({
         </nav>
       </details>
       <article
+        ref={reading}
         id="chapter-reading"
         className="chapter-reading"
         aria-label="Chapter reading"
@@ -190,8 +212,8 @@ export default function ConceptReader({
             reading
           </span>
         </div>
-        <h2>{active.title}</h2>
-        <TeachingMarkdown>{active.body}</TeachingMarkdown>
+        <h2 tabIndex={-1}>{active.title}</h2>
+        <TeachingMarkdown key={active.id}>{active.body}</TeachingMarkdown>
       </article>
       <div className="chapter-actions">
         <button
@@ -230,17 +252,6 @@ export default function ConceptReader({
           ))}
         </dl>
       </details>
-      {learning.attribution && (
-        <details className="teaching-credit">
-          <summary>Teaching credits & license</summary>
-          <p>{learning.attribution.credit}</p>
-          <small>
-            Source snapshot {learning.attribution.revision.slice(0, 12)}. This
-            lesson is taught here; no external course is required.
-          </small>
-          <pre>{learning.attribution.notice}</pre>
-        </details>
-      )}
     </div>
   );
 }

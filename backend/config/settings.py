@@ -34,8 +34,12 @@ EMAIL_HOST = os.getenv('EMAIL_HOST', '')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', '587'))
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
-EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', '1') == '1'
-EMAIL_TIMEOUT = 10
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', '0') == '1'
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', '0' if EMAIL_USE_SSL else '1') == '1'
+if EMAIL_USE_TLS and EMAIL_USE_SSL:
+    raise RuntimeError('Set only one of EMAIL_USE_TLS or EMAIL_USE_SSL.')
+EMAIL_TIMEOUT = int(os.getenv('EMAIL_TIMEOUT', '10'))
+PASSWORD_RESET_TIMEOUT = int(os.getenv('PASSWORD_RESET_TIMEOUT', '3600'))
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'academy@localhost')
 
 # Browser sessions follow the configured public origin; production must use HTTPS.

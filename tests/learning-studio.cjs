@@ -12,7 +12,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   assert.equal((await (await page.request.get(origin+'/api/health/')).json()).database,'postgresql');
   await page.goto(origin);
   await page.locator('.program-card').first().waitFor();
-  assert.equal(await page.locator('.program-card').count(),5);
+  assert.equal(await page.locator('.program-card').count(),6);
   const palette=await page.evaluate(()=>{const css=getComputedStyle(document.documentElement);return ['--sage','--sage-light','--sand','--cream'].map(key=>css.getPropertyValue(key).trim().toLowerCase())});
   assert.deepEqual(palette,['#778873','#a1bc98','#dccfc0','#fdf6ed']);
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/sage-home-desktop.png'),fullPage:true});
@@ -55,12 +55,12 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
    const chapterButtons=page.getByRole('navigation',{name:'Lesson chapters'}).getByRole('button');
    assert.equal(await chapterButtons.count(),course.lessons[0].resources.learning.chapters.length);
    for(let chapter=0;chapter<await chapterButtons.count();chapter++){
-    await chapterButtons.nth(chapter).click();
+    if(await page.locator('.book-contents').getAttribute('open')===null)await page.locator('.book-contents>summary').click();await chapterButtons.nth(chapter).click();
     await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:course.lessons[0].resources.learning.chapters[chapter].title,exact:true}).waitFor();
     assert.ok((await page.locator('.chapter-reading .markdown-reader').innerText()).length>500);
    }
-   await chapterButtons.first().click();
    await page.locator('.book-contents>summary').click();
+   await chapterButtons.first().click();
    assert.equal(await page.locator('a[href*="github.com/rohitg00/ai-engineering-from-scratch"]').count(),0);
    await page.screenshot({path:path.join(__dirname,`../docs/screenshots/book-${course.slug}.png`),fullPage:false});
    await page.getByRole('tab',{name:'Exercise',exact:true}).click();

@@ -35,7 +35,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
     await page.locator('.book-contents>summary').click();
     const buttons=page.getByRole('navigation',{name:'Lesson chapters'}).getByRole('button');
     for(let i=0;i<learning.chapters.length;i++) {
-     await buttons.nth(i).click();
+     if(await page.locator('.book-contents').getAttribute('open')===null)await page.locator('.book-contents>summary').click();await buttons.nth(i).click();
      const expected=learning.chapters[i];
      await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:expected.title,exact:true}).waitFor();
      const displayed=await page.locator('.chapter-reading .markdown-reader').innerText();

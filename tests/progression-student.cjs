@@ -32,7 +32,7 @@ const sources=[...JSON.parse(fs.readFileSync(path.join(root,'backend/academy/sta
    await page.getByRole('button',{name:'Start this program',exact:true}).click();
    const chosen=source.lessons.filter(l=>l.resources.learning.progression.coverage.length);
    for(const lesson of [source.lessons[0],...chosen]){
-    const index=source.lessons.indexOf(lesson);await page.locator('.lesson-layout aside>button').nth(index).click();
+    const index=source.lessons.indexOf(lesson);await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').nth(index).click();
     await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:'Learning progression and project preparation',exact:true}).waitFor();
     if(lesson.resources.learning.progression.coverage.length){
      await page.getByRole('heading',{name:'Taught-to-project evidence map',exact:true}).waitFor();

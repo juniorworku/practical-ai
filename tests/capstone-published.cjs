@@ -19,7 +19,7 @@ const programs=[...JSON.parse(fs.readFileSync(path.join(root,'backend/academy/st
    }
    await page.goto(origin);await page.getByRole('button',{name:'My learning',exact:true}).first().click();
    await page.locator('.dashboard-course').filter({has:page.getByRole('heading',{name:source.title,exact:true})}).getByRole('button',{name:'Continue learning',exact:true}).click();
-   await page.locator('.lesson-layout aside>button').nth(index).click();
+   await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').nth(index).click();
    await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:'Learning progression and project preparation',exact:true}).waitFor();
    await page.locator('.book-contents>summary').click();
    await page.getByRole('navigation',{name:'Lesson chapters'}).getByRole('button').filter({hasText:'Build the complete final project from these files'}).click();

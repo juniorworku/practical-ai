@@ -19,10 +19,10 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   await page.getByRole('button',{name:'My learning',exact:true}).first().click();
   await page.locator('.dashboard-course').filter({has:page.getByRole('heading',{name:'AI Agent Bootcamp',exact:true})}).getByRole('button',{name:'Continue learning',exact:true}).click();
   await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading').first().waitFor();
-  await page.locator('.lesson-layout aside>button').first().click();
+  await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').first().click();
   await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:'Understand the decision: From prompts to useful systems',exact:true}).waitFor();
   // Clicking an already loaded lesson must not replace it with a catalog summary.
-  await page.locator('.lesson-layout aside>button').first().click();
+  await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').first().click();
   await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:'Understand the decision: From prompts to useful systems',exact:true}).waitFor();
   assert.equal(await page.locator('.book-contents').getAttribute('open'),null);
   await page.locator('.chapter-reading').scrollIntoViewIfNeeded();
@@ -36,7 +36,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   await expired.getByRole('dialog').waitFor();
   await expired.keyboard.press('Escape');
   await expired.locator('.program-card').first().waitFor();
-  assert.equal(await expired.locator('.program-card').count(),6);
+  assert.equal(await expired.locator('.program-card').count(),7);
   await expired.close();
   console.log('PASS: Vite 5173 and Docker 8080 serve identical PostgreSQL course books and saved practice; the existing preview renders the actual chapter and inline exercise.');
  }finally{await browser.close()}

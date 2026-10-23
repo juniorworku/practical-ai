@@ -32,7 +32,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   for(const index of indices){
    const lesson=source.lessons[index],learning=lesson.resources.learning,id=live.lessons[index].id;
    sessions++;const key=prefix+String(index+1).padStart(2,'0');console.log(`Student review ${key}: ${lesson.title}`);
-   await page.locator('.lesson-layout aside>button').nth(index).click();
+   await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').nth(index).click();
    await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:learning.chapters[0].title,exact:true}).waitFor();
    await page.locator('.book-contents>summary').click();
    const buttons=page.getByRole('navigation',{name:'Lesson chapters'}).getByRole('button');

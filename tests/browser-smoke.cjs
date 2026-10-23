@@ -13,7 +13,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   if (process.env.EXPECT_DATABASE) assert.equal(healthData.database,process.env.EXPECT_DATABASE);
   await page.goto(origin);
   await page.getByRole('heading',{name:'AI Agent Bootcamp',exact:true}).waitFor();
-  assert.equal(await page.locator('.program-card').count(),6);
+  assert.equal(await page.locator('.program-card').count(),7);
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/home-desktop.png'),fullPage:true});
   await page.getByRole('button',{name:'Workshop',exact:true}).click();
   assert.equal(await page.locator('.program-card').count(),1);
@@ -68,15 +68,15 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
     await page.getByRole('tab',{name:'Lesson',exact:true}).waitFor();
     await page.getByRole('button',{name:'Mark lesson read',exact:true}).click();
     await page.getByRole('button',{name:'Read · mark unread',exact:true}).waitFor();
-    await page.locator('.workspace-nav').getByRole('button',{name:'My learning',exact:true}).click();
+    await page.locator('.header').getByRole('button',{name:'My learning',exact:true}).click();
   }
-  await page.locator('.workspace-nav').getByRole('button',{name:'GenAI Accelerator',exact:true}).click();
+  await page.locator('.header').getByRole('button',{name:'GenAI Accelerator',exact:true}).click();
   await page.getByRole('button',{name:'Open curriculum',exact:true}).click();
   await page.getByRole('heading',{name:'Define the product before choosing the model',exact:true}).last().waitFor();
   await page.getByRole('heading',{name:'Guided practice',exact:true}).waitFor();
   assert.equal(await page.locator('.lesson-layout aside > button').count(),105);
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/lesson-desktop.png'),fullPage:true});
-  await page.locator('.workspace-nav').getByRole('button',{name:'GenAI Accelerator',exact:true}).click();
+  await page.locator('.header').getByRole('button',{name:'GenAI Accelerator',exact:true}).click();
   await page.getByLabel('Project name').fill('Research helper');
   await page.getByLabel('The problem you want to solve').fill('Help a researcher organize public policy documents into a readable brief.');
   await page.getByRole('button',{name:'Create my project plan',exact:true}).click();
@@ -93,7 +93,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   assert.equal(otherLesson.notes,'');
   assert.equal((await page.request.delete(origin+`/api/projects/${project.id}/`,{headers:secondHeaders})).status(),404);
   if (process.env.PERSISTENCE_FILE) require('node:fs').writeFileSync(process.env.PERSISTENCE_FILE,JSON.stringify({username,password:'A-private-testing-pass-947!',lessonId:firstLesson.id,projectId:project.id}),{mode:0o600});
-  await page.locator('.workspace-nav').getByRole('button',{name:'Terminal Tutor',exact:true}).click();
+  await page.locator('.header').getByRole('button',{name:'Terminal Tutor',exact:true}).click();
   await page.getByRole('button',{name:'pwd Find out where you are'}).click();
   await page.getByRole('button',{name:'Run command',exact:true}).click();
   await page.getByText('/home/learner/ai-project',{exact:false}).waitFor();

@@ -24,7 +24,7 @@ const origin = process.env.APP_URL || 'http://127.0.0.1:8080';
       page.on('pageerror', e => errors.push(e.message));
       page.on('response', r => { if (r.url().includes('/api/') && r.status() >= 400) failures.push({ path: new URL(r.url()).pathname, status: r.status() }); });
       await page.goto(origin); await page.locator('.program-card').first().waitFor();
-      const catalog = (await (await page.request.get(origin + '/api/programs/')).json()).filter(p => ['ai-agent-bootcamp','ai-workshops','freelancing-masterclass','ai-engineering-12-week','genai-accelerator','terminal-tutor'].includes(p.slug));
+      const catalog = (await (await page.request.get(origin + '/api/programs/')).json()).filter(p => ['ai-agent-bootcamp','ai-workshops','freelancing-masterclass','ai-engineering-12-week','genai-accelerator','terminal-tutor','python-for-ai'].includes(p.slug));
       await page.request.get(origin + '/api/auth/session/');
       const csrf = async () => ({ 'X-CSRFToken': (await context.cookies(origin)).find(c => c.name === 'csrftoken').value });
       const username = 'student_ui_' + width + '_' + Date.now(); users.push(username);

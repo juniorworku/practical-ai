@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { api } from "./api";
 import { storageKey, readLocal, writeLocal } from "./storage";
-import { ArrowLeft, ArrowRight, BookOpen, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { List } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import type { Learning } from "./types";
 
 function CopyBlock({ children }: { children: ReactNode }) {
@@ -71,6 +73,37 @@ export default function ConceptReader({
       ),
     ),
   );
+  const [sections, setSections] = useState<{ id: string; title: string }[]>([]);
+  const [activeSection, setActiveSection] = useState("");
+  useEffect(() => {
+    const headings = [
+      ...(reading.current?.querySelectorAll<HTMLElement>(
+        ".markdown-reader h2,.markdown-reader h3",
+      ) || []),
+    ];
+    const items = headings.map((heading, index) => {
+      heading.id = `reading-${lessonId || "preview"}-${chapter}-${index}`;
+      heading.tabIndex = -1;
+      return { id: heading.id, title: heading.textContent || "Section" };
+    });
+    setSections(items);
+    setActiveSection(items[0]?.id || "");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries)
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+      },
+      { rootMargin: "-10% 0px -65% 0px", threshold: 0 },
+    );
+    headings.forEach((heading) => observer.observe(heading));
+    return () => observer.disconnect();
+  }, [chapter, lessonId]);
+  function jumpToSection(id: string) {
+    const target = document.getElementById(id);
+    target?.focus({ preventScroll: true });
+    target?.scrollIntoView({ block: "start", behavior: "instant" });
+    setActiveSection(id);
+  }
   const [syncError, setSyncError] = useState("");
   const selectedByStudent = useRef(false);
   const reading = useRef<HTMLElement>(null);
@@ -197,6 +230,43 @@ export default function ConceptReader({
           ))}
         </nav>
       </details>
+      {sections.length > 0 && (
+        <>
+          <nav className="reading-outline" aria-label="On this page">
+            <strong>
+              <List size={15} />
+              On this page
+            </strong>
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                aria-current={
+                  activeSection === section.id ? "location" : undefined
+                }
+                onClick={() => jumpToSection(section.id)}
+              >
+                {section.title}
+              </button>
+            ))}
+          </nav>
+          <details className="mobile-reading-outline">
+            <summary>On this page</summary>
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={(event) => {
+                  jumpToSection(section.id);
+                  event.currentTarget
+                    .closest("details")
+                    ?.removeAttribute("open");
+                }}
+              >
+                {section.title}
+              </button>
+            ))}
+          </details>
+        </>
+      )}
       <article
         ref={reading}
         id="chapter-reading"
@@ -240,17 +310,18 @@ export default function ConceptReader({
         <summary>
           {learning.concepts.length} concepts explained in this lesson
         </summary>
-        <dl>
-          {learning.concepts.map((c) => (
-            <div key={c.term}>
-              <dt>
-                <Check size={13} />
-                {c.term}
-              </dt>
-              <dd>{c.definition}</dd>
-            </div>
+        <div className="concept-card-grid">
+          {learning.concepts.map((concept) => (
+            <Card key={concept.term}>
+              <CardHeader>
+                <CardTitle>{concept.term}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>{concept.definition}</p>
+              </CardContent>
+            </Card>
           ))}
-        </dl>
+        </div>
       </details>
     </div>
   );

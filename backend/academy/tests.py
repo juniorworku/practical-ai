@@ -289,7 +289,11 @@ class EngineeringTeachingTests(APITestCase):
         self.assertEqual(course['category'],'Engineering')
         self.assertEqual(len(course['lessons']),36)
         self.assertEqual(len(course['pedagogy']['modules']),5)
+        from .pedagogy import ENGINEERING_PROGRAMS
         for program in programs:
+            if program['slug'] not in ENGINEERING_PROGRAMS:
+                self.assertIsNone(program['pedagogy'])
+                continue
             self.assertEqual(len(program['pedagogy']['modules']),len({l['module'] for l in program['lessons']}))
             self.assertEqual(len(program['pedagogy']['pillars']),3)
             for module in program['pedagogy']['modules']:
@@ -301,7 +305,7 @@ class EngineeringTeachingTests(APITestCase):
         self.assertNotIn('](https://github.com',lesson.content)
     def test_original_workshop_reading_has_teaching_contract(self):
         from .serializers import LessonSerializer
-        lesson=Lesson.objects.filter(program__category='Accelerator').first()
+        lesson=Lesson.objects.filter(program__slug='genai-accelerator').first()
         data=LessonSerializer(lesson).data
         self.assertEqual(len(data['resources']['pedagogy']['pillars']),3)
         self.assertIn('stochastic',data['resources']['pedagogy']['evaluation_note'])

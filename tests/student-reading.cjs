@@ -29,7 +29,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
     if(filter.size && !filter.has(id))continue;
     const lesson=program.lessons[index], learning=lesson.resources.learning;
     console.log('Reading '+program.slug+' '+(index+1)+': '+lesson.title);
-    await page.locator('.lesson-layout aside>button').nth(index).click();
+    await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').nth(index).click();
     await page.getByRole('tab',{name:'Lesson',exact:true}).click();
     await page.getByRole('article',{name:'Chapter reading'}).getByRole('heading',{name:learning.chapters[0].title,exact:true}).waitFor();
     await page.locator('.book-contents>summary').click();

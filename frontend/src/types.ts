@@ -30,7 +30,7 @@ export type Program = {
   duration: string;
   level: string;
   lessons: Lesson[];
-  pedagogy?: ProgramPedagogy;
+  pedagogy?: ProgramPedagogy | null;
   progression?: {
     entry: string;
     independent: boolean;
@@ -65,6 +65,7 @@ export type Learning = {
   questions: { id: string; prompt: string; guidance?: string }[];
   quiz: {
     id: string;
+    review_chapter?: string;
     prompt: string;
     options: { id: string; text: string }[];
   }[];

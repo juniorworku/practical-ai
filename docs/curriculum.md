@@ -1,6 +1,6 @@
 # Practical academy program guide
 
-All three programs are free. Suggested weeks describe sustained practice, not a short video course. Time estimates include implementation, debugging and review; learners may proceed at their own pace. Each session has a worked example, a build sequence, a deliberate failure, three acceptance checks, and a specific deliverable. The academy records self-reported completion and private notes; it does not execute or grade submitted code.
+All seven programs are free. Suggested weeks describe sustained practice, not a short video course. Time estimates include implementation, debugging and review; learners may proceed at their own pace. Each session has a worked example, a build sequence, a deliberate failure, three acceptance checks, and a specific deliverable. The academy records self-reported completion and private notes; selected browser labs execute Python with deterministic checks. Other project submissions are self-reported evidence and require review; a checked task is not proof of a working deployment.
 
 ## AI Agent Bootcamp
 
@@ -113,3 +113,26 @@ The public syllabus and each program's native lessons are independent of the Gen
 ## Guided student teaching review
 
 The [current 60-lesson review](practical-student-review.md) documents the step-by-step concept teaching, bounded practice, complete references, progressive hints and selected-answer feedback now available in the original three programs. Larger project work remains an explicit integration stage after practice.
+
+## Python for AI — advanced independent program
+
+12 sessions, 77 teaching chapters and approximately 67 hours of planned implementation/review work across 8–12 self-paced weeks. Entry skills: working Python, classes, tests, HTTP/JSON, virtual environments and basic SQL. The course starts at typed software contracts rather than beginner syntax or algorithm derivations.
+
+1. Typed boundaries, runtime validation and provider protocols.
+2. Framed streaming, lazy iteration, UTF-8 and bounded buffering.
+3. Fixed worker pools, backpressure, ordering and structured concurrency.
+4. Overall deadlines, cancellation propagation and resource cleanup.
+5. Fake/real provider adapters, response validation and honest usage accounting.
+6. Safe retries, elapsed budgets and uncertain external effects.
+7. Owner-first retrieval, stable ranking, abstention and context admission.
+8. Owner/model/source/prompt/schema cache identity and invalidation.
+9. Transactional SQLite, connection ownership, rollback and restart readback.
+10. Fixed evaluation cases, failure reports, quantile conventions and quality scope.
+11. HTTP identity, request bounds, readiness, admission and process-local quotas.
+12. An integrated containerized knowledge service with the complete files, tests and operating runbook.
+
+Every lesson includes a complete standard-library baseline, a matching assigned extension with complete reference variation, failure experiments, five scenario quizzes with feedback, five flashcards, reflection guidance and practical evidence criteria. The optional real-model adapter uses Ollama `/api/chat` and an installed local model; neither model quality nor live inference is claimed by offline fixture tests. Program source: `scripts/python_ai.py`, examples and complete variations beside it. Final project: `backend/academy/content/capstones/python-for-ai/`.
+
+The student-depth review adds 11 runnable advanced studios, per-stage diagnostics, a self-contained offline HTTPX adapter example, and cumulative pipeline/evaluation/HTTP implementation chapters before the final exercise. Student builds are verified from published text, not hidden repository helpers. The ten source/configuration files plus README include 25 tests, a versioned evaluator, actual HTTP probes and a container replacement/restore runbook.
+
+The full Build · Measure · Operate brief appears only in the engineering paths: Bootcamp, Workshops, AI Engineering, GenAI Accelerator and Python for AI. Each uses its own module scenario. Freelancing and Terminal Tutor retain their contextual delivery/reliability teaching without this engineering overview block.

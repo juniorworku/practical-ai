@@ -12,9 +12,9 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   assert.equal((await (await page.request.get(origin+'/api/health/')).json()).database,'postgresql');
   await page.goto(origin);
   await page.locator('.program-card').first().waitFor();
-  assert.equal(await page.locator('.program-card').count(),6);
-  const palette=await page.evaluate(()=>{const css=getComputedStyle(document.documentElement);return ['--sage','--sage-light','--sand','--cream'].map(key=>css.getPropertyValue(key).trim().toLowerCase())});
-  assert.deepEqual(palette,['#778873','#a1bc98','#dccfc0','#fdf6ed']);
+  assert.equal(await page.locator('.program-card').count(),7);
+  const palette=await page.evaluate(()=>{const css=getComputedStyle(document.documentElement);return ['--sage','--soft-sage','--sand','--cream'].map(key=>css.getPropertyValue(key).trim().toLowerCase())});
+  assert.deepEqual(palette,['#45d6ab','#45d6ab','#283342','#0a1714']);
   await page.screenshot({path:path.join(__dirname,'../docs/screenshots/sage-home-desktop.png'),fullPage:true});
   await page.locator('.program-card').filter({has:page.getByRole('heading',{name:'AI Agent Bootcamp',exact:true})}).getByRole('button',{name:'Explore program',exact:true}).click();
   await page.getByRole('heading',{name:'Your learning path',exact:true}).waitFor();
@@ -36,12 +36,12 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
    const course=source[index];const live=catalog.find(p=>p.slug===course.slug);
    await page.request.post(origin+`/api/programs/${course.slug}/enroll/`,{headers});
    if(index>0){
-    await page.locator('.workspace-nav').getByRole('button',{name:'My learning',exact:true}).click();
+    await page.locator('.header').getByRole('button',{name:'My learning',exact:true}).click();
     await page.reload();await page.getByRole('button',{name:'My learning',exact:true}).first().click();
     await page.locator('.dashboard-course').filter({has:page.getByRole('heading',{name:course.title,exact:true})}).getByRole('button',{name:'Continue learning',exact:true}).click();
     await page.getByRole('tab',{name:'Lesson',exact:true}).waitFor();
    }
-   assert.equal(await page.locator('.lesson-layout aside>button').count(),course.lessons.length);
+   assert.equal(await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').count(),course.lessons.length);
    assert.equal(await page.getByRole('button',{name:'Open the learning lab',exact:true}).count(),0);
    for(const summary of live.lessons){
     const response=await page.request.get(origin+`/api/lessons/${summary.id}/`,{headers});assert.equal(response.status(),200);
@@ -113,10 +113,10 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   const secondHeaders={Authorization:'Token '+second.token};await page.request.post(origin+'/api/programs/ai-agent-bootcamp/enroll/',{headers:secondHeaders});
   const isolated=await(await page.request.get(origin+`/api/lessons/${firstId}/practice/`,{headers:secondHeaders})).json();assert.equal(isolated.last_quiz,null);assert.equal(isolated.task_evidence,'');assert.deepEqual(isolated.known_cards,[]);
   // The Accelerator remains independently enrollable with its own source course.
-  await page.locator('.workspace-nav').getByRole('button',{name:'GenAI Accelerator',exact:true}).click();
+  await page.locator('.header').getByRole('button',{name:'GenAI Accelerator',exact:true}).click();
   await page.getByRole('button',{name:'Open curriculum',exact:true}).click();
   await page.getByRole('heading',{name:'Guided practice',exact:true}).waitFor();
-  assert.equal(await page.locator('.lesson-layout aside>button').count(),105);
+  assert.equal(await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').count(),105);
   assert.equal(await page.getByRole('tab',{name:'Quiz',exact:true}).count(),0);
   await page.getByRole('button',{name:'Practical AI home',exact:true}).click();
   await page.setViewportSize({width:390,height:844});

@@ -3,7 +3,7 @@ import EngineeringContract from './EngineeringContract'
 import type {Program,Profile} from './types'
 export default function CourseOverview({program,profile,onBack,onStart,onPreview,busy}:{program:Program;profile:Profile|null;onBack:()=>void;onStart:()=>void;onPreview:()=>void;busy:boolean}) {
  const modules=[...new Set(program.lessons.map(l=>l.module))]
- const practical=['Cohort','Workshop','Masterclass','Engineering','Accelerator','Tutor'].includes(program.category)
+ const practical=program.lessons.some(lesson=>Boolean(lesson.learning_summary))
  const completed=program.lessons.filter(l=>profile?.completed.includes(l.id)).length
  const quizzes=program.lessons.reduce((sum,l)=>sum+(l.learning_summary?.quiz||0),0)
  const cards=program.lessons.reduce((sum,l)=>sum+(l.learning_summary?.flashcards||0),0)

@@ -542,6 +542,7 @@ export default function LearningStudio({
                     <span>{practice.attempt_count} saved attempts</span>
                   </div>
                   {learning.quiz.map((q, index) => {
+                    const reviewChapter = q.review_chapter || 'concept-tutorial';
                     const feedback = result?.feedback.find(
                       (f) => f.id === q.id,
                     );
@@ -593,7 +594,7 @@ export default function LearningStudio({
                             </strong>
                             <p>{feedback.explanation}</p>
                             {learning.chapters?.some(
-                              (c) => c.id === "concept-tutorial",
+                              (c) => c.id === reviewChapter,
                             ) && (
                               <button
                                 className="text-button"
@@ -601,7 +602,7 @@ export default function LearningStudio({
                                 onClick={() => {
                                   writeLocal(
                                     storageKey("chapter", lesson.id),
-                                    "concept-tutorial",
+                                    reviewChapter,
                                   );
                                   openActivity("lesson");
                                 }}

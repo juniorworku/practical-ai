@@ -34,6 +34,7 @@ import {
   Bookmark,
 } from "lucide-react";
 import InterfaceEffects from "./InterfaceEffects";
+import CourseNavigation, { CourseModuleNav } from "./CourseNavigation";
 import CourseOverview from "./CourseOverview";
 import PasswordRecovery from "./PasswordRecovery";
 import { readLocal, writeLocal, storageKey } from "./storage";
@@ -535,6 +536,7 @@ export default function App() {
       "Accelerator",
       "Engineering",
       "Tutor",
+      "Advanced",
     ].includes(p.category),
   );
   const visiblePrograms = catalogPrograms.filter(
@@ -550,12 +552,6 @@ export default function App() {
         .toLowerCase()
         .includes(catalogQuery.trim().toLowerCase()),
   );
-  const visibleLessons =
-    selected?.lessons.filter((item) =>
-      (item.title + " " + item.module)
-        .toLowerCase()
-        .includes(lessonSearch.trim().toLowerCase()),
-    ) || [];
   const pageTitles: Partial<Record<Page, string>> = {
     home: "Learn it. Build it. Use it.",
     dashboard: "My learning",
@@ -902,6 +898,7 @@ export default function App() {
                 "Accelerator",
                 "Engineering",
                 "Tutor",
+                "Advanced",
               ].map((f) => (
                 <button
                   key={f}
@@ -1000,7 +997,7 @@ export default function App() {
                                   ? "THE ENGINEERING PATH"
                                   : p.category === "Tutor"
                                     ? "THE COMMAND LINE"
-                                    : "THE CLIENT PRACTICUM"}
+                                    : p.category === "Advanced" ? "ADVANCED PYTHON" : "THE CLIENT PRACTICUM"}
                         </span>
                         <Icon className="program-main-icon" strokeWidth={1.1} />
                         <span className="art-number">0{index + 1}</span>
@@ -1015,7 +1012,7 @@ export default function App() {
                                   ? "SOFTWARE → PRODUCTION"
                                   : p.category === "Tutor"
                                     ? "PRACTICE → CONFIDENCE"
-                                    : "SKILLS → OPPORTUNITY"}
+                                    : p.category === "Advanced" ? "PYTHON → AI SERVICES" : "SKILLS → OPPORTUNITY"}
                         </div>
                       </div>
                       <div className="program-content">
@@ -1070,7 +1067,7 @@ export default function App() {
             <div className="catalog-note">
               <CircleCheck size={15} />
               <span>
-                Six independent learning paths. Choose your starting point,
+                Seven independent learning paths. Choose your starting point,
                 build the evidence.
               </span>
             </div>
@@ -1199,7 +1196,7 @@ export default function App() {
             {[
               [
                 "Do I need a technical background?",
-                "AI Engineering expects Python, HTTP/JSON, SQL and Git basics. No prior model training is required. Bootcamp includes setup but expects willingness to practice Python and HTTP basics. Workshops offer six substantial project studios. Freelancing starts from one working workflow. Each path includes implementation, review, and deliverables; expect sustained practice.",
+                "Python for AI is advanced: it expects existing Python, HTTP/JSON, testing and basic SQL skills. AI Engineering expects Python, HTTP/JSON, SQL and Git basics. No prior model training is required. Bootcamp includes setup but expects willingness to practice Python and HTTP basics. Workshops offer six substantial project studios. Freelancing starts from one working workflow. Each path includes implementation, review, and deliverables; expect sustained practice.",
               ],
               [
                 "Is the academy free?",
@@ -1207,7 +1204,7 @@ export default function App() {
               ],
               [
                 "What will I actually build?",
-                "Bootcamp: a tested support agent with citations, permissioned tools, evaluation, and deployment. Workshops: six workflows covering extraction, meetings, research, triage, content operations, and an integrated app. AI Engineering: five capstones across real-time voice, mixed-media RAG, workspace agents, LLMOps and a measured hybrid SaaS release. Freelancing: a complete simulated client engagement from discovery and scope to evaluation and handover.",
+                "Bootcamp: a tested support agent with citations, permissioned tools, evaluation, and deployment. Workshops: six workflows covering extraction, meetings, research, triage, content operations, and an integrated app. AI Engineering: five capstones across real-time voice, mixed-media RAG, workspace agents, LLMOps and a measured hybrid SaaS release. Freelancing: a complete simulated client engagement from discovery and scope to evaluation and handover. Python for AI: a bounded, authenticated knowledge service with async workers, owner-scoped context, persistent caching, evaluation and a Docker runbook.",
               ],
               [
                 "Are the learning tools connected to an AI model?",
@@ -1274,7 +1271,7 @@ export default function App() {
         />
       )}
       {page !== "home" && page !== "course" && page !== "preview" && (
-        <main id="main-content" tabIndex={-1} className="workspace wrap">
+        <main id="main-content" tabIndex={-1} className={`workspace wrap ${page === "learn" ? "course-workspace" : ""}`}>
           <nav className="workspace-nav" aria-label="Workspace">
             <span className="eyebrow rail-label">YOUR WORKSPACE</span>
             {(
@@ -1444,6 +1441,7 @@ export default function App() {
               )}
               {page === "learn" && selected && lesson && (
                 <>
+                  <CourseModuleNav program={selected} lesson={lesson} onLesson={id => openLesson(selected, id)}/>
                   <div className="learning-heading">
                     <button
                       className="text-button"
@@ -1462,46 +1460,7 @@ export default function App() {
                     </span>
                   </div>
                   <div className="lesson-layout">
-                    <aside aria-label="Course lessons">
-                      <h3>Your learning path</h3>
-                      <input
-                        className="lesson-search"
-                        aria-label="Search lessons"
-                        placeholder="Find a lesson…"
-                        value={lessonSearch}
-                        onChange={(e) => setLessonSearch(e.target.value)}
-                      />
-                      {visibleLessons.map((l) => (
-                        <button
-                          className={lesson.id === l.id ? "current" : ""}
-                          key={l.id}
-                          onClick={() => {
-                            if (lesson.id !== l.id) openLesson(selected, l.id);
-                          }}
-                        >
-                          {profile?.completed.includes(l.id) ? (
-                            <CircleCheck size={18} />
-                          ) : (
-                            <Play size={15} />
-                          )}
-                          <span>
-                            <small>{l.module}</small>
-                            {l.title}
-                          </span>
-                        </button>
-                      ))}
-                      {visibleLessons.length === 0 && (
-                        <div className="lesson-search-empty" role="status">
-                          <p>No lessons match “{lessonSearch}”.</p>
-                          <button
-                            className="text-button"
-                            onClick={() => setLessonSearch("")}
-                          >
-                            Clear lesson search
-                          </button>
-                        </div>
-                      )}
-                    </aside>
+                    <CourseNavigation key={selected.id} program={selected} lesson={lesson} completed={profile?.completed || []} query={lessonSearch} onQuery={setLessonSearch} onLesson={id => openLesson(selected, id)}/>
                     <article className="lesson-content">
                       <div className="eyebrow">
                         {lesson.module} · ~{lesson.minutes} PRACTICE MIN

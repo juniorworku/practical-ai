@@ -41,7 +41,7 @@ const origin=process.env.APP_URL||'http://127.0.0.1:8080';
   await page.getByLabel('Your notes & observations',{exact:true}).fill(note);
   await page.getByRole('button',{name:'Next lesson',exact:true}).click();
   await page.getByRole('heading',{name:program.lessons[1].title,exact:true}).waitFor();
-  await page.locator('.lesson-layout aside>button').first().click();
+  await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').first().click();
   await page.getByRole('tab',{name:'Notes',exact:true}).click();
   await assert.equal(await page.getByLabel('Your notes & observations',{exact:true}).inputValue(),note);
   await page.getByRole('status').filter({hasText:'Notes saved'}).waitFor();
@@ -52,7 +52,7 @@ const origin=process.env.APP_URL||'http://127.0.0.1:8080';
   await page.getByLabel('Reflection response',{exact:true}).first().fill(reflection);
   await page.getByRole('button',{name:'Next lesson',exact:true}).click();
   await page.getByRole('heading',{name:program.lessons[1].title,exact:true}).waitFor();
-  await page.locator('.lesson-layout aside>button').first().click();
+  await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').first().click();
   await page.getByRole('tab',{name:'Questions',exact:true}).click();
   await page.getByLabel('Reflection response',{exact:true}).first().waitFor();
   assert.equal(await page.getByLabel('Reflection response',{exact:true}).first().inputValue(),reflection);
@@ -86,7 +86,7 @@ const origin=process.env.APP_URL||'http://127.0.0.1:8080';
   console.log('Authenticated browser lab saved; sandbox API boundary and stop control passed');
   // Run the other two authored labs in the actual Python browser runtime.
   for(const index of [2,3]){
-   await page.locator('.lesson-layout aside>button').nth(index).click();
+   await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').nth(index).click();
    await page.getByRole('heading',{name:program.lessons[index].title,exact:true}).waitFor();
    await page.getByRole('tab',{name:'Python lab',exact:true}).click();
    const detail=await(await page.request.get(origin+`/api/lessons/${program.lessons[index].id}/`,{headers})).json();
@@ -95,7 +95,7 @@ const origin=process.env.APP_URL||'http://127.0.0.1:8080';
    await page.locator('.lab-results .passed').first().waitFor({timeout:35000});
    assert.equal(await page.locator('.lab-results .passed').count(),detail.lab.checks.length);
   }
-  await page.locator('.lesson-layout aside>button').first().click();
+  await page.locator('.course-sidebar .course-groups [data-slot=accordion-content] button').first().click();
   await page.getByRole('heading',{name:program.lessons[0].title,exact:true}).waitFor();
   console.log('All three Bootcamp labs executed successfully in browser Python');
   // A project is awaiting human review, never automatically approved.
@@ -117,7 +117,7 @@ const origin=process.env.APP_URL||'http://127.0.0.1:8080';
   await page.getByLabel('Expected result, actual result and what you tried',{exact:true}).fill('Expected the unknown label to fail closed. Actual result was draft. I compared the fallback branch with the named request branches.');
   await page.getByRole('button',{name:'Post lesson question',exact:true}).click();
   await page.getByText('Question posted to this lesson.',{exact:true}).waitFor();
-  await page.locator('.workspace-nav').getByRole('button',{name:'My learning',exact:true}).click();
+  await page.locator('.header').getByRole('button',{name:'My learning',exact:true}).click();
   await page.getByLabel('Your goal',{exact:true}).selectOption('agents');
   for(const value of ['a','b','c']){const index=['a','b','c'].indexOf(value);await page.locator('.learning-hub fieldset').nth(index).locator('input').nth(index).check()}
   await page.getByRole('button',{name:'Save my learning plan',exact:true}).click();

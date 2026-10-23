@@ -188,7 +188,7 @@ The browser harness uses `PLAYWRIGHT_MODULE` and `CHROME_EXECUTABLE` when set, o
 
 ### Account and workspace refresh
 
-The sage-and-cream interface now includes a focused resume dashboard, saved lessons, enrolled-lesson/private-note search (`⌘/Ctrl K`), a private project portfolio and account settings. Project revisions retain their original measurements and human review status; exporting evidence does not publish it.
+The navy-and-mint interface now includes a focused resume dashboard, saved lessons, enrolled-lesson/private-note search (`⌘/Ctrl K`), a private project portfolio and account settings. Project revisions retain their original measurements and human review status; exporting evidence does not publish it.
 
 Browser sign-in accepts a username or an unambiguous email address. New accounts use an HTTP-only Django session cookie, CSRF-protected writes, optional 30-day device remembrance and no browser-stored API token. Account settings support display names, password changes and revoking other browser sessions. Password changes and recovery revoke existing API tokens and other tracked sessions. Existing token API clients remain supported. Older accounts sharing an email must sign in with their username. Email/username changes are deliberately unavailable until a verified identity-change workflow exists.
 
@@ -203,9 +203,9 @@ The account browser harness covers signup, sign-in by email, remember-device exp
 
 ### Interactive interface and favicon
 
-All six independent programs appear in the public catalog, with topic search, category filters, result counts and a reset action. Lesson search has a recovery action when no lesson matches. Global search supports `⌘/Ctrl K`, arrow keys, Enter and Escape; opening the current lesson preserves its loaded teaching.
+All seven independent programs appear in the public catalog, with topic search, category filters, result counts and a reset action. Lesson search has a recovery action when no lesson matches. Global search supports `⌘/Ctrl K`, arrow keys, Enter and Escape; opening the current lesson preserves its loaded teaching.
 
-The favicon follows the academy's layered sage/cream mark. Sources and browser assets live in `frontend/public/`: SVG, multi-resolution ICO, Apple touch icon, 192/512px icons and `site.webmanifest`.
+The favicon follows the academy's layered navy/mint mark. Sources and browser assets live in `frontend/public/`: SVG, multi-resolution ICO, Apple touch icon, 192/512px icons and `site.webmanifest`.
 
 Page transitions, scroll reveals, card/button feedback, accordions, learning feedback and dialogs use short decorative motion. Content stays usable without animation. Both JavaScript motion and CSS effects honor `prefers-reduced-motion`, including changes made while the app is open. A skip link, route-specific document titles, keyboard-friendly mobile navigation, a visible mobile sign-in action and back-to-top control improve navigation.
 
@@ -219,7 +219,7 @@ node tests/account-workspace.cjs
 node tests/learning-workflows.cjs
 ```
 
-The interaction harness verifies favicon dimensions, the six-program catalog, empty states, menu/focus handling, keyboard search, terminal history, real motion calls, reduced-motion behavior, and recovery after an intentionally failed page-module request.
+The interaction harness verifies favicon dimensions, the seven-program catalog, empty states, menu/focus handling, keyboard search, terminal history, real motion calls, reduced-motion behavior, and recovery after an intentionally failed page-module request.
 
 The six-program student UI regression checks first, middle and final lessons at desktop, 390px phone and 320px phone widths, plus saved exercises, quiz retries and notes:
 
@@ -230,3 +230,19 @@ REVIEW_WIDTHS=320 REVIEW_PROGRAMS=ai-agent-bootcamp node tests/student-experienc
 ```
 
 The harness creates synthetic learners and records their exact usernames in `/tmp/academy-student-ui-users.json` for cleanup. See `docs/verification.md` for the reviewed flows and representative reading screenshots.
+
+## Documentation-style courses and advanced Python
+
+All programs use grouped lesson navigation, a module bar, a focused reading column and an active “On this page” outline. Phones use an accessible shadcn/ui Sheet; Accordion, Button, Input, Badge, Progress and concept Cards are genuine shadcn registry components backed by Radix. The dark navy/mint design adapts the supplied Datalumina reference; see [DESIGN.md](DESIGN.md) for source evidence and intentional differences.
+
+Python for AI is an independent **advanced** program: 12 sessions, 77 teaching chapters, 60 quiz questions, 60 flashcards and approximately 67 hours of planned implementation/review. It requires working Python, HTTP, tests and SQL. Every session provides a complete runnable baseline, matching reference variation, negative cases and evidence tasks. Its optional Ollama adapter requires a separately installed model; passing fixture tests does not certify semantic quality or cloud capacity.
+
+```bash
+python3 scripts/python_ai.py                 # regenerate only the advanced program
+python3 tests/python-ai-content.py           # Python 3.12+: all baselines, variations and project tests
+node tests/course-layout.cjs                 # seven-program desktop/phone UI and persistence audit
+```
+
+`tests/course-layout.cjs` records synthetic learners in `/tmp/academy-course-layout-users.json` (and the latest in `/tmp/academy-course-layout-user.json`) for cleanup. The final service and its operating runbook are embedded in the last lesson and available in `backend/academy/content/capstones/python-for-ai/`. No academy database or application folder should be mounted into a student project.
+
+The [Python student teaching review](docs/python-ai-student-review.md) explains the advanced studios, complete project slices, scenario feedback and selective engineering briefs. `node tests/python-ai-student.cjs` reads every published chapter and verifies quiz remediation, notes and mobile navigation against the running app.

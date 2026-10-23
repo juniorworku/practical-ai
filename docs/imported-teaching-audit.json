@@ -1,7 +1,7 @@
 {
   "student_lessons": 113,
   "exact_examples_executed": 226,
-  "chapters": 722,
+  "chapters": 729,
   "lesson_checks": [
     {
       "id": "lesson-01",
@@ -90,8 +90,8 @@
     {
       "id": "lesson-13",
       "examples_executed": 2,
-      "chapters": 6,
-      "quiz_choices_checked": 6
+      "chapters": 7,
+      "quiz_choices_checked": 9
     },
     {
       "id": "lesson-14",
@@ -114,8 +114,8 @@
     {
       "id": "lesson-16",
       "examples_executed": 2,
-      "chapters": 6,
-      "quiz_choices_checked": 6
+      "chapters": 7,
+      "quiz_choices_checked": 9
     },
     {
       "id": "lesson-17",
@@ -174,8 +174,8 @@
     {
       "id": "lesson-25",
       "examples_executed": 2,
-      "chapters": 7,
-      "quiz_choices_checked": 6
+      "chapters": 8,
+      "quiz_choices_checked": 9
     },
     {
       "id": "lab-05",
@@ -594,7 +594,7 @@
     {
       "id": "lesson-80",
       "examples_executed": 2,
-      "chapters": 7,
+      "chapters": 8,
       "quiz_choices_checked": 6
     },
     {
@@ -630,7 +630,7 @@
     {
       "id": "lab-20",
       "examples_executed": 2,
-      "chapters": 7,
+      "chapters": 8,
       "quiz_choices_checked": 6
     },
     {
@@ -672,13 +672,13 @@
     {
       "id": "terminal-07",
       "examples_executed": 2,
-      "chapters": 6,
+      "chapters": 7,
       "quiz_choices_checked": 6
     },
     {
       "id": "terminal-08",
       "examples_executed": 2,
-      "chapters": 6,
+      "chapters": 7,
       "quiz_choices_checked": 6
     }
   ]

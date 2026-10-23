@@ -1,5 +1,5 @@
 """Actual HTTP -> validation -> PostgreSQL -> review -> durable readback checks."""
-import argparse,json,time,urllib.request,urllib.error,concurrent.futures,statistics
+import argparse,json,time,urllib.request,urllib.error,concurrent.futures,statistics,math
 from pathlib import Path
 
 def call(base,method,path,data=None,token='student-one'):
@@ -9,10 +9,11 @@ def call(base,method,path,data=None,token='student-one'):
   with urllib.request.urlopen(request,timeout=8) as response:return response.status,json.load(response)
  except urllib.error.HTTPError as error:return error.code,json.load(error)
 
-def check(base,kind,out):
+def _check(base,kind,out):
  observations=[]
  def expect(label,condition):
   observations.append({'case':label,'passed':bool(condition)})
+  out.write_text(json.dumps({'program':kind,'completed':False,'checks':observations},indent=2))
   if not condition:raise AssertionError(label)
  expect('database_readiness',call(base,'GET','/api/health/')[1]['ready'])
  if kind=='engineering':
@@ -52,11 +53,20 @@ def check(base,kind,out):
  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
   receipts=list(pool.map(lambda _:call(base,'POST',path+'approve/',approval,'reviewer-one'),range(4)))
  expect('concurrent_replay_same_receipt',all(code==200 and r['receipt']==approved['receipt'] for code,r in receipts))
+ expect('receipt_not_approvable',call(base,'POST','/api/records/'+approved['receipt']+'/approve/',approval,'reviewer-one')[0]==409)
  expect('stored_effect_is_scoped',call(base,'GET','/api/records/'+approved['receipt']+'/',token='student-two')[0]==404)
  samples=[]
  for _ in range(12):
   start=time.perf_counter();code,value=call(base,'POST','/api/ask/',{'input':text});samples.append((time.perf_counter()-start)*1000);expect('load_candidate',code==201 and value['status']=='needs_review')
- report={'program':kind,'mode':'local_scripted_provider','document_id':doc['id'] if kind=='engineering' else None,'draft_id':draft['id'],'receipt':approved['receipt'],'checks':observations,'p50_ms':statistics.median(samples),'p95_ms':sorted(samples)[int(.95*(len(samples)-1))],'requests':len(samples),'cost_usd':None,'provider_usage_tokens':None,'cloud_load_test':False}
+ report={'completed':True,'program':kind,'mode':'local_scripted_provider','document_id':doc['id'] if kind=='engineering' else None,'draft_id':draft['id'],'receipt':approved['receipt'],'checks':observations,'p50_ms':statistics.median(samples),'p95_ms':sorted(samples)[math.ceil(.95*len(samples))-1],'requests':len(samples),'cost_usd':None,'provider_usage_tokens':None,'cloud_load_test':False}
  out.write_text(json.dumps(report,indent=2));print(json.dumps({'passed':len(observations),'program':kind,'report':str(out)}))
+def check(base,kind,out):
+ out.write_text(json.dumps({'program':kind,'completed':False,'checks':[]}))
+ try:return _check(base,kind,out)
+ except Exception as error:
+  report=json.loads(out.read_text());report.update(completed=False,error_type=type(error).__name__)
+  out.write_text(json.dumps(report,indent=2))
+  raise  # Retain the original failing assertion/trace and a nonzero exit.
+
 if __name__=='__main__':
  parser=argparse.ArgumentParser();parser.add_argument('--base',required=True);parser.add_argument('--kind',required=True);parser.add_argument('--output',type=Path,default=Path('observed.json'));args=parser.parse_args();check(args.base,args.kind,args.output)

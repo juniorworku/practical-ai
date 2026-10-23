@@ -1,6 +1,6 @@
 {
   "lessons": 113,
-  "chapters": 726,
+  "chapters": 729,
   "specimens": [
     {
       "id": "lesson-01",
@@ -101,10 +101,10 @@
     {
       "id": "lesson-13",
       "title": "Validate structured model output",
-      "chapters": 6,
+      "chapters": 7,
       "reference_executed": true,
       "stdout": "shape and citation membership checked; factual support unjudged\nExercise variation: PASS",
-      "revision": "8d1e472ea34e98fcd411eabc9480bf8529f2d12128994f66de3ac9b7bdf7dc4d"
+      "revision": "5c129b101f176b161d2823c3a19c2c297693db1fd180548c29f1b32d0ce61b50"
     },
     {
       "id": "lesson-14",
@@ -125,10 +125,10 @@
     {
       "id": "lesson-16",
       "title": "Engineer context as a bounded resource",
-      "chapters": 6,
+      "chapters": 7,
       "reference_executed": true,
       "stdout": "whole passage a retained once; evidence budget respected\nExercise variation: PASS",
-      "revision": "80dcdc3853669888f162c8f2989a3cef9a87fd0711331619b9ce18c772963a20"
+      "revision": "7f002e5f3f6d6a8dd0a83dee2d09b349972181fc34c7f2a26dd4cac79351f0be"
     },
     {
       "id": "lesson-17",
@@ -197,10 +197,10 @@
     {
       "id": "lesson-25",
       "title": "Use transactions and idempotent ingestion",
-      "chapters": 7,
+      "chapters": 8,
       "reference_executed": true,
       "stdout": "retry did not duplicate; partial ingestion rolled back\nExercise variation: PASS",
-      "revision": "f3b48e51288949a923c3c9564f0b2ed38b38c196138411e883085505f25c7afb"
+      "revision": "499c1e3046fbf49b20a208def1bd85b74d4ed2935b3f574ac8cccbcd540734ef"
     },
     {
       "id": "lesson-26",
@@ -496,7 +496,7 @@
       "chapters": 7,
       "reference_executed": true,
       "stdout": "validated search executed; denied action produced no call\nExercise variation: PASS",
-      "revision": "47af89e165348bdeb01a679c646e9c17463fa87dc5d70e5a83d72df0c17daaf9"
+      "revision": "cb5f44b367f3a83fd43f7b5505bcc029995c68837f7c73fbff3077503df185d2"
     },
     {
       "id": "lesson-63",
@@ -640,7 +640,7 @@
       "chapters": 8,
       "reference_executed": true,
       "stdout": "read-only evidence returned; blank query rejected\nExercise variation: PASS",
-      "revision": "48fd7e7597121853a5521b30640800791b6df8e405e664c84d68a6b3a3699474"
+      "revision": "7eb1b462ba7f24dd99eaae0cace848a221900e7856b463158c78e815c6ffc6d0"
     },
     {
       "id": "lesson-81",
@@ -680,7 +680,7 @@
       "chapters": 6,
       "reference_executed": true,
       "stdout": "injected transport exercised; model proposal validated before execution\nExercise variation: PASS",
-      "revision": "8797fbbfbddf8f84aae76b46ec226bacf7f088c6adbac5f5f5f48d8f034352b5"
+      "revision": "7ead5100191679d63b23a3075c45aa4cd9b76d143610c784c1e1aead0d29e296"
     },
     {
       "id": "lab-01",
@@ -840,7 +840,7 @@
       "chapters": 8,
       "reference_executed": true,
       "stdout": "unknown tool and error result rejected; malicious text grants no authority\nExercise variation: PASS",
-      "revision": "dc4d9e37bb3abff0a26df73600955978b8f542624ce13c044f1453917143cd37"
+      "revision": "50cea5f559ba8a9855dd88e39f0ed93b8f1429fc5dbedb7355b23b399dd3706c"
     },
     {
       "id": "terminal-01",

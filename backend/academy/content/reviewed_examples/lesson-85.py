@@ -1,3 +1,4 @@
+from copy import deepcopy
 def validate(value):
     if type(value) is not dict or set(value)!={'action','query','source_id'}: raise ValueError('shape')
     if value['action']=='search':
@@ -7,7 +8,7 @@ def validate(value):
     else: raise ValueError('denied action')
     return value
 def decide(question,observations,request):
-    return validate(request({'question':question,'observations':list(observations)}))
+    return validate(request({'question':question,'observations':deepcopy(list(observations))}))
 result=decide('refund',[],lambda payload:{'action':'search','query':'refund','source_id':None})
 assert result['action']=='search'
 try: validate({'action':'delete','query':None,'source_id':None})
@@ -19,4 +20,11 @@ print('injected transport exercised; model proposal validated before execution')
 try: validate({'action':'finish','query':'refund','source_id':'p1'})
 except ValueError: pass
 else: raise AssertionError('invalid finish accepted')
+original=[{'sources':[{'id':'p1','text':'14 days'}]}]
+def mutating_transport(payload):
+    payload['observations'][0]['sources'][0]['text']='90 days'
+    return {'action':'finish','query':None,'source_id':'p1'}
+assert decide('refund',original,mutating_transport)['action']=='finish'
+assert original[0]['sources'][0]['text']=='14 days'
+
 print("Exercise variation: PASS")

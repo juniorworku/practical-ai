@@ -81,7 +81,7 @@ class AcademyTests(APITestCase):
             self.assertIn('imported_curriculum.json',kit.namelist())
             self.assertIn('practical_programs.json',kit.namelist())
             self.assertIn('program_labs/tests/test_workflows.py',kit.namelist())
-            self.assertEqual(len([n for n in kit.namelist() if n.startswith('program_content/') and n.endswith('.md')]),96)
+            self.assertEqual(len([n for n in kit.namelist() if n.startswith('program_content/') and n.endswith('.md')]),108)
             self.assertFalse(any(name.endswith(('.env','.sqlite3')) for name in kit.namelist()))
 
 class CurriculumTests(APITestCase):
@@ -93,7 +93,7 @@ class CurriculumTests(APITestCase):
         provenance=json.loads((content/'provenance.json').read_text())
         self.assertEqual(Lesson.objects.filter(program__category='Accelerator').count(),provenance['accelerator_lessons']+20)
         self.assertEqual(Lesson.objects.filter(program__category='Tutor').count(),8)
-        self.assertEqual(Program.objects.count(),26)
+        self.assertEqual(Program.objects.count(),27)
         lesson=Lesson.objects.first();lesson.title='Instructor edit';lesson.save()
         call_command('seed_curriculum',verbosity=0)
         call_command('import_workshop',verbosity=0)
@@ -103,9 +103,10 @@ class PracticalProgramTests(APITestCase):
     def test_sessions_have_specific_projects_and_practice(self):
         import hashlib
         data=json.loads((Path(__file__).parent/'starter_curriculum.json').read_text())
-        self.assertEqual([len(p['lessons']) for p in data],[24,18,18,36])
+        self.assertEqual([len(p['lessons']) for p in data],[24,18,18,36,12])
         artifacts=[]
         for program in data:
+            if program['slug']=='python-for-ai':continue # Dedicated advanced teaching assertions in tests_python_review.
             for lesson in program['lessons']:
                 self.assertGreater(len(lesson['content'].split()),250)
                 for heading in (['## Before you begin','## The case','## Your practical task'] if program['category']=='Engineering' else ['## Worked example','## Build it yourself','## Break it deliberately','## Acceptance checks','## Deliverable']):
@@ -200,13 +201,15 @@ class LearningActivityTests(APITestCase):
     def test_learning_inventory_and_independence(self):
         data=json.loads((Path(__file__).parent/'starter_curriculum.json').read_text())
         for program in data:
+            if program['slug']=='python-for-ai':continue  # Dedicated advanced inventory in tests_python_review.
             for lesson in program['lessons']:
                 self.assertNotIn('accelerator',lesson['content'].lower())
-                self.assertEqual(len(lesson['resources']['learning']['questions']),3)
+                expected=3+int(any(c['id']=='runtime-studio' for c in lesson['resources']['learning']['chapters']))
+                self.assertEqual(len(lesson['resources']['learning']['questions']),expected)
                 self.assertGreaterEqual(len(lesson['resources']['learning']['chapters']),3)
                 self.assertIn('## Before you begin',lesson['content'])
                 self.assertIn('## Vocabulary used in this session',lesson['content'])
-                self.assertEqual(len(lesson['resources']['learning']['quiz']),3)
+                self.assertEqual(len(lesson['resources']['learning']['quiz']),expected)
                 self.assertNotIn('downloadable',lesson['content'])
                 for criterion in lesson['resources']['checks']:
                     self.assertIn(criterion,lesson['resources']['learning']['exercise']['material'])

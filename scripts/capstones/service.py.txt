@@ -99,6 +99,7 @@ def approve(request,owner,role,id):
  if type(request.data['version']) is not int or type(request.data['digest']) is not str:raise Reject(400,'invalid_approval')
  with transaction.atomic():
   kind,payload=get_record(id,owner,True)
+  if kind!='draft':raise Reject(409,'draft_not_approvable')
   digest=hashlib.sha256(json.dumps({'text':payload.get('text'),'citations':payload.get('citations'),'source_version':payload.get('source_version')},sort_keys=True).encode()).hexdigest()
   if request.data['version']!=payload['version'] or request.data['digest']!=digest:raise Reject(409,'approval_payload_changed')
   if kind!='draft' or payload['status'] not in ['needs_review','approved']:raise Reject(409,'draft_not_approvable')

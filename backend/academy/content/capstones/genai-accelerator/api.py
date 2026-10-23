@@ -8,6 +8,7 @@ from fastapi.responses import JSONResponse
 from kombu.exceptions import OperationalError as BrokerError
 from database import connect
 from tasks import ingest
+from evidence import select_document
 app=FastAPI(title='Accelerator persistence and worker lab')
 @app.exception_handler(psycopg.Error)
 def database_error(request,error):
@@ -87,11 +88,8 @@ def ask(body:Question,org:str=Depends(identity)):
         if not row: raise HTTPException(404,detail='not_found')
         if row['state']!='ready': raise HTTPException(409,detail='document_not_ready')
         chunks=db.execute('SELECT position,text FROM chunks WHERE document_id=%s ORDER BY position',[body.document_id]).fetchall()
-    terms=set(body.question.lower().split());selected=[];used=0
-    for chunk in chunks:
-        if not terms & set(chunk['text'].lower().split()): continue
-        if used+len(chunk['text'])>1000: continue
-        selected.append(chunk);used+=len(chunk['text'])
+    try:selected,used=select_document(chunks,body.question)
+    except ValueError:raise HTTPException(409,detail='context_review_required') from None
     return {'mode':'lexical_fixture','answer':' '.join(c['text'] for c in selected) or None,
             'citations':[f'{body.document_id}:{c["position"]}' for c in selected],
             'context_chars':used,'usage_tokens':None}

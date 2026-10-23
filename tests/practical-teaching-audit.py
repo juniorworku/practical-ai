@@ -37,7 +37,7 @@ for prefix,program in zip('BWF',programs):
         else:assert prefix=='F' and len(reference.split())>=140,key
         report.append({'lesson':key,'program':program['slug'],'title':lesson['title'],'concepts_taught':3,
                        'bounded_practice':exercise['steps'][1],'reference_type':'executable Python' if blocks else 'completed changed-case decision',
-                       'reference_stdout':stdout,'staged_hints':3,'choice_feedback':9,'reflection_guidance':3})
+                       'reference_stdout':stdout,'staged_hints':3,'choice_feedback':sum(len(q['options']) for q in learning['quiz']),'reflection_guidance':len(learning['questions'])})
 assert len(report)==60 and executed==47,(len(report),executed)
 def load(key):
     namespace={};exec(compile(namespaces[key],key,'exec'),namespace);return namespace
@@ -62,4 +62,4 @@ m=load('F03');assert m['net_minutes'](40,20,4,14,.3,15,30)==-130
 m=load('F06');assert m['usage_per_accepted'](14,0) is None
 m=load('F18');assert m['gaps'](['recovery'],m['packet'])=={'recovery':['acceptance','handover']}
 (ROOT/'docs/practical-student-review.json').write_text(json.dumps(report,indent=2)+'\n')
-print('PASS:60 lessons teach180 concepts before practice;47 exact published runnable references executed;18 business decision references reviewed;180 progressive hints;540 choice-specific feedback entries; recall/executor/stale-review/business-calculation/evidence-status probes passed.')
+print(f'PASS:60 lessons teach180 core concepts;47 published references;18 business decisions;180 staged hints;{sum(row["choice_feedback"] for row in report)} choice feedback entries; regression probes passed.')

@@ -1,0 +1,81 @@
+{
+  "lessons": 183,
+  "studios": [
+    {
+      "lesson": "academy-v2:ai-agent-bootcamp:05",
+      "executed_blocks": 2,
+      "teaching_before_practice": true,
+      "feedback_target": "runtime-studio"
+    },
+    {
+      "lesson": "academy-v2:ai-agent-bootcamp:14",
+      "executed_blocks": 2,
+      "teaching_before_practice": true,
+      "feedback_target": "runtime-studio"
+    },
+    {
+      "lesson": "academy-v2:ai-workshops:02",
+      "executed_blocks": 2,
+      "teaching_before_practice": true,
+      "feedback_target": "runtime-studio"
+    },
+    {
+      "lesson": "academy-v2:ai-workshops:11",
+      "executed_blocks": 2,
+      "teaching_before_practice": true,
+      "feedback_target": "runtime-studio"
+    },
+    {
+      "lesson": "academy-v2:ai-engineering-12-week:08",
+      "executed_blocks": 2,
+      "teaching_before_practice": true,
+      "feedback_target": "runtime-studio"
+    },
+    {
+      "lesson": "academy-v2:ai-engineering-12-week:29",
+      "executed_blocks": 2,
+      "teaching_before_practice": true,
+      "feedback_target": "runtime-studio"
+    },
+    {
+      "lesson": "lesson-13",
+      "executed_blocks": 2,
+      "teaching_before_practice": true,
+      "feedback_target": "runtime-studio"
+    },
+    {
+      "lesson": "lesson-16",
+      "executed_blocks": 2,
+      "teaching_before_practice": true,
+      "feedback_target": "runtime-studio"
+    },
+    {
+      "lesson": "lesson-25",
+      "executed_blocks": 2,
+      "teaching_before_practice": true,
+      "feedback_target": "runtime-studio"
+    }
+  ],
+  "capstones": [
+    {
+      "program": "ai-agent-bootcamp",
+      "reconstructed_files": 9,
+      "published_tests": "3 tests in 0.002s"
+    },
+    {
+      "program": "ai-workshops",
+      "reconstructed_files": 9,
+      "published_tests": "3 tests in 0.001s"
+    },
+    {
+      "program": "ai-engineering-12-week",
+      "reconstructed_files": 10,
+      "published_tests": "4 tests in 0.001s"
+    },
+    {
+      "program": "genai-accelerator",
+      "reconstructed_files": 20,
+      "published_tests": "7 tests in 0.011s"
+    }
+  ]
+}

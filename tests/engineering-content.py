@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 EXAMPLES=ROOT/'backend/academy/content/engineering_examples'
 spec=importlib.util.spec_from_file_location('evaluation_suite',EXAMPLES/'evaluation_suite.py');suite=importlib.util.module_from_spec(spec);spec.loader.exec_module(suite)
-data=json.loads((ROOT/'backend/academy/starter_curriculum.json').read_text())
+data=[p for p in json.loads((ROOT/'backend/academy/starter_curriculum.json').read_text()) if p['slug']!='python-for-ai'] # Dedicated advanced checks cover Python.
 course=next(p for p in data if p['category']=='Engineering')
 assert len(course['lessons'])==36
 assert len({l['module'] for l in course['lessons']})==5
@@ -35,7 +35,8 @@ for lesson in course['lessons']:
   assert len({o['text'] for o in q['options']})==3
   assert q['correct'] in {o['id'] for o in q['options']}
  for c in learning['concepts']:assert c['definition'] in lesson['content']
- assert len(learning['questions'])==len(learning['quiz'])==len(learning['flashcards'])==3
+ expected=3+int(any(c['id']=='runtime-studio' for c in learning['chapters']))
+ assert len(learning['questions'])==len(learning['quiz'])==len(learning['flashcards'])==expected
 # Harness must detect a critical failure and unavailable cases, not only pass its fixture.
 cases=suite.cases();report=asyncio.run(suite.run(cases))
 assert report['passed']==120 and report['semantic_reviewed']==0 and report['mode']=='fixture'

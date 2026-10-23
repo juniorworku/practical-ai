@@ -47,6 +47,8 @@ from progression import apply as apply_progression
 apply_progression(PROGRAMS)
 from capstone_books import apply as apply_capstones
 apply_capstones(PROGRAMS)
+from student_depth import apply as apply_student_depth
+apply_student_depth(PROGRAMS)
 from python_ai import build as build_python_ai
 PROGRAMS.append(build_python_ai())
 

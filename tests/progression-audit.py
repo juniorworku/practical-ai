@@ -3,6 +3,7 @@ import hashlib,json,re,subprocess,sys,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 programs=json.loads((ROOT/'backend/academy/starter_curriculum.json').read_text())+json.loads((ROOT/'backend/academy/content/reviewed_workshop.json').read_text())
+programs=[p for p in programs if p['slug']!='python-for-ai'] # Advanced Python has its own progression and content audit.
 report=[]
 for program in programs:
     rows=program['lessons'];positions={r['source_id']:i for i,r in enumerate(rows)};checkpoints=[]

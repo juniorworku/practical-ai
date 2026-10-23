@@ -1,0 +1,51 @@
+[
+  {
+    "program": "ai-agent-bootcamp",
+    "inline_build": true,
+    "fresh_database": true,
+    "acceptance_checks": 33,
+    "recreated_api_same_id": true,
+    "db_outage_503": true,
+    "db_recovered_same_id": true,
+    "pg_restore_exact_rows": true,
+    "extra_checks": "bounded proposals and concurrent local approval"
+  },
+  {
+    "program": "ai-workshops",
+    "inline_build": true,
+    "fresh_database": true,
+    "acceptance_checks": 33,
+    "recreated_api_same_id": true,
+    "db_outage_503": true,
+    "db_recovered_same_id": true,
+    "pg_restore_exact_rows": true,
+    "extra_checks": "duplicate evidence spans"
+  },
+  {
+    "program": "ai-engineering-12-week",
+    "inline_build": true,
+    "fresh_database": true,
+    "acceptance_checks": 37,
+    "recreated_api_same_id": true,
+    "db_outage_503": true,
+    "db_recovered_same_id": true,
+    "pg_restore_exact_rows": true,
+    "extra_checks": "120-case actual HTTP evaluation and exception/overflow"
+  },
+  {
+    "program": "genai-accelerator",
+    "inline_build": true,
+    "fresh_database": true,
+    "acceptance_checks": {
+      "actual_stdio_discovery": true,
+      "actual_persisted_source_call": true,
+      "invalid_query_rejected": true,
+      "unknown_write_tool_rejected": true
+    },
+    "recreated_api_same_id": true,
+    "db_outage_503": true,
+    "db_recovered_same_id": true,
+    "pg_restore_exact_rows": true,
+    "extra_checks": "actual persisted HTTP and MCP with exception retained"
+  }
+]

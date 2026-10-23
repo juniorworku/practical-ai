@@ -1,0 +1,42 @@
+{
+  "programs": [
+    {
+      "program": "ai-agent-bootcamp",
+      "lessons": 24,
+      "chapters": 148,
+      "studios": 2,
+      "capstone_files": 10
+    },
+    {
+      "program": "ai-workshops",
+      "lessons": 18,
+      "chapters": 112,
+      "studios": 2,
+      "capstone_files": 10
+    },
+    {
+      "program": "ai-engineering-12-week",
+      "lessons": 36,
+      "chapters": 238,
+      "studios": 2,
+      "capstone_files": 11
+    },
+    {
+      "program": "genai-accelerator",
+      "lessons": 105,
+      "chapters": 676,
+      "studios": 3,
+      "capstone_files": 21
+    }
+  ],
+  "desktop": 1440,
+  "mobile": [
+    390,
+    320
+  ],
+  "wrong_answer_remediation": true,
+  "notes_persisted": true,
+  "preview_reading": true,
+  "errors": [],
+  "failed": []
+}

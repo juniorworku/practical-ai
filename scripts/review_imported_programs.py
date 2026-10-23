@@ -128,6 +128,8 @@ def build():
     apply_progression(reviewed)
     from capstone_books import apply as apply_capstones
     apply_capstones(reviewed)
+    from student_depth import apply as apply_student_depth
+    apply_student_depth(reviewed)
     for p in reviewed:
         for row in p['lessons']:
             record=next(r for r in report if r['id']==row['source_id'])
@@ -145,5 +147,7 @@ def build():
     history_path.write_text(json.dumps(history,indent=2))
     (CONTENT/'reviewed_workshop.json').write_text(json.dumps(reviewed,ensure_ascii=False))
     (ROOT/'docs/imported-student-review.json').write_text(json.dumps(dict(lessons=len(report),chapters=sum(r['chapters'] for r in report),specimens=report),indent=2))
+    import runpy
+    runpy.run_path(str(ROOT/'scripts/package_learning_kit.py'))
     print(f'Reviewed {len(report)} lessons; {sum(r["chapters"] for r in report)} chapters; {len(report)*2} executed baseline/reference files.')
 if __name__=='__main__':build()

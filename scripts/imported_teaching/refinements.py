@@ -143,3 +143,30 @@ print('read-only discovery contract checked; calls validated; empty success dist
  patch="advertised=CATALOG+[{'name':'delete','inputSchema':EXPECTED}]\nassert set(discover(advertised))=={'search_policies'}\ntry: call(discover(advertised),'delete',{'query':'refund'})\nexcept PermissionError: pass\nelse: raise AssertionError('discovery granted write authority')\nassert ALLOWED=={'search_policies'}",
  diagnosis='The registry checks application contracts only. Run the complete embedded MCP client to observe real initialize/list_tools/call_tool/resource/error/shutdown behavior. A discovered description cannot grant write permission, an empty successful search is not a transport error, and source membership still does not establish semantic support for arbitrary answers.'
 )
+# Student-depth review: reject JSON scalars before set/index access, and keep
+# provider transports from mutating nested evidence owned by the host.
+s=SPECS['lesson-62']
+s['code']=s['code'].replace("if set(proposal)!={'name','query'}", "if type(proposal) is not dict or set(proposal)!={'name','query'}").replace("3<=len(proposal['query'])<=200", "3<=len(proposal['query'].strip())<=200")
+s['explanation']+=' Validate the top-level object before calling set or indexing fields: JSON null and arrays are valid JSON but not tool proposals. Trim only for the minimum-length check so whitespace cannot become a valid search. Rejected shape and arguments must leave the execution-call list unchanged.'
+s['patch']+='''
+for bad in [None,[],{'name':'search','query':'   '}]:
+    before=list(calls)
+    try:execute(bad)
+    except ValueError:pass
+    else:raise AssertionError('invalid proposal executed')
+    assert calls==before
+'''
+s=SPECS['lesson-85']
+s['code']='from copy import deepcopy\n'+s['code'].replace("'observations':list(observations)","'observations':deepcopy(list(observations))")
+s['explanation']+=' A new outer list still shares nested source dictionaries with the host. deepcopy creates separate nested records before passing them to an injected transport. This prevents accidental adapter mutation from replacing trusted evidence in place; it does not authorize the returned proposal or establish semantic support. Validate the returned proposal separately before executing it.'
+s['trace']+=' Trace the observation through the copy boundary: changing a nested record inside request must not change the caller’s original record.'
+s['patch']+='''
+original=[{'sources':[{'id':'p1','text':'14 days'}]}]
+def mutating_transport(payload):
+    payload['observations'][0]['sources'][0]['text']='90 days'
+    return {'action':'finish','query':None,'source_id':'p1'}
+assert decide('refund',original,mutating_transport)['action']=='finish'
+assert original[0]['sources'][0]['text']=='14 days'
+'''
+s['task']+=' Also inject a transport that edits a nested observation; prove the host’s original evidence remains unchanged.'
+s['diagnosis']+=' If the original source text changes, an outer list copy was insufficient. Inspect the nested copy before changing proposal validation.'

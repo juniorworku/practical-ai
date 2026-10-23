@@ -26,7 +26,7 @@ for n,lesson in enumerate(course['lessons'],1):
         assert set(q['option_feedback'])=={o['id'] for o in q['options']}
         assert len(set(q['option_feedback'].values()))==3,(n,q['id'])
     report.append({'session':n,'title':lesson['title'],'concepts_taught':3,'core_practice':learning['exercise']['steps'][1],
-        'reference_stdout':result.stdout.strip(),'teaching_before_practice':True,'choice_feedback':9,'staged_hints':3})
+        'reference_stdout':result.stdout.strip(),'teaching_before_practice':True,'choice_feedback':sum(len(q['options']) for q in learning['quiz']),'staged_hints':3})
 # Regression-sensitive checks on the exact published code, rather than only text size.
 def run_namespace(n):
     source=course['lessons'][n-1]['resources']['learning']['exercise']['solution']
@@ -39,4 +39,4 @@ m=run_namespace(24);service=m['WorkspaceFixture']();p={'owner':'acme','channel':
 assert service.process('changed',{**p,'text':'after'},True,True,approval)=='needs_review' and not service.effects
 m=run_namespace(26);assert m['policy_decision']({'owner':'other','prompt':'returns window'})=='deny'
 (ROOT/'docs/engineering-student-review.json').write_text(json.dumps(report,indent=2)+'\n')
-print('PASS:108 concepts have step-by-step teaching before practice;36 complete published solutions executed;108 staged hints;324 choice-specific feedback entries; recall/approval/executor regressions checked.')
+print(f'PASS:108 core concepts before practice;36 published solutions;108 staged hints;{sum(row["choice_feedback"] for row in report)} choice feedback entries; recall/approval/executor regressions checked.')

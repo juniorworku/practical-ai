@@ -21,8 +21,8 @@ else:raise AssertionError('worker did not make document ready')
 assert row['chunks'] and row['chunks'][0]['text']=='Refund window is 14 days'
 assert request('/documents',{'text':text})[1]['id']==id
 code,answer=request('/ask',{'document_id':id,'question':'refund'})
-assert code==200 and answer['answer']=='Refund window is 14 days'
-assert answer['citations']==[id+':0'] and answer['context_chars']<=1000
+assert code==200 and 'Refund window is 14 days' in answer['answer'] and 'Unused items only' in answer['answer']
+assert answer['citations']==[id+':'+str(c['position']) for c in row['chunks']] and answer['context_chars']<=1000
 assert request('/ask',{'document_id':id,'question':'warranty'})[1]['answer'] is None
 assert request('/documents',{'text':'   '})[0]==422
 assert request('/ask',{'document_id':id,'question':'   '})[0]==422

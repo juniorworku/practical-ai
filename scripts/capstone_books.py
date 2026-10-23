@@ -10,6 +10,8 @@ PLANS={
 def files(slug):
  return sorted(p for p in (BASE/slug).rglob('*') if p.is_file() and not any(part in {'.venv','__pycache__'} for part in p.parts) and not p.name.startswith('observed') and not p.name.endswith('-observed.json') and p.name!='.dockerignore' and (p.suffix in {'.py','.json','.csv','.md','.yaml','.txt','.ini','.html'} or p.name=='Dockerfile'))
 def apply(programs):
+ from student_depth import prepare_capstones
+ prepare_capstones()
  for program in programs:
   slug=program['slug']
   if slug not in PLANS:continue

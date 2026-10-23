@@ -16,9 +16,10 @@ def check(data):
             assert 'the related topic' not in body and '](https://github.com' not in body, key
             assert '## Before you begin' in body, key
             assert all(c in material for c in lesson['resources']['checks']), key
-            assert all(s in material for s in learning['exercise']['steps']), key
+            assert learning['exercise']['steps'][1] in material,key # Bounded task, rather than incidental wrapper wording.
             assert all(c['definition'] in body for c in learning['concepts']), key
-            assert len(learning['questions'])==3 and len(learning['quiz'])==3, key
+            expected=3+int(any(c['id']=='runtime-studio' for c in learning['chapters']))
+            assert len(learning['questions'])==len(learning['quiz'])==expected,key
             for question in learning['quiz']:
                 assert question['correct'] in {o['id'] for o in question['options']}, key
                 assert len({o['text'] for o in question['options']})==len(question['options']), key

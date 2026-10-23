@@ -76,7 +76,7 @@
     "core_practice": "Implement budgeted selection that preserves whole sections and records omitted IDs. Use supplied word estimates and label them as estimates; do not claim a real tokenizer implementation.",
     "reference_stdout": "oversized rule refused; exception stays attached\npractice: whole rule/exception retained; omitted section recorded; estimate stays within allowance",
     "teaching_before_practice": true,
-    "choice_feedback": 9,
+    "choice_feedback": 12,
     "staged_hints": 3
   },
   {
@@ -286,7 +286,7 @@
     "core_practice": "Compare a cheap low-quality candidate with an eligible baseline. Filter by quality before ranking useful-output cost; handle zero accepted outputs.",
     "reference_stdout": "{'attempts': 20, 'accepted': 15, 'p95_ms': 280, 'cost_per_accepted': 1.3333}\npractice: quality floor excluded cheap candidate; zero-acceptance cost remains undefined",
     "teaching_before_practice": true,
-    "choice_feedback": 9,
+    "choice_feedback": 12,
     "staged_hints": 3
   },
   {

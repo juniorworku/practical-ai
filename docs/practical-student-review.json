@@ -56,8 +56,8 @@
     "reference_type": "executable Python",
     "reference_stdout": "transient retry: 2 calls, 4 simulated seconds; permission failure: 1 call\npractice: capped waits, exact deadline and permanent-failure stop verified in simulated time",
     "staged_hints": 3,
-    "choice_feedback": 9,
-    "reflection_guidance": 3
+    "choice_feedback": 12,
+    "reflection_guidance": 4
   },
   {
     "lesson": "B06",
@@ -164,8 +164,8 @@
     "reference_type": "executable Python",
     "reference_stdout": "version 5 survives reopen; stale, cross-owner and partial saves rejected\npractice: draft committed; optional failed notification retained as pending, not falsely delivered",
     "staged_hints": 3,
-    "choice_feedback": 9,
-    "reflection_guidance": 3
+    "choice_feedback": 12,
+    "reflection_guidance": 4
   },
   {
     "lesson": "B15",
@@ -308,8 +308,8 @@
     "reference_type": "executable Python",
     "reference_stdout": "valid record accepted; mismatched total, boolean quantity and ambiguous amounts rejected\npractice: documented comma conversion retained raw input; ambiguous format and total mismatch stayed distinct",
     "staged_hints": 3,
-    "choice_feedback": 9,
-    "reflection_guidance": 3
+    "choice_feedback": 12,
+    "reflection_guidance": 4
   },
   {
     "lesson": "W03",
@@ -416,8 +416,8 @@
     "reference_type": "executable Python",
     "reference_stdout": "{'matrix_rows_expected': {'billing': {'billing': 1, 'technical': 1, 'review': 0}, 'technical': {'billing': 0, 'technical': 1, 'review': 1}, 'review': {'billing': 0, 'technical': 0, 'review': 0}}, 'metrics': {'billing': {'recall': 0.5, 'precision': 1.0, 'actual': 2, 'predicted': 1}, 'technical': {'recall': 0.5, 'precision': 0.5, 'actual': 2, 'predicted': 2}, 'review': {'recall': None, 'precision': 0.0, 'actual': 0, 'predicted': 1}}}\npractice: majority baseline accuracy0.8 hides technical recall0; unsupported class recall stays undefined",
     "staged_hints": 3,
-    "choice_feedback": 9,
-    "reflection_guidance": 3
+    "choice_feedback": 12,
+    "reflection_guidance": 4
   },
   {
     "lesson": "W12",

@@ -25,10 +25,11 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
   await page.getByLabel('Username',{exact:true}).fill(username);
   await page.getByLabel('Email address').fill(username+'@example.com');
   await page.getByLabel('Password',{exact:true}).fill('My-private-practice-password-947!');
+  await page.getByLabel('Confirm password',{exact:true}).fill('My-private-practice-password-947!');
   await page.getByRole('button',{name:'Create free account',exact:true}).click();
   await page.getByRole('tab',{name:'Lesson',exact:true}).waitFor();
   const token=await page.evaluate(()=>sessionStorage.getItem('academy-token'));
-  const headers={Authorization:'Token '+token};
+  const headers=token?{Authorization:'Token '+token}:{'X-CSRFToken':(await page.context().cookies(origin)).find(row=>row.name==='csrftoken').value};
   const catalog=await(await page.request.get(origin+'/api/programs/')).json();
   let firstId;
   for(let index=0;index<source.length;index++){
@@ -91,8 +92,8 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/Junior/.cache/co
    await page.getByRole('status').filter({hasText:'Notes saved'}).waitFor();
    const state=await(await page.request.get(origin+`/api/lessons/${lessonId}/practice/`,{headers})).json();
    assert.equal(state.last_quiz.score,total);assert.equal(state.task_status,'submitted');assert.deepEqual(state.known_cards,['card-1']);
-   await page.getByRole('button',{name:'Mark lesson complete',exact:true}).click();
-   await page.getByRole('button',{name:'Completed · mark incomplete',exact:true}).waitFor();
+   await page.getByRole('button',{name:'Mark lesson read',exact:true}).click();
+   await page.getByRole('button',{name:'Read · mark unread',exact:true}).waitFor();
    if(index===0){
     await page.getByRole('tab',{name:'Quiz',exact:true}).click();
     await page.screenshot({path:path.join(__dirname,'../docs/screenshots/sage-quiz-desktop.png'),fullPage:true});

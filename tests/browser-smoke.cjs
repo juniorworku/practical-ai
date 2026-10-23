@@ -23,11 +23,12 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   await page.getByLabel('Username',{exact:true}).fill(username);
   await page.getByLabel('Email address').fill(username+'@example.com');
   await page.getByLabel('Password',{exact:true}).fill('A-private-testing-pass-947!');
+  await page.getByLabel('Confirm password',{exact:true}).fill('A-private-testing-pass-947!');
   await page.getByRole('button',{name:'Create free account',exact:true}).click();
   await page.getByRole('heading',{name:'Your learning paths',exact:true}).waitFor();
   assert.equal(await page.locator('.library-grid > button').count(),20);
   const token = await page.evaluate(()=>sessionStorage.getItem('academy-token'));
-  const headers = {Authorization:'Token '+token};
+  const headers = token?{Authorization:'Token '+token}:{'X-CSRFToken':(await page.context().cookies(origin)).find(row=>row.name==='csrftoken').value};
   const catalog = await (await page.request.get(origin+'/api/programs/')).json();
   const expectedCounts={'ai-agent-bootcamp':24,'ai-workshops':18,'freelancing-masterclass':18,'ai-engineering-12-week':36};
   for (const [slug,count] of Object.entries(expectedCounts)) {
@@ -51,8 +52,8 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   await page.getByLabel('Your notes & observations').fill('I tested the workflow boundaries with three synthetic examples.');
   await page.getByRole('button',{name:'Save notes',exact:true}).click();
   await page.getByRole('status').filter({hasText:'Notes saved'}).waitFor();
-  await page.getByRole('button',{name:'Mark lesson complete',exact:true}).click();
-  await page.getByRole('button',{name:'Completed · mark incomplete',exact:true}).waitFor();
+  await page.getByRole('button',{name:'Mark lesson read',exact:true}).click();
+  await page.getByRole('button',{name:'Read · mark unread',exact:true}).waitFor();
   await page.getByRole('button',{name:'My learning',exact:true}).first().click();
   await page.reload();
   await page.getByRole('button',{name:'My learning',exact:true}).first().click();
@@ -65,8 +66,8 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   for (const title of ['AI Workshops','Freelancing Masterclass']) {
     await page.locator('.dashboard-course').filter({has:page.getByRole('heading',{name:title,exact:true})}).getByRole('button',{name:'Continue learning',exact:true}).click();
     await page.getByRole('tab',{name:'Lesson',exact:true}).waitFor();
-    await page.getByRole('button',{name:'Mark lesson complete',exact:true}).click();
-    await page.getByRole('button',{name:'Completed · mark incomplete',exact:true}).waitFor();
+    await page.getByRole('button',{name:'Mark lesson read',exact:true}).click();
+    await page.getByRole('button',{name:'Read · mark unread',exact:true}).waitFor();
     await page.locator('.workspace-nav').getByRole('button',{name:'My learning',exact:true}).click();
   }
   await page.locator('.workspace-nav').getByRole('button',{name:'GenAI Accelerator',exact:true}).click();
@@ -83,7 +84,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   assert.equal(await page.locator('.blueprint li').count(),6);
   const ownProjects=await (await page.request.get(origin+'/api/projects/',{headers})).json();
   const project=ownProjects.find(p=>p.title==='Research helper');assert.ok(project);
-  const second=await page.request.post(origin+'/api/auth/register/',{data:{username:username+'_other',email:username+'_other@example.com',password:'Other-private-test-pass-947!'}});
+  const second=await page.request.post(origin+'/api/auth/register/',{headers,data:{username:username+'_other',email:username+'_other@example.com',password:'Other-private-test-pass-947!'}});
   assert.equal(second.status(),201);
   const secondHeaders={Authorization:'Token '+(await second.json()).token};
   assert.equal((await page.request.get(origin+`/api/projects/${project.id}/`,{headers:secondHeaders})).status(),404);
@@ -99,7 +100,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   const downloadPromise=page.waitForEvent('download');
   await page.getByRole('button',{name:'Download learning kit',exact:true}).click();
   const download=await downloadPromise;assert.equal(download.suggestedFilename(),'practical-ai-learning-kit.zip');
-  await page.getByRole('button',{name:'Read the tutor guide',exact:true}).click();
+  await page.getByRole('button',{name:'Open the tutor lessons',exact:true}).click();
   await page.getByRole('heading',{name:'Learn',exact:true}).waitFor();
   assert.equal(await page.locator('.lesson-layout aside > button').count(),8);
   await page.setViewportSize({width:390,height:844});
@@ -119,6 +120,6 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '/Users/Junior/.ca
   await page.getByRole('dialog').getByRole('button',{name:'Log in',exact:true}).click();
   await page.getByRole('heading',{name:'Your learning paths',exact:true}).waitFor();
   assert.deepEqual(errors,[]);
-  console.log('PASS: 96 rich program readers, all four course completion flows, private account isolation, login/logout token revocation, catalog filters, registration, enrollment, completion persistence, private notes, 20-phase library, 105-item Accelerator, project planner, terminal simulation, download, 8-guide Tutor, desktop/mobile layout, no browser errors.');
+  console.log('PASS: 96 rich program readers, all four course completion flows, private account isolation, login/logout session revocation, catalog filters, registration, enrollment, completion persistence, private notes, 20-phase library, 105-item Accelerator, project planner, terminal simulation, download, 8-guide Tutor, desktop/mobile layout, no browser errors.');
  } finally {await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

@@ -5,6 +5,9 @@ class LessonSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         from copy import deepcopy
         data=super().to_representation(instance)
+        from .labs import lesson_lab
+        data['lab']=lesson_lab(instance)
+        data['program_slug']=instance.program.slug
         data['resources']=deepcopy(data['resources'])
         data['resources']['pedagogy']=module_contract(instance.program.slug,instance.module)
         learning=data['resources'].get('learning')

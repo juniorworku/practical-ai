@@ -130,3 +130,55 @@ The GenAI Accelerator and Terminal Tutor have also undergone a [student teaching
 The [program progression review](docs/program-progression-review.md) documents entry skills, interleaved Accelerator labs, project prerequisite maps and preserved learner records.
 
 The [capstone student-build review](docs/capstone-student-build-review.md) records the six independent runnable projects, complete inline code, restart/restore drills and observed results.
+
+## Learning workflow improvements
+
+- Every main program has a public full-lesson preview. Lesson, program and workspace URLs use hash routes so bookmarks and browser navigation work behind the Docker frontend.
+- Notes and practice drafts recover from account-scoped browser storage, then autosave to PostgreSQL. Notes use a base-text conflict check; practice retains its revision/version checks. Conflict recovery lets learners export the local draft and load account data without silently overwriting it. Browser recovery drafts are local to that browser; only successfully synced data follows the account to another device.
+- Reading position remembers the lesson, chapter and local scroll position. Reading completion is explicitly self-marked. Quiz success, browser-reported lab checks and human project review are distinct evidence states; none is represented as production certification.
+- Three executable Python supplements are available in AI Agent Bootcamp sessions 1, 3 and 4. They teach scope boundaries, evaluation scoring and output contracts before the coding task. Exact checks, failure-specific feedback and reference solutions are visible. No student Python executes in Django. The pinned Pyodide runtime is served locally, loaded only when running a lab, and runs in a worker inside an opaque-origin iframe. Its CSP blocks academy API and external network access. Stop and a 30-second timeout dispose of the runner; output is bounded. These are browser-reported practice results, not trusted server grades. Full Docker/API capstones still run in the student's own workspace.
+- My learning includes a goal/skills check, weekly practice estimate, a Python bridge, due flashcards and recent quiz mistakes. Recall ratings schedule again in ten minutes, hard in one day, and good at an expanding 3–30 day interval; confidence is not a quiz score.
+- Practical tasks support immutable project revisions with artifact/commit, reproduction evidence, and latency/cost/quality, evaluation, context and limitation reports. URLs are recorded, never fetched automatically. Reports export as JSON. Staff use **My learning → Staff project review queue** to request changes or record review; users cannot review their own work. Reference capstone files can be browsed inside the task panel.
+- Get help contains authored, progressive lesson hints, enrolled-learner questions and staff replies. It is explicitly an authored guide, not a connected AI tutor. Content issues retain the exact lesson revision and are triaged in Django admin.
+- Optional live sessions are scheduled in **Django admin → Live sessions**. Set a real program, start/end time, meeting URL and capacity. Enrolled learners reserve/cancel in My learning; capacity is enforced transactionally and meeting links are shown after reservation. No sessions or instructors are invented. Programs remain independent and self-paced.
+
+### Password recovery email
+
+The login screen has password recovery with expiring, single-use Django reset links; resetting revokes existing API tokens and tracked browser sessions. To deliver email, configure these server-side values in `.env` and recreate the backend:
+
+```dotenv
+ACADEMY_PUBLIC_URL=http://127.0.0.1:8080
+EMAIL_HOST=smtp.your-provider.example
+EMAIL_PORT=587
+EMAIL_USE_TLS=1
+EMAIL_HOST_USER=your-mail-user
+EMAIL_HOST_PASSWORD=your-mail-secret
+DEFAULT_FROM_EMAIL=academy@your-domain.example
+```
+
+Use your public HTTPS origin for a hosted deployment. With no `EMAIL_HOST`, no message is sent and recovery remains administratively assisted. Responses do not reveal whether an email belongs to an account. Email delivery is covered with an in-memory mail backend in tests; live SMTP requires your provider configuration.
+
+### Verify learning workflows
+
+```sh
+docker compose exec -T backend python manage.py test academy --noinput
+npm --prefix frontend run build
+node tests/learning-workflows.cjs
+```
+
+The browser harness uses `PLAYWRIGHT_MODULE` and `CHROME_EXECUTABLE` when set, or the local Codex Playwright runtime and macOS Chrome defaults. It exercises real Python failures/successes, sandbox network rejection, stop execution, autosave/recovery through navigation and reload, project evidence, lesson questions, diagnostic planning, spaced recall and mobile layout. CI checks the backend against PostgreSQL and builds the frontend. It does not claim live model quality, a staffed mentoring service or cloud-scale capstone verification.
+
+### Account and workspace refresh
+
+The sage-and-cream interface now includes a focused resume dashboard, saved lessons, enrolled-lesson/private-note search (`⌘/Ctrl K`), a private project portfolio and account settings. Project revisions retain their original measurements and human review status; exporting evidence does not publish it.
+
+Browser sign-in accepts a username or an unambiguous email address. New accounts use an HTTP-only Django session cookie, CSRF-protected writes, optional 30-day device remembrance and no browser-stored API token. Account settings support display names, password changes and revoking other browser sessions. Password changes and recovery revoke existing API tokens and other tracked sessions. Existing token API clients remain supported. Older accounts sharing an email must sign in with their username. Email/username changes are deliberately unavailable until a verified identity-change workflow exists.
+
+Use `ACADEMY_PUBLIC_URL` for the actual origin. Hosted deployments must use HTTPS: secure-cookie flags follow that setting. Local Docker remains at `http://127.0.0.1:8080`, independently of the workshop app. SMTP setup above is still required for real recovery email delivery.
+
+```sh
+docker compose up -d --build
+node tests/account-workspace.cjs
+```
+
+The account browser harness covers signup, sign-in by email, remember-device expiry, session restoration, CSRF rejection, profile updates, device revocation, password changes, saved lessons, search, return to a requested lesson after sign-in and mobile overflow. `backend/academy/test_accounts.py` covers session security and cross-account workspace privacy against the database.

@@ -62,3 +62,27 @@ Observed verification:
 - Restarted only Workshop's app while checking Academy health15 times. All checks returned200 with PostgreSQL, and the Academy catalog retained all four authored practical programs. Workshop recovered to health200 on8000.
 - Separate browser tabs simultaneously rendered Academy's five-card catalog on8080 and Workshop sign-in on8000.
 - Shell syntax and `git diff --check` passed. No workshop files or database volumes were changed.
+
+
+## Learning workflow rollout — 2026-10-22
+
+Docker frontend serves the academy on 127.0.0.1:8080; the PostgreSQL and backend services remain private. Migrations 0004 and 0005 applied without replacing existing program/lesson identities.
+
+- Full backend suite: 47 tests passed in Docker against PostgreSQL.
+- Updated experience regression suite: all 14 tests passed again against PostgreSQL after the empty-plan response fix.
+- Frontend: TypeScript and production Vite build passed.
+- tests/learning-workflows.cjs: full browser run passed. Verified public preview Python failure/success, browser Back/Forward, immediate navigation draft recovery, server autosave, chapter/direct-link reload, all three Bootcamp Python labs, blocked sandbox API access, stop execution, private versioned project submission, reference-file navigation, lesson questions, saved diagnostic plan, scheduled recall and mobile width. Screenshots: learning-workflow-dashboard.png and learning-workflow-mobile.png.
+- Exact synthetic workflow accounts from the browser tests were removed after verification so sample questions/submissions do not appear as real student work.
+
+Browser checks are reported practice evidence, not independently verified grades. Project review needs a staff reviewer. Lesson help is authored guidance, with no connected AI mentor. Optional sessions require actual staff scheduling. Password reset tokens and email content were tested with an in-memory mail backend; live delivery requires SMTP configuration. Real provider quality and cloud-scale capstone behavior were not retested by this rollout.
+
+## Account and interface refresh — 2026-10-22
+
+- Rebuilt the app with Docker and PostgreSQL; applied migration 0006 for tracked browser sessions, normalized new-account email identities and private bookmarks.
+- Backend suite: 57 tests passed, including enforced CSRF on anonymous sign-in and authenticated writes, email login, session-only vs remembered cookie expiry, password/device revocation, session ownership, and private search/bookmarks/portfolio isolation.
+- Real Chrome account journey: signup → saved lesson → search → dashboard/reload → profile → email login in a second device → device revocation → password change → sign out → requested lesson after sign-in → mobile dashboard. Verified no JavaScript-readable authentication token is created and the session cookie is HTTP-only.
+- Visually inspected `refreshed-home.png`, `refreshed-sign-in.png`, `refreshed-dashboard.png` and `refreshed-mobile.png`. Responsive navigation, typography, focus indicators and forms retain the supplied sage/green/sand/cream identity.
+- Password recovery delivery still requires SMTP credentials. Existing API token clients remain compatible; browser labs remain browser-reported practice results, and project review remains a human action.
+
+- Complete learning workflow regression passed after the session/UI changes: actual public and authenticated Python failures/successes, all three Bootcamp labs, network isolation and stop, notes/reflections/chapter recovery, project evidence, help, planning and recall.
+- Final Docker build also passed populated portfolio rendering, revision-status filters and evidence downloads. Synthetic test accounts and their tracked sessions were removed; real learner records were preserved. Migration drift check reported no changes.

@@ -86,7 +86,24 @@ class ProgramViewSet(viewsets.ReadOnlyModelViewSet):
 
 @api_view(['GET'])
 def dashboard(request):
-    return Response({'username': request.user.username, 'enrolled': list(Enrollment.objects.filter(user=request.user).exclude(program__category='Archive').values_list('program_id', flat=True)), 'completed': list(Completion.objects.filter(user=request.user).exclude(lesson__program__category='Archive').values_list('lesson_id', flat=True))})
+    from .models import LearningPosition, LessonPractice, QuizAttempt, LabAttempt, ProjectSubmission
+    from .labs import lesson_lab
+    positions={row.program_id:{'lesson':row.lesson_id,'chapter':row.chapter,'updated_at':row.updated_at.isoformat()} for row in LearningPosition.objects.filter(user=request.user)}
+    practiced=list(LessonPractice.objects.filter(user=request.user).exclude(reflection_answers={}, task_evidence='', known_cards=[]).values_list('lesson_id',flat=True).distinct())
+    quiz_passed=[]
+    for row in QuizAttempt.objects.filter(user=request.user).select_related('lesson'):
+        if row.total and row.score==row.total and row.revision==row.lesson.resources.get('learning',{}).get('revision'):
+            quiz_passed.append(row.lesson_id)
+    lab_passed=[]
+    for row in LabAttempt.objects.filter(user=request.user).select_related('lesson__program'):
+        lab=lesson_lab(row.lesson)
+        if lab and row.revision==lab['revision'] and row.results and all(r['passed'] for r in row.results):lab_passed.append(row.lesson_id)
+    reviewed=[row.lesson_id for row in ProjectSubmission.objects.filter(user=request.user,review_status='reviewed').select_related('lesson') if row.revision==row.lesson.resources.get('learning',{}).get('revision',row.lesson.content_hash)]
+    return Response({'username':request.user.username,'display_name':request.user.first_name,'is_staff':request.user.is_staff,
+        'enrolled':list(Enrollment.objects.filter(user=request.user).exclude(program__category='Archive').values_list('program_id',flat=True)),
+        'completed':list(Completion.objects.filter(user=request.user).exclude(lesson__program__category='Archive').values_list('lesson_id',flat=True)),
+        'positions':positions,'progress':{'practised':practiced,'quiz_passed':list(set(quiz_passed)),'lab_passed':list(set(lab_passed)),'reviewed':list(set(reviewed))}})
+
 
 @api_view(['POST'])
 def enroll(request, slug):
@@ -152,7 +169,12 @@ def save_note(request, pk):
     text = request.data.get('text', '')
     if not isinstance(text, str) or len(text) > 10000:
         return Response({'detail': 'Notes must be text under 10,000 characters.'}, status=400)
-    LessonNote.objects.update_or_create(user=request.user, lesson=lesson, defaults={'text': text})
+    with transaction.atomic():
+        note,_ = LessonNote.objects.get_or_create(user=request.user, lesson=lesson)
+        note = LessonNote.objects.select_for_update().get(pk=note.pk)
+        if 'base_text' in request.data and request.data['base_text'] != note.text:
+            return Response({'detail':'Notes changed in another session. Your local draft is retained; copy it before reloading.'},status=409)
+        note.text=text;note.save()
     return Response({'saved': True})
 
 @api_view(['GET'])
